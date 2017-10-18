@@ -9,5 +9,9 @@
     "main": "app.js",
     "devDependencies": {
         "webpack": "^3.8.1"
+    },
+    "scripts": {
+        "build": "webpack",
+        "watch": "webpack --watch"
     }
 }
