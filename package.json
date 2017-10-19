@@ -7,11 +7,12 @@
     "repository": "git@github.com:npranke/npranke.git",
     "description": "bees, goats, and plums",
     "main": "app.js",
-    "devDependencies": {
+    "dependencies": {
         "webpack": "^3.8.1"
     },
     "scripts": {
         "build": "webpack",
-        "watch": "webpack --watch"
+        "watch": "webpack --watch",
+        "heroku-postbuild": "yarn run build"
     }
 }
