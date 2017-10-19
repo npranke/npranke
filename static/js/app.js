@@ -1,1 +1,1 @@
-console.log('Hello frontend world!');
+console.log('Hello frontend world, hello!!');

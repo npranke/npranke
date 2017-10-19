@@ -1,5 +1,7 @@
 const path = require('path'); // https://nodejs.org/api/
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 const paths = {
   DIST: path.resolve(__dirname, 'static/dist'),
   JS: path.resolve(__dirname, 'static/js'),
@@ -13,6 +15,9 @@ const config = {
         filename: '[name].bundle.js',
         path: paths.DIST,
     },
+    plugins: [
+        new CleanWebpackPlugin(['static/dist']),
+    ],
 };
 
 module.exports = config;
