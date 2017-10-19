@@ -2,7 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>npranke | index</title>
+    <title>
+        {% if config.get('TEMPLATE_TAG') %}
+            {{ config.get('TEMPLATE_TAG') }} | index | npranke
+        {% else %}
+            index | npranke
+        {% endif %}
+    </title>
 </head>
 
 <body>
