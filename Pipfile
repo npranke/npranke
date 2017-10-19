@@ -10,6 +10,7 @@ name = "pypi"
 gunicorn = "*"
 flask = "*"
 flask-sslify = "*"
+python-decouple = "*"
 
 
 [dev-packages]
