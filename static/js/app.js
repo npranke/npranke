@@ -1,5 +1,9 @@
-console.log('Hello frontend world, hello!!');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const nums = [34, 157, -0.15].map((n) => n * 2);
+import App from './components/App.react';
 
-console.log("nums:", nums)
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+);
