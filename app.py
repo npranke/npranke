@@ -6,7 +6,7 @@ from config import AppConfig
 app = Flask(__name__)
 app.config.from_object(AppConfig)
 
-sslify = SSLify(app, permanent=True)
+sslify = SSLify(app, permanent=True, subdomains=True)
 
 @app.route("/")
 def index():
