@@ -9,10 +9,10 @@ const prodConfig = {
         new UglifyJSPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        })
-    ]
+                NODE_ENV: JSON.stringify('production'),
+            },
+        }),
+    ],
 };
 
 module.exports = merge(common, prodConfig);
