@@ -4,15 +4,15 @@ import React from 'react';
 
 import App from '../App.react';
 
-Enzyme.configure({adapter: new Adapter()});
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('App', () => {
     test('contains expected message', () => {
         const app = shallow(<App />);
 
         expect(
-            app.find('.text').text()
-        ).toEqual("Hello frontend world, hello!!!");
+            app.find('.text').text(),
+        ).toEqual('Hello frontend world!');
     });
 });
 
