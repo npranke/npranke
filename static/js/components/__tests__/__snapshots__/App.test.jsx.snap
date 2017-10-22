@@ -17,11 +17,11 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": "Hello frontend world!",
+      "children": "Hello frontend world, hello!",
       "className": "text",
     },
     "ref": null,
-    "rendered": "Hello frontend world!",
+    "rendered": "Hello frontend world, hello!",
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -30,11 +30,11 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": "Hello frontend world!",
+        "children": "Hello frontend world, hello!",
         "className": "text",
       },
       "ref": null,
-      "rendered": "Hello frontend world!",
+      "rendered": "Hello frontend world, hello!",
       "type": "div",
     },
   ],
