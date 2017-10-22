@@ -9,7 +9,7 @@ const paths = {
 
 const config = {
     entry: {
-        app: path.join(paths.JS, 'app.js'),
+        app: path.join(paths.JS, 'app.jsx'),
     },
     output: {
         filename: '[name].bundle.js',
@@ -21,14 +21,14 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.js(x)?$/,
                 include: paths.JS,
                 loader: 'babel-loader?cacheDirectory',
             },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js', '.jsx'],
     },
 };
 
