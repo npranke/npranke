@@ -96,18 +96,17 @@ else
     echo "${ALRIGHT_MSG}"
 fi
 
-echo -n "Deploying to staging... "
-DEPLOY_RESULT=$(git push staging develop:master 2>&1)
+echo -e "Deploying to staging...\n"
+DEPLOY_RESULT=$(git push staging develop:master)
 if [[ $? != 0 ]]
 then
-    echo "${NOT_ALRIGHT_MSG}"
-    echo -e "Deploy failed, see: \n${MAGENTA}${DEPLOY_RESULT}${NORMAL}\nDeploy aborted.\n"
+    echo -e "\n${MAGENTA}Deploy failed, see output above.${NORMAL}\n"
     exit 1
 elif [[ $DEPLOY_RESULT == "Everything up-to-date" ]]
 then
-    echo -e "${CYAN}Already up-to-date.${NORMAL}\n"
+    echo -e "\n${CYAN}Already up-to-date.${NORMAL}\n"
 else
-    echo -e "${CYAN}Success!${NORMAL}\n"
+    echo -e "\n${CYAN}Success!${NORMAL}\n"
 fi
 
 echo -e "${CYAN}Bye!${NORMAL}\n"
