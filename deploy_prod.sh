@@ -114,5 +114,5 @@ then
     echo -e "\n${MAGENTA}Deploy failed, see output above.${NORMAL}\n"
     exit 1
 else
-    echo -e "${GREEN}All set. Bye!${NORMAL}\n"
+    echo -e "\n${GREEN}All set. Bye!${NORMAL}\n"
 fi
