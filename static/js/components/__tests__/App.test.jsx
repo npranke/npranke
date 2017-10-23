@@ -12,7 +12,7 @@ describe('App', () => {
 
         expect(
             app.find('.text').text(),
-        ).toEqual('Hello frontend world, hello!')
+        ).toEqual('Hello world of silly cats!')
     })
 })
 
