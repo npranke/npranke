@@ -96,6 +96,17 @@ else
     echo "${NOT_ALRIGHT_MSG}"
 fi
 
+echo -n "Pushing to origin... "
+PUSH_RESULT=$(git push origin master 2>&1)
+if [[ $? != 0 ]]
+then
+    echo "${NOT_ALRIGHT_MSG}"
+    echo -e "Error pushing, see: \n${MAGENTA}${PUSH_RESULT}${NORMAL}\nDeploy aborted.\n"
+    exit 1
+else
+    echo "${ALRIGHT_MSG}"
+fi
+
 echo -n "Deploying to prod... "
 DEPLOY_RESULT=$(git push prod master:master 2>&1)
 if [[ $? != 0 ]]
