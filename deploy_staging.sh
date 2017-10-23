@@ -97,16 +97,11 @@ else
 fi
 
 echo -e "Deploying to staging...\n"
-DEPLOY_RESULT=$(git push staging develop:master)
+git push staging develop:master
 if [[ $? != 0 ]]
 then
     echo -e "\n${MAGENTA}Deploy failed, see output above.${NORMAL}\n"
     exit 1
-elif [[ $DEPLOY_RESULT == "Everything up-to-date" ]]
-then
-    echo -e "\n${CYAN}Already up-to-date.${NORMAL}\n"
 else
-    echo -e "\n${CYAN}Success!${NORMAL}\n"
+    echo -e "${CYAN}All set. Bye!${NORMAL}\n"
 fi
-
-echo -e "${CYAN}Bye!${NORMAL}\n"

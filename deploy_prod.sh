@@ -108,16 +108,11 @@ else
 fi
 
 echo -e "Deploying to prod...\n"
-DEPLOY_RESULT=$(git push prod master:master)
+git push prod master:master
 if [[ $? != 0 ]]
 then
     echo -e "\n${MAGENTA}Deploy failed, see output above.${NORMAL}\n"
     exit 1
-elif [[ $DEPLOY_RESULT == "Everything up-to-date" ]]
-then
-    echo -e "\n${GREEN}Already up-to-date.${NORMAL}\n"
 else
-    echo -e "\n${GREEN}Success!${NORMAL}\n"
+    echo -e "${GREEN}All set. Bye!${NORMAL}\n"
 fi
-
-echo -e "${GREEN}Bye!${NORMAL}\n"
