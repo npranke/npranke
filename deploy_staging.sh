@@ -17,7 +17,7 @@ echo -e "         || ,.      ///      "
 echo -e "         ||]  '\"\"\"'||)       "
 echo -e "        ((,;      ((,;       "
 echo -e "                             "
-echo -e " c is for cookie             "
+echo -e " \"c is for cookie\"           "
 echo -e "            --cookie monster "
 
 echo -e "\nThis script will deploy to ${CYAN}STAGING${NORMAL}."
