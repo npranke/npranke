@@ -44,6 +44,6 @@
         "test": "jest --coverage",
         "test:snapup": "jest --updateSnapshot",
         "watch:build": "webpack --config webpack.dev.js --watch",
-        "watch:tests": "jest --watch"
+        "watch:tests": "jest --watchAll"
     }
 }
