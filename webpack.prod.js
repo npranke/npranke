@@ -1,8 +1,8 @@
-const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const webpack = require('webpack');
+const merge = require('webpack-merge')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const webpack = require('webpack')
 
-const common = require('./webpack.common.js');
+const commonConfig = require('./webpack.common.js')
 
 const prodConfig = {
     plugins: [
@@ -11,6 +11,6 @@ const prodConfig = {
             'process.env.NODE_ENV': JSON.stringify('production'),
         }),
     ],
-};
+}
 
-module.exports = merge(common, prodConfig);
+module.exports = merge(commonConfig, prodConfig)
