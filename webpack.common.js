@@ -23,10 +23,7 @@ const commonConfig = {
             {
                 test: /\.css$/,
                 include: paths.CSS,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader',
-                }),
+                loader: ExtractTextPlugin.extract('css-loader'),
             },
         ],
     },
