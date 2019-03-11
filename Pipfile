@@ -7,10 +7,10 @@ name = "pypi"
 
 [packages]
 
-gunicorn = "*"
-flask = "*"
-flask-sslify = "*"
-python-decouple = "*"
+gunicorn = ">=19.9.0"
+flask = ">=1.0.2"
+flask-sslify = ">=0.1.5"
+python-decouple = ">=3.1"
 
 
 [dev-packages]
