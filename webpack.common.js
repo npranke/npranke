@@ -32,7 +32,7 @@ const commonConfig = {
         path: paths.DIST,
     },
     plugins: [
-        new CleanWebpackPlugin(['static/dist']),
+        new CleanWebpackPlugin(),
         new ExtractTextPlugin('[name].bundle.css'),
     ],
     resolve: {
