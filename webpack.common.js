@@ -1,7 +1,7 @@
 const path = require('path') // https://nodejs.org/api/
 
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const paths = {
     CSS: path.resolve(__dirname, 'static/css'),
@@ -23,7 +23,10 @@ const commonConfig = {
             {
                 test: /\.css$/,
                 include: paths.CSS,
-                loader: ExtractTextPlugin.extract('css-loader'),
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ],
             },
         ],
     },
@@ -33,7 +36,7 @@ const commonConfig = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new ExtractTextPlugin('[name].bundle.css'),
+        new MiniCssExtractPlugin({filename: '[name].bundle.css'}),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],
