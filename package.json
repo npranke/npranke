@@ -8,8 +8,8 @@
     "description": "bees, goats, and plums",
     "main": "app.js",
     "engines": {
-        "node": "8.9.0",
-        "npm": "5.5.1",
+        "node": "8.10.0",
+        "npm": "5.6.0",
         "yarn": "1.13.0"
     },
     "dependencies": {
@@ -27,11 +27,11 @@
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.11.0",
         "enzyme-to-json": "^3.3.5",
-        "eslint": "^4.9.0",
-        "eslint-config-airbnb": "^16.1.0",
-        "eslint-plugin-import": "^2.8.0",
-        "eslint-plugin-jsx-a11y": "^6.0.2",
-        "eslint-plugin-react": "^7.4.0",
+        "eslint": "^5.15.1",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.12.4",
         "jest": "^24.5.0",
         "jest-haste-map": "^24.5.0",
         "jest-resolve": "^24.5.0",
