@@ -13,8 +13,8 @@
         "yarn": "1.13.0"
     },
     "dependencies": {
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0"
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4"
     },
     "devDependencies": {
         "@babel/core": "^7.3.4",

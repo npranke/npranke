@@ -30,6 +30,9 @@ const commonConfig = {
             },
         ],
     },
+    node: {
+        global: false,
+    },
     output: {
         filename: '[name].bundle.js',
         path: paths.DIST,
