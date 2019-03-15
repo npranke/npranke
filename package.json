@@ -47,7 +47,7 @@
         "build:prod": "webpack --progress --config webpack.prod.js",
         "heroku-prebuild": "yarn run install:prod",
         "heroku-postbuild": "yarn run build:prod",
-        "install:prod": "yarn install --production=false --ignore-optional",
+        "install:prod": "yarn install --production=false --frozen-lockfile --ignore-optional",
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
         "test": "jest --coverage",
