@@ -45,7 +45,8 @@
     "scripts": {
         "build:dev": "webpack --progress --config webpack.dev.js",
         "build:prod": "webpack --progress --config webpack.prod.js",
-        "heroku-postbuild": "yarn run install:prod && yarn run build:prod",
+        "heroku-prebuild": "yarn run install:prod",
+        "heroku-postbuild": "yarn run build:prod",
         "install:prod": "yarn install --production=false --ignore-optional",
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
