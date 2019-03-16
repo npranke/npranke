@@ -8,44 +8,56 @@
     "description": "bees, goats, and plums",
     "main": "app.js",
     "engines": {
-        "node": "8.7.0",
-        "npm": "5.4.2",
-        "yarn": "1.2.1"
+        "node": "11.11.0",
+        "npm": "6.7.0",
+        "yarn": "1.13.0"
     },
     "dependencies": {
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0"
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4"
     },
     "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-preset-env": "^1.6.1",
-        "babel-preset-react": "^6.24.1",
-        "clean-webpack-plugin": "^0.1.17",
-        "css-loader": "^0.28.7",
-        "enzyme": "^3.1.0",
-        "enzyme-adapter-react-16": "^1.0.2",
-        "enzyme-to-json": "^3.1.4",
-        "eslint": "^4.9.0",
-        "eslint-config-airbnb": "^16.1.0",
-        "eslint-plugin-import": "^2.8.0",
-        "eslint-plugin-jsx-a11y": "^6.0.2",
-        "eslint-plugin-react": "^7.4.0",
-        "extract-text-webpack-plugin": "^3.0.1",
-        "jest": "^21.3.0-beta.2",
-        "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
-        "webpack": "^3.8.1",
-        "webpack-merge": "^4.1.0"
+        "@babel/core": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "@babel/preset-react": "^7.0.0",
+        "babel-jest": "^24.5.0",
+        "babel-loader": "^8.0.5",
+        "clean-webpack-plugin": "^2.0.0",
+        "css-loader": "^2.1.1",
+        "enzyme": "^3.9.0",
+        "enzyme-adapter-react-16": "^1.11.0",
+        "enzyme-to-json": "^3.3.5",
+        "eslint": "^5.15.1",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.12.4",
+        "jest": "^24.5.0",
+        "jest-haste-map": "^24.5.0",
+        "jest-resolve": "^24.5.0",
+        "mini-css-extract-plugin": "^0.5.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.1",
+        "uglifyjs-webpack-plugin": "^2.1.2",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.2.3",
+        "webpack-merge": "^4.2.1"
     },
     "scripts": {
         "build:dev": "webpack --progress --config webpack.dev.js",
         "build:prod": "webpack --progress --config webpack.prod.js",
-        "heroku-postbuild": "yarn install --production=false && yarn run build:prod",
+        "heroku-prebuild": "yarn run install:prod",
+        "heroku-postbuild": "yarn run build:prod",
+        "install:prod": "yarn install --production=false --frozen-lockfile",
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
         "test": "jest --coverage",
         "test:snapup": "jest --updateSnapshot",
         "watch:build": "webpack --config webpack.dev.js --watch",
         "watch:tests": "jest --watchAll"
+    },
+    "jest": {
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ]
     }
 }
