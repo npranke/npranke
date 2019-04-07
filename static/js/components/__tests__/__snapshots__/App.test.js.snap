@@ -2,8 +2,9 @@
 
 exports[`App snapshot matches snapshot 1`] = `
 <div
-  className="text"
+  className="app"
 >
-  Hello world of silly cats!
+  <Background />
+  <Footer />
 </div>
 `;

@@ -1,9 +1,13 @@
 import React from 'react'
 
+import Background from './Background'
+import Footer from './Footer'
+
 function App() {
     return (
-        <div className="text">
-            Hello world of silly cats!
+        <div className="app">
+            <Background />
+            <Footer />
         </div>
     )
 }

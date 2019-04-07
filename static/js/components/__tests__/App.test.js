@@ -3,16 +3,26 @@ import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
 
 import App from '../App'
+import Background from '../Background'
+import Footer from '../Footer'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('App', () => {
-    test('contains expected message', () => {
+    test('contains background', () => {
         const app = shallow(<App />)
 
         expect(
-            app.find('.text').text(),
-        ).toEqual('Hello world of silly cats!')
+            app.contains(<Background />),
+        ).toBe(true)
+    })
+
+    test('contains footer', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.contains(<Footer />),
+        ).toBe(true)
     })
 })
 
