@@ -13,7 +13,7 @@ const paths = {
 const commonConfig = {
     context: path.resolve(__dirname, 'static'),
     entry: {
-        app: './js/app.jsx',
+        app: './js/app.js',
     },
     module: {
         rules: [
