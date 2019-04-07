@@ -8,7 +8,10 @@
         "function-paren-newline": ["off"],
         "indent": ["error", 4],
         "max-len": ["warn", 79],
+        "react/jsx-curly-spacing": ["error", {"when": "always"}],
         "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4, 'first'],
+        "react/jsx-one-expression-per-line": ["off"],
         "semi": ["error", "never"]
     }
 }
