@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Background snapshot matches snapshot 1`] = `
+<img
+  alt="Conifer in Colorado landscape"
+  className="background"
+  src="image-mock"
+/>
+`;
