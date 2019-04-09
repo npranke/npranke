@@ -1,14 +1,18 @@
 import React from 'react'
 
-import BackgroundImg from '../../img/background.jpg'
+import Landscape from '../../img/background-landscape.jpg'
+import Portrait from '../../img/background-portrait.jpg'
 
 function Background() {
     return (
-        <img
-            src={ BackgroundImg }
-            className="background"
-            alt="Conifer in Colorado landscape"
-        />
+        <picture>
+            <source srcSet={ Portrait } media="(orientation: portrait)" />
+            <img
+                src={ Landscape }
+                className="background"
+                alt="Conifer in Colorado landscape"
+            />
+        </picture>
     )
 }
 
