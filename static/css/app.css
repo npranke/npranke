@@ -1,6 +1,8 @@
 .app {
     font-family: "Courier New", Courier, monospace;
-    font-size: 12px;
+    font-size: medium;
+    font-weight: normal;
+    color: #131C27;
 }
 
 .background {
@@ -21,5 +23,75 @@
     left: 0;
     padding: 8px;
     text-align: right;
-    background: radial-gradient(circle at 90%, #E9EEEF 12px, transparent 20%);
+    font-size: small;
+    background: linear-gradient(transparent, 20%, #E9EEEF);
+}
+
+.menu {
+    margin-right: 70%;
+    margin-left: 24px;
+    position: absolute;
+    top: 16%;
+    height: 24%;
+    right: 0;
+    left: 0;
+    border: 2px #131C27 ridge;
+    text-align: left;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.menu .intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 12px;
+    max-height: 35%;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+
+.menu ul {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 12px;
+    max-height: 35%;
+    overflow-y: auto;
+    list-style-type: square;
+}
+
+@media (orientation: portrait) {
+    .menu {
+        margin-right: 12%;
+        margin-left: 12%;
+        top: 24%;
+        height: 18%;
+        font-size: x-large;
+    }
+}
+
+@media (max-aspect-ratio: 5/8) {
+    .menu {
+        font-size: xx-large;
+    }
+}
+
+@media (max-height: 900px) {
+    .menu {
+        font-size: medium;
+    }
+}
+
+@media (max-height: 700px) {
+    .menu {
+        font-size: small;
+    }
+}
+
+@media (max-height: 500px) {
+    .menu {
+        font-size: x-small;
+    }
 }

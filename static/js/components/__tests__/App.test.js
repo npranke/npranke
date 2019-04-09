@@ -5,6 +5,7 @@ import React from 'react'
 import App from '../App'
 import Background from '../Background'
 import Footer from '../Footer'
+import Menu from '../Menu'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -14,6 +15,14 @@ describe('App', () => {
 
         expect(
             app.contains(<Background />),
+        ).toBe(true)
+    })
+
+    test('contains menu', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.contains(<Menu />),
         ).toBe(true)
     })
 

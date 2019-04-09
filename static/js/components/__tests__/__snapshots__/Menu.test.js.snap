@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu snapshot matches snapshot 1`] = `
+<div
+  className="menu"
+>
+  <div
+    className="intro"
+  >
+    Hi, I'm a software engineer; my name is Nicole.
+  </div>
+  <ul>
+    <li>
+      <a
+        href="#"
+        rel="noreferrer"
+        target="_self"
+      >
+        small useful things
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        linkedin
+      </a>
+    </li>
+  </ul>
+</div>
+`;
