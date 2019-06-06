@@ -1,2 +1,2 @@
 # npranke
-bees at the dance, goats at the farm, and plums at my table
+Welcome! My name is Nicole; I'm a software engineer.
