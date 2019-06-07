@@ -8,9 +8,9 @@ exports[`Footer snapshot matches snapshot 1`] = `
   <div
     className="copyright"
   >
-    Copyright © 2017-
+    © 2017-
     2019
-     Nicole Pranke.
+     Nicole Pranke
   </div>
 </footer>
 `;
