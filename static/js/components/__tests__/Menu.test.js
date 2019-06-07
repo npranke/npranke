@@ -28,7 +28,7 @@ describe('Menu', () => {
 
         expect(
             menu.find('.button-workbook img').props().alt,
-        ).toBeTruthy()
+        ).toEqual("Workbook icon")
     })
 })
 
