@@ -2,7 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
 
-import Background from '../Background'
+import Background from '../../components/Background'
 
 Enzyme.configure({ adapter: new Adapter() })
 

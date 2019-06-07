@@ -4,7 +4,11 @@
         "browser": true,
         "jest": true
     },
+    "globals": {
+        "gtag": "readonly"
+    },
     "rules": {
+        "arrow-body-style": ["error", "always"],
         "function-paren-newline": ["off"],
         "indent": ["error", 4],
         "max-len": ["warn", 79],

@@ -2,11 +2,11 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
 
-import App from '../App'
-import Background from '../Background'
-import Footer from '../Footer'
-import Header from '../Header'
-import Welcome from '../Welcome'
+import App from '../../components/App'
+import Background from '../../components/Background'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import Welcome from '../../components/Welcome'
 
 Enzyme.configure({ adapter: new Adapter() })
 

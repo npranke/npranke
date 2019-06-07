@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Workbook from '../../img/icon-workbook.png'
-import { workbookClickHandler } from '../utils'
+import { getWorkbookClickHandler } from '../utils'
 
 function Welcome() {
     return (
@@ -12,7 +12,7 @@ function Welcome() {
             </div>
             <div className="button-workbook">
                 <a
-                    onClick={ workbookClickHandler }
+                    onClick={ getWorkbookClickHandler('welcome') }
                     href={ `${process.env.BASE_URL}` }
                     target="_self"
                     rel="noreferrer"

@@ -1,10 +1,24 @@
-export const workbookClickHandler = (e) => {
-    e.preventDefault()
-    alert('Workbook will be here shortly')
+export const sendEvent = (category, action, label) => {
+    gtag(
+        'event',
+        action,
+        {
+            event_category: category,
+            event_label: label,
+        },
+    )
 }
 
-const utils = {
-    workbookClickHandler,
+export const getSendEventHandler = (category, action, label) => {
+    return function sendEventHandler() {
+        sendEvent(category, action, label)
+    }
 }
 
-export default utils
+export const getWorkbookClickHandler = (component) => {
+    return function workbookClickHandler(event) {
+        event.preventDefault()
+        sendEvent(component, 'navigate', 'workbook')
+        alert('Workbook will be here shortly')
+    }
+}

@@ -4,7 +4,7 @@ import GitHub from '../../img/icon-github.png'
 import Home from '../../img/icon-home.png'
 import LinkedIn from '../../img/icon-linkedin.png'
 import Workbook from '../../img/icon-workbook.png'
-import { workbookClickHandler } from '../utils'
+import { getSendEventHandler, getWorkbookClickHandler } from '../utils'
 
 function Header() {
     return (
@@ -12,6 +12,11 @@ function Header() {
             <div className="left-header">
                 <div className="icon-container icon-container-home">
                     <a
+                        onClick={ getSendEventHandler(
+                            'header',
+                            'navigate',
+                            'home',
+                        ) }
                         href={ `${process.env.BASE_URL}/home` }
                         target="_self"
                         rel="noreferrer"
@@ -29,7 +34,7 @@ function Header() {
             <div className="right-header">
                 <div className="icon-container icon-container-workbook">
                     <a
-                        onClick={ workbookClickHandler }
+                        onClick={ getWorkbookClickHandler('header') }
                         href={ `${process.env.BASE_URL}` }
                         target="_self"
                         rel="noreferrer"
@@ -45,6 +50,11 @@ function Header() {
                 </div>
                 <div className="icon-container icon-container-github">
                     <a
+                        onClick={ getSendEventHandler(
+                            'header',
+                            'navigate',
+                            'github',
+                        ) }
                         href="https://github.com/npranke"
                         target="_blank"
                         rel="noreferrer noopener"
@@ -60,6 +70,11 @@ function Header() {
                 </div>
                 <div className="icon-container icon-container-linkedin">
                     <a
+                        onClick={ getSendEventHandler(
+                            'header',
+                            'navigate',
+                            'linkedin',
+                        ) }
                         href="https://www.linkedin.com/in/npranke"
                         target="_blank"
                         rel="noreferrer noopener"
