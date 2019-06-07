@@ -1,23 +1,31 @@
 import React from 'react'
 
+import Workbook from '../../img/icon-workbook.png'
+import { workbookClickHandler } from '../utils'
+
 function Menu() {
     return (
-        <div className="menu">
+        <div className="menu" role="main">
             <div className="intro">
-                Hi, I&#39;m a software engineer; my name is Nicole.
+                Welcome! <br />
+                My name is Nicole; I&#8217;m a software engineer.
             </div>
-            <ul>
-                <li>
-                    <a href="#" target="_self" rel="noreferrer">
-                        small useful things
-                    </a>
-                </li>
-                <li>
-                    <a href="#" target="_blank" rel="noreferrer noopener">
-                        linkedin
-                    </a>
-                </li>
-            </ul>
+            <div className="button-workbook">
+                <a
+                    onClick={ workbookClickHandler }
+                    href={ `${process.env.BASE_URL}` }
+                    target="_self"
+                    rel="noreferrer"
+                    title="Workbook"
+                >
+                    <img
+                        src={ Workbook }
+                        className="icon icon-workbook"
+                        alt="Workbook icon"
+                    />
+                    <span className="text-workbook">Workbook</span>
+                </a>
+            </div>
         </div>
     )
 }
