@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home snapshot matches snapshot 1`] = `
+exports[`Welcome snapshot matches snapshot 1`] = `
 <div
-  className="home"
+  className="welcome"
   role="main"
 >
   <div

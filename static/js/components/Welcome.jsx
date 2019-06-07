@@ -3,9 +3,9 @@ import React from 'react'
 import Workbook from '../../img/icon-workbook.png'
 import { workbookClickHandler } from '../utils'
 
-function Home() {
+function Welcome() {
     return (
-        <div className="home" role="main">
+        <div className="welcome" role="main">
             <div className="intro">
                 Welcome! <br />
                 My name is Nicole; I&#8217;m a software engineer.
@@ -30,4 +30,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Welcome

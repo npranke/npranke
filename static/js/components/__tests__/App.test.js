@@ -6,7 +6,7 @@ import App from '../App'
 import Background from '../Background'
 import Footer from '../Footer'
 import Header from '../Header'
-import Home from '../Home'
+import Welcome from '../Welcome'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -27,11 +27,11 @@ describe('App', () => {
         ).toBe(true)
     })
 
-    test('contains home', () => {
+    test('contains welcome', () => {
         const app = shallow(<App />)
 
         expect(
-            app.contains(<Home />),
+            app.contains(<Welcome />),
         ).toBe(true)
     })
 

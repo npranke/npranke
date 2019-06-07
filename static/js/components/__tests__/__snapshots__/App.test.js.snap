@@ -6,7 +6,7 @@ exports[`App snapshot matches snapshot 1`] = `
 >
   <Background />
   <Header />
-  <Home />
+  <Welcome />
   <Footer />
 </div>
 `;

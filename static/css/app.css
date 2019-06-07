@@ -70,7 +70,7 @@ max 500px   -   16px, x-small, 12px, xx-small
     padding: 2px;
 }
 
-.home {
+.welcome {
     margin-right: 70%;
     margin-left: 24px;
     position: absolute;
@@ -84,7 +84,7 @@ max 500px   -   16px, x-small, 12px, xx-small
     font-size: large;
 }
 
-.home .intro {
+.welcome .intro {
     position: absolute;
     top: 0;
     left: 0;
@@ -97,7 +97,7 @@ max 500px   -   16px, x-small, 12px, xx-small
     font-weight: 600;
 }
 
-.home .button-workbook {
+.welcome .button-workbook {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -110,18 +110,18 @@ max 500px   -   16px, x-small, 12px, xx-small
     padding: 4px;
 }
 
-.home .button-workbook a {
+.welcome .button-workbook a {
     color: #131C27;
 }
 
-.home .icon-workbook {
+.welcome .icon-workbook {
     height: 24px;
     width: 24px;
     margin-right: 4px;
     vertical-align: middle;
 }
 
-.home .text-workbook {
+.welcome .text-workbook {
     vertical-align: middle;
 }
 
@@ -141,7 +141,7 @@ max 500px   -   16px, x-small, 12px, xx-small
     background: radial-gradient(rgba(19, 28, 39, 0.9), transparent);
 }
 
-.header .icon:hover, .home .button-workbook:hover {
+.header .icon:hover, .welcome .button-workbook:hover {
     box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
     background: radial-gradient(rgba(233, 238, 239, 0.9), transparent);
 }
@@ -152,7 +152,7 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 32px;
     }
 
-    .home {
+    .welcome {
         margin-right: 12%;
         margin-left: 12%;
         top: 24%;
@@ -160,7 +160,7 @@ max 500px   -   16px, x-small, 12px, xx-small
         font-size: x-large;
     }
 
-    .home .icon-workbook {
+    .welcome .icon-workbook {
         height: 28px;
         width: 28px;
     }
@@ -176,11 +176,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 36px;
     }
 
-    .home {
+    .welcome {
         font-size: xx-large;
     }
 
-    .home .icon-workbook {
+    .welcome .icon-workbook {
         height: 32px;
         width: 32px;
     }
@@ -196,11 +196,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 24px;
     }
 
-    .home {
+    .welcome {
         font-size: medium;
     }
 
-    .home .icon-workbook {
+    .welcome .icon-workbook {
         height: 20px;
         width: 20px;
     }
@@ -216,11 +216,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 20px;
     }
 
-    .home {
+    .welcome {
         font-size: small;
     }
 
-    .home .icon-workbook {
+    .welcome .icon-workbook {
         height: 16px;
         width: 16px;
     }
@@ -236,11 +236,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 16px;
     }
 
-    .home {
+    .welcome {
         font-size: x-small;
     }
 
-    .home .icon-workbook {
+    .welcome .icon-workbook {
         height: 12px;
         width: 12px;
     }
