@@ -10,7 +10,7 @@
     "engines": {
         "node": "12.4.0",
         "npm": "6.9.0",
-        "yarn": "1.15.2"
+        "yarn": "1.16.0"
     },
     "dependencies": {
         "react": "^16.8.4",
@@ -60,9 +60,11 @@
     },
     "jest": {
         "moduleNameMapper": {
-          "\\.(jp(e)?g|png|gif)$": "<rootDir>/static/js/__mocks__/ImageMock.js"
+            "\\.(jp(e)?g|png|gif)$": "<rootDir>/static/js/__mocks__/ImageMock.js"
         },
-        "setupFiles": ["dotenv/config"],
+        "setupFiles": [
+            "dotenv/config"
+        ],
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
         ]
