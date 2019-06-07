@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu snapshot matches snapshot 1`] = `
+exports[`Home snapshot matches snapshot 1`] = `
 <div
-  className="menu"
+  className="home"
   role="main"
 >
   <div
