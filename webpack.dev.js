@@ -27,7 +27,7 @@ const devConfig = {
         ],
     },
     plugins: [
-        new Dotenv( { path: './.env.client' } ),
+        new Dotenv({ path: './.env.client' }),
     ],
 }
 

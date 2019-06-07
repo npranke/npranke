@@ -58,7 +58,7 @@ const commonConfig = {
             cleanStaleWebpackAssets: false,
             verbose: true,
         }),
-        new MiniCssExtractPlugin({filename: '[name].bundle.css'}),
+        new MiniCssExtractPlugin({ filename: '[name].bundle.css' }),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],
