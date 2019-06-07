@@ -4,11 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        {% if config.get('TEMPLATE_TAG') %}
-            {{ config.get('TEMPLATE_TAG') }} | home | npranke
-        {% else %}
-            home | npranke
-        {% endif %}
+        {% block title %}{% endblock %} | npranke
     </title>
     <link
         rel="stylesheet"
@@ -22,12 +18,7 @@
 </head>
 
 <body>
-    <div id="app"></div>
-    <script
-        type="text/javascript"
-        src="{{ url_for('static', filename='dist/app.bundle.js') }}"
-    >
-    </script>
+    {% block content %}{% endblock %}
 </body>
 
 </html>

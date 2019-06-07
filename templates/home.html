@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if config.get('TEMPLATE_TAG') %}
+        {{ config.get('TEMPLATE_TAG') }} | home
+    {% else %}
+        home
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div id="app"></div>
+    <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='dist/app.bundle.js') }}"
+    >
+    </script>
+{% endblock %}
