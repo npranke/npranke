@@ -5,11 +5,15 @@
     <meta charset="utf-8">
     <title>
         {% if config.get('TEMPLATE_TAG') %}
-            {{ config.get('TEMPLATE_TAG') }} | index | npranke
+            {{ config.get('TEMPLATE_TAG') }} | home | npranke
         {% else %}
-            index | npranke
+            home | npranke
         {% endif %}
     </title>
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Work+Sans:400,600"
+    >
     <link
         rel="stylesheet"
         type="text/css"
