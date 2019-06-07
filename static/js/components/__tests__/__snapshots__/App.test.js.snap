@@ -5,6 +5,7 @@ exports[`App snapshot matches snapshot 1`] = `
   className="app"
 >
   <Background />
+  <Header />
   <Menu />
   <Footer />
 </div>
