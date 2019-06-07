@@ -12,7 +12,7 @@ function Header() {
             <div className="left-header">
                 <div className="icon-container icon-container-home">
                     <a
-                        href={ `${process.env.BASE_URL}` }
+                        href={ `${process.env.BASE_URL}/home` }
                         target="_self"
                         rel="noreferrer"
                         title="Home"

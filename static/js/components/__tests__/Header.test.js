@@ -12,7 +12,7 @@ describe('Header', () => {
 
         expect(
             header.find('.icon-container-home a').props().href,
-        ).toEqual('mock-base-url')
+        ).toEqual('mock-base-url/home')
     })
 
     test('has link to workbook', () => {
