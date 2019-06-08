@@ -13,7 +13,7 @@ function Welcome() {
             <div className="button-workbook">
                 <a
                     onClick={ getWorkbookClickHandler('welcome') }
-                    href={ `${process.env.BASE_URL}` }
+                    href="/"
                     target="_self"
                     rel="noreferrer"
                     title="Workbook"

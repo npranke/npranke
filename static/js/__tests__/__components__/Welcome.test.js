@@ -20,7 +20,7 @@ describe('Welcome', () => {
 
         expect(
             welcome.find('.button-workbook a').props().href,
-        ).toEqual('mock-base-url')
+        ).toEqual('/')
     })
 
     test('has alt text for workbook icon', () => {

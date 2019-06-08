@@ -1,6 +1,5 @@
 const path = require('path')
 
-const Dotenv = require('dotenv-webpack')
 const merge = require('webpack-merge')
 
 const commonConfig = require('./webpack.common.js')
@@ -26,9 +25,6 @@ const devConfig = {
             },
         ],
     },
-    plugins: [
-        new Dotenv({ path: './.env.client' }),
-    ],
 }
 
 module.exports = merge.smart(commonConfig, devConfig)

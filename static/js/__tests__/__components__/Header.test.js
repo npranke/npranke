@@ -12,7 +12,7 @@ describe('Header', () => {
 
         expect(
             header.find('.icon-container-home a').props().href,
-        ).toEqual('mock-base-url/home')
+        ).toEqual('/home')
     })
 
     test('has link to workbook', () => {
@@ -20,7 +20,7 @@ describe('Header', () => {
 
         expect(
             header.find('.icon-container-workbook a').props().href,
-        ).toEqual('mock-base-url')
+        ).toEqual('/')
     })
 
     test('has link to github profile', () => {

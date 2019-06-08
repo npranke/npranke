@@ -16,7 +16,7 @@ exports[`Welcome snapshot matches snapshot 1`] = `
     className="button-workbook"
   >
     <a
-      href="mock-base-url"
+      href="/"
       onClick={[Function]}
       rel="noreferrer"
       target="_self"

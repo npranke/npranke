@@ -13,7 +13,7 @@ exports[`Header snapshot matches snapshot 1`] = `
     >
       <a
         aria-label="Home"
-        href="mock-base-url/home"
+        href="/home"
         onClick={[Function]}
         rel="noreferrer"
         target="_self"
@@ -35,7 +35,7 @@ exports[`Header snapshot matches snapshot 1`] = `
     >
       <a
         aria-label="Workbook"
-        href="mock-base-url"
+        href="/"
         onClick={[Function]}
         rel="noreferrer"
         target="_self"

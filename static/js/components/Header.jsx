@@ -17,7 +17,7 @@ function Header() {
                             'navigate',
                             'home',
                         ) }
-                        href={ `${process.env.BASE_URL}/home` }
+                        href="/home"
                         target="_self"
                         rel="noreferrer"
                         title="Home"
@@ -35,7 +35,7 @@ function Header() {
                 <div className="icon-container icon-container-workbook">
                     <a
                         onClick={ getWorkbookClickHandler('header') }
-                        href={ `${process.env.BASE_URL}` }
+                        href="/"
                         target="_self"
                         rel="noreferrer"
                         title="Workbook"
