@@ -1,11 +1,11 @@
 {
     "name": "npranke",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "license": "UNLICENSED",
     "author": "npranke <nicole@npranke.io>",
     "repository": "git@github.com:npranke/npranke.git",
-    "description": "bees, goats, and plums",
+    "description": "My name is Nicole; I'm a software engineer.",
     "main": "app.js",
     "engines": {
         "node": "12.4.0",
