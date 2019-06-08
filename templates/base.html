@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}{% endblock %} | npranke
+    </title>
+    <base href="{{ config.get('BASE_URL') }}">
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://fonts.googleapis.com/css?family=Work+Sans:400,600"
+    >
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ url_for('static', filename='dist/app.bundle.css') }}"
+    >
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id={{ config.get('GA') }}"
+    >
+    </script>
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', {{ config.get('GA') | tojson }});
+    </script>
+</head>
+
+<body>
+    {% block content %}{% endblock %}
+</body>
+
+</html>

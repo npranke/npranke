@@ -1,17 +1,19 @@
 const path = require('path') // https://nodejs.org/api/
 
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const paths = {
     CSS: path.resolve(__dirname, 'static/css'),
     DIST: path.resolve(__dirname, 'static/dist'),
+    IMG: path.resolve(__dirname, 'static/img'),
     JS: path.resolve(__dirname, 'static/js'),
 }
 
 const commonConfig = {
+    context: path.resolve(__dirname, 'static'),
     entry: {
-        app: path.join(paths.JS, 'app.jsx'),
+        app: './js/app.js',
     },
     module: {
         rules: [
@@ -28,6 +30,20 @@ const commonConfig = {
                     'css-loader',
                 ],
             },
+            {
+                test: /\.(gif|png|jp(e)?g|svg)$/,
+                include: paths.IMG,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[hash].[ext]',
+                            publicPath: '/static/dist/',
+                        },
+                    },
+                    'image-webpack-loader',
+                ],
+            },
         ],
     },
     node: {
@@ -38,8 +54,11 @@ const commonConfig = {
         path: paths.DIST,
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({filename: '[name].bundle.css'}),
+        new CleanWebpackPlugin({
+            cleanStaleWebpackAssets: false,
+            verbose: true,
+        }),
+        new MiniCssExtractPlugin({ filename: '[name].bundle.css' }),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],

@@ -1,6 +1,251 @@
-body {
-    background: lime;
-    color: pink;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 12px;
+/*
+font - Work+Sans:400,600
+
+dark    -   #131C27, rgb(19, 28, 39)
+light   -   #E9EEEF, rgb(233, 238, 239)
+
+icon only       -   27% 12% / 7% 32%
+icon and label  -   37% 22% / 17% 42%
+main content    -   7% 12% / 2% 5%
+
+max 5/8     -   36px, xx-large, 32px, x-large
+portrait    -   32px, x-large, 28px, large
+default     -   28px, large, 24px, medium
+max 900px   -   24px, medium, 20px, small
+max 700px   -   20px, small, 16px, x-small
+max 500px   -   16px, x-small, 12px, xx-small
+*/
+
+.app {
+    font-family: "Work Sans", sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    color: #131C27;
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right: 0;
+    z-index: -1;
+}
+
+.header {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding-top: 16px;
+}
+
+.header .left-header {
+    position: absolute;
+    left: 0;
+    margin-left: 16px;
+    display: inline-block;
+}
+
+.header .right-header {
+    position: absolute;
+    right: 0;
+    margin-right: 16px;
+    display: inline-block;
+}
+
+.header .icon-container {
+    display: inline-block;
+    margin: 0 12px;
+}
+
+.header .icon {
+    height: 28px;
+    width: 28px;
+    vertical-align: middle;
+    border-radius: 27% 12% / 7% 32%;
+    background-clip: padding-box;
+    padding: 2px;
+}
+
+.welcome {
+    margin-right: 70%;
+    margin-left: 24px;
+    position: absolute;
+    top: 16%;
+    height: 24%;
+    right: 0;
+    left: 0;
+    border: 2px #131C27 ridge;
+    border-radius: 7% 12% / 2% 5%;
+    text-align: left;
+    font-size: large;
+}
+
+.welcome .intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 12px;
+    max-height: 50%;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.welcome .button-workbook {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 12px;
+    max-height: 20%;
+    overflow-y: auto;
+    border: 1px #131C27 solid;
+    border-radius: 37% 22% / 17% 42%;
+    background-clip: padding-box;
+    padding: 4px;
+}
+
+.welcome .button-workbook a {
+    color: #131C27;
+}
+
+.welcome .icon-workbook {
+    height: 24px;
+    width: 24px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.welcome .text-workbook {
+    vertical-align: middle;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .copyright {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 12px;
+    color: #E9EEEF;
+    background: radial-gradient(rgba(19, 28, 39, 0.9), transparent);
+}
+
+.header .icon:hover, .welcome .button-workbook:hover {
+    box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
+    background: radial-gradient(rgba(233, 238, 239, 0.9), transparent);
+}
+
+@media (orientation: portrait) {
+    .header .icon {
+        height: 32px;
+        width: 32px;
+    }
+
+    .welcome {
+        margin-right: 12%;
+        margin-left: 12%;
+        top: 24%;
+        height: 18%;
+        font-size: x-large;
+    }
+
+    .welcome .icon-workbook {
+        height: 28px;
+        width: 28px;
+    }
+
+    .footer {
+        font-size: large;
+    }
+}
+
+@media (max-aspect-ratio: 5/8) {
+    .header .icon {
+        height: 36px;
+        width: 36px;
+    }
+
+    .welcome {
+        font-size: xx-large;
+    }
+
+    .welcome .icon-workbook {
+        height: 32px;
+        width: 32px;
+    }
+
+    .footer {
+        font-size: x-large;
+    }
+}
+
+@media (max-height: 900px) {
+    .header .icon {
+        height: 24px;
+        width: 24px;
+    }
+
+    .welcome {
+        font-size: medium;
+    }
+
+    .welcome .icon-workbook {
+        height: 20px;
+        width: 20px;
+    }
+
+    .footer {
+        font-size: small;
+    }
+}
+
+@media (max-height: 700px) {
+    .header .icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .welcome {
+        font-size: small;
+    }
+
+    .welcome .icon-workbook {
+        height: 16px;
+        width: 16px;
+    }
+
+    .footer {
+        font-size: x-small;
+    }
+}
+
+@media (max-height: 500px) {
+    .header .icon {
+        height: 16px;
+        width: 16px;
+    }
+
+    .welcome {
+        font-size: x-small;
+    }
+
+    .welcome .icon-workbook {
+        height: 12px;
+        width: 12px;
+    }
+
+    .footer {
+        font-size: xx-small;
+    }
 }
