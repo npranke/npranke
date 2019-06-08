@@ -1,45 +1,48 @@
 {
     "name": "npranke",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "license": "UNLICENSED",
     "author": "npranke <nicole@npranke.io>",
     "repository": "git@github.com:npranke/npranke.git",
-    "description": "bees, goats, and plums",
+    "description": "My name is Nicole; I'm a software engineer.",
     "main": "app.js",
     "engines": {
-        "node": "11.12.0",
-        "npm": "6.7.0",
-        "yarn": "1.15.2"
+        "node": "12.4.0",
+        "npm": "6.9.0",
+        "yarn": "1.16.0"
     },
     "dependencies": {
-        "react": "^16.8.4",
-        "react-dom": "^16.8.4"
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
     },
     "devDependencies": {
-        "@babel/core": "^7.3.4",
-        "@babel/preset-env": "^7.3.4",
+        "@babel/core": "^7.4.5",
+        "@babel/preset-env": "^7.4.5",
         "@babel/preset-react": "^7.0.0",
-        "babel-jest": "^24.5.0",
-        "babel-loader": "^8.0.5",
-        "clean-webpack-plugin": "^2.0.0",
+        "babel-jest": "^24.8.0",
+        "babel-loader": "^8.0.6",
+        "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^2.1.1",
-        "enzyme": "^3.9.0",
-        "enzyme-adapter-react-16": "^1.11.0",
+        "dotenv-webpack": "^1.7.0",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
         "enzyme-to-json": "^3.3.5",
-        "eslint": "^5.15.1",
+        "eslint": "^5.16.0",
         "eslint-config-airbnb": "^17.1.0",
-        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-import": "^2.17.3",
         "eslint-plugin-jsx-a11y": "^6.2.1",
-        "eslint-plugin-react": "^7.12.4",
-        "jest": "^24.5.0",
-        "jest-haste-map": "^24.5.0",
-        "jest-resolve": "^24.5.0",
-        "mini-css-extract-plugin": "^0.5.0",
+        "eslint-plugin-react": "^7.13.0",
+        "file-loader": "^4.0.0",
+        "image-webpack-loader": "^5.0.0",
+        "jest": "^24.8.0",
+        "jest-haste-map": "^24.8.0",
+        "jest-resolve": "^24.8.0",
+        "mini-css-extract-plugin": "^0.7.0",
         "optimize-css-assets-webpack-plugin": "^5.0.1",
-        "uglifyjs-webpack-plugin": "^2.1.2",
-        "webpack": "^4.29.6",
-        "webpack-cli": "^3.2.3",
+        "uglifyjs-webpack-plugin": "^2.1.3",
+        "webpack": "^4.33.0",
+        "webpack-cli": "^3.3.3",
         "webpack-merge": "^4.2.1"
     },
     "scripts": {
@@ -50,12 +53,18 @@
         "install:prod": "yarn install --production=false --frozen-lockfile",
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
-        "test": "jest --coverage",
-        "test:snapup": "jest --updateSnapshot",
-        "watch:build": "webpack --config webpack.dev.js --watch",
+        "test": "DOTENV_CONFIG_PATH=./.env.test jest --coverage",
+        "test:snapup": "DOTENV_CONFIG_PATH=./.env.test jest --updateSnapshot",
+        "watch:build": "webpack --progress --config webpack.dev.js --watch",
         "watch:tests": "jest --watchAll"
     },
     "jest": {
+        "moduleNameMapper": {
+            "\\.(jp(e)?g|png|gif)$": "<rootDir>/static/js/__mocks__/ImageMock.js"
+        },
+        "setupFiles": [
+            "dotenv/config"
+        ],
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
         ]

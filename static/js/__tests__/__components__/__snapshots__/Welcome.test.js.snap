@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome snapshot matches snapshot 1`] = `
+<div
+  className="welcome"
+  role="main"
+>
+  <div
+    className="intro"
+  >
+    Welcome! 
+    <br />
+    My name is Nicole; I’m a software engineer.
+  </div>
+  <div
+    className="button-workbook"
+  >
+    <a
+      href="mock-base-url"
+      onClick={[Function]}
+      rel="noreferrer"
+      target="_self"
+      title="Workbook"
+    >
+      <img
+        alt="Workbook icon"
+        className="icon icon-workbook"
+        src="image-mock"
+      />
+      <span
+        className="text-workbook"
+      >
+        Workbook
+      </span>
+    </a>
+  </div>
+</div>
+`;

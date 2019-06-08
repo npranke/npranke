@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header snapshot matches snapshot 1`] = `
+<nav
+  className="header"
+  role="navigation"
+>
+  <div
+    className="left-header"
+  >
+    <div
+      className="icon-container icon-container-home"
+    >
+      <a
+        aria-label="Home"
+        href="mock-base-url/home"
+        onClick={[Function]}
+        rel="noreferrer"
+        target="_self"
+        title="Home"
+      >
+        <img
+          alt="Home icon"
+          className="icon icon-home"
+          src="image-mock"
+        />
+      </a>
+    </div>
+  </div>
+  <div
+    className="right-header"
+  >
+    <div
+      className="icon-container icon-container-workbook"
+    >
+      <a
+        aria-label="Workbook"
+        href="mock-base-url"
+        onClick={[Function]}
+        rel="noreferrer"
+        target="_self"
+        title="Workbook"
+      >
+        <img
+          alt="Workbook icon"
+          className="icon icon-workbook"
+          src="image-mock"
+        />
+      </a>
+    </div>
+    <div
+      className="icon-container icon-container-github"
+    >
+      <a
+        aria-label="GitHub"
+        href="https://github.com/npranke"
+        onClick={[Function]}
+        rel="noreferrer noopener"
+        target="_blank"
+        title="GitHub"
+      >
+        <img
+          alt="GitHub icon"
+          className="icon icon-github"
+          src="image-mock"
+        />
+      </a>
+    </div>
+    <div
+      className="icon-container icon-container-linkedin"
+    >
+      <a
+        aria-label="LinkedIn"
+        href="https://www.linkedin.com/in/npranke"
+        onClick={[Function]}
+        rel="noreferrer noopener"
+        target="_blank"
+        title="LinkedIn"
+      >
+        <img
+          alt="LinkedIn icon"
+          className="icon icon-linkedin"
+          src="image-mock"
+        />
+      </a>
+    </div>
+  </div>
+</nav>
+`;

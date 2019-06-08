@@ -9,8 +9,9 @@ app.config.from_object(AppConfig)
 sslify = SSLify(app, permanent=True, subdomains=True)
 
 @app.route("/")
-def index():
-    return render_template("index.html")
+@app.route("/home")
+def home():
+    return render_template("home.html")
 
 if __name__ == "__main__":
     app.run()
