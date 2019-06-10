@@ -27,5 +27,9 @@ def url_for_webpack_asset_processor():
 def home():
     return render_template("home.html")
 
+@app.route("/workbook")
+def workbook():
+    return render_template("workbook.html")
+
 if __name__ == "__main__":
     app.run()

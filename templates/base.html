@@ -31,7 +31,22 @@
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+    <div id="app"></div>
+    <script
+        type="text/javascript"
+        src="{{ url_for_webpack_asset('runtime-app.js') }}"
+    >
+    </script>
+    <script
+        type="text/javascript"
+        src="{{ url_for_webpack_asset('vendors-app.js') }}"
+    >
+    </script>
+    <script
+        type="text/javascript"
+        src="{{ url_for_webpack_asset('app.js') }}"
+    >
+    </script>
 </body>
 
 </html>
