@@ -16,7 +16,7 @@ const devConfig = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name]-[hash].[ext]',
+                            name: '[name]-[contenthash].[ext]',
                             publicPath: '/static/dist/',
                         },
                     },
