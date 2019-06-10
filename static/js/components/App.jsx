@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 
 import Background from './Background'
 import Footer from './Footer'
@@ -10,7 +11,10 @@ function App() {
         <div className="app">
             <Background />
             <Header />
-            <Welcome />
+            <Switch>
+                <Route exact path="/" component={ Welcome } />
+                <Route path="/home" component={ Welcome } />
+            </Switch>
             <Footer />
         </div>
     )

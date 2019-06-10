@@ -6,7 +6,17 @@ exports[`App snapshot matches snapshot 1`] = `
 >
   <Background />
   <Header />
-  <Welcome />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/home"
+    />
+  </Switch>
   <Footer />
 </div>
 `;

@@ -6,7 +6,6 @@ import App from '../../components/App'
 import Background from '../../components/Background'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import Welcome from '../../components/Welcome'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -27,12 +26,20 @@ describe('App', () => {
         ).toBe(true)
     })
 
-    test('contains welcome', () => {
+    test('contains switch', () => {
         const app = shallow(<App />)
 
         expect(
-            app.contains(<Welcome />),
+            app.exists('Switch'),
         ).toBe(true)
+    })
+
+    test('contains routes', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('Route'),
+        ).toHaveLength(2)
     })
 
     test('contains footer', () => {
