@@ -13,6 +13,7 @@
         "yarn": "1.16.0"
     },
     "dependencies": {
+        "prop-types": "15.7.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-router-dom": "^5.0.1"
@@ -55,7 +56,7 @@
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
         "test": "jest --coverage",
-        "test:snapup": "DOTENV_CONFIG_PATH=./.env.test jest --updateSnapshot",
+        "test:snapup": "jest --updateSnapshot",
         "watch:build": "webpack --progress --config webpack.dev.js --watch",
         "watch:tests": "jest --watchAll"
     },
