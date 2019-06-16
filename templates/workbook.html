@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-
-{% block title %}
-    {% if config.get('TEMPLATE_TAG') %}
-        {{ config.get('TEMPLATE_TAG') }} | workbook
-    {% else %}
-        workbook
-    {% endif %}
-{% endblock %}

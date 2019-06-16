@@ -8,6 +8,7 @@ app.config.from_object(AppConfig)
 
 sslify = SSLify(app, permanent=True, subdomains=True)
 
+
 @app.context_processor
 def url_for_webpack_asset_processor():
     def url_for_webpack_asset(asset_name):
@@ -22,14 +23,18 @@ def url_for_webpack_asset_processor():
         )
     return dict(url_for_webpack_asset=url_for_webpack_asset)
 
+
 @app.route("/")
 @app.route("/home")
-def home():
-    return render_template("home.html")
-
 @app.route("/workbook")
-def workbook():
-    return render_template("workbook.html")
+def index():
+    return render_template("index.html")
+
+
+@app.errorhandler(404)
+def pagenotfound(error):
+    return render_template("index.html"), 404
+
 
 if __name__ == "__main__":
     app.run()

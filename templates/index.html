@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>
-        {% block title %}{% endblock %} | npranke
+        {% if config.get('TEMPLATE_TAG') %}
+            npranke | {{ config.get('TEMPLATE_TAG') }}
+        {% else %}
+            npranke
+        {% endif %}
     </title>
     <base href="{{ config.get('BASE_URL') }}">
     <link
