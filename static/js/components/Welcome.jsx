@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 import Workbook from '../../img/icon-workbook.png'
-import { getWorkbookClickHandler } from '../utils'
+import { getLocationPageTitle, getSendEventHandler } from '../utils'
 
 function Welcome() {
+    document.title = getLocationPageTitle('home')
+
     return (
         <div className="welcome" role="main">
             <div className="intro">
@@ -11,12 +14,15 @@ function Welcome() {
                 My name is Nicole; I&#8217;m a software engineer.
             </div>
             <div className="button-workbook">
-                <a
-                    onClick={ getWorkbookClickHandler('welcome') }
-                    href="/"
+                <Link
+                    onClick={ getSendEventHandler(
+                        'welcome',
+                        'navigate',
+                        'workbook',
+                    ) }
+                    to="/workbook"
                     target="_self"
                     rel="noreferrer"
-                    title="Workbook"
                 >
                     <img
                         src={ Workbook }
@@ -24,7 +30,7 @@ function Welcome() {
                         alt="Workbook icon"
                     />
                     <span className="text-workbook">Workbook</span>
-                </a>
+                </Link>
             </div>
         </div>
     )
