@@ -39,7 +39,7 @@ max 500px   -   16px, x-small, 12px, xx-small
     right: 0;
     top: 0;
     left: 0;
-    padding-top: 16px;
+    padding: 16px 0;
 }
 
 .header .left-header {
@@ -65,12 +65,17 @@ max 500px   -   16px, x-small, 12px, xx-small
     height: 28px;
     width: 28px;
     vertical-align: middle;
+    border: 1px transparent solid;
     border-radius: 27% 12% / 7% 32%;
     background-clip: padding-box;
     padding: 2px;
 }
 
-.welcome {
+.header .nav-link.active .icon {
+    border: 1px #131C27 solid;
+}
+
+.welcome, .pagenotfound {
     margin-right: 70%;
     margin-left: 24px;
     position: absolute;
@@ -80,11 +85,12 @@ max 500px   -   16px, x-small, 12px, xx-small
     left: 0;
     border: 2px #131C27 ridge;
     border-radius: 7% 12% / 2% 5%;
+    background-clip: padding-box;
     text-align: left;
     font-size: large;
 }
 
-.welcome .intro {
+.welcome .intro, .pagenotfound .intro {
     position: absolute;
     top: 0;
     left: 0;
@@ -97,7 +103,7 @@ max 500px   -   16px, x-small, 12px, xx-small
     font-weight: 600;
 }
 
-.welcome .button-workbook {
+.welcome .button-workbook, .pagenotfound .button-home {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -110,19 +116,53 @@ max 500px   -   16px, x-small, 12px, xx-small
     padding: 4px;
 }
 
-.welcome .button-workbook a {
+.welcome .button-workbook a, .pagenotfound .button-home a {
     color: #131C27;
 }
 
-.welcome .icon-workbook {
+.welcome .icon-workbook, .pagenotfound .icon-home {
     height: 24px;
     width: 24px;
-    margin-right: 4px;
+    margin: 2px 4px 2px 2px;
     vertical-align: middle;
 }
 
-.welcome .text-workbook {
+.welcome .text-workbook, .pagenotfound .text-home {
     vertical-align: middle;
+}
+
+.workbook {
+    margin: 0 24px;
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    height: 84%;
+    right: 0;
+    left: 0;
+    border: 2px #131C27 ridge;
+    border-radius: 7% 12% / 2% 5%;
+    background-clip: padding-box;
+    font-size: large;
+}
+
+.workbook .table-workbook {
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+}
+
+.workbook .table-cell-workbook {
+    border: 2px #E9EEEF ridge;
+    border-radius: 7% 12% / 2% 5%;
+    background-clip: padding-box;
+    background: rgba(233, 238, 239, 0.7);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 .footer {
@@ -141,7 +181,11 @@ max 500px   -   16px, x-small, 12px, xx-small
     background: radial-gradient(rgba(19, 28, 39, 0.9), transparent);
 }
 
-.header .icon:hover, .welcome .button-workbook:hover {
+.header .icon:hover,
+.welcome .button-workbook:hover,
+.pagenotfound .button-home:hover,
+.workbook .table-cell-workbook:hover {
+    border: 1px #131C27 solid;
     box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
     background: radial-gradient(rgba(233, 238, 239, 0.9), transparent);
 }
@@ -152,7 +196,7 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 32px;
     }
 
-    .welcome {
+    .welcome, .pagenotfound {
         margin-right: 12%;
         margin-left: 12%;
         top: 24%;
@@ -160,13 +204,22 @@ max 500px   -   16px, x-small, 12px, xx-small
         font-size: x-large;
     }
 
-    .welcome .icon-workbook {
+    .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 28px;
         width: 28px;
     }
 
     .footer {
         font-size: large;
+    }
+
+    .workbook {
+        overflow-y: auto;
+        font-size: x-large;
+    }
+
+    .workbook .table-row-workbook {
+        height: 280px;
     }
 }
 
@@ -176,11 +229,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 36px;
     }
 
-    .welcome {
+    .welcome, .workbook, .pagenotfound {
         font-size: xx-large;
     }
 
-    .welcome .icon-workbook {
+    .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 32px;
         width: 32px;
     }
@@ -196,11 +249,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 24px;
     }
 
-    .welcome {
+    .welcome, .workbook, .pagenotfound {
         font-size: medium;
     }
 
-    .welcome .icon-workbook {
+    .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 20px;
         width: 20px;
     }
@@ -216,11 +269,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 20px;
     }
 
-    .welcome {
+    .welcome, .workbook, .pagenotfound {
         font-size: small;
     }
 
-    .welcome .icon-workbook {
+    .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 16px;
         width: 16px;
     }
@@ -236,11 +289,11 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 16px;
     }
 
-    .welcome {
+    .welcome, .workbook, .pagenotfound {
         font-size: x-small;
     }
 
-    .welcome .icon-workbook {
+    .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 12px;
         width: 12px;
     }
