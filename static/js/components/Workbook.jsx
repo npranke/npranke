@@ -182,11 +182,11 @@ class Workbook extends React.Component {
             )
 
         return (
-            <div className="workbook" role="main">
+            <main className="workbook">
                 <table className="table-workbook" role="grid">
                     { workbookTableBody }
                 </table>
-            </div>
+            </main>
         )
     }
 }

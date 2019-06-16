@@ -8,7 +8,7 @@ function Welcome() {
     document.title = getLocationPageTitle('home')
 
     return (
-        <div className="welcome" role="main">
+        <main className="welcome">
             <div className="intro">
                 Welcome! <br />
                 My name is Nicole; I&#8217;m a software engineer.
@@ -32,7 +32,7 @@ function Welcome() {
                     <span className="text-workbook">Workbook</span>
                 </Link>
             </div>
-        </div>
+        </main>
     )
 }
 

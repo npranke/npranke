@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Workbook snapshot matches snapshot 1`] = `
-<div
+<main
   className="workbook"
-  role="main"
 >
   <table
     className="table-workbook"
@@ -38,5 +37,5 @@ exports[`Workbook snapshot matches snapshot 1`] = `
       </tr>
     </tbody>
   </table>
-</div>
+</main>
 `;

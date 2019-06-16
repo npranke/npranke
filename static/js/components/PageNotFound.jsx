@@ -7,7 +7,7 @@ function PageNotFound() {
     document.title = getLocationPageTitle('pagenotfound')
 
     return (
-        <div className="pagenotfound" role="main">
+        <main className="pagenotfound">
             <div className="intro">
                 Oops! <br />
                 Page not found.
@@ -31,7 +31,7 @@ function PageNotFound() {
                     <span className="text-home">Home</span>
                 </a>
             </div>
-        </div>
+        </main>
     )
 }
 

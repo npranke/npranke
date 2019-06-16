@@ -88,7 +88,7 @@ function Header(props) {
         )
 
     return (
-        <nav className="header" role="navigation">
+        <nav className="header">
             <div className="left-header">
                 <div className="icon-container icon-container-home">
                     { homeLink }
