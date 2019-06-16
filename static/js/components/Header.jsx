@@ -1,52 +1,102 @@
+import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import GitHub from '../../img/icon-github.png'
 import Home from '../../img/icon-home.png'
 import LinkedIn from '../../img/icon-linkedin.png'
 import Workbook from '../../img/icon-workbook.png'
-import { getSendEventHandler, getWorkbookClickHandler } from '../utils'
+import { getSendEventHandler } from '../utils'
 
-function Header() {
+function Header(props) {
+    const homeLink = props.isPageNotFound
+        ? (
+            <a
+                onClick={ getSendEventHandler(
+                    'header',
+                    'navigate',
+                    'home',
+                ) }
+                href="/home"
+                target="_self"
+                rel="noreferrer"
+                title="Home"
+                aria-label="Home"
+            >
+                <img src={ Home } className="icon icon-home" alt="Home icon" />
+            </a>
+        ) : (
+            <NavLink
+                exact
+                onClick={ getSendEventHandler(
+                    'header',
+                    'navigate',
+                    'home',
+                ) }
+                to="/home"
+                target="_self"
+                rel="noreferrer"
+                className="nav-link nav-link-home"
+                title="Home"
+                aria-label="Home"
+            >
+                <img src={ Home } className="icon icon-home" alt="Home icon" />
+            </NavLink>
+        )
+
+    const workbookLink = props.isPageNotFound
+        ? (
+            <a
+                onClick={ getSendEventHandler(
+                    'header',
+                    'navigate',
+                    'workbook',
+                ) }
+                href="/workbook"
+                target="_self"
+                rel="noreferrer"
+                title="Workbook"
+                aria-label="Workbook"
+            >
+                <img
+                    src={ Workbook }
+                    className="icon icon-workbook"
+                    alt="Workbook icon"
+                />
+            </a>
+        ) : (
+            <NavLink
+                exact
+                onClick={ getSendEventHandler(
+                    'header',
+                    'navigate',
+                    'workbook',
+                ) }
+                to="/workbook"
+                target="_self"
+                rel="noreferrer"
+                className="nav-link nav-link-workbook"
+                title="Workbook"
+                aria-label="Workbook"
+            >
+                <img
+                    src={ Workbook }
+                    className="icon icon-workbook"
+                    alt="Workbook icon"
+                />
+            </NavLink>
+        )
+
     return (
         <nav className="header" role="navigation">
             <div className="left-header">
                 <div className="icon-container icon-container-home">
-                    <a
-                        onClick={ getSendEventHandler(
-                            'header',
-                            'navigate',
-                            'home',
-                        ) }
-                        href="/home"
-                        target="_self"
-                        rel="noreferrer"
-                        title="Home"
-                        aria-label="Home"
-                    >
-                        <img
-                            src={ Home }
-                            className="icon icon-home"
-                            alt="Home icon"
-                        />
-                    </a>
+                    { homeLink }
                 </div>
             </div>
             <div className="right-header">
                 <div className="icon-container icon-container-workbook">
-                    <a
-                        onClick={ getWorkbookClickHandler('header') }
-                        href="/"
-                        target="_self"
-                        rel="noreferrer"
-                        title="Workbook"
-                        aria-label="Workbook"
-                    >
-                        <img
-                            src={ Workbook }
-                            className="icon icon-workbook"
-                            alt="Workbook icon"
-                        />
-                    </a>
+                    { workbookLink }
                 </div>
                 <div className="icon-container icon-container-github">
                     <a
@@ -91,6 +141,14 @@ function Header() {
             </div>
         </nav>
     )
+}
+
+Header.defaultProps = {
+    isPageNotFound: false,
+}
+
+Header.propTypes = {
+    isPageNotFound: PropTypes.bool,
 }
 
 export default Header

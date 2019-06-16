@@ -1,6 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header snapshot matches snapshot 1`] = `
+exports[`Header snapshot matches snapshot when not pagenotfound 1`] = `
+<nav
+  className="header"
+  role="navigation"
+>
+  <div
+    className="left-header"
+  >
+    <div
+      className="icon-container icon-container-home"
+    >
+      <NavLink
+        aria-label="Home"
+        className="nav-link nav-link-home"
+        exact={true}
+        onClick={[Function]}
+        rel="noreferrer"
+        target="_self"
+        title="Home"
+        to="/home"
+      >
+        <img
+          alt="Home icon"
+          className="icon icon-home"
+          src="image-mock"
+        />
+      </NavLink>
+    </div>
+  </div>
+  <div
+    className="right-header"
+  >
+    <div
+      className="icon-container icon-container-workbook"
+    >
+      <NavLink
+        aria-label="Workbook"
+        className="nav-link nav-link-workbook"
+        exact={true}
+        onClick={[Function]}
+        rel="noreferrer"
+        target="_self"
+        title="Workbook"
+        to="/workbook"
+      >
+        <img
+          alt="Workbook icon"
+          className="icon icon-workbook"
+          src="image-mock"
+        />
+      </NavLink>
+    </div>
+    <div
+      className="icon-container icon-container-github"
+    >
+      <a
+        aria-label="GitHub"
+        href="https://github.com/npranke"
+        onClick={[Function]}
+        rel="noreferrer noopener"
+        target="_blank"
+        title="GitHub"
+      >
+        <img
+          alt="GitHub icon"
+          className="icon icon-github"
+          src="image-mock"
+        />
+      </a>
+    </div>
+    <div
+      className="icon-container icon-container-linkedin"
+    >
+      <a
+        aria-label="LinkedIn"
+        href="https://www.linkedin.com/in/npranke"
+        onClick={[Function]}
+        rel="noreferrer noopener"
+        target="_blank"
+        title="LinkedIn"
+      >
+        <img
+          alt="LinkedIn icon"
+          className="icon icon-linkedin"
+          src="image-mock"
+        />
+      </a>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`Header snapshot matches snapshot when pagenotfound 1`] = `
 <nav
   className="header"
   role="navigation"
@@ -35,7 +127,7 @@ exports[`Header snapshot matches snapshot 1`] = `
     >
       <a
         aria-label="Workbook"
-        href="/"
+        href="/workbook"
         onClick={[Function]}
         rel="noreferrer"
         target="_self"
