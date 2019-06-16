@@ -15,10 +15,11 @@ export const getSendEventHandler = (category, action, label) => {
     }
 }
 
-export const getWorkbookClickHandler = (component) => {
-    return function workbookClickHandler(event) {
-        event.preventDefault()
-        sendEvent(component, 'navigate', 'workbook')
-        alert('Workbook will be here shortly')
+export const getLocationPageTitle = (location) => {
+    const titleArray = document.title.split(' | ')
+
+    if (titleArray[0] === 'npranke') {
+        return `${location} | ${titleArray.join(' | ')}`
     }
+    return `${location} | ${titleArray.slice(1).join(' | ')}`
 }
