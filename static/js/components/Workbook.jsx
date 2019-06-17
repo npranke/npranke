@@ -76,7 +76,7 @@ class Workbook extends React.Component {
     }
 
     render() {
-        const worksheetA = this.state.isPortrait
+        const workbookTableCellWorksheetA = this.state.isPortrait
             ? (
                 <td
                     id="workbook-worksheet-a"
@@ -119,7 +119,7 @@ class Workbook extends React.Component {
                 </td>
             )
 
-        const worksheetB = this.state.isPortrait
+        const workbookTableCellWorksheetB = this.state.isPortrait
             ? (
                 <td
                     id="workbook-worksheet-b"
@@ -166,17 +166,17 @@ class Workbook extends React.Component {
             ? (
                 <tbody className="table-body-workbook">
                     <tr className="table-row-workbook">
-                        { worksheetA }
+                        { workbookTableCellWorksheetA }
                     </tr>
                     <tr className="table-row-workbook">
-                        { worksheetB }
+                        { workbookTableCellWorksheetB }
                     </tr>
                 </tbody>
             ) : (
                 <tbody className="table-body-workbook">
                     <tr className="table-row-workbook">
-                        { worksheetA }
-                        { worksheetB }
+                        { workbookTableCellWorksheetA }
+                        { workbookTableCellWorksheetB }
                     </tr>
                 </tbody>
             )
