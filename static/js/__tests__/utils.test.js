@@ -1,39 +1,59 @@
-import { getSendEventHandler, sendEvent } from '../utils'
+import { getLocationPageTitle, getSendEventHandler, sendEvent } from '../utils'
 
 describe('utils', () => {
-    beforeAll(() => {
-        window.gtag = jest.fn()
+    describe('location page title util', () => {
+        test('getLocationPageTitle sets title from index', () => {
+            document.title = 'npranke'
+
+            const locationPageTitle = getLocationPageTitle('home')
+
+            expect(locationPageTitle).toEqual('home | npranke')
+        })
+
+        test('getLocationPageTitle sets title from location', () => {
+            document.title = 'home | npranke'
+
+            const locationPageTitle = getLocationPageTitle('workbook')
+
+            expect(locationPageTitle).toEqual('workbook | npranke')
+        })
     })
 
-    afterEach(() => {
-        window.gtag.mockReset()
-    })
+    describe('send event utils', () => {
+        beforeAll(() => {
+            window.gtag = jest.fn()
+        })
 
-    test('getSendEventHandler returns a function', () => {
-        const sendEventHandler = getSendEventHandler(
-            'category',
-            'action',
-            'label',
-        )
+        afterEach(() => {
+            window.gtag.mockReset()
+        })
 
-        expect(
-            sendEventHandler,
-        ).toBeInstanceOf(Function)
-    })
+        test('getSendEventHandler returns a function', () => {
+            const sendEventHandler = getSendEventHandler(
+                'category',
+                'action',
+                'label',
+            )
 
-    test('sendEvent calls gtag()', () => {
-        sendEvent('category', 'action', 'label')
+            expect(
+                sendEventHandler,
+            ).toBeInstanceOf(Function)
+        })
 
-        expect(
-            window.gtag,
-        ).toHaveBeenNthCalledWith(
-            1,
-            'event',
-            'action',
-            {
-                event_category: 'category',
-                event_label: 'label',
-            },
-        )
+        test('sendEvent calls gtag()', () => {
+            sendEvent('category', 'action', 'label')
+
+            expect(
+                window.gtag,
+            ).toHaveBeenNthCalledWith(
+                1,
+                'event',
+                'action',
+                {
+                    event_category: 'category',
+                    event_label: 'label',
+                },
+            )
+        })
     })
 })

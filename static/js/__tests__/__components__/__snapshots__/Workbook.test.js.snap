@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
+<main
+  className="workbook"
+>
+  <table
+    className="table-workbook"
+    role="grid"
+  >
+    <tbody
+      className="table-body-workbook"
+    >
+      <tr
+        className="table-row-workbook"
+      >
+        <td
+          className="table-cell-workbook"
+          id="workbook-worksheet-a"
+          onClick={[Function]}
+          onKeyUp={[Function]}
+          role="gridcell"
+          tabIndex="0"
+        >
+          worksheet a
+        </td>
+      </tr>
+      <tr
+        className="table-row-workbook"
+      >
+        <td
+          className="table-cell-workbook"
+          id="workbook-worksheet-b"
+          onClick={[Function]}
+          onKeyUp={[Function]}
+          role="gridcell"
+          tabIndex="0"
+        >
+          worksheet b
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+`;
+
+exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
+<main
+  className="workbook"
+>
+  <table
+    className="table-workbook"
+    role="grid"
+  >
+    <tbody
+      className="table-body-workbook"
+    >
+      <tr
+        className="table-row-workbook"
+      >
+        <td
+          className="table-cell-workbook"
+          id="workbook-worksheet-a"
+          onClick={[Function]}
+          onKeyUp={[Function]}
+          role="gridcell"
+          tabIndex="0"
+        >
+          worksheet a
+        </td>
+        <td
+          className="table-cell-workbook"
+          id="workbook-worksheet-b"
+          onClick={[Function]}
+          onKeyUp={[Function]}
+          role="gridcell"
+          tabIndex="0"
+        >
+          worksheet b
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+`;

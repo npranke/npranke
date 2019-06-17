@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound snapshot matches snapshot 1`] = `
+<main
+  className="pagenotfound"
+>
+  <div
+    className="intro"
+  >
+    Oops! 
+    <br />
+    Page not found.
+  </div>
+  <div
+    className="button-home"
+  >
+    <a
+      href="/home"
+      onClick={[Function]}
+      rel="noreferrer"
+      target="_self"
+    >
+      <img
+        alt="Home icon"
+        className="icon icon-home"
+        src="image-mock"
+      />
+      <span
+        className="text-home"
+      >
+        Home
+      </span>
+    </a>
+  </div>
+</main>
+`;

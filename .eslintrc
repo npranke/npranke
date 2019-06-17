@@ -9,11 +9,19 @@
     },
     "rules": {
         "arrow-body-style": ["error", "always"],
+        "class-methods-use-this": [
+            "error",
+            { "exceptMethods": ["getItemClickHandler", "getItemKeyUpHandler"] }
+        ],
         "function-paren-newline": ["off"],
         "indent": ["error", 4],
         "max-len": ["warn", 79],
+        "react/destructuring-assignment": ["error", "never"],
         "react/jsx-curly-spacing": ["error", {"when": "always"}],
-        "react/jsx-filename-extension": ["error", {"extensions": [".js", ".jsx"]}],
+        "react/jsx-filename-extension": [
+            "error",
+            { "extensions": [".js", ".jsx"] }
+        ],
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4, 'first'],
         "react/jsx-one-expression-per-line": ["off"],
