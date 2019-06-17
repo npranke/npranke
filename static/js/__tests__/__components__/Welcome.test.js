@@ -19,8 +19,8 @@ describe('Welcome', () => {
         const welcome = shallow(<Welcome />)
 
         expect(
-            welcome.find('.button-workbook a').props().href,
-        ).toEqual('/')
+            welcome.find('.button-workbook Link').props().to,
+        ).toEqual('/workbook')
     })
 
     test('has alt text for workbook icon', () => {

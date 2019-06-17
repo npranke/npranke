@@ -7,6 +7,8 @@ import Background from '../../components/Background'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import Welcome from '../../components/Welcome'
+import PageNotFound from '../../components/PageNotFound'
+import Workbook from '../../components/Workbook'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -19,20 +21,60 @@ describe('App', () => {
         ).toBe(true)
     })
 
-    test('contains header', () => {
+    test('contains switches', () => {
         const app = shallow(<App />)
 
         expect(
-            app.contains(<Header />),
-        ).toBe(true)
+            app.find('Switch'),
+        ).toHaveLength(2)
     })
 
-    test('contains welcome', () => {
+    test('contains routes', () => {
         const app = shallow(<App />)
 
         expect(
-            app.contains(<Welcome />),
-        ).toBe(true)
+            app.find('Route'),
+        ).toHaveLength(5)
+    })
+
+    test('contains route with header component', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('Route').at(0).props().component,
+        ).toEqual(Header)
+    })
+
+    test('contains route with render function for header', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('Route').at(1).props().render,
+        ).toBeInstanceOf(Function)
+    })
+
+    test('contains route with welcome component', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('Route').at(2).props().component,
+        ).toEqual(Welcome)
+    })
+
+    test('contains route with workbook component', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('Route').at(3).props().component,
+        ).toEqual(Workbook)
+    })
+
+    test('contains route with pagenotfound component', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('Route').at(4).props().component,
+        ).toEqual(PageNotFound)
     })
 
     test('contains footer', () => {

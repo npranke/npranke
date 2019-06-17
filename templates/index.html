@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>
-        {% block title %}{% endblock %} | npranke
+        {% if config.get('TEMPLATE_TAG') %}
+            npranke | {{ config.get('TEMPLATE_TAG') }}
+        {% else %}
+            npranke
+        {% endif %}
     </title>
     <base href="{{ config.get('BASE_URL') }}">
     <link
@@ -15,7 +19,7 @@
     <link
         rel="stylesheet"
         type="text/css"
-        href="{{ url_for('static', filename='dist/app.bundle.css') }}"
+        href="{{ url_for_webpack_asset('app.css') }}"
     >
     <script
         async
@@ -31,7 +35,22 @@
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+    <div id="app"></div>
+    <script
+        type="text/javascript"
+        src="{{ url_for_webpack_asset('runtime-app.js') }}"
+    >
+    </script>
+    <script
+        type="text/javascript"
+        src="{{ url_for_webpack_asset('vendors-app.js') }}"
+    >
+    </script>
+    <script
+        type="text/javascript"
+        src="{{ url_for_webpack_asset('app.js') }}"
+    >
+    </script>
 </body>
 
 </html>

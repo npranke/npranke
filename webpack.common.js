@@ -1,6 +1,7 @@
-const path = require('path') // https://nodejs.org/api/
+const path = require('path')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const paths = {
@@ -37,7 +38,7 @@ const commonConfig = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[hash].[ext]',
+                            name: '[contenthash].[ext]',
                             publicPath: '/static/dist/',
                         },
                     },
@@ -49,8 +50,18 @@ const commonConfig = {
     node: {
         global: false,
     },
+    optimization: {
+        runtimeChunk: {
+            name: (entrypoint) => { return `runtime-${entrypoint.name}` },
+        },
+        splitChunks: {
+            automaticNameDelimiter: '-',
+            chunks: 'all',
+            name: true,
+        },
+    },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[id]-[contenthash].bundle.js',
         path: paths.DIST,
     },
     plugins: [
@@ -58,7 +69,10 @@ const commonConfig = {
             cleanStaleWebpackAssets: false,
             verbose: true,
         }),
-        new MiniCssExtractPlugin({ filename: '[name].bundle.css' }),
+        new ManifestPlugin({ fileName: 'webpack-assets-manifest.json' }),
+        new MiniCssExtractPlugin({
+            filename: '[id]-[contenthash].bundle.css',
+        }),
     ],
     resolve: {
         extensions: ['.js', '.jsx'],

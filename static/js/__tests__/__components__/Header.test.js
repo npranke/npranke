@@ -7,20 +7,36 @@ import Header from '../../components/Header'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('Header', () => {
-    test('has link to home', () => {
-        const header = shallow(<Header />)
+    test('has link to home when pagenotfound', () => {
+        const header = shallow(<Header isPageNotFound />)
 
         expect(
             header.find('.icon-container-home a').props().href,
         ).toEqual('/home')
     })
 
-    test('has link to workbook', () => {
-        const header = shallow(<Header />)
+    test('has link to workbook when pagenotfound', () => {
+        const header = shallow(<Header isPageNotFound />)
 
         expect(
             header.find('.icon-container-workbook a').props().href,
-        ).toEqual('/')
+        ).toEqual('/workbook')
+    })
+
+    test('has link to home when not pagenotfound', () => {
+        const header = shallow(<Header />)
+
+        expect(
+            header.find('.icon-container-home NavLink').props().to,
+        ).toEqual('/home')
+    })
+
+    test('has link to workbook when not pagenotfound', () => {
+        const header = shallow(<Header />)
+
+        expect(
+            header.find('.icon-container-workbook NavLink').props().to,
+        ).toEqual('/workbook')
     })
 
     test('has link to github profile', () => {
@@ -73,7 +89,13 @@ describe('Header', () => {
 })
 
 describe('Header snapshot', () => {
-    test('matches snapshot', () => {
+    test('matches snapshot when pagenotfound', () => {
+        const header = shallow(<Header isPageNotFound />)
+
+        expect(header).toMatchSnapshot()
+    })
+
+    test('matches snapshot when not pagenotfound', () => {
         const header = shallow(<Header />)
 
         expect(header).toMatchSnapshot()
