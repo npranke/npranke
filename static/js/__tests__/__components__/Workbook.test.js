@@ -255,12 +255,22 @@ describe('Workbook', () => {
 })
 
 describe('Workbook snapshot', () => {
-    test('matches snapshot', () => {
+    beforeEach(() => {
         window.matchMedia = jest.fn().mockReturnValue({
             matches: false,
             addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
         })
+    })
 
+    test('matches snapshot when isPortrait', () => {
+        const workbook = shallow(<Workbook />)
+        workbook.setState({ isPortrait: true })
+
+        expect(workbook).toMatchSnapshot()
+    })
+
+    test('matches snapshot when not isPortrait', () => {
         const workbook = shallow(<Workbook />)
 
         expect(workbook).toMatchSnapshot()
