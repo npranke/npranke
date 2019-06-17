@@ -281,6 +281,12 @@ max 500px   -   16px, x-small, 12px, xx-small
     .footer {
         font-size: x-small;
     }
+
+    .workbook {
+        top: 10%;
+        bottom: 10%;
+        height: 80%;
+    }
 }
 
 @media (max-height: 500px) {
@@ -300,5 +306,11 @@ max 500px   -   16px, x-small, 12px, xx-small
 
     .footer {
         font-size: xx-small;
+    }
+
+    .workbook {
+        top: 12%;
+        bottom: 12%;
+        height: 76%;
     }
 }
