@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Home from '../../img/icon-home.png'
 import { getLocationPageTitle, getSendEventHandler } from '../utils'
+import Home from '../../img/icon-home.png'
 
 function PageNotFound() {
     document.title = getLocationPageTitle('pagenotfound')

@@ -2,11 +2,11 @@ import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import { getSendEventHandler } from '../utils'
 import GitHub from '../../img/icon-github.png'
 import Home from '../../img/icon-home.png'
 import LinkedIn from '../../img/icon-linkedin.png'
 import Workbook from '../../img/icon-workbook.png'
-import { getSendEventHandler } from '../utils'
 
 function Header(props) {
     const homeLink = props.isPageNotFound
