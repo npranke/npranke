@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Concentration snapshot matches snapshot 1`] = `
+<main
+  className="workbook workbook-concentration"
+>
+  <div
+    className="concentration"
+  >
+    concentration
+  </div>
+</main>
+`;
