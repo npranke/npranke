@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Background from './Background'
+import Concentration from './Concentration'
 import Footer from './Footer'
 import Header from './Header'
 import PageNotFound from './PageNotFound'
@@ -15,7 +16,12 @@ function App() {
             <Switch>
                 <Route
                     exact
-                    path={ ['/', '/home', '/workbook'] }
+                    path={ [
+                        '/',
+                        '/home',
+                        '/workbook',
+                        '/workbook/concentration',
+                    ] }
                     component={ Header }
                 />
                 <Route
@@ -29,6 +35,11 @@ function App() {
             <Switch>
                 <Route exact path={ ['/', '/home'] } component={ Welcome } />
                 <Route exact path="/workbook" component={ Workbook } />
+                <Route
+                    exact
+                    path="/workbook/concentration"
+                    component={ Concentration }
+                />
                 <Route component={ PageNotFound } />
             </Switch>
             <Footer />
