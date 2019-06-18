@@ -16,13 +16,44 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
       >
         <td
           className="table-cell-workbook"
-          id="workbook-worksheet-a"
-          onClick={[Function]}
+          id="workbook-worksheet-concentration"
           onKeyUp={[Function]}
           role="gridcell"
-          tabIndex="0"
         >
-          worksheet a
+          <Link
+            innerRef={
+              Object {
+                "current": null,
+              }
+            }
+            onClick={[Function]}
+            rel="noreferrer"
+            target="_self"
+            to="/workbook/concentration"
+          >
+            <div
+              className="button-worksheet-container"
+            >
+              <span
+                className="button-worksheet-wrapper"
+              >
+                <span
+                  className="button-worksheet"
+                >
+                  <img
+                    alt="Concentration icon"
+                    className="icon icon-concentration"
+                    src="image-mock"
+                  />
+                  <span
+                    className="text-worksheet text-concentration"
+                  >
+                    Concentration
+                  </span>
+                </span>
+              </span>
+            </div>
+          </Link>
         </td>
       </tr>
       <tr
@@ -31,12 +62,43 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
         <td
           className="table-cell-workbook"
           id="workbook-worksheet-b"
-          onClick={[Function]}
           onKeyUp={[Function]}
           role="gridcell"
-          tabIndex="0"
         >
-          worksheet b
+          <Link
+            innerRef={
+              Object {
+                "current": null,
+              }
+            }
+            onClick={[Function]}
+            rel="noreferrer"
+            target="_self"
+            to="/workbook"
+          >
+            <div
+              className="button-worksheet-container"
+            >
+              <span
+                className="button-worksheet-wrapper"
+              >
+                <span
+                  className="button-worksheet"
+                >
+                  <img
+                    alt="Worksheet icon"
+                    className="icon icon-worksheet"
+                    src="image-mock"
+                  />
+                  <span
+                    className="text-worksheet"
+                  >
+                    Worksheet B
+                  </span>
+                </span>
+              </span>
+            </div>
+          </Link>
         </td>
       </tr>
     </tbody>
@@ -60,23 +122,85 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
       >
         <td
           className="table-cell-workbook"
-          id="workbook-worksheet-a"
-          onClick={[Function]}
+          id="workbook-worksheet-concentration"
           onKeyUp={[Function]}
           role="gridcell"
-          tabIndex="0"
         >
-          worksheet a
+          <Link
+            innerRef={
+              Object {
+                "current": null,
+              }
+            }
+            onClick={[Function]}
+            rel="noreferrer"
+            target="_self"
+            to="/workbook/concentration"
+          >
+            <div
+              className="button-worksheet-container"
+            >
+              <span
+                className="button-worksheet-wrapper"
+              >
+                <span
+                  className="button-worksheet"
+                >
+                  <img
+                    alt="Concentration icon"
+                    className="icon icon-concentration"
+                    src="image-mock"
+                  />
+                  <span
+                    className="text-worksheet text-concentration"
+                  >
+                    Concentration
+                  </span>
+                </span>
+              </span>
+            </div>
+          </Link>
         </td>
         <td
           className="table-cell-workbook"
           id="workbook-worksheet-b"
-          onClick={[Function]}
           onKeyUp={[Function]}
           role="gridcell"
-          tabIndex="0"
         >
-          worksheet b
+          <Link
+            innerRef={
+              Object {
+                "current": null,
+              }
+            }
+            onClick={[Function]}
+            rel="noreferrer"
+            target="_self"
+            to="/workbook"
+          >
+            <div
+              className="button-worksheet-container"
+            >
+              <span
+                className="button-worksheet-wrapper"
+              >
+                <span
+                  className="button-worksheet"
+                >
+                  <img
+                    alt="Worksheet icon"
+                    className="icon icon-worksheet"
+                    src="image-mock"
+                  />
+                  <span
+                    className="text-worksheet"
+                  >
+                    Worksheet B
+                  </span>
+                </span>
+              </span>
+            </div>
+          </Link>
         </td>
       </tr>
     </tbody>
