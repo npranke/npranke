@@ -3,21 +3,13 @@ import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
 
-import Workbook from '../../components/Workbook'
+import { Workbook } from '../../components/Workbook'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('Workbook', () => {
     beforeAll(() => {
         window.alert = jest.fn()
-    })
-
-    beforeEach(() => {
-        window.matchMedia = jest.fn().mockReturnValue({
-            matches: false,
-            addEventListener: jest.fn(),
-            removeEventListener: jest.fn(),
-        })
     })
 
     afterEach(() => {
@@ -41,8 +33,7 @@ describe('Workbook', () => {
     })
 
     test('has multiple rows when portrait', () => {
-        const workbook = shallow(<Workbook />)
-        workbook.setState({ isPortrait: true })
+        const workbook = shallow(<Workbook isPortrait />)
 
         expect(
             workbook.find('.table-row-workbook').length,
@@ -155,10 +146,9 @@ describe('Workbook', () => {
 
     test('arrow right key up event on worksheet when isPortrait', () => {
         const workbook = mount(
-            <Workbook />,
+            <Workbook isPortrait />,
             { wrappingComponent: MemoryRouter },
         )
-        workbook.setState({ isPortrait: true })
 
         workbook.find('#workbook-worksheet-concentration').simulate(
             'keyup',
@@ -172,10 +162,9 @@ describe('Workbook', () => {
 
     test('arrow left key up event on worksheet when isPortrait', () => {
         const workbook = mount(
-            <Workbook />,
+            <Workbook isPortrait />,
             { wrappingComponent: MemoryRouter },
         )
-        workbook.setState({ isPortrait: true })
 
         workbook.find('#workbook-worksheet-concentration').simulate(
             'keyup',
@@ -189,10 +178,9 @@ describe('Workbook', () => {
 
     test('arrow up key up event on worksheet when isPortrait', () => {
         const workbook = mount(
-            <Workbook />,
+            <Workbook isPortrait />,
             { wrappingComponent: MemoryRouter },
         )
-        workbook.setState({ isPortrait: true })
 
         workbook.find('#workbook-worksheet-concentration').simulate(
             'keyup',
@@ -206,10 +194,9 @@ describe('Workbook', () => {
 
     test('arrow down key up event on worksheet when isPortrait', () => {
         const workbook = mount(
-            <Workbook />,
+            <Workbook isPortrait />,
             { wrappingComponent: MemoryRouter },
         )
-        workbook.setState({ isPortrait: true })
 
         workbook.find('#workbook-worksheet-concentration').simulate(
             'keyup',
@@ -223,10 +210,9 @@ describe('Workbook', () => {
 
     test('home key up event on worksheet when isPortrait', () => {
         const workbook = mount(
-            <Workbook />,
+            <Workbook isPortrait />,
             { wrappingComponent: MemoryRouter },
         )
-        workbook.setState({ isPortrait: true })
 
         workbook.find('#workbook-worksheet-concentration').simulate(
             'keyup',
@@ -240,10 +226,9 @@ describe('Workbook', () => {
 
     test('end key up event on worksheet when isPortrait', () => {
         const workbook = mount(
-            <Workbook />,
+            <Workbook isPortrait />,
             { wrappingComponent: MemoryRouter },
         )
-        workbook.setState({ isPortrait: true })
 
         workbook.find('#workbook-worksheet-concentration').simulate(
             'keyup',
@@ -257,17 +242,8 @@ describe('Workbook', () => {
 })
 
 describe('Workbook snapshot', () => {
-    beforeEach(() => {
-        window.matchMedia = jest.fn().mockReturnValue({
-            matches: false,
-            addEventListener: jest.fn(),
-            removeEventListener: jest.fn(),
-        })
-    })
-
     test('matches snapshot when isPortrait', () => {
-        const workbook = shallow(<Workbook />)
-        workbook.setState({ isPortrait: true })
+        const workbook = shallow(<Workbook isPortrait />)
 
         expect(workbook).toMatchSnapshot()
     })

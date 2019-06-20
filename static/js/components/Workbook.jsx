@@ -1,43 +1,25 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import Concentration from '../../img/icon-concentration.png'
 import { getLocationPageTitle, getSendEventHandler, sendEvent } from '../utils'
+import withPortraitListener from './hoc/PortraitListener'
 import Worksheet from '../../img/icon-worksheet.png'
 
-class Workbook extends React.Component {
+export class Workbook extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            isPortrait: window.matchMedia(
-                '(orientation: portrait)',
-            ).matches,
-        }
 
         this.concentration = React.createRef()
         this.worksheetB = React.createRef()
 
         this.getItemClickHandler = this.getItemClickHandler.bind(this)
         this.getItemKeyUpHandler = this.getItemKeyUpHandler.bind(this)
-        this.updateIsPortrait = this.updateIsPortrait.bind(this)
     }
 
     componentDidMount() {
         document.title = getLocationPageTitle('workbook')
-
-        window.matchMedia('(orientation: portrait)').addEventListener(
-            'change',
-            this.updateIsPortrait,
-            false,
-        )
-    }
-
-    componentWillUnmount() {
-        window.matchMedia('(orientation: portrait)').removeEventListener(
-            'change',
-            this.updateIsPortrait,
-            false,
-        )
     }
 
     getItemClickHandler(item) {
@@ -64,14 +46,6 @@ class Workbook extends React.Component {
                 end.current.focus()
             }
         }
-    }
-
-    updateIsPortrait() {
-        this.setState({
-            isPortrait: window.matchMedia(
-                '(orientation: portrait)',
-            ).matches,
-        })
     }
 
     render() {
@@ -131,7 +105,7 @@ class Workbook extends React.Component {
             </Link>
         )
 
-        const workbookTableCellConcentration = this.state.isPortrait
+        const workbookTableCellConcentration = this.props.isPortrait
             ? (
                 <td
                     id="workbook-worksheet-concentration"
@@ -166,7 +140,7 @@ class Workbook extends React.Component {
                 </td>
             )
 
-        const workbookTableCellWorksheetB = this.state.isPortrait
+        const workbookTableCellWorksheetB = this.props.isPortrait
             ? (
                 <td
                     id="workbook-worksheet-b"
@@ -201,7 +175,7 @@ class Workbook extends React.Component {
                 </td>
             )
 
-        const workbookTableBody = this.state.isPortrait
+        const workbookTableBody = this.props.isPortrait
             ? (
                 <tbody className="table-body-workbook">
                     <tr className="table-row-workbook">
@@ -230,4 +204,12 @@ class Workbook extends React.Component {
     }
 }
 
-export default Workbook
+Workbook.defaultProps = {
+    isPortrait: false,
+}
+
+Workbook.propTypes = {
+    isPortrait: PropTypes.bool,
+}
+
+export default withPortraitListener(Workbook)
