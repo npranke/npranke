@@ -11,9 +11,16 @@
         "arrow-body-style": ["error", "always"],
         "class-methods-use-this": [
             "error",
-            { "exceptMethods": ["getItemClickHandler", "getItemKeyUpHandler"] }
+            {
+                "exceptMethods": [
+                    "componentDidMount",
+                    "getItemClickHandler",
+                    "getItemKeyUpHandler"
+                ]
+            }
         ],
         "function-paren-newline": ["off"],
+        "import/no-named-as-default": ["off"],
         "indent": ["error", 4],
         "max-len": ["warn", 79],
         "react/destructuring-assignment": ["error", "never"],
@@ -23,7 +30,7 @@
             { "extensions": [".js", ".jsx"] }
         ],
         "react/jsx-indent": ["error", 4],
-        "react/jsx-indent-props": ["error", 4, 'first'],
+        "react/jsx-indent-props": ["error", 4, "first"],
         "react/jsx-one-expression-per-line": ["off"],
         "semi": ["error", "never"]
     }
