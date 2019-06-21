@@ -1,5 +1,6 @@
 /*
-font - Work+Sans:400,600
+sans-serif - Work+Sans:400,600
+monospace - Anonymous+Pro:400
 
 dark    -   #131C27, rgb(19, 28, 39)
 light   -   #E9EEEF, rgb(233, 238, 239)
@@ -215,20 +216,34 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
 
 .concentration .matches-header {
     height: 30%;
+    font-size: large;
+}
+
+.concentration .matches-header .left-text,
+.concentration .matches-header .right-text {
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .concentration .matches-header .left-text {
-    padding: 4px;
     text-align: left;
-    display: inline-block;
 }
 
 .concentration .matches-header .right-text {
     float: right;
-    padding: 4px;
     margin-right: 4%;
     text-align: right;
-    display: inline-block;
+}
+
+.concentration .matches-header .time-portion,
+.concentration .matches-header .matches-portion {
+    flex: 0 0 auto;
+}
+
+.concentration .matches-header .number {
+    font-family: "Anonymous Pro", monospace;
 }
 
 .concentration .matches-pictures {
@@ -236,20 +251,16 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     width: 100%;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .concentration .matches-pictures img {
     width: calc((100% - 384px) / 12);
     min-height: 76%;
     max-height: 84%;
-    margin-left: 32px;
+    margin-right: 32px;
     vertical-align: middle;
     flex: 0 0 auto;
-}
-
-.concentration .matches-pictures img#first-match {
-    margin: 0;
 }
 
 .concentration .board-wrapper {
@@ -283,11 +294,27 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
 }
 
 .concentration .board img {
+    border: 1px transparent solid;
     height: 100%;
     max-width: calc((100% - 144px) / 6);
     margin: 0 12px;
     vertical-align: middle;
     flex: 0 0 auto;
+}
+
+.concentration .board img.picture-front {
+    border: 1px #E9EEEF solid;
+    box-shadow: 0px 0px 4px 4px rgba(233, 238, 239, 0.5);
+}
+
+.concentration .board img.picture-back:hover {
+    border: 1px #131C27 solid;
+    box-shadow: 0px 0px 8px 8px rgba(19, 28, 39, 0.5);
+    cursor: pointer;
+}
+
+.concentration .board img.picture-match {
+    opacity: 0;
 }
 
 .footer {
@@ -361,9 +388,13 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         height: 15%;
     }
 
+    .concentration .matches-header {
+        font-size: x-large;
+    }
+
     .concentration .matches-pictures img {
         width: calc((100% - 96px) / 12);
-        margin-left: 8px;
+        margin-right: 8px;
     }
 
     .concentration .board-wrapper {
@@ -380,6 +411,15 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         margin: 0 3px;
     }
 
+    .concentration .board img.picture-front {
+        border: 1px #E9EEEF solid;
+        box-shadow: 0px 0px 1px 1px rgba(233, 238, 239, 0.5);
+    }
+
+    .concentration .board img.picture-back:hover {
+        box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
+    }
+
     .footer {
         font-size: large;
     }
@@ -391,7 +431,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         width: 36px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: xx-large;
     }
 
@@ -420,7 +460,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         width: 24px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: medium;
     }
 
@@ -454,7 +494,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         width: 20px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: small;
     }
 
@@ -494,7 +534,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         width: 16px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: x-small;
     }
 
