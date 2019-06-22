@@ -254,13 +254,26 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     justify-content: flex-start;
 }
 
-.concentration .matches-pictures img {
+.concentration .matches-pictures a {
     width: calc((100% - 384px) / 12);
     min-height: 76%;
     max-height: 84%;
     margin-right: 32px;
     vertical-align: middle;
     flex: 0 0 auto;
+    display: flex;
+}
+
+.concentration .matches-pictures img {
+    width: 100%;
+    border: 1px #E9EEEF solid;
+    border-radius: 7%;
+    flex: 0 0 auto;
+}
+
+.concentration .matches-pictures img:hover {
+    border: 1px #131C27 solid;
+    box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
 }
 
 .concentration .board-wrapper {
@@ -295,6 +308,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
 
 .concentration .board img {
     border: 1px transparent solid;
+    border-radius: 7%;
     height: 100%;
     max-width: calc((100% - 144px) / 6);
     margin: 0 12px;
@@ -313,7 +327,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     cursor: pointer;
 }
 
-.concentration .board img.picture-match {
+.concentration .board img.picture-matched {
     opacity: 0;
 }
 
@@ -392,7 +406,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         font-size: x-large;
     }
 
-    .concentration .matches-pictures img {
+    .concentration .matches-pictures a {
         width: calc((100% - 96px) / 12);
         margin-right: 8px;
     }
