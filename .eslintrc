@@ -22,7 +22,25 @@
         "function-paren-newline": ["off"],
         "import/no-named-as-default": ["off"],
         "indent": ["error", 4],
+        "jsx-a11y/no-noninteractive-element-to-interactive-role": [
+            "error",
+            {
+                "img": ["button"],
+                "table": ["grid"],
+                "td": ["gridcell"]
+            }
+        ],
         "max-len": ["warn", 79],
+        "no-else-return": ["error", { "allowElseIf": true }],
+        "no-param-reassign": [
+            "error",
+            {
+                "props": true,
+                "ignorePropertyModificationsFor": [
+                    "pictureAccumulator"
+                ]
+            }
+        ],
         "react/destructuring-assignment": ["error", "never"],
         "react/jsx-curly-spacing": ["error", {"when": "always"}],
         "react/jsx-filename-extension": [
