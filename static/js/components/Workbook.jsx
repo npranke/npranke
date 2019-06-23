@@ -26,7 +26,7 @@ export class Workbook extends React.Component {
         return function itemClickHandler(event) {
             event.preventDefault()
             sendEvent('workbook', 'navigate', item)
-            alert(`${item} will be here shortly`)
+            window.alert(`${item} will be here shortly`)
         }
     }
 
