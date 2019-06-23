@@ -14,18 +14,14 @@ function withPortraitListener(Component) {
         }
 
         componentDidMount() {
-            window.matchMedia('(orientation: portrait)').addEventListener(
-                'change',
+            window.matchMedia('(orientation: portrait)').addListener(
                 this.updateIsPortrait,
-                false,
             )
         }
 
         componentWillUnmount() {
-            window.matchMedia('(orientation: portrait)').removeEventListener(
-                'change',
+            window.matchMedia('(orientation: portrait)').removeListener(
                 this.updateIsPortrait,
-                false,
             )
         }
 
