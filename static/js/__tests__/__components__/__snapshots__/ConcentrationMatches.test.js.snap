@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
+<div
+  className="matches"
+>
+  <div
+    className="matches-header"
+  >
+    <div
+      className="left-text"
+    >
+      <span
+        className="matches-portion"
+      >
+        matches: 
+      </span>
+      <span
+        className="matches-portion number"
+      >
+        12
+      </span>
+    </div>
+    <div
+      className="right-text"
+    >
+      <span
+        className="time-portion"
+      >
+        time: 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+      <span
+        className="time-portion"
+      >
+         : 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+      <span
+        className="time-portion"
+      >
+         : 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+    </div>
+  </div>
+  <div
+    className="matches-pictures"
+  >
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+  </div>
+</div>
+`;
+
+exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = `
+<div
+  className="matches"
+>
+  <div
+    className="matches-header"
+  >
+    <div
+      className="left-text"
+    >
+      <span
+        className="matches-portion"
+      >
+        matches: 
+      </span>
+      <span
+        className="matches-portion number"
+      >
+        04
+      </span>
+    </div>
+    <div
+      className="right-text"
+    >
+      <span
+        className="time-portion"
+      >
+        time: 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+      <span
+        className="time-portion"
+      >
+         : 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+      <span
+        className="time-portion"
+      >
+         : 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+    </div>
+  </div>
+  <div
+    className="matches-pictures"
+  >
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+    <a
+      href="image-link"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </a>
+  </div>
+</div>
+`;
+
+exports[`ConcentrationMatches snapshot matches snapshot without matches 1`] = `
+<div
+  className="matches"
+>
+  <div
+    className="matches-header"
+  >
+    <div
+      className="left-text"
+    >
+      <span
+        className="matches-portion"
+      >
+        matches: 
+      </span>
+      <span
+        className="matches-portion number"
+      >
+        00
+      </span>
+    </div>
+    <div
+      className="right-text"
+    >
+      <span
+        className="time-portion"
+      >
+        time: 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+      <span
+        className="time-portion"
+      >
+         : 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+      <span
+        className="time-portion"
+      >
+         : 
+      </span>
+      <span
+        className="time-portion number"
+      >
+        00
+      </span>
+    </div>
+  </div>
+  <div
+    className="matches-pictures"
+  />
+</div>
+`;

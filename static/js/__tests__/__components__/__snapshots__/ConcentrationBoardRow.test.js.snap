@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConcentrationBoardRow snapshot matches snapshot 1`] = `
+<div
+  className="board-row"
+>
+  <img
+    alt=""
+    className="picture-back"
+    src=""
+  />
+  <img
+    alt=""
+    className="picture-back"
+    src=""
+  />
+  <img
+    alt=""
+    className="picture-back"
+    src=""
+  />
+  <img
+    alt=""
+    className="picture-back"
+    src=""
+  />
+  <img
+    alt=""
+    className="picture-back"
+    src=""
+  />
+  <img
+    alt=""
+    className="picture-back"
+    src=""
+  />
+</div>
+`;

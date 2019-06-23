@@ -1,5 +1,6 @@
 /*
-font - Work+Sans:400,600
+sans-serif - Work+Sans:400,600
+monospace - Anonymous+Pro:400
 
 dark    -   #131C27, rgb(19, 28, 39)
 light   -   #E9EEEF, rgb(233, 238, 239)
@@ -8,12 +9,12 @@ icon only       -   27% 12% / 7% 32%
 icon and label  -   37% 22% / 17% 42%
 main content    -   7% 12% / 2% 5%
 
-max 5/8     -   36px, xx-large, 32px, x-large
-portrait    -   32px, x-large, 28px, large
-default     -   28px, large, 24px, medium
-max 900px   -   24px, medium, 20px, small
-max 700px   -   20px, small, 16px, x-small
-max 500px   -   16px, x-small, 12px, xx-small
+max 5/8     -   36px, xx-large, 32px, xx-large, 40px, x-large
+portrait    -   32px, x-large, 28px, xx-large, 36px, large
+default     -   28px, large, 24px, x-large, 32px, medium
+max 900px   -   24px, medium, 20px, large,, 28px, small
+max 700px   -   20px, small, 16px, medium, 24px, x-small
+max 500px   -   16px, x-small, 12px, small, 20px, xx-small
 */
 
 .app {
@@ -116,10 +117,6 @@ max 500px   -   16px, x-small, 12px, xx-small
     padding: 4px;
 }
 
-.welcome .button-workbook a, .pagenotfound .button-home a {
-    color: #131C27;
-}
-
 .welcome .icon-workbook, .pagenotfound .icon-home {
     height: 24px;
     width: 24px;
@@ -142,7 +139,6 @@ max 500px   -   16px, x-small, 12px, xx-small
     border: 2px #131C27 ridge;
     border-radius: 7% 12% / 2% 5%;
     background-clip: padding-box;
-    font-size: large;
 }
 
 .workbook .table-workbook {
@@ -157,12 +153,182 @@ max 500px   -   16px, x-small, 12px, xx-small
     border-radius: 7% 12% / 2% 5%;
     background-clip: padding-box;
     background: rgba(233, 238, 239, 0.7);
+}
+
+.workbook .button-worksheet-container {
+    display: inline-table;
+    height: 100%;
+    width: 100%;
+}
+
+.workbook .button-worksheet-wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.workbook .button-worksheet {
+    display: table-cell;
     overflow: hidden;
     white-space: nowrap;
+    text-decoration: underline;
     text-overflow: ellipsis;
     text-align: center;
     vertical-align: middle;
+}
+
+.workbook .icon {
+    height: 32px;
+    width: 32px;
+    margin: 2px 4px 2px 2px;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+.workbook .text-worksheet {
+    vertical-align: middle;
+    font-size: x-large;
+}
+
+.workbook-concentration {
+    background: rgba(233, 238, 239, 0.7);
+}
+
+.workbook .concentration {
+    height: 100%;
+}
+
+.concentration-inner {
+    height: calc(100% - 48px);
+    padding: 24px;
+}
+
+.concentration .matches-wrapper {
+    height: 20%;
+    width: 100%;
+}
+
+.concentration .matches {
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px #131C27 solid;
+}
+
+.concentration .matches-header {
+    height: 30%;
+    font-size: large;
+}
+
+.concentration .matches-header .left-text,
+.concentration .matches-header .right-text {
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.concentration .matches-header .left-text {
+    text-align: left;
+}
+
+.concentration .matches-header .right-text {
+    float: right;
+    margin-right: 4%;
+    text-align: right;
+}
+
+.concentration .matches-header .time-portion,
+.concentration .matches-header .matches-portion {
+    flex: 0 0 auto;
+}
+
+.concentration .matches-header .number {
+    font-family: "Anonymous Pro", monospace;
+}
+
+.concentration .matches-pictures {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.concentration .matches-pictures a {
+    width: calc((100% - 384px) / 12);
+    min-height: 76%;
+    max-height: 84%;
+    margin-right: 32px;
+    vertical-align: middle;
+    flex: 0 0 auto;
+    display: flex;
+}
+
+.concentration .matches-pictures img {
+    width: 100%;
+    border: 1px #E9EEEF solid;
+    border-radius: 7%;
+    flex: 0 0 auto;
+}
+
+.concentration .matches-pictures img:hover {
+    border: 1px #131C27 solid;
+    box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
+}
+
+.concentration .board-wrapper {
+    height: 80%;
+    width: 100%;
+}
+
+.concentration .board {
+    height: calc(100% - 32px);
+    width: calc(100% - 32px);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.concentration .board .board-row-wrapper {
+    height: calc((100% - 96px) / 4);
+    width: 100%;
+    margin: 12px 0;
+    flex: 0 0 auto;
+}
+
+.concentration .board .board-row {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.concentration .board img {
+    border: 1px transparent solid;
+    border-radius: 7%;
+    height: 100%;
+    max-width: calc((100% - 144px) / 6);
+    margin: 0 12px;
+    vertical-align: middle;
+    flex: 0 0 auto;
+}
+
+.concentration .board img.picture-front {
+    border: 1px #E9EEEF solid;
+    box-shadow: 0px 0px 4px 4px rgba(233, 238, 239, 0.5);
+}
+
+.concentration .board img.picture-back:hover {
+    border: 1px #131C27 solid;
+    box-shadow: 0px 0px 8px 8px rgba(19, 28, 39, 0.5);
     cursor: pointer;
+}
+
+.concentration .board img.picture-matched {
+    opacity: 0;
 }
 
 .footer {
@@ -179,6 +345,12 @@ max 500px   -   16px, x-small, 12px, xx-small
     margin: 12px;
     color: #E9EEEF;
     background: radial-gradient(rgba(19, 28, 39, 0.9), transparent);
+}
+
+.welcome .button-workbook a,
+.pagenotfound .button-home a,
+.workbook .table-cell-workbook a {
+    color: #131C27;
 }
 
 .header .icon:hover,
@@ -209,17 +381,61 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 28px;
     }
 
-    .footer {
-        font-size: large;
-    }
-
     .workbook {
         overflow-y: auto;
-        font-size: x-large;
     }
 
     .workbook .table-row-workbook {
         height: 280px;
+    }
+
+    .workbook .icon {
+        height: 36px;
+        width: 36px;
+    }
+
+    .workbook .text-worksheet {
+        font-size: xx-large;
+    }
+
+    .concentration .matches-wrapper {
+        height: 15%;
+    }
+
+    .concentration .matches-header {
+        font-size: x-large;
+    }
+
+    .concentration .matches-pictures a {
+        width: calc((100% - 96px) / 12);
+        margin-right: 8px;
+    }
+
+    .concentration .board-wrapper {
+        height: 85%;
+    }
+
+    .concentration .board .board-row-wrapper {
+        height: calc((100% - 36px) / 6);
+        margin: 3px 0;
+    }
+
+    .concentration .board img {
+        max-width: calc((100% - 24px) / 4);
+        margin: 0 3px;
+    }
+
+    .concentration .board img.picture-front {
+        border: 1px #E9EEEF solid;
+        box-shadow: 0px 0px 1px 1px rgba(233, 238, 239, 0.5);
+    }
+
+    .concentration .board img.picture-back:hover {
+        box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
+    }
+
+    .footer {
+        font-size: large;
     }
 }
 
@@ -229,13 +445,22 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 36px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: xx-large;
     }
 
     .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 32px;
         width: 32px;
+    }
+
+    .workbook .icon {
+        height: 40px;
+        width: 40px;
+    }
+
+    .workbook .text-worksheet {
+        font-size: xx-large;
     }
 
     .footer {
@@ -249,13 +474,27 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 24px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: medium;
     }
 
     .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 20px;
         width: 20px;
+    }
+
+    .workbook .icon {
+        height: 28px;
+        width: 28px;
+    }
+
+    .workbook .text-worksheet {
+        font-size: large;
+    }
+
+    .concentration .board .board-row-wrapper {
+        height: calc((100% - 72px) / 4);
+        margin: 9px 0;
     }
 
     .footer {
@@ -269,7 +508,7 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 20px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: small;
     }
 
@@ -278,14 +517,28 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 16px;
     }
 
-    .footer {
-        font-size: x-small;
-    }
-
     .workbook {
         top: 10%;
         bottom: 10%;
         height: 80%;
+    }
+
+    .workbook .icon {
+        height: 24px;
+        width: 24px;
+    }
+
+    .workbook .text-worksheet {
+        font-size: medium;
+    }
+
+    .concentration .board .board-row-wrapper {
+        height: calc((100% - 48px) / 4);
+        margin: 6px 0;
+    }
+
+    .footer {
+        font-size: x-small;
     }
 }
 
@@ -295,7 +548,7 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 16px;
     }
 
-    .welcome, .workbook, .pagenotfound {
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: x-small;
     }
 
@@ -304,13 +557,27 @@ max 500px   -   16px, x-small, 12px, xx-small
         width: 12px;
     }
 
-    .footer {
-        font-size: xx-small;
-    }
-
     .workbook {
         top: 12%;
         bottom: 12%;
         height: 76%;
+    }
+
+    .workbook .icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .workbook .text-worksheet {
+        font-size: small;
+    }
+
+    .concentration .board .board-row-wrapper {
+        height: calc((100% - 24px) / 4);
+        margin: 3px 0;
+    }
+
+    .footer {
+        font-size: xx-small;
     }
 }
