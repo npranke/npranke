@@ -4,6 +4,7 @@ import React from 'react'
 
 import App from '../../components/App'
 import Background from '../../components/Background'
+import Concentration from '../../components/Concentration'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import Welcome from '../../components/Welcome'
@@ -34,7 +35,7 @@ describe('App', () => {
 
         expect(
             app.find('Route'),
-        ).toHaveLength(5)
+        ).toHaveLength(6)
     })
 
     test('contains route with header component', () => {
@@ -69,11 +70,19 @@ describe('App', () => {
         ).toEqual(Workbook)
     })
 
-    test('contains route with pagenotfound component', () => {
+    test('contains route with concentration component', () => {
         const app = shallow(<App />)
 
         expect(
             app.find('Route').at(4).props().component,
+        ).toEqual(Concentration)
+    })
+
+    test('contains route with pagenotfound component', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('Route').at(5).props().component,
         ).toEqual(PageNotFound)
     })
 

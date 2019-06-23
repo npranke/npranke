@@ -27,6 +27,7 @@ def url_for_webpack_asset_processor():
 @app.route("/")
 @app.route("/home")
 @app.route("/workbook")
+@app.route("/workbook/concentration")
 def index():
     return render_template("index.html")
 
