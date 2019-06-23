@@ -61,7 +61,7 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
       >
         <td
           className="table-cell-workbook"
-          id="workbook-worksheet-b"
+          id="workbook-worksheet"
           onKeyUp={[Function]}
           role="gridcell"
         >
@@ -93,7 +93,7 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
                   <span
                     className="text-worksheet"
                   >
-                    Worksheet B
+                    Worksheet
                   </span>
                 </span>
               </span>
@@ -163,7 +163,7 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
         </td>
         <td
           className="table-cell-workbook"
-          id="workbook-worksheet-b"
+          id="workbook-worksheet"
           onKeyUp={[Function]}
           role="gridcell"
         >
@@ -195,7 +195,7 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
                   <span
                     className="text-worksheet"
                   >
-                    Worksheet B
+                    Worksheet
                   </span>
                 </span>
               </span>

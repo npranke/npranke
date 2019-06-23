@@ -12,7 +12,7 @@ export class Workbook extends React.Component {
         super(props)
 
         this.concentration = React.createRef()
-        this.worksheetB = React.createRef()
+        this.worksheet = React.createRef()
 
         this.getItemClickHandler = this.getItemClickHandler.bind(this)
         this.getItemKeyUpHandler = this.getItemKeyUpHandler.bind(this)
@@ -80,13 +80,13 @@ export class Workbook extends React.Component {
             </Link>
         )
 
-        const worksheetB = (
+        const worksheet = (
             <Link
-                onClick={ this.getItemClickHandler('worksheet b') }
+                onClick={ this.getItemClickHandler('worksheet') }
                 to="/workbook"
                 target="_self"
                 rel="noreferrer"
-                innerRef={ this.worksheetB }
+                innerRef={ this.worksheet }
             >
                 <div className="button-worksheet-container">
                     <span className="button-worksheet-wrapper">
@@ -97,7 +97,7 @@ export class Workbook extends React.Component {
                                 alt="Worksheet icon"
                             />
                             <span className="text-worksheet">
-                                Worksheet B
+                                Worksheet
                             </span>
                         </span>
                     </span>
@@ -115,9 +115,9 @@ export class Workbook extends React.Component {
                         this.concentration,
                         this.concentration,
                         this.concentration,
-                        this.worksheetB,
+                        this.worksheet,
                         this.concentration,
-                        this.worksheetB,
+                        this.worksheet,
                     ) }
                 >
                     { worksheetConcentration }
@@ -128,50 +128,50 @@ export class Workbook extends React.Component {
                     className="table-cell-workbook"
                     role="gridcell"
                     onKeyUp={ this.getItemKeyUpHandler(
-                        this.worksheetB,
+                        this.worksheet,
                         this.concentration,
                         this.concentration,
                         this.concentration,
                         this.concentration,
-                        this.worksheetB,
+                        this.worksheet,
                     ) }
                 >
                     { worksheetConcentration }
                 </td>
             )
 
-        const workbookTableCellWorksheetB = this.props.isPortrait
+        const workbookTableCellWorksheet = this.props.isPortrait
             ? (
                 <td
-                    id="workbook-worksheet-b"
+                    id="workbook-worksheet"
                     className="table-cell-workbook"
                     role="gridcell"
                     onKeyUp={ this.getItemKeyUpHandler(
-                        this.worksheetB,
-                        this.worksheetB,
+                        this.worksheet,
+                        this.worksheet,
                         this.concentration,
-                        this.worksheetB,
+                        this.worksheet,
                         this.concentration,
-                        this.worksheetB,
+                        this.worksheet,
                     ) }
                 >
-                    { worksheetB }
+                    { worksheet }
                 </td>
             ) : (
                 <td
-                    id="workbook-worksheet-b"
+                    id="workbook-worksheet"
                     className="table-cell-workbook"
                     role="gridcell"
                     onKeyUp={ this.getItemKeyUpHandler(
-                        this.worksheetB,
+                        this.worksheet,
                         this.concentration,
-                        this.worksheetB,
-                        this.worksheetB,
+                        this.worksheet,
+                        this.worksheet,
                         this.concentration,
-                        this.worksheetB,
+                        this.worksheet,
                     ) }
                 >
-                    { worksheetB }
+                    { worksheet }
                 </td>
             )
 
@@ -182,14 +182,14 @@ export class Workbook extends React.Component {
                         { workbookTableCellConcentration }
                     </tr>
                     <tr className="table-row-workbook">
-                        { workbookTableCellWorksheetB }
+                        { workbookTableCellWorksheet }
                     </tr>
                 </tbody>
             ) : (
                 <tbody className="table-body-workbook">
                     <tr className="table-row-workbook">
                         { workbookTableCellConcentration }
-                        { workbookTableCellWorksheetB }
+                        { workbookTableCellWorksheet }
                     </tr>
                 </tbody>
             )
