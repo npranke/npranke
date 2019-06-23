@@ -3,7 +3,7 @@ import React from 'react'
 
 import ConcentrationBoard from './ConcentrationBoard'
 import ConcentrationMatches from './ConcentrationMatches'
-import { getLocationPageTitle } from '../utils'
+import { getLocationPageTitle, getSendEventHandler, sendEvent } from '../utils'
 import Picture0 from '../../img/concentration-22332-pink-plateau.jpg'
 import Picture1 from '../../img/concentration-22512-blue-center.jpg'
 import Picture2 from '../../img/concentration-22585-teal-ripples.jpg'
@@ -62,6 +62,11 @@ export class Concentration extends React.Component {
                 pictureAccumulator[`picture${pictureid}`] = {
                     image: (
                         <a
+                            onClick={ getSendEventHandler(
+                                'concentration',
+                                'navigate',
+                                `PIA${pictureSources[pictureid].sourceid}`,
+                            ) }
                             href={
                                 'https://www.jpl.nasa.gov/spaceimages/'
                                 + 'details.php?'
@@ -220,6 +225,8 @@ export class Concentration extends React.Component {
 
     pictureClickHandler(event) {
         const { id, pictureid } = event.currentTarget.dataset
+
+        sendEvent('concentration', 'click', 'picture')
 
         this.setState((state) => {
             if (state.first.id === null) {

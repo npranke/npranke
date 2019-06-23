@@ -4,6 +4,8 @@ import React from 'react'
 
 import { Concentration } from '../../components/Concentration'
 
+jest.mock('../../utils')
+
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('Concentration', () => {
