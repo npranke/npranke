@@ -40,15 +40,19 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
                 <span
                   className="button-worksheet"
                 >
-                  <img
-                    alt="Concentration icon"
-                    className="icon icon-concentration"
-                    src="image-mock"
-                  />
                   <span
-                    className="text-worksheet text-concentration"
+                    className="button-worksheet-inner"
                   >
-                    Concentration
+                    <img
+                      alt="Concentration icon"
+                      className="icon icon-concentration"
+                      src="image-mock"
+                    />
+                    <span
+                      className="text-worksheet"
+                    >
+                      Concentration
+                    </span>
                   </span>
                 </span>
               </span>
@@ -85,15 +89,19 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
                 <span
                   className="button-worksheet"
                 >
-                  <img
-                    alt="Worksheet icon"
-                    className="icon icon-worksheet"
-                    src="image-mock"
-                  />
                   <span
-                    className="text-worksheet"
+                    className="button-worksheet-inner"
                   >
-                    Worksheet
+                    <img
+                      alt="Worksheet icon"
+                      className="icon icon-worksheet"
+                      src="image-mock"
+                    />
+                    <span
+                      className="text-worksheet"
+                    >
+                      Worksheet
+                    </span>
                   </span>
                 </span>
               </span>
@@ -146,15 +154,19 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
                 <span
                   className="button-worksheet"
                 >
-                  <img
-                    alt="Concentration icon"
-                    className="icon icon-concentration"
-                    src="image-mock"
-                  />
                   <span
-                    className="text-worksheet text-concentration"
+                    className="button-worksheet-inner"
                   >
-                    Concentration
+                    <img
+                      alt="Concentration icon"
+                      className="icon icon-concentration"
+                      src="image-mock"
+                    />
+                    <span
+                      className="text-worksheet"
+                    >
+                      Concentration
+                    </span>
                   </span>
                 </span>
               </span>
@@ -187,15 +199,19 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
                 <span
                   className="button-worksheet"
                 >
-                  <img
-                    alt="Worksheet icon"
-                    className="icon icon-worksheet"
-                    src="image-mock"
-                  />
                   <span
-                    className="text-worksheet"
+                    className="button-worksheet-inner"
                   >
-                    Worksheet
+                    <img
+                      alt="Worksheet icon"
+                      className="icon icon-worksheet"
+                      src="image-mock"
+                    />
+                    <span
+                      className="text-worksheet"
+                    >
+                      Worksheet
+                    </span>
                   </span>
                 </span>
               </span>
