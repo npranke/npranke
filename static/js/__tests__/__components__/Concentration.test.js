@@ -3,6 +3,7 @@ import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
 
 import { Concentration } from '../../components/Concentration'
+import { getSendEventHandler, sendEvent } from '../../utils'
 
 jest.mock('../../utils')
 
@@ -80,6 +81,70 @@ describe('Concentration', () => {
         expect(
             concentration.state('isTimeRunning'),
         ).toBe(true)
+    })
+
+    describe('sending concentration events', () => {
+        afterEach(() => {
+            getSendEventHandler.mockReset()
+            sendEvent.mockReset()
+        })
+
+        test('when picture is clicked', () => {
+            const concentration = mount(<Concentration />)
+
+            concentration.find('.picture-back').first().simulate('click')
+
+            expect(
+                sendEvent,
+            ).toHaveBeenNthCalledWith(
+                1,
+                'concentration',
+                'click',
+                'picture',
+            )
+        })
+
+        test('when match is clicked', () => {
+            const concentration = mount(<Concentration />)
+
+            const pictureid = concentration.find(
+                '.picture-back',
+            ).first().props()['data-pictureid']
+
+            concentration.setState({
+                first: {
+                    id: `${pictureid}-x`,
+                    pictureid,
+                },
+            })
+
+            concentration.find('.picture-back').first().simulate('click')
+
+            expect(
+                sendEvent,
+            ).toHaveBeenNthCalledWith(
+                2,
+                'concentration',
+                'find',
+                'match',
+            )
+        })
+
+        test('when matches picture is clicked', () => {
+            mount(<Concentration />)
+
+            expect(
+                getSendEventHandler,
+            ).toHaveBeenCalledTimes(12)
+            expect(
+                getSendEventHandler,
+            ).toHaveBeenNthCalledWith(
+                1,
+                'concentration',
+                'navigate',
+                'PIA22332',
+            )
+        })
     })
 
     describe('pictureClickHandler()', () => {
