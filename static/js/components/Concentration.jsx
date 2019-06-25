@@ -238,7 +238,7 @@ export class Concentration extends React.Component {
             } else if (
                 state.second.id === null && state.first.pictureid === pictureid
             ) {
-                sendEvent('concentration', 'found', 'match')
+                sendEvent('concentration', 'find', 'match')
 
                 this.pictureTimeout = setTimeout(() => {
                     this.setState({
