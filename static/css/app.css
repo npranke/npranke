@@ -9,12 +9,12 @@ icon only       -   27% 12% / 7% 32%
 icon and label  -   37% 22% / 17% 42%
 main content    -   7% 12% / 2% 5%
 
-max 5/8     -   36px, xx-large, 32px, xx-large, 40px, x-large
-portrait    -   32px, x-large, 28px, xx-large, 36px, large
-default     -   28px, large, 24px, x-large, 32px, medium
-max 900px   -   24px, medium, 20px, large,, 28px, small
-max 700px   -   20px, small, 16px, medium, 24px, x-small
-max 500px   -   16px, x-small, 12px, small, 20px, xx-small
+max 5/8     -   28px, x-large,  32px, xx-large, 36px, xx-large, 40px
+portrait    -   24px, large,    28px, x-large,  32px, xx-large, 36px
+default     -   20px, medium,   24px, large,    28px, x-large,  32px
+max 900px   -   16px, small,    20px, medium,   24px, large,    28px
+max 700px   -   12px, x-small,  16px, small,    20px, medium,   24px
+max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 */
 
 .app {
