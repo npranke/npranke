@@ -97,7 +97,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     left: 0;
     right: 0;
     margin: 12px;
-    max-height: 50%;
+    max-height: 80%;
     overflow-y: auto;
     overflow-wrap: break-word;
     line-height: 1.5;
