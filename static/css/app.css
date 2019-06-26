@@ -197,11 +197,52 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     font-size: x-large;
 }
 
-.workbook-concentration {
+.worksheet-container {
     background: rgba(233, 238, 239, 0.7);
+    overflow: hidden;
 }
 
-.workbook .concentration {
+.worksheet-header {
+    height: 6%;
+    background: rgba(233, 238, 239, 0.9);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.worksheet-header .section-button-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.worksheet-header .section-button-wrapper .local-nav-link {
+    border: 1px transparent solid;
+    border-radius: 37% 22% / 17% 42%;
+    background-clip: padding-box;
+    padding: 4px;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.worksheet-header .section-button-wrapper .local-nav-link.active {
+    border: 1px #131C27 solid;
+}
+
+.worksheet-header .icon {
+    height: 22px;
+    width: 20px;
+    margin: 2px 4px 2px 2px;
+    vertical-align: middle;
+}
+
+.worksheet-section {
+    height: 94%;
+}
+
+.concentration {
     height: 100%;
 }
 
@@ -266,7 +307,6 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     min-height: 76%;
     max-height: 84%;
     margin-right: 32px;
-    vertical-align: middle;
     flex: 0 0 auto;
     display: flex;
 }
@@ -314,7 +354,6 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     height: 100%;
     max-width: calc((100% - 144px) / 6);
     margin: 0 12px;
-    vertical-align: middle;
     flex: 0 0 auto;
 }
 
@@ -351,14 +390,16 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
 .welcome .button-workbook a,
 .pagenotfound .button-home a,
-.workbook .table-cell-workbook a {
+.workbook .table-cell-workbook a,
+.worksheet-header .section-button-wrapper a {
     color: #131C27;
 }
 
 @media (hover: hover) {
     .header .icon:hover,
     .welcome .button-workbook:hover,
-    .pagenotfound .button-home:hover {
+    .pagenotfound .button-home:hover,
+    .workbook .table-cell-workbook:hover .button-worksheet-inner {
         border: 1px #131C27 solid;
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
         background: radial-gradient(rgba(233, 238, 239, 0.9), transparent);
@@ -366,9 +407,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
     .workbook .table-cell-workbook:hover {
         border: 1px #E9EEEF solid;
-        box-shadow: 0px 0px 8px 8px rgba(233, 238, 239, 0.9);
+        box-shadow: 0px 0px 4px 4px rgba(233, 238, 239, 0.9);
     }
 
+    .worksheet-header .section-button-wrapper .local-nav-link:hover,
     .concentration .matches-pictures img:hover {
         border: 1px #131C27 solid;
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
@@ -376,6 +418,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 @media (orientation: portrait) {
+    .app {
+        font-size: large;
+    }
+
     .header .icon {
         height: 32px;
         width: 32px;
@@ -407,12 +453,17 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: xx-large;
     }
 
-    .concentration .matches-wrapper {
-        height: 15%;
+    .worksheet-header .icon {
+        height: 24px;
+        width: 24px;
     }
 
     .concentration .matches-header {
         font-size: x-large;
+    }
+
+    .concentration .matches-wrapper {
+        height: 15%;
     }
 
     .concentration .matches-pictures a {
@@ -442,13 +493,13 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .concentration .board img.picture-back:hover {
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
     }
-
-    .footer {
-        font-size: large;
-    }
 }
 
 @media (max-aspect-ratio: 5/8) {
+    .app {
+        font-size: x-large;
+    }
+
     .header .icon {
         height: 36px;
         width: 36px;
@@ -476,12 +527,17 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: xx-large;
     }
 
-    .footer {
-        font-size: x-large;
+    .worksheet-header .icon {
+        height: 28px;
+        width: 28px;
     }
 }
 
 @media (max-height: 900px) {
+    .app {
+        font-size: small;
+    }
+
     .header .icon {
         height: 24px;
         width: 24px;
@@ -509,17 +565,22 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: large;
     }
 
+    .worksheet-header .icon {
+        height: 16px;
+        width: 16px;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 72px) / 4);
         margin: 9px 0;
     }
-
-    .footer {
-        font-size: small;
-    }
 }
 
 @media (max-height: 700px) {
+    .app {
+        font-size: x-small;
+    }
+
     .header .icon {
         height: 20px;
         width: 20px;
@@ -553,17 +614,22 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: medium;
     }
 
+    .worksheet-header .icon {
+        height: 12px;
+        width: 12px;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 48px) / 4);
         margin: 6px 0;
     }
-
-    .footer {
-        font-size: x-small;
-    }
 }
 
 @media (max-height: 500px) {
+    .app {
+        font-size: xx-small;
+    }
+
     .header .icon {
         height: 16px;
         width: 16px;
@@ -597,12 +663,13 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: small;
     }
 
+    .worksheet-header .icon {
+        height: 8px;
+        width: 8px;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 24px) / 4);
         margin: 3px 0;
-    }
-
-    .footer {
-        font-size: xx-small;
     }
 }
