@@ -66,8 +66,8 @@ ConcentrationMatches.propTypes = {
     minutes: PropTypes.string,
     pictures: PropTypes.objectOf(
         PropTypes.shape({
-            image: PropTypes.node,
-        }),
+            image: PropTypes.node.isRequired,
+        }).isRequired,
     ).isRequired,
     seconds: PropTypes.string,
 }
