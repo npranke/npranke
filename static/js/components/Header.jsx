@@ -107,7 +107,7 @@ function Header(props) {
                         ) }
                         href="https://github.com/npranke"
                         target="_blank"
-                        rel="noreferrer noopener"
+                        rel="noreferrer noopener external"
                         title="GitHub"
                         aria-label="GitHub"
                     >
@@ -127,7 +127,7 @@ function Header(props) {
                         ) }
                         href="https://www.linkedin.com/in/npranke"
                         target="_blank"
-                        rel="noreferrer noopener"
+                        rel="noreferrer noopener external"
                         title="LinkedIn"
                         aria-label="LinkedIn"
                     >
