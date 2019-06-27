@@ -20,7 +20,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22332"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -35,7 +35,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22512"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -50,7 +50,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23233"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -65,7 +65,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23239"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -80,7 +80,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22585"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -95,7 +95,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22594"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -110,7 +110,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23056"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -125,7 +125,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23080"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -140,7 +140,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23103"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -155,7 +155,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23183"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -170,7 +170,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23184"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img
@@ -185,7 +185,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
               "image": <a
                 aria-label="NASA/JPL Space Images"
                 href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23231"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener external"
                 target="_blank"
               >
                 <img

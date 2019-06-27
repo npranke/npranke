@@ -73,7 +73,7 @@ export class Concentration extends React.Component {
                                 + `id=PIA${pictureSources[pictureid].sourceid}`
                             }
                             target="_blank"
-                            rel="noreferrer noopener"
+                            rel="noreferrer noopener external"
                             aria-label="NASA/JPL Space Images"
                         >
                             <img
