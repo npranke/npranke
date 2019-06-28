@@ -87,6 +87,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     border: 2px #131C27 ridge;
     border-radius: 7% 12% / 2% 5%;
     background-clip: padding-box;
+    background: rgba(233, 238, 239, 0.3);
     text-align: left;
     font-size: large;
 }
@@ -198,7 +199,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-container {
-    background: rgba(233, 238, 239, 0.7);
+    background: rgba(233, 238, 239, 0.5);
     overflow: hidden;
 }
 
@@ -253,7 +254,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-section.info-container .worksheet-info-inner {
-    background: rgba(233, 238, 239, 0.8);
+    background: rgba(233, 238, 239, 0.7);
     background-clip: padding-box;
     border-radius: 7% 12% / 2% 5%;
     overflow-wrap: break-word;
