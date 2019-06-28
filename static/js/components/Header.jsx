@@ -36,7 +36,7 @@ function Header(props) {
                 to="/home"
                 target="_self"
                 rel="noreferrer"
-                className="nav-link nav-link-home"
+                className="navlink navlink-home"
                 title="Home"
                 aria-label="Home"
             >
@@ -75,7 +75,7 @@ function Header(props) {
                 to="/workbook"
                 target="_self"
                 rel="noreferrer"
-                className="nav-link nav-link-workbook"
+                className="navlink navlink-workbook"
                 title="Workbook"
                 aria-label="Workbook"
             >

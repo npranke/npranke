@@ -72,7 +72,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     padding: 2px;
 }
 
-.header .nav-link.active .icon {
+.header .navlink.active .icon {
     border: 1px #131C27 solid;
 }
 
@@ -218,7 +218,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     justify-content: center;
 }
 
-.worksheet-header .section-button .local-nav-link {
+.worksheet-header .section-button .local-navlink {
     border: 1px transparent solid;
     border-radius: 37% 22% / 17% 42%;
     background-clip: padding-box;
@@ -227,7 +227,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     flex: 0 0 auto;
 }
 
-.worksheet-header .section-button .local-nav-link.active {
+.worksheet-header .section-button .local-navlink.active {
     border: 1px #131C27 solid;
 }
 
@@ -440,7 +440,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         box-shadow: 0px 0px 4px 4px rgba(233, 238, 239, 0.9);
     }
 
-    .worksheet-header .section-button .local-nav-link:hover,
+    .worksheet-header .section-button .local-navlink:hover,
     .concentration .matches-pictures img:hover {
         border: 1px #131C27 solid;
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);

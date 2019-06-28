@@ -12,7 +12,7 @@ exports[`Header snapshot matches snapshot when not pagenotfound 1`] = `
     >
       <NavLink
         aria-label="Home"
-        className="nav-link nav-link-home"
+        className="navlink navlink-home"
         exact={true}
         onClick={[Function]}
         rel="noreferrer"
@@ -36,7 +36,7 @@ exports[`Header snapshot matches snapshot when not pagenotfound 1`] = `
     >
       <NavLink
         aria-label="Workbook"
-        className="nav-link nav-link-workbook"
+        className="navlink navlink-workbook"
         exact={true}
         onClick={[Function]}
         rel="noreferrer"
