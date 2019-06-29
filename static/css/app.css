@@ -267,15 +267,15 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-section.gist-container {
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
 
 .worksheet-section.gist-container iframe#worksheet-gist {
-    min-height: calc(100% - 114px);
-    max-height: calc(100% - 114px);
-    width: calc(100% - 104px);
+    min-height: calc(100% - 108px);
+    max-height: calc(100% - 108px);
+    min-width: calc(100% - 108px);
+    max-width: calc(100% - 108px);
     margin: 48px;
     border: 4px #131C27 solid;
 }
@@ -625,9 +625,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 90px);
-        max-height: calc(100% - 90px);
-        width: calc(100% - 80px);
+        min-height: calc(100% - 84px);
+        max-height: calc(100% - 84px);
+        min-width: calc(100% - 84px);
+        max-width: calc(100% - 84px);
         margin: 36px;
     }
 
@@ -693,9 +694,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 66px);
-        max-height: calc(100% - 66px);
-        width: calc(100% - 56px);
+        min-height: calc(100% - 58px);
+        max-height: calc(100% - 58px);
+        min-width: calc(100% - 58px);
+        max-width: calc(100% - 58px);
         margin: 24px;
     }
 
@@ -761,9 +763,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 42px);
-        max-height: calc(100% - 42px);
-        width: calc(100% - 32px);
+        min-height: calc(100% - 34px);
+        max-height: calc(100% - 34px);
+        min-width: calc(100% - 34px);
+        max-width: calc(100% - 34px);
         margin: 12px;
     }
 
