@@ -270,6 +270,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     width: calc(100% - 96px);
     height: calc(94% - 96px);
     padding: 48px;
+    overflow: auto;
 }
 
 .worksheet-section.gist-container iframe#worksheet-gist {
