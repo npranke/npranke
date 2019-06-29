@@ -124,13 +124,17 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
     role="tabpanel"
     tabIndex="0"
   >
-    <iframe
-      id="worksheet-gist"
-      referrerPolicy="no-referrer"
-      sandbox="allow-scripts allow-top-navigation"
-      src="/gists/component"
-      title="Component gist"
-    />
+    <div
+      className="worksheet-gist"
+    >
+      <iframe
+        id="worksheet-gist"
+        referrerPolicy="no-referrer"
+        sandbox="allow-scripts allow-top-navigation"
+        src="/gists/component"
+        title="Component gist"
+      />
+    </div>
   </div>
 </main>
 `;
