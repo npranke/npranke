@@ -200,8 +200,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
 .worksheet-container {
     background: rgba(233, 238, 239, 0.5);
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .worksheet-header {
@@ -268,15 +267,16 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-section.gist-container {
+    overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
 .worksheet-section.gist-container iframe#worksheet-gist {
-    min-height: calc(100% - 100px);
-    max-height: calc(100% - 100px);
-    width: calc(100% - 100px);
-    padding: 48px;
-    overflow: hidden;
+    min-height: calc(100% - 114px);
+    max-height: calc(100% - 114px);
+    width: calc(100% - 104px);
+    margin: 48px;
     border: 4px #131C27 solid;
 }
 
@@ -625,10 +625,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 76px);
-        max-height: calc(100% - 76px);
-        width: calc(100% - 76px);
-        padding: 36px;
+        min-height: calc(100% - 90px);
+        max-height: calc(100% - 90px);
+        width: calc(100% - 80px);
+        margin: 36px;
     }
 
     .concentration .board .board-row-wrapper {
@@ -693,10 +693,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 52px);
-        max-height: calc(100% - 52px);
-        width: calc(100% - 52px);
-        padding: 24px;
+        min-height: calc(100% - 66px);
+        max-height: calc(100% - 66px);
+        width: calc(100% - 56px);
+        margin: 24px;
     }
 
     .concentration .board .board-row-wrapper {
@@ -761,10 +761,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 28px);
-        max-height: calc(100% - 28px);
-        width: calc(100% - 28px);
-        padding: 12px;
+        min-height: calc(100% - 42px);
+        max-height: calc(100% - 42px);
+        width: calc(100% - 32px);
+        margin: 12px;
     }
 
     .concentration .board .board-row-wrapper {
