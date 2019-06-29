@@ -316,7 +316,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     text-align: right;
 }
 
+.concentration .matches-header .turns-text {
+    padding-left: 24px;
+}
+
 .concentration .matches-header .time-portion,
+.concentration .matches-header .turns-portion,
 .concentration .matches-header .matches-portion {
     flex: 0 0 auto;
 }

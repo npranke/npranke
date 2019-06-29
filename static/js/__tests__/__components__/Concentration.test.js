@@ -238,6 +238,28 @@ describe('Concentration', () => {
             ).toEqual({ id: null, pictureid: null })
         })
 
+        test('increments turns when match', () => {
+            const concentration = shallow(<Concentration />)
+
+            concentration.setState({
+                first: { id: '5-a', pictureid: '5' },
+                turns: 3,
+            })
+
+            concentration.instance().pictureClickHandler({
+                currentTarget: {
+                    dataset: {
+                        id: '5-b',
+                        pictureid: '5',
+                    },
+                },
+            })
+
+            expect(
+                concentration.state('turns'),
+            ).toEqual(4)
+        })
+
         test('pictureTimeout sets displayedMatches when match', () => {
             jest.useFakeTimers()
 
@@ -361,6 +383,28 @@ describe('Concentration', () => {
             expect(
                 concentration.state('displayedMatches'),
             ).toEqual(['4', '11'])
+        })
+
+        test('increments turns when not match', () => {
+            const concentration = shallow(<Concentration />)
+
+            concentration.setState({
+                first: { id: '5-b', pictureid: '5' },
+                turns: 5,
+            })
+
+            concentration.instance().pictureClickHandler({
+                currentTarget: {
+                    dataset: {
+                        id: '7-a',
+                        pictureid: '7',
+                    },
+                },
+            })
+
+            expect(
+                concentration.state('turns'),
+            ).toEqual(6)
         })
 
         test('sets first and resets second when new picture', () => {

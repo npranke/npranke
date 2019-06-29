@@ -43,6 +43,7 @@ export class Concentration extends React.Component {
             centiseconds: '00',
             seconds: '00',
             minutes: '00',
+            turns: 0,
             internalMatches: [],
             displayedMatches: [],
             first: { id: null, pictureid: null },
@@ -250,6 +251,7 @@ export class Concentration extends React.Component {
                 }, 1000)
 
                 return {
+                    turns: state.turns + 1,
                     second: { id, pictureid },
                     internalMatches: state.internalMatches.concat([pictureid]),
                     displayedMatches: state.internalMatches,
@@ -268,6 +270,7 @@ export class Concentration extends React.Component {
                 }, 2000)
 
                 return {
+                    turns: state.turns + 1,
                     second: { id, pictureid },
                     displayedMatches: state.internalMatches,
                     isTimeRunning: true,
@@ -307,6 +310,7 @@ export class Concentration extends React.Component {
                             centiseconds={ this.state.centiseconds }
                             minutes={ this.state.minutes }
                             seconds={ this.state.seconds }
+                            turns={ this.state.turns }
                         />
                     </div>
                     <div className="board-wrapper">
