@@ -9,12 +9,12 @@ icon only       -   27% 12% / 7% 32%
 icon and label  -   37% 22% / 17% 42%
 main content    -   7% 12% / 2% 5%
 
-max 5/8     -   36px, xx-large, 32px, xx-large, 40px, x-large
-portrait    -   32px, x-large, 28px, xx-large, 36px, large
-default     -   28px, large, 24px, x-large, 32px, medium
-max 900px   -   24px, medium, 20px, large,, 28px, small
-max 700px   -   20px, small, 16px, medium, 24px, x-small
-max 500px   -   16px, x-small, 12px, small, 20px, xx-small
+max 5/8     -   28px, x-large,  32px, xx-large, 36px, xx-large, 40px
+portrait    -   24px, large,    28px, x-large,  32px, xx-large, 36px
+default     -   20px, medium,   24px, large,    28px, x-large,  32px
+max 900px   -   16px, small,    20px, medium,   24px, large,    28px
+max 700px   -   12px, x-small,  16px, small,    20px, medium,   24px
+max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 */
 
 .app {
@@ -72,7 +72,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     padding: 2px;
 }
 
-.header .nav-link.active .icon {
+.header .navlink.active .icon {
     border: 1px #131C27 solid;
 }
 
@@ -87,6 +87,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     border: 2px #131C27 ridge;
     border-radius: 7% 12% / 2% 5%;
     background-clip: padding-box;
+    background: rgba(233, 238, 239, 0.3);
     text-align: left;
     font-size: large;
 }
@@ -97,7 +98,7 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     left: 0;
     right: 0;
     margin: 12px;
-    max-height: 50%;
+    max-height: 80%;
     overflow-y: auto;
     overflow-wrap: break-word;
     line-height: 1.5;
@@ -177,6 +178,13 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     vertical-align: middle;
 }
 
+.workbook .button-worksheet-inner {
+    border: 1px transparent solid;
+    border-radius: 37% 22% / 17% 42%;
+    background-clip: padding-box;
+    padding: 20px;
+}
+
 .workbook .icon {
     height: 32px;
     width: 32px;
@@ -190,11 +198,82 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     font-size: x-large;
 }
 
-.workbook-concentration {
-    background: rgba(233, 238, 239, 0.7);
+.worksheet-container {
+    background: rgba(233, 238, 239, 0.5);
+    overflow: hidden;
 }
 
-.workbook .concentration {
+.worksheet-header {
+    height: 6%;
+    background: rgba(233, 238, 239, 0.9);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.worksheet-header .section-button {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.worksheet-header .section-button .local-navlink {
+    border: 1px transparent solid;
+    border-radius: 37% 22% / 17% 42%;
+    background-clip: padding-box;
+    padding: 2px;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.worksheet-header .section-button .local-navlink.active {
+    border: 1px #131C27 solid;
+}
+
+.worksheet-header .icon {
+    height: 22px;
+    width: 20px;
+    margin: 2px 4px 2px 2px;
+    vertical-align: middle;
+}
+
+.worksheet-section {
+    height: 94%;
+}
+
+.worksheet-section.info-container {
+    font-size: large;
+}
+
+.worksheet-section.info-container .worksheet-info {
+    padding: 48px;
+    max-height: calc(100% - 96px);
+    overflow-y: auto;
+}
+
+.worksheet-section.info-container .worksheet-info-inner {
+    background: rgba(233, 238, 239, 0.7);
+    background-clip: padding-box;
+    border-radius: 7% 12% / 2% 5%;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    border: 8px #E9EEEF solid;
+}
+
+.worksheet-section.info-container .worksheet-info p {
+    margin: 48px 24px;
+}
+
+.worksheet-section.gist-container iframe#worksheet-gist {
+    width: calc(100% - 96px);
+    height: calc(100% - 96px);
+    border: none;
+    padding: 48px;
+}
+
+.concentration {
     height: 100%;
 }
 
@@ -237,7 +316,12 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     text-align: right;
 }
 
+.concentration .matches-header .turns-text {
+    padding-left: 24px;
+}
+
 .concentration .matches-header .time-portion,
+.concentration .matches-header .turns-portion,
 .concentration .matches-header .matches-portion {
     flex: 0 0 auto;
 }
@@ -259,7 +343,6 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     min-height: 76%;
     max-height: 84%;
     margin-right: 32px;
-    vertical-align: middle;
     flex: 0 0 auto;
     display: flex;
 }
@@ -307,7 +390,6 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     height: 100%;
     max-width: calc((100% - 144px) / 6);
     margin: 0 12px;
-    vertical-align: middle;
     flex: 0 0 auto;
 }
 
@@ -344,14 +426,16 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
 
 .welcome .button-workbook a,
 .pagenotfound .button-home a,
-.workbook .table-cell-workbook a {
+.workbook .table-cell-workbook a,
+.worksheet-header .section-button a {
     color: #131C27;
 }
 
 @media (hover: hover) {
     .header .icon:hover,
     .welcome .button-workbook:hover,
-    .pagenotfound .button-home:hover {
+    .pagenotfound .button-home:hover,
+    .workbook .table-cell-workbook:hover .button-worksheet-inner {
         border: 1px #131C27 solid;
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
         background: radial-gradient(rgba(233, 238, 239, 0.9), transparent);
@@ -359,9 +443,10 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
 
     .workbook .table-cell-workbook:hover {
         border: 1px #E9EEEF solid;
-        box-shadow: 0px 0px 8px 8px rgba(233, 238, 239, 0.9);
+        box-shadow: 0px 0px 4px 4px rgba(233, 238, 239, 0.9);
     }
 
+    .worksheet-header .section-button .local-navlink:hover,
     .concentration .matches-pictures img:hover {
         border: 1px #131C27 solid;
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
@@ -369,6 +454,10 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
 }
 
 @media (orientation: portrait) {
+    .app {
+        font-size: large;
+    }
+
     .header .icon {
         height: 32px;
         width: 32px;
@@ -379,6 +468,9 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         margin-left: 12%;
         top: 24%;
         height: 18%;
+    }
+
+    .welcome, .pagenotfound, .concentration .matches-header {
         font-size: x-large;
     }
 
@@ -387,12 +479,8 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         width: 28px;
     }
 
-    .workbook {
-        overflow-y: auto;
-    }
-
-    .workbook .table-row-workbook {
-        height: 280px;
+    .workbook .button-worksheet-inner {
+        padding: 24px;
     }
 
     .workbook .icon {
@@ -404,12 +492,13 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         font-size: xx-large;
     }
 
-    .concentration .matches-wrapper {
-        height: 15%;
+    .worksheet-header .icon {
+        height: 24px;
+        width: 24px;
     }
 
-    .concentration .matches-header {
-        font-size: x-large;
+    .concentration .matches-wrapper {
+        height: 15%;
     }
 
     .concentration .matches-pictures a {
@@ -439,13 +528,13 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
     .concentration .board img.picture-back:hover {
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
     }
-
-    .footer {
-        font-size: large;
-    }
 }
 
 @media (max-aspect-ratio: 5/8) {
+    .app {
+        font-size: x-large;
+    }
+
     .header .icon {
         height: 36px;
         width: 36px;
@@ -460,6 +549,10 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         width: 32px;
     }
 
+    .workbook .button-worksheet-inner {
+        padding: 28px;
+    }
+
     .workbook .icon {
         height: 40px;
         width: 40px;
@@ -469,24 +562,36 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         font-size: xx-large;
     }
 
-    .footer {
-        font-size: x-large;
+    .worksheet-header .icon {
+        height: 28px;
+        width: 28px;
     }
 }
 
 @media (max-height: 900px) {
+    .app {
+        font-size: small;
+    }
+
     .header .icon {
         height: 24px;
         width: 24px;
     }
 
-    .welcome, .pagenotfound, .concentration .matches-header {
+    .welcome,
+    .pagenotfound,
+    .concentration .matches-header,
+    .worksheet-section.info-container {
         font-size: medium;
     }
 
     .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 20px;
         width: 20px;
+    }
+
+    .workbook .button-worksheet-inner {
+        padding: 16px;
     }
 
     .workbook .icon {
@@ -498,23 +603,46 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         font-size: large;
     }
 
+    .worksheet-header .icon {
+        height: 16px;
+        width: 16px;
+    }
+
+    .worksheet-section.info-container .worksheet-info {
+        padding: 36px;
+        max-height: calc(100% - 72px);
+    }
+
+    .worksheet-section.info-container .worksheet-info p {
+        margin: 40px 20px;
+    }
+
+    .worksheet-section.gist-container iframe#worksheet-gist {
+        width: calc(100% - 72px);
+        height: calc(100% - 72px);
+        padding: 36px;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 72px) / 4);
         margin: 9px 0;
     }
-
-    .footer {
-        font-size: small;
-    }
 }
 
 @media (max-height: 700px) {
+    .app {
+        font-size: x-small;
+    }
+
     .header .icon {
         height: 20px;
         width: 20px;
     }
 
-    .welcome, .pagenotfound, .concentration .matches-header {
+    .welcome,
+    .pagenotfound,
+    .concentration .matches-header,
+    .worksheet-section.info-container {
         font-size: small;
     }
 
@@ -529,6 +657,10 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         height: 80%;
     }
 
+    .workbook .button-worksheet-inner {
+        padding: 12px;
+    }
+
     .workbook .icon {
         height: 24px;
         width: 24px;
@@ -538,23 +670,46 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         font-size: medium;
     }
 
+    .worksheet-header .icon {
+        height: 12px;
+        width: 12px;
+    }
+
+    .worksheet-section.info-container .worksheet-info{
+        padding: 24px;
+        max-height: calc(100% - 48px);
+    }
+
+    .worksheet-section.info-container .worksheet-info p {
+        margin: 32px 16px;
+    }
+
+    .worksheet-section.gist-container iframe#worksheet-gist {
+        width: calc(100% - 48px);
+        height: calc(100% - 48px);
+        padding: 24px;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 48px) / 4);
         margin: 6px 0;
     }
-
-    .footer {
-        font-size: x-small;
-    }
 }
 
 @media (max-height: 500px) {
+    .app {
+        font-size: xx-small;
+    }
+
     .header .icon {
         height: 16px;
         width: 16px;
     }
 
-    .welcome, .pagenotfound, .concentration .matches-header {
+    .welcome,
+    .pagenotfound,
+    .concentration .matches-header,
+    .worksheet-section.info-container {
         font-size: x-small;
     }
 
@@ -569,6 +724,10 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         height: 76%;
     }
 
+    .workbook .button-worksheet-inner {
+        padding: 8px;
+    }
+
     .workbook .icon {
         height: 20px;
         width: 20px;
@@ -578,12 +737,28 @@ max 500px   -   16px, x-small, 12px, small, 20px, xx-small
         font-size: small;
     }
 
+    .worksheet-header .icon {
+        height: 8px;
+        width: 8px;
+    }
+
+    .worksheet-section.info-container .worksheet-info {
+        padding: 12px;
+        max-height: calc(100% - 24px);
+    }
+
+    .worksheet-section.info-container .worksheet-info p {
+        margin: 24px 12px;
+    }
+
+    .worksheet-section.gist-container iframe#worksheet-gist {
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+        padding: 12px;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 24px) / 4);
         margin: 3px 0;
-    }
-
-    .footer {
-        font-size: xx-small;
     }
 }

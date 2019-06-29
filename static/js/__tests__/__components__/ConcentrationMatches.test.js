@@ -86,6 +86,45 @@ describe('ConcentrationMatches', () => {
         ).toEqual('12')
     })
 
+    test('shows turns number when less than 10', () => {
+        const concentrationMatches = shallow(
+            <ConcentrationMatches
+                pictures={ pictures }
+                turns={ 6 }
+            />,
+        )
+
+        expect(
+            concentrationMatches.find('.turns-portion.number').text(),
+        ).toEqual('06')
+    })
+
+    test('shows turns number when 10', () => {
+        const concentrationMatches = shallow(
+            <ConcentrationMatches
+                pictures={ pictures }
+                turns={ 10 }
+            />,
+        )
+
+        expect(
+            concentrationMatches.find('.turns-portion.number').text(),
+        ).toEqual('10')
+    })
+
+    test('shows turns number when more than 10', () => {
+        const concentrationMatches = shallow(
+            <ConcentrationMatches
+                pictures={ pictures }
+                turns={ 23 }
+            />,
+        )
+
+        expect(
+            concentrationMatches.find('.turns-portion.number').text(),
+        ).toEqual('23')
+    })
+
     test('has time-portion sections', () => {
         const concentrationMatches = shallow(
             <ConcentrationMatches pictures={ pictures } />,

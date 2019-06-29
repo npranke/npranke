@@ -64,15 +64,15 @@ export class Workbook extends React.Component {
                 <div className="button-worksheet-container">
                     <span className="button-worksheet-wrapper">
                         <span className="button-worksheet">
-                            <img
-                                src={ Concentration }
-                                className="icon icon-concentration"
-                                alt="Concentration icon"
-                            />
-                            <span
-                                className="text-worksheet text-concentration"
-                            >
-                                Concentration
+                            <span className="button-worksheet-inner">
+                                <img
+                                    src={ Concentration }
+                                    className="icon icon-concentration"
+                                    alt="Concentration icon"
+                                />
+                                <span className="text-worksheet">
+                                    Concentration
+                                </span>
                             </span>
                         </span>
                     </span>
@@ -91,13 +91,15 @@ export class Workbook extends React.Component {
                 <div className="button-worksheet-container">
                     <span className="button-worksheet-wrapper">
                         <span className="button-worksheet">
-                            <img
-                                src={ Worksheet }
-                                className="icon icon-worksheet"
-                                alt="Worksheet icon"
-                            />
-                            <span className="text-worksheet">
-                                Worksheet
+                            <span className="button-worksheet-inner">
+                                <img
+                                    src={ Worksheet }
+                                    className="icon icon-worksheet"
+                                    alt="Worksheet icon"
+                                />
+                                <span className="text-worksheet">
+                                    Worksheet
+                                </span>
                             </span>
                         </span>
                     </span>

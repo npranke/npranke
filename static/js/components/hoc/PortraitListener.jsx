@@ -11,26 +11,20 @@ function withPortraitListener(Component) {
             }
 
             this.updateIsPortrait = this.updateIsPortrait.bind(this)
+
+            this.mediaQueryList = window.matchMedia('(orientation: portrait)')
         }
 
         componentDidMount() {
-            window.matchMedia('(orientation: portrait)').addListener(
-                this.updateIsPortrait,
-            )
+            this.mediaQueryList.addListener(this.updateIsPortrait)
         }
 
         componentWillUnmount() {
-            window.matchMedia('(orientation: portrait)').removeListener(
-                this.updateIsPortrait,
-            )
+            this.mediaQueryList.removeListener(this.updateIsPortrait)
         }
 
         updateIsPortrait() {
-            this.setState({
-                isPortrait: window.matchMedia(
-                    '(orientation: portrait)',
-                ).matches,
-            })
+            this.setState({ isPortrait: this.mediaQueryList.matches })
         }
 
         render() {
