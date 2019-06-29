@@ -267,7 +267,6 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-section.gist-container {
-    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
