@@ -129,14 +129,21 @@ class WorksheetContainer extends React.Component {
                 tabIndex="0"
                 ref={ this.gistPanel }
             >
-                <iframe
-                    id="worksheet-gist"
-                    title={ `${this.props.worksheet.properTitle} gist` }
-                    sandbox="allow-scripts allow-top-navigation"
-                    referrerPolicy="no-referrer"
-                    src={ `/gists/${this.props.worksheet.pathTitle}` }
-                >
-                </iframe>
+                <div className="worksheet-gist">
+                    <iframe
+                        id="worksheet-gist"
+                        title={ `${this.props.worksheet.properTitle} gist` }
+                        sandbox="allow-scripts allow-top-navigation"
+                        referrerPolicy="no-referrer"
+                        src={ `/gists/${this.props.worksheet.pathTitle}` }
+                        style={ {
+                            height: '100%',
+                            width: '100%',
+                            border: 'none',
+                        } }
+                    >
+                    </iframe>
+                </div>
             </div>
         )
 

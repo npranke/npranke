@@ -266,17 +266,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     margin: 48px 24px;
 }
 
-.worksheet-section.gist-container {
-    width: calc(100% - 96px);
-    height: calc(94% - 96px);
+.worksheet-section.gist-container .worksheet-gist {
     padding: 48px;
-    overflow: auto;
-}
-
-.worksheet-section.gist-container iframe#worksheet-gist {
-    width: 100%;
-    height: 100%;
-    border: none;
+    height: calc(100% - 96px);
+    -webkit-overflow-scrolling: touch;
 }
 
 .concentration {
@@ -614,8 +607,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         width: 16px;
     }
 
-    .worksheet-section.info-container .worksheet-info {
+    .worksheet-section.info-container .worksheet-info,
+    .worksheet-section.gist-container .worksheet-gist {
         padding: 36px;
+    }
+
+    .worksheet-section.info-container .worksheet-info {
         max-height: calc(100% - 72px);
     }
 
@@ -623,10 +620,8 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 40px 20px;
     }
 
-    .worksheet-section.gist-container {
-        width: calc(100% - 72px);
-        height: calc(94% - 72px);
-        padding: 36px;
+    .worksheet-section.gist-container .worksheet-gist {
+        height: calc(100% - 72px);
     }
 
     .concentration .board .board-row-wrapper {
@@ -681,8 +676,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         width: 12px;
     }
 
-    .worksheet-section.info-container .worksheet-info{
+    .worksheet-section.info-container .worksheet-info,
+    .worksheet-section.gist-container .worksheet-gist {
         padding: 24px;
+    }
+
+    .worksheet-section.info-container .worksheet-info {
         max-height: calc(100% - 48px);
     }
 
@@ -690,10 +689,8 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 32px 16px;
     }
 
-    .worksheet-section.gist-container {
-        width: calc(100% - 48px);
-        height: calc(94% - 48px);
-        padding: 24px;
+    .worksheet-section.gist-container .worksheet-gist {
+        height: calc(100% - 48px);
     }
 
     .concentration .board .board-row-wrapper {
@@ -748,8 +745,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         width: 8px;
     }
 
-    .worksheet-section.info-container .worksheet-info {
+    .worksheet-section.info-container .worksheet-info,
+    .worksheet-section.gist-container .worksheet-gist {
         padding: 12px;
+    }
+
+    .worksheet-section.info-container .worksheet-info {
         max-height: calc(100% - 24px);
     }
 
@@ -757,10 +758,8 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 24px 12px;
     }
 
-    .worksheet-section.gist-container {
-        width: calc(100% - 24px);
-        height: calc(94% - 24px);
-        padding: 12px;
+    .worksheet-section.gist-container .worksheet-gist {
+        height: calc(100% - 24px);
     }
 
     .concentration .board .board-row-wrapper {
