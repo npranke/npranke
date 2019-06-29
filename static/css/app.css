@@ -200,7 +200,8 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
 .worksheet-container {
     background: rgba(233, 238, 239, 0.5);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .worksheet-header {
@@ -266,13 +267,17 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     margin: 48px 24px;
 }
 
+.worksheet-section.gist-container {
+    -webkit-overflow-scrolling: touch;
+}
+
 .worksheet-section.gist-container iframe#worksheet-gist {
-    min-height: calc(100% - 96px);
-    max-height: calc(100% - 96px);
-    width: calc(100% - 96px);
+    min-height: calc(100% - 100px);
+    max-height: calc(100% - 100px);
+    width: calc(100% - 100px);
     padding: 48px;
     overflow: hidden;
-    border: none;
+    border: 4px #131C27 solid;
 }
 
 .concentration {
@@ -620,9 +625,9 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 72px);
-        max-height: calc(100% - 72px);
-        width: calc(100% - 72px);
+        min-height: calc(100% - 76px);
+        max-height: calc(100% - 76px);
+        width: calc(100% - 76px);
         padding: 36px;
     }
 
@@ -688,9 +693,9 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 48px);
-        max-height: calc(100% - 48px);
-        width: calc(100% - 48px);
+        min-height: calc(100% - 52px);
+        max-height: calc(100% - 52px);
+        width: calc(100% - 52px);
         padding: 24px;
     }
 
@@ -756,9 +761,9 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 24px);
-        max-height: calc(100% - 24px);
-        width: calc(100% - 24px);
+        min-height: calc(100% - 28px);
+        max-height: calc(100% - 28px);
+        width: calc(100% - 28px);
         padding: 12px;
     }
 
