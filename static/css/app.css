@@ -267,7 +267,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-section.gist-container iframe#worksheet-gist {
-    height: calc(100% - 96px);
+    min-height: calc(100% - 96px);
     max-height: calc(100% - 96px);
     width: calc(100% - 96px);
     padding: 48px;
@@ -620,7 +620,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        height: calc(100% - 72px);
+        min-height: calc(100% - 72px);
         max-height: calc(100% - 72px);
         width: calc(100% - 72px);
         padding: 36px;
@@ -688,7 +688,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        height: calc(100% - 48px);
+        min-height: calc(100% - 48px);
         max-height: calc(100% - 48px);
         width: calc(100% - 48px);
         padding: 24px;
@@ -756,7 +756,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 
     .worksheet-section.gist-container iframe#worksheet-gist {
-        height: calc(100% - 24px);
+        min-height: calc(100% - 24px);
         max-height: calc(100% - 24px);
         width: calc(100% - 24px);
         padding: 12px;
