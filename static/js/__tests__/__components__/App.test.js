@@ -1,15 +1,19 @@
 import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
+import Enzyme, { mount, shallow } from 'enzyme'
+import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
 
 import App from '../../components/App'
 import Background from '../../components/Background'
-import Concentration from '../../components/Concentration'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import Welcome from '../../components/Welcome'
 import PageNotFound from '../../components/PageNotFound'
+import Welcome from '../../components/Welcome'
 import Workbook from '../../components/Workbook'
+import WorksheetContainer from '../../components/WorksheetContainer'
+import worksheets from '../../constants/worksheets'
+
+jest.mock('../../components/Concentration')
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -46,12 +50,22 @@ describe('App', () => {
         ).toEqual(Header)
     })
 
-    test('contains route with render function for header', () => {
+    test('contains route with render for header', () => {
         const app = shallow(<App />)
 
+        const header = mount(
+            app.find('Route').at(1).props().render(),
+            { wrappingComponent: MemoryRouter },
+        )
+
+        const expected = mount(
+            <Header isPageNotFound />,
+            { wrappingComponent: MemoryRouter },
+        )
+
         expect(
-            app.find('Route').at(1).props().render,
-        ).toBeInstanceOf(Function)
+            header.html(),
+        ).toEqual(expected.html())
     })
 
     test('contains route with welcome component', () => {
@@ -70,12 +84,73 @@ describe('App', () => {
         ).toEqual(Workbook)
     })
 
-    test('contains route with concentration component', () => {
+    test('contains route with render for concentration worksheet', () => {
         const app = shallow(<App />)
 
+        const worksheetContainer = mount(
+            app.find('Route').at(4).props().render(
+                { location: { hash: '' } },
+            ),
+            { wrappingComponent: MemoryRouter },
+        )
+
+        const expected = mount(
+            <WorksheetContainer
+                location={ { hash: '' } }
+                worksheet={ worksheets.concentration }
+            />,
+            { wrappingComponent: MemoryRouter },
+        )
+
         expect(
-            app.find('Route').at(4).props().component,
-        ).toEqual(Concentration)
+            worksheetContainer.html(),
+        ).toEqual(expected.html())
+    })
+
+    test('contains route with render for concentration worksheet info', () => {
+        const app = shallow(<App />)
+
+        const worksheetContainer = mount(
+            app.find('Route').at(4).props().render(
+                { location: { hash: '#info' } },
+            ),
+            { wrappingComponent: MemoryRouter },
+        )
+
+        const expected = mount(
+            <WorksheetContainer
+                location={ { hash: '#info' } }
+                worksheet={ worksheets.concentration }
+            />,
+            { wrappingComponent: MemoryRouter },
+        )
+
+        expect(
+            worksheetContainer.html(),
+        ).toEqual(expected.html())
+    })
+
+    test('contains route with render for concentration worksheet gist', () => {
+        const app = shallow(<App />)
+
+        const worksheetContainer = mount(
+            app.find('Route').at(4).props().render(
+                { location: { hash: '#gist' } },
+            ),
+            { wrappingComponent: MemoryRouter },
+        )
+
+        const expected = mount(
+            <WorksheetContainer
+                location={ { hash: '#gist' } }
+                worksheet={ worksheets.concentration }
+            />,
+            { wrappingComponent: MemoryRouter },
+        )
+
+        expect(
+            worksheetContainer.html(),
+        ).toEqual(expected.html())
     })
 
     test('contains route with pagenotfound component', () => {

@@ -11,48 +11,70 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       className="left-text"
     >
       <span
-        className="matches-portion"
+        className="matches-text"
       >
-        matches: 
+        <span
+          className="matches-portion"
+        >
+          matches: 
+        </span>
+        <span
+          className="matches-portion number"
+        >
+          12
+        </span>
       </span>
       <span
-        className="matches-portion number"
+        className="turns-text"
       >
-        12
+        <span
+          className="turns-portion"
+        >
+          turns: 
+        </span>
+        <span
+          className="turns-portion number"
+        >
+          00
+        </span>
       </span>
     </div>
     <div
       className="right-text"
     >
       <span
-        className="time-portion"
+        className="time-text"
       >
-        time: 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
+        <span
+          className="time-portion"
+        >
+          time: 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
       </span>
     </div>
   </div>
@@ -170,48 +192,70 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
       className="left-text"
     >
       <span
-        className="matches-portion"
+        className="matches-text"
       >
-        matches: 
+        <span
+          className="matches-portion"
+        >
+          matches: 
+        </span>
+        <span
+          className="matches-portion number"
+        >
+          04
+        </span>
       </span>
       <span
-        className="matches-portion number"
+        className="turns-text"
       >
-        04
+        <span
+          className="turns-portion"
+        >
+          turns: 
+        </span>
+        <span
+          className="turns-portion number"
+        >
+          00
+        </span>
       </span>
     </div>
     <div
       className="right-text"
     >
       <span
-        className="time-portion"
+        className="time-text"
       >
-        time: 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
+        <span
+          className="time-portion"
+        >
+          time: 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
       </span>
     </div>
   </div>
@@ -265,48 +309,70 @@ exports[`ConcentrationMatches snapshot matches snapshot without matches 1`] = `
       className="left-text"
     >
       <span
-        className="matches-portion"
+        className="matches-text"
       >
-        matches: 
+        <span
+          className="matches-portion"
+        >
+          matches: 
+        </span>
+        <span
+          className="matches-portion number"
+        >
+          00
+        </span>
       </span>
       <span
-        className="matches-portion number"
+        className="turns-text"
       >
-        00
+        <span
+          className="turns-portion"
+        >
+          turns: 
+        </span>
+        <span
+          className="turns-portion number"
+        >
+          00
+        </span>
       </span>
     </div>
     <div
       className="right-text"
     >
       <span
-        className="time-portion"
+        className="time-text"
       >
-        time: 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
+        <span
+          className="time-portion"
+        >
+          time: 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
       </span>
     </div>
   </div>

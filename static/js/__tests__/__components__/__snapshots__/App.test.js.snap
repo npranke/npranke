@@ -17,6 +17,7 @@ exports[`App snapshot matches snapshot 1`] = `
           "/workbook/concentration",
         ]
       }
+      strict={true}
     />
     <Route
       render={[Function]}
@@ -32,16 +33,19 @@ exports[`App snapshot matches snapshot 1`] = `
           "/home",
         ]
       }
+      strict={true}
     />
     <Route
       component={[Function]}
       exact={true}
       path="/workbook"
+      strict={true}
     />
     <Route
-      component={[Function]}
       exact={true}
       path="/workbook/concentration"
+      render={[Function]}
+      strict={true}
     />
     <Route
       component={[Function]}

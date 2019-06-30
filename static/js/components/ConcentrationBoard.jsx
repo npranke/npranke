@@ -123,12 +123,12 @@ ConcentrationBoard.propTypes = {
     matches: PropTypes.arrayOf(PropTypes.string),
     pictures: PropTypes.objectOf(
         PropTypes.shape({
-            id: PropTypes.string,
-            pictureid: PropTypes.string,
-            back: PropTypes.node,
-            front: PropTypes.node,
-            matched: PropTypes.node,
-        }),
+            id: PropTypes.string.isRequired,
+            pictureid: PropTypes.string.isRequired,
+            back: PropTypes.node.isRequired,
+            front: PropTypes.node.isRequired,
+            matched: PropTypes.node.isRequired,
+        }).isRequired,
     ).isRequired,
     second: PropTypes.shape({
         id: PropTypes.string,

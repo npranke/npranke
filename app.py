@@ -1,12 +1,22 @@
 from flask import Flask, json, render_template, url_for
 from flask_sslify import SSLify
+from tinydb import Query, TinyDB
+from tinydb.middlewares import CachingMiddleware
+from tinydb.storages import JSONStorage
 
 from config import AppConfig
+from db.middleware import ReadOnlyMiddleware
 
 app = Flask(__name__)
 app.config.from_object(AppConfig)
 
 sslify = SSLify(app, permanent=True, subdomains=True)
+
+gistdb = TinyDB(
+    "db/gistdb.json",
+    default_table="gist",
+    storage=ReadOnlyMiddleware(CachingMiddleware(JSONStorage))
+)
 
 
 @app.context_processor
@@ -30,6 +40,18 @@ def url_for_webpack_asset_processor():
 @app.route("/workbook/concentration")
 def index():
     return render_template("index.html")
+
+
+@app.route("/gists/")
+@app.route("/gists/<string:gist_name>")
+def gist(gist_name="worksheet"):
+    Gist = Query()
+    gist_id = (
+        gistdb.get(Gist.name == gist_name)
+        or gistdb.get(Gist.name == "worksheet")
+    ).get("id")
+
+    return render_template("gist.html", gist_id=gist_id)
 
 
 @app.errorhandler(404)

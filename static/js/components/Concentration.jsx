@@ -3,7 +3,7 @@ import React from 'react'
 
 import ConcentrationBoard from './ConcentrationBoard'
 import ConcentrationMatches from './ConcentrationMatches'
-import { getLocationPageTitle, getSendEventHandler, sendEvent } from '../utils'
+import { getSendEventHandler, sendEvent } from '../utils'
 import Picture0 from '../../img/concentration-22332-pink-plateau.jpg'
 import Picture1 from '../../img/concentration-22512-blue-center.jpg'
 import Picture2 from '../../img/concentration-22585-teal-ripples.jpg'
@@ -43,6 +43,7 @@ export class Concentration extends React.Component {
             centiseconds: '00',
             seconds: '00',
             minutes: '00',
+            turns: 0,
             internalMatches: [],
             displayedMatches: [],
             first: { id: null, pictureid: null },
@@ -73,7 +74,7 @@ export class Concentration extends React.Component {
                                 + `id=PIA${pictureSources[pictureid].sourceid}`
                             }
                             target="_blank"
-                            rel="noreferrer noopener"
+                            rel="noreferrer noopener external"
                             aria-label="NASA/JPL Space Images"
                         >
                             <img
@@ -179,12 +180,10 @@ export class Concentration extends React.Component {
     }
 
     componentDidMount() {
-        document.title = getLocationPageTitle('concentration')
-
         this.timeInterval = setInterval(this.updateTime, 10)
     }
 
-    componentWillUnmout() {
+    componentWillUnmount() {
         clearTimeout(this.pictureTimeout)
 
         clearInterval(this.timeInterval)
@@ -252,6 +251,7 @@ export class Concentration extends React.Component {
                 }, 1000)
 
                 return {
+                    turns: state.turns + 1,
                     second: { id, pictureid },
                     internalMatches: state.internalMatches.concat([pictureid]),
                     displayedMatches: state.internalMatches,
@@ -270,6 +270,7 @@ export class Concentration extends React.Component {
                 }, 2000)
 
                 return {
+                    turns: state.turns + 1,
                     second: { id, pictureid },
                     displayedMatches: state.internalMatches,
                     isTimeRunning: true,
@@ -300,31 +301,28 @@ export class Concentration extends React.Component {
 
     render() {
         return (
-            <main className="workbook workbook-concentration">
-                <div className="concentration">
-                    <div className="concentration-inner">
-                        <div className="matches-wrapper">
-                            <ConcentrationMatches
-                                pictures={ this.matchesPictures }
-                                matches={ this.state.displayedMatches }
-                                centiseconds={ this.state.centiseconds }
-                                minutes={ this.state.minutes }
-                                seconds={ this.state.seconds }
-                            />
-                        </div>
-                        <div className="board-wrapper">
-                            <ConcentrationBoard
-                                pictures={ this.boardPictures }
-                                boardOrder={ this.boardOrder }
-                                isPortrait={ this.props.isPortrait }
-                                first={ this.state.first }
-                                second={ this.state.second }
-                                matches={ this.state.internalMatches }
-                            />
-                        </div>
-                    </div>
+            <div className="concentration">
+                <div className="matches-wrapper">
+                    <ConcentrationMatches
+                        pictures={ this.matchesPictures }
+                        matches={ this.state.displayedMatches }
+                        centiseconds={ this.state.centiseconds }
+                        minutes={ this.state.minutes }
+                        seconds={ this.state.seconds }
+                        turns={ this.state.turns }
+                    />
                 </div>
-            </main>
+                <div className="board-wrapper">
+                    <ConcentrationBoard
+                        pictures={ this.boardPictures }
+                        boardOrder={ this.boardOrder }
+                        isPortrait={ this.props.isPortrait }
+                        first={ this.state.first }
+                        second={ this.state.second }
+                        matches={ this.state.internalMatches }
+                    />
+                </div>
+            </div>
         )
     }
 }
