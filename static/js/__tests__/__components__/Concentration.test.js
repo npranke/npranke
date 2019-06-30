@@ -15,7 +15,7 @@ describe('Concentration', () => {
 
         expect(
             concentration.find(
-                '.concentration-inner .matches-wrapper ConcentrationMatches',
+                '.concentration .matches-wrapper ConcentrationMatches',
             ).exists(),
         ).toBe(true)
     })
@@ -25,7 +25,7 @@ describe('Concentration', () => {
 
         expect(
             concentration.find(
-                '.concentration-inner .board-wrapper ConcentrationBoard',
+                '.concentration .board-wrapper ConcentrationBoard',
             ).exists(),
         ).toBe(true)
     })

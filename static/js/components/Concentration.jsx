@@ -302,27 +302,25 @@ export class Concentration extends React.Component {
     render() {
         return (
             <div className="concentration">
-                <div className="concentration-inner">
-                    <div className="matches-wrapper">
-                        <ConcentrationMatches
-                            pictures={ this.matchesPictures }
-                            matches={ this.state.displayedMatches }
-                            centiseconds={ this.state.centiseconds }
-                            minutes={ this.state.minutes }
-                            seconds={ this.state.seconds }
-                            turns={ this.state.turns }
-                        />
-                    </div>
-                    <div className="board-wrapper">
-                        <ConcentrationBoard
-                            pictures={ this.boardPictures }
-                            boardOrder={ this.boardOrder }
-                            isPortrait={ this.props.isPortrait }
-                            first={ this.state.first }
-                            second={ this.state.second }
-                            matches={ this.state.internalMatches }
-                        />
-                    </div>
+                <div className="matches-wrapper">
+                    <ConcentrationMatches
+                        pictures={ this.matchesPictures }
+                        matches={ this.state.displayedMatches }
+                        centiseconds={ this.state.centiseconds }
+                        minutes={ this.state.minutes }
+                        seconds={ this.state.seconds }
+                        turns={ this.state.turns }
+                    />
+                </div>
+                <div className="board-wrapper">
+                    <ConcentrationBoard
+                        pictures={ this.boardPictures }
+                        boardOrder={ this.boardOrder }
+                        isPortrait={ this.props.isPortrait }
+                        first={ this.state.first }
+                        second={ this.state.second }
+                        matches={ this.state.internalMatches }
+                    />
                 </div>
             </div>
         )

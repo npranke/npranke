@@ -240,20 +240,20 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-section {
-    height: 94%;
+    height: 90%;
 }
 
-.worksheet-section.info-container {
+.worksheet-section.info-wrapper {
     font-size: large;
 }
 
-.worksheet-section.info-container .worksheet-info {
-    max-height: calc(100% - 96px);
-    padding: 48px;
+.worksheet-section.info-wrapper .worksheet-info {
+    max-height: calc(100% - 72px);
+    padding: 48px 48px 24px 48px;
     overflow-y: auto;
 }
 
-.worksheet-section.info-container .worksheet-info-inner {
+.worksheet-section.info-wrapper .worksheet-info-inner {
     background: rgba(233, 238, 239, 0.7);
     background-clip: padding-box;
     border-radius: 7% 12% / 2% 5%;
@@ -262,32 +262,36 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     border: 8px #E9EEEF solid;
 }
 
-.worksheet-section.info-container .worksheet-info p {
+.worksheet-section.info-wrapper .worksheet-info p {
     margin: 48px 24px;
 }
 
-.worksheet-section.gist-container {
+.worksheet-section.worksheet-wrapper {
+    height: calc(90% - 30px);
+    padding: 24px 24px 6px 24px;
+}
+
+.worksheet-section.gist-wrapper {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
-.worksheet-section.gist-container iframe#worksheet-gist {
-    min-height: calc(100% - 104px);
-    max-height: calc(100% - 104px);
-    width: calc(100% - 104px);
+.worksheet-section.gist-wrapper iframe#worksheet-gist {
+    min-height: calc(98% - 72px);
+    max-height: calc(98% - 72px);
+    width: calc(100% - 96px);
     padding: 0 48px;
-    margin: 48px 0;
-    border: 4px #131C27 solid;
+    margin: 48px 0 24px 0;
+    border: none;
+}
+
+.worksheet-footer {
+    height: 4%;
 }
 
 .concentration {
     height: 100%;
-}
-
-.concentration-inner {
-    height: calc(100% - 48px);
-    padding: 24px;
 }
 
 .concentration .matches-wrapper {
@@ -589,7 +593,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .welcome,
     .pagenotfound,
     .concentration .matches-header,
-    .worksheet-section.info-container {
+    .worksheet-section.info-wrapper {
         font-size: medium;
     }
 
@@ -616,21 +620,21 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         width: 16px;
     }
 
-    .worksheet-section.info-container .worksheet-info {
-        max-height: calc(100% - 72px);
-        padding: 36px;
+    .worksheet-section.info-wrapper .worksheet-info {
+        max-height: calc(100% - 54px);
+        padding: 36px 36px 18px 36px;
     }
 
-    .worksheet-section.info-container .worksheet-info p {
+    .worksheet-section.info-wrapper .worksheet-info p {
         margin: 40px 20px;
     }
 
-    .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 80px);
-        max-height: calc(100% - 80px);
-        width: calc(100% - 80px);
+    .worksheet-section.gist-wrapper iframe#worksheet-gist {
+        min-height: calc(98% - 54px);
+        max-height: calc(98% - 54px);
+        width: calc(100% - 72px);
         padding: 0 36px;
-        margin: 36px 0;
+        margin: 36px 0 18px 0;
     }
 
     .concentration .board .board-row-wrapper {
@@ -652,7 +656,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .welcome,
     .pagenotfound,
     .concentration .matches-header,
-    .worksheet-section.info-container {
+    .worksheet-section.info-wrapper {
         font-size: small;
     }
 
@@ -685,21 +689,21 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         width: 12px;
     }
 
-    .worksheet-section.info-container .worksheet-info {
-        max-height: calc(100% - 48px);
-        padding: 24px;
+    .worksheet-section.info-wrapper .worksheet-info {
+        max-height: calc(100% - 36px);
+        padding: 24px 24px 12px 24px;
     }
 
-    .worksheet-section.info-container .worksheet-info p {
+    .worksheet-section.info-wrapper .worksheet-info p {
         margin: 32px 16px;
     }
 
-    .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 56px);
-        max-height: calc(100% - 56px);
-        width: calc(100% - 56px);
+    .worksheet-section.gist-wrapper iframe#worksheet-gist {
+        min-height: calc(98% - 36px);
+        max-height: calc(98% - 36px);
+        width: calc(100% - 48px);
         padding: 0 24px;
-        margin: 24px 0;
+        margin: 24px 0 12px 0;
     }
 
     .concentration .board .board-row-wrapper {
@@ -721,7 +725,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .welcome,
     .pagenotfound,
     .concentration .matches-header,
-    .worksheet-section.info-container {
+    .worksheet-section.info-wrapper {
         font-size: x-small;
     }
 
@@ -754,21 +758,21 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         width: 8px;
     }
 
-    .worksheet-section.info-container .worksheet-info {
-        max-height: calc(100% - 24px);
-        padding: 12px;
+    .worksheet-section.info-wrapper .worksheet-info {
+        max-height: calc(100% - 18px);
+        padding: 12px 12px 6px 12px;
     }
 
-    .worksheet-section.info-container .worksheet-info p {
+    .worksheet-section.info-wrapper .worksheet-info p {
         margin: 24px 12px;
     }
 
-    .worksheet-section.gist-container iframe#worksheet-gist {
-        min-height: calc(100% - 32px);
-        max-height: calc(100% - 32px);
-        width: calc(100% - 32px);
+    .worksheet-section.gist-wrapper iframe#worksheet-gist {
+        min-height: calc(98% - 18px);
+        max-height: calc(98% - 18px);
+        width: calc(100% - 24px);
         padding: 0 12px;
-        margin: 12px 0;
+        margin: 12px 0 6px 0;
     }
 
     .concentration .board .board-row-wrapper {

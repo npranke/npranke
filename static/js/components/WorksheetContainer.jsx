@@ -89,7 +89,7 @@ class WorksheetContainer extends React.Component {
     render() {
         const infoSection = (
             <div
-                className="worksheet-section info-container"
+                className="worksheet-section info-wrapper"
                 id="info-tabpanel"
                 role="tabpanel"
                 aria-expanded={ this.state.visible === 'info' }
@@ -107,8 +107,8 @@ class WorksheetContainer extends React.Component {
         const worksheetSection = (
             <div
                 className={
-                    'worksheet-section '
-                    + `${this.props.worksheet.pathTitle}-container`
+                    'worksheet-section worksheet-wrapper '
+                    + `${this.props.worksheet.pathTitle}-wrapper`
                 }
                 id="worksheet-tabpanel"
                 role="tabpanel"
@@ -122,7 +122,7 @@ class WorksheetContainer extends React.Component {
 
         const gistSection = (
             <div
-                className="worksheet-section gist-container"
+                className="worksheet-section gist-wrapper"
                 id="gist-tabpanel"
                 role="tabpanel"
                 aria-expanded={ this.state.visible === 'gist' }
@@ -252,6 +252,7 @@ class WorksheetContainer extends React.Component {
                     </span>
                 </div>
                 { sections[this.state.visible] }
+                <div className="worksheet-footer" />
             </main>
         )
     }
