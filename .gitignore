@@ -2,6 +2,7 @@
 .env
 .python-version
 *.pyc
+__pycache__
 coverage
 node_modules
 static/dist
