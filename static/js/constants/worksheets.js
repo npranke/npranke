@@ -1,8 +1,9 @@
 import React from 'react'
 
-import Concentration from '../components/Concentration'
-import ConcentrationIcon from '../../img/icon-concentration.png'
-import ConcentrationInfo from '../components/ConcentrationInfo'
+import Concentration from '@components/concentration/Concentration'
+import ConcentrationInfo from '@components/concentration/ConcentrationInfo'
+
+import ConcentrationIcon from '@img/icon-concentration.png'
 
 const worksheets = {
     concentration: {

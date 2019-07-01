@@ -2,7 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
 
-import ConcentrationBoard from '../../components/ConcentrationBoard'
+import ConcentrationBoard from '@components/concentration/ConcentrationBoard'
 
 Enzyme.configure({ adapter: new Adapter() })
 

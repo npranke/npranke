@@ -2,7 +2,8 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
 
-import ConcentrationMatches from '../../components/ConcentrationMatches'
+import ConcentrationMatches from
+    '@components/concentration/ConcentrationMatches'
 
 Enzyme.configure({ adapter: new Adapter() })
 

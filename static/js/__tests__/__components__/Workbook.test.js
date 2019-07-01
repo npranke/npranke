@@ -3,7 +3,7 @@ import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
 
-import { Workbook } from '../../components/Workbook'
+import { Workbook } from '@components/Workbook'
 
 Enzyme.configure({ adapter: new Adapter() })
 

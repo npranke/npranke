@@ -3,11 +3,12 @@ import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
 
-import ComponentMock from '../../__mocks__/ComponentMock'
-import ImageMock from '../../__mocks__/ImageMock'
-import WorksheetContainer from '../../components/WorksheetContainer'
+import ComponentMock from '@__mocks__/ComponentMock'
+import ImageMock from '@__mocks__/ImageMock'
 
-jest.mock('../../utils')
+import WorksheetContainer from '@components/WorksheetContainer'
+
+jest.mock('@utils')
 
 Enzyme.configure({ adapter: new Adapter() })
 

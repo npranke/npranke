@@ -2,10 +2,11 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
 
-import { Concentration } from '../../components/Concentration'
-import { getSendEventHandler, sendEvent } from '../../utils'
+import { Concentration } from '@components/concentration/Concentration'
 
-jest.mock('../../utils')
+import { getSendEventHandler, sendEvent } from '@utils'
+
+jest.mock('@utils')
 
 Enzyme.configure({ adapter: new Adapter() })
 
