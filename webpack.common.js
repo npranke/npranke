@@ -5,10 +5,14 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const paths = {
+    __MOCKS__: path.resolve(__dirname, 'static/js/__mocks__'),
+    COMPONENTS: path.resolve(__dirname, 'static/js/components'),
+    CONSTANTS: path.resolve(__dirname, 'static/js/constants'),
     CSS: path.resolve(__dirname, 'static/css'),
     DIST: path.resolve(__dirname, 'static/dist'),
     IMG: path.resolve(__dirname, 'static/img'),
     JS: path.resolve(__dirname, 'static/js'),
+    UTILS: path.resolve(__dirname, 'static/js/utils.js'),
 }
 
 const commonConfig = {
@@ -75,6 +79,14 @@ const commonConfig = {
         }),
     ],
     resolve: {
+        alias: {
+            "@__mocks__": paths.__MOCKS__,
+            "@components": paths.COMPONENTS,
+            "@constants": paths.CONSTANTS,
+            "@css": paths.CSS,
+            "@img": paths.IMG,
+            "@utils$": paths.UTILS,
+        },
         extensions: ['.js', '.jsx'],
     },
     stats: { children: false },
