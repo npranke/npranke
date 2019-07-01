@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-import { getLocationPageTitle, getSendEventHandler } from '../utils'
-import Workbook from '../../img/icon-workbook.png'
+import Workbook from '@img/icon-workbook.png'
+
+import { getLocationPageTitle, getSendEventHandler } from '@utils'
 
 function Welcome() {
     document.title = getLocationPageTitle('home')

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import ConcentrationBoardRow from './ConcentrationBoardRow'
+import ConcentrationBoardRow from
+    '@components/concentration/ConcentrationBoardRow'
 
 export function ConcentrationBoard(props) {
     const boardPictures = props.boardOrder.map((pictureName) => {
