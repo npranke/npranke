@@ -1,4 +1,4 @@
-import { getLocationPageTitle, getSendEventHandler, sendEvent } from '../utils'
+import { getLocationPageTitle, getSendEventHandler, sendEvent } from '@utils'
 
 describe('utils', () => {
     describe('location page title util', () => {

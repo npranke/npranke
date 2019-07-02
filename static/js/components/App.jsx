@@ -1,14 +1,15 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Background from './Background'
-import Footer from './Footer'
-import Header from './Header'
-import PageNotFound from './PageNotFound'
-import Welcome from './Welcome'
-import Workbook from './Workbook'
-import WorksheetContainer from './WorksheetContainer'
-import worksheets from '../constants/worksheets'
+import Background from '@components/Background'
+import Footer from '@components/Footer'
+import Header from '@components/Header'
+import PageNotFound from '@components/PageNotFound'
+import Welcome from '@components/Welcome'
+import Workbook from '@components/Workbook'
+import WorksheetContainer from '@components/WorksheetContainer'
+
+import worksheets from '@constants/worksheets'
 
 function App() {
     const { concentration } = worksheets

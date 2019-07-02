@@ -2,9 +2,10 @@ import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Code from '../../img/icon-code.png'
-import { getLocationPageTitle, sendEvent } from '../utils'
-import Info from '../../img/icon-info.png'
+import Code from '@img/icon-code.png'
+import Info from '@img/icon-info.png'
+
+import { getLocationPageTitle, sendEvent } from '@utils'
 
 class WorksheetContainer extends React.Component {
     constructor(props) {

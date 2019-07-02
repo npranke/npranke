@@ -3,17 +3,18 @@ import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
 
-import App from '../../components/App'
-import Background from '../../components/Background'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
-import PageNotFound from '../../components/PageNotFound'
-import Welcome from '../../components/Welcome'
-import Workbook from '../../components/Workbook'
-import WorksheetContainer from '../../components/WorksheetContainer'
-import worksheets from '../../constants/worksheets'
+import App from '@components/App'
+import Background from '@components/Background'
+import Footer from '@components/Footer'
+import Header from '@components/Header'
+import PageNotFound from '@components/PageNotFound'
+import Welcome from '@components/Welcome'
+import Workbook from '@components/Workbook'
+import WorksheetContainer from '@components/WorksheetContainer'
 
-jest.mock('../../components/Concentration')
+import worksheets from '@constants/worksheets'
+
+jest.mock('@components/concentration/Concentration')
 
 Enzyme.configure({ adapter: new Adapter() })
 

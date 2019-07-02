@@ -1,23 +1,26 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import ConcentrationBoard from './ConcentrationBoard'
-import ConcentrationMatches from './ConcentrationMatches'
-import { getSendEventHandler, sendEvent } from '../utils'
-import Picture0 from '../../img/concentration-22332-pink-plateau.jpg'
-import Picture1 from '../../img/concentration-22512-blue-center.jpg'
-import Picture2 from '../../img/concentration-22585-teal-ripples.jpg'
-import Picture3 from '../../img/concentration-22594-burgundy-spot.jpg'
-import Picture4 from '../../img/concentration-23056-mauve-mound.jpg'
-import Picture5 from '../../img/concentration-23080-lavendar-corner.jpg'
-import Picture6 from '../../img/concentration-23103-light-pool.jpg'
-import Picture7 from '../../img/concentration-23183-brown-variations.jpg'
-import Picture8 from '../../img/concentration-23184-purple-surface.jpg'
-import Picture9 from '../../img/concentration-23231-bright-swoop.jpg'
-import Picture10 from '../../img/concentration-23233-dark-ridges.jpg'
-import Picture11 from '../../img/concentration-23239-neon-plains.jpg'
-import PictureBack from '../../img/concentration-20285-opportunity-rover.jpg'
-import withPortraitListener from './hoc/PortraitListener'
+import ConcentrationBoard from '@components/concentration/ConcentrationBoard'
+import ConcentrationMatches from
+    '@components/concentration/ConcentrationMatches'
+import withPortraitListener from '@components/hoc/PortraitListener'
+
+import Picture0 from '@img/concentration-22332-pink-plateau.jpg'
+import Picture1 from '@img/concentration-22512-blue-center.jpg'
+import Picture2 from '@img/concentration-22585-teal-ripples.jpg'
+import Picture3 from '@img/concentration-22594-burgundy-spot.jpg'
+import Picture4 from '@img/concentration-23056-mauve-mound.jpg'
+import Picture5 from '@img/concentration-23080-lavendar-corner.jpg'
+import Picture6 from '@img/concentration-23103-light-pool.jpg'
+import Picture7 from '@img/concentration-23183-brown-variations.jpg'
+import Picture8 from '@img/concentration-23184-purple-surface.jpg'
+import Picture9 from '@img/concentration-23231-bright-swoop.jpg'
+import Picture10 from '@img/concentration-23233-dark-ridges.jpg'
+import Picture11 from '@img/concentration-23239-neon-plains.jpg'
+import PictureBack from '@img/concentration-20285-opportunity-rover.jpg'
+
+import { getSendEventHandler, sendEvent } from '@utils'
 
 const pictureSources = {
     0: { source: Picture0, sourceid: 22332 },

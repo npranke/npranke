@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Concentration from '../../img/icon-concentration.png'
-import { getLocationPageTitle, getSendEventHandler, sendEvent } from '../utils'
-import withPortraitListener from './hoc/PortraitListener'
-import Worksheet from '../../img/icon-worksheet.png'
+import withPortraitListener from '@components/hoc/PortraitListener'
+
+import Concentration from '@img/icon-concentration.png'
+import Worksheet from '@img/icon-worksheet.png'
+
+import { getLocationPageTitle, getSendEventHandler, sendEvent } from '@utils'
 
 export class Workbook extends React.Component {
     constructor(props) {

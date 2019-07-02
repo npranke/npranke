@@ -2,7 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
 
-import ConcentrationInfo from '../../components/ConcentrationInfo'
+import ConcentrationInfo from '@components/concentration/ConcentrationInfo'
 
 Enzyme.configure({ adapter: new Adapter() })
 

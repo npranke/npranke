@@ -55,5 +55,12 @@
             { "component": true, "html": false }
         ],
         "semi": ["error", "never"]
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.common.js"
+            }
+        }
     }
 }

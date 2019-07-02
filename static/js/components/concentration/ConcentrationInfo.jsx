@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getSendEventHandler } from '../utils'
+import { getSendEventHandler } from '@utils'
 
 function ConcentrationInfo() {
     return (
