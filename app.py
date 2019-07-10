@@ -43,15 +43,16 @@ def index():
 
 
 @app.route("/gists/")
-@app.route("/gists/<string:gist_name>")
-def gist(gist_name="worksheet"):
+@app.route("/gists/<string:name>")
+def gist(name="worksheet"):
     Gist = Query()
-    gist_id = (
-        gistdb.get(Gist.name == gist_name)
+    gist_name = (
+        gistdb.get(Gist.name == name)
         or gistdb.get(Gist.name == "worksheet")
-    ).get("id")
+    ).get("name")
+    gist_id = gistdb.get(Gist.name == gist_name).get("id")
 
-    return render_template("gist.html", gist_id=gist_id)
+    return render_template("gist.html", gist_name=gist_name, gist_id=gist_id)
 
 
 @app.errorhandler(404)
