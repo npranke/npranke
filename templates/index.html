@@ -3,19 +3,23 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Nicole Pranke">
+    {% if config.get('TEMPLATE_TAG') %}
+    <title>npranke | {{ config.get('TEMPLATE_TAG') }}</title>
+
+    <meta name="robots" content="noindex, nofollow, noimageindex">
+    {% else %}
+    <title>npranke</title>
+
+    <meta name="robots" content="noimageindex, noarchive">
+    {% endif %}
     <meta
         name="description"
         content="Welcome! My name is Nicole; I'm a software engineer."
     >
-    <title>
-        {% if config.get('TEMPLATE_TAG') %}
-            npranke | {{ config.get('TEMPLATE_TAG') }}
-        {% else %}
-            npranke
-        {% endif %}
-    </title>
+    <meta name="author" content="Nicole Pranke">
+
     <base href="{{ config.get('BASE_URL') }}">
+
     <link
         rel="stylesheet"
         type="text/css"
@@ -30,6 +34,7 @@
         type="text/css"
         href="{{ url_for_webpack_asset('app.css') }}"
     >
+
     <script
         async
         src="https://www.googletagmanager.com/gtag/js?id={{ config.get('GA') }}"
@@ -45,6 +50,7 @@
 
 <body>
     <div id="app"></div>
+
     <script
         type="text/javascript"
         src="{{ url_for_webpack_asset('runtime-app.js') }}"
