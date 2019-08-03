@@ -57,7 +57,7 @@
         "install:prod": "yarn install --production=false --frozen-lockfile",
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
-        "test": "jest --coverage",
+        "test": "DOTENV_CONFIG_PATH=./.env.mock jest --coverage",
         "test:snapup": "jest --updateSnapshot",
         "watch:build": "webpack --progress --config webpack.dev.js --watch",
         "watch:tests": "jest --watchAll"
@@ -71,6 +71,7 @@
             "^@utils": "<rootDir>/static/js/utils.js"
         },
         "setupFiles": [
+            "dotenv/config",
             "<rootDir>/jest.setup.js"
         ],
         "snapshotSerializers": [
