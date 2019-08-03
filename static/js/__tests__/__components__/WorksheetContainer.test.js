@@ -8,8 +8,6 @@ import ImageMock from '@__mocks__/ImageMock'
 
 import WorksheetContainer from '@components/WorksheetContainer'
 
-jest.mock('@utils')
-
 Enzyme.configure({ adapter: new Adapter() })
 
 const worksheet = {
