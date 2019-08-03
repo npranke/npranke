@@ -1,0 +1,1 @@
+window.gtag = jest.fn()
