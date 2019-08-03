@@ -1,4 +1,9 @@
-import { getLocationPageTitle, getSendEventHandler, sendEvent } from '@utils'
+import {
+    getLocationPageTitle,
+    getSendEventHandler,
+    sendEvent,
+    sendPageview,
+} from '@utils'
 
 describe('utils', () => {
     describe('location page title util', () => {
@@ -48,6 +53,31 @@ describe('utils', () => {
                 {
                     event_category: 'category',
                     event_label: 'label',
+                },
+            )
+        })
+    })
+
+    describe('send pageview util', () => {
+        afterEach(() => {
+            window.gtag.mockReset()
+        })
+
+        test('sendPageview calls gtag()', () => {
+            document.title = 'pagetitle'
+
+            sendPageview()
+
+            expect(
+                window.gtag,
+            ).toHaveBeenNthCalledWith(
+                1,
+                'config',
+                'mock-ga',
+                {
+                    page_title: 'pagetitle',
+                    page_path: '/',
+                    page_location: 'http://localhost/',
                 },
             )
         })
