@@ -20,10 +20,6 @@ describe('utils', () => {
     })
 
     describe('send event utils', () => {
-        beforeAll(() => {
-            window.gtag = jest.fn()
-        })
-
         afterEach(() => {
             window.gtag.mockReset()
         })
