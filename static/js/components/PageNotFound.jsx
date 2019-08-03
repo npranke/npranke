@@ -2,10 +2,16 @@ import React from 'react'
 
 import Home from '@img/icon-home.png'
 
-import { getLocationPageTitle, getSendEventHandler } from '@utils'
+import {
+    getLocationPageTitle,
+    getSendEventHandler,
+    sendPageview,
+} from '@utils'
 
 function PageNotFound() {
     document.title = getLocationPageTitle('pagenotfound')
+
+    sendPageview()
 
     return (
         <main className="pagenotfound">
