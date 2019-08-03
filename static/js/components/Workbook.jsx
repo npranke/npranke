@@ -7,7 +7,12 @@ import withPortraitListener from '@components/hoc/PortraitListener'
 import Concentration from '@img/icon-concentration.png'
 import Worksheet from '@img/icon-worksheet.png'
 
-import { getLocationPageTitle, getSendEventHandler, sendEvent } from '@utils'
+import {
+    getLocationPageTitle,
+    getSendEventHandler,
+    sendEvent,
+    sendPageview,
+} from '@utils'
 
 export class Workbook extends React.Component {
     constructor(props) {
@@ -22,6 +27,8 @@ export class Workbook extends React.Component {
 
     componentDidMount() {
         document.title = getLocationPageTitle('workbook')
+
+        sendPageview()
     }
 
     getItemClickHandler(item) {
