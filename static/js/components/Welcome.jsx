@@ -3,10 +3,16 @@ import React from 'react'
 
 import Workbook from '@img/icon-workbook.png'
 
-import { getLocationPageTitle, getSendEventHandler } from '@utils'
+import {
+    getLocationPageTitle,
+    getSendEventHandler,
+    sendPageview,
+} from '@utils'
 
 function Welcome() {
     document.title = getLocationPageTitle('home')
+
+    sendPageview()
 
     return (
         <main className="welcome">

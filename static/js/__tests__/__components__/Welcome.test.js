@@ -4,9 +4,25 @@ import React from 'react'
 
 import Welcome from '@components/Welcome'
 
+import * as utils from '@utils'
+
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('Welcome', () => {
+    test('sets document title', () => {
+        shallow(<Welcome />)
+
+        expect(document.title).toContain('home')
+    })
+
+    test('sends pageview', () => {
+        utils.sendPageview = jest.fn()
+
+        shallow(<Welcome />)
+
+        expect(utils.sendPageview).toHaveBeenCalledTimes(1)
+    })
+
     test('has intro text with welcome', () => {
         const welcome = shallow(<Welcome />)
 
