@@ -4,9 +4,7 @@ import React from 'react'
 
 import { Concentration } from '@components/concentration/Concentration'
 
-import { getSendEventHandler, sendEvent } from '@utils'
-
-jest.mock('@utils')
+import * as utils from '@utils'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -85,9 +83,14 @@ describe('Concentration', () => {
     })
 
     describe('sending concentration events', () => {
+        beforeAll(() => {
+            utils.getSendEventHandler = jest.fn()
+            utils.sendEvent = jest.fn()
+        })
+
         afterEach(() => {
-            getSendEventHandler.mockReset()
-            sendEvent.mockReset()
+            utils.getSendEventHandler.mockReset()
+            utils.sendEvent.mockReset()
         })
 
         test('when picture is clicked', () => {
@@ -96,7 +99,7 @@ describe('Concentration', () => {
             concentration.find('.picture-back').first().simulate('click')
 
             expect(
-                sendEvent,
+                utils.sendEvent,
             ).toHaveBeenNthCalledWith(
                 1,
                 'concentration',
@@ -122,7 +125,7 @@ describe('Concentration', () => {
             concentration.find('.picture-back').first().simulate('click')
 
             expect(
-                sendEvent,
+                utils.sendEvent,
             ).toHaveBeenNthCalledWith(
                 2,
                 'concentration',
@@ -135,10 +138,10 @@ describe('Concentration', () => {
             mount(<Concentration />)
 
             expect(
-                getSendEventHandler,
+                utils.getSendEventHandler,
             ).toHaveBeenCalledTimes(12)
             expect(
-                getSendEventHandler,
+                utils.getSendEventHandler,
             ).toHaveBeenNthCalledWith(
                 1,
                 'concentration',
