@@ -8,8 +8,8 @@
     "description": "My name is Nicole; I'm a software engineer.",
     "main": "app.js",
     "engines": {
-        "node": "12.4.0",
-        "npm": "6.9.0",
+        "node": "12.7.0",
+        "npm": "6.10.0",
         "yarn": "1.17.3"
     },
     "dependencies": {
