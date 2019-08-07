@@ -1,7 +1,6 @@
 const path = require('path')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -74,7 +73,6 @@ const commonConfig = {
             cleanStaleWebpackAssets: false,
             verbose: true,
         }),
-        new Dotenv(),
         new ManifestPlugin({ fileName: 'webpack-assets-manifest.json' }),
         new MiniCssExtractPlugin({
             filename: '[id]-[contenthash].bundle.css',
@@ -82,12 +80,12 @@ const commonConfig = {
     ],
     resolve: {
         alias: {
-            "@__mocks__": paths.__MOCKS__,
-            "@components": paths.COMPONENTS,
-            "@constants": paths.CONSTANTS,
-            "@css": paths.CSS,
-            "@img": paths.IMG,
-            "@utils$": paths.UTILS,
+            '@__mocks__': paths.__MOCKS__,
+            '@components': paths.COMPONENTS,
+            '@constants': paths.CONSTANTS,
+            '@css': paths.CSS,
+            '@img': paths.IMG,
+            '@utils$': paths.UTILS,
         },
         extensions: ['.js', '.jsx'],
     },
