@@ -5,7 +5,7 @@ import React from 'react'
 import Code from '@img/icon-code.png'
 import Info from '@img/icon-info.png'
 
-import { getLocationPageTitle, sendEvent } from '@utils'
+import { getLocationPageTitle, sendEvent, sendPageview } from '@utils'
 
 class WorksheetContainer extends React.Component {
     constructor(props) {
@@ -39,6 +39,8 @@ class WorksheetContainer extends React.Component {
     }
 
     updateVisible(locationHash) {
+        sendPageview()
+
         if (locationHash === '#info') {
             this.setState({ visible: 'info' })
         } else if (locationHash === '#gist') {

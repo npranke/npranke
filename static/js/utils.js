@@ -18,6 +18,18 @@ export const sendEvent = (category, action, label) => {
     )
 }
 
+export const sendPageview = () => {
+    gtag(
+        'config',
+        process.env.GA,
+        {
+            page_title: document.title,
+            page_path: document.location.pathname + document.location.hash,
+            page_location: document.URL,
+        },
+    )
+}
+
 export const getSendEventHandler = (category, action, label) => {
     return function sendEventHandler() {
         sendEvent(category, action, label)

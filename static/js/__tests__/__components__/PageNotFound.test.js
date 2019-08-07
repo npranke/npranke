@@ -4,9 +4,25 @@ import React from 'react'
 
 import PageNotFound from '@components/PageNotFound'
 
+import * as utils from '@utils'
+
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('PageNotFound', () => {
+    test('sets document title', () => {
+        shallow(<PageNotFound />)
+
+        expect(document.title).toContain('pagenotfound')
+    })
+
+    test('sends pageview', () => {
+        utils.sendPageview = jest.fn()
+
+        shallow(<PageNotFound />)
+
+        expect(utils.sendPageview).toHaveBeenCalledTimes(1)
+    })
+
     test('has intro text with oops', () => {
         const pageNotFound = shallow(<PageNotFound />)
 

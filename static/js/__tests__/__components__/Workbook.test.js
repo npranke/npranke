@@ -5,6 +5,8 @@ import React from 'react'
 
 import { Workbook } from '@components/Workbook'
 
+import * as utils from '@utils'
+
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('Workbook', () => {
@@ -14,6 +16,20 @@ describe('Workbook', () => {
 
     afterEach(() => {
         window.alert.mockReset()
+    })
+
+    test('sets document title', () => {
+        shallow(<Workbook />)
+
+        expect(document.title).toContain('workbook')
+    })
+
+    test('sends pageview', () => {
+        utils.sendPageview = jest.fn()
+
+        shallow(<Workbook />)
+
+        expect(utils.sendPageview).toHaveBeenCalledTimes(1)
     })
 
     test('has link to concentration', () => {

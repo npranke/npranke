@@ -8,7 +8,7 @@ import ImageMock from '@__mocks__/ImageMock'
 
 import WorksheetContainer from '@components/WorksheetContainer'
 
-jest.mock('@utils')
+import * as utils from '@utils'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -22,6 +22,18 @@ const worksheet = {
 }
 
 describe('WorksheetContainer', () => {
+    test('sets document title', () => {
+        shallow(
+            <WorksheetContainer
+                location={ { hash: '' } }
+                worksheet={ worksheet }
+            />,
+            { wrappingComponent: MemoryRouter },
+        )
+
+        expect(document.title).toContain('component')
+    })
+
     test('has three tabs', () => {
         const worksheetContainer = shallow(
             <WorksheetContainer
@@ -58,6 +70,44 @@ describe('WorksheetContainer', () => {
         expect(
             worksheetContainer.find('.worksheet-section').props().role,
         ).toEqual('tabpanel')
+    })
+
+    describe('sends pageview', () => {
+        beforeAll(() => {
+            utils.sendPageview = jest.fn()
+        })
+
+        afterEach(() => {
+            utils.sendPageview.mockReset()
+        })
+
+        test('sends pageview when component mounts', () => {
+            shallow(
+                <WorksheetContainer
+                    location={ { hash: '' } }
+                    worksheet={ worksheet }
+                />,
+                { wrappingComponent: MemoryRouter },
+            )
+
+            expect(utils.sendPageview).toHaveBeenCalledTimes(1)
+        })
+
+        test('sends pageview when location hash changes', () => {
+            const worksheetContainer = shallow(
+                <WorksheetContainer
+                    location={ { hash: '' } }
+                    worksheet={ worksheet }
+                />,
+                { wrappingComponent: MemoryRouter },
+            )
+
+            expect(utils.sendPageview).toHaveBeenCalledTimes(1)
+
+            worksheetContainer.setProps({ location: { hash: '#gist' } })
+
+            expect(utils.sendPageview).toHaveBeenCalledTimes(2)
+        })
     })
 
     describe('headerClickHandler', () => {

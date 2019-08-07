@@ -80,12 +80,12 @@ const commonConfig = {
     ],
     resolve: {
         alias: {
-            "@__mocks__": paths.__MOCKS__,
-            "@components": paths.COMPONENTS,
-            "@constants": paths.CONSTANTS,
-            "@css": paths.CSS,
-            "@img": paths.IMG,
-            "@utils$": paths.UTILS,
+            '@__mocks__': paths.__MOCKS__,
+            '@components': paths.COMPONENTS,
+            '@constants': paths.CONSTANTS,
+            '@css': paths.CSS,
+            '@img': paths.IMG,
+            '@utils$': paths.UTILS,
         },
         extensions: ['.js', '.jsx'],
     },
