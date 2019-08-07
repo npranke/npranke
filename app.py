@@ -67,6 +67,16 @@ def appletouchicon():
     )
 
 
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, "static"),
+        "favicon.ico",
+        mimetype="image/x-icon",
+        cache_timeout=3600
+    )
+
+
 @app.errorhandler(404)
 def pagenotfound(error):
     return render_template("index.html"), 404
