@@ -7,10 +7,18 @@
     <title>npranke | {{ config.get('TEMPLATE_TAG') }}</title>
 
     <meta name="robots" content="noindex, nofollow, noimageindex">
+    <meta
+        name="apple-mobile-web-app-title"
+        content="{{ 'npranke' + config.get('TEMPLATE_TAG') }}"
+    >
     {% else %}
     <title>npranke</title>
 
     <meta name="robots" content="noimageindex, noarchive">
+    <meta
+        name="apple-mobile-web-app-title"
+        content="npranke"
+    >
     {% endif %}
     <meta
         name="description"
@@ -21,7 +29,6 @@
     <base href="{{ config.get('BASE_URL') }}">
 
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
     <link
         rel="stylesheet"
         type="text/css"
