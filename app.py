@@ -1,4 +1,6 @@
-from flask import Flask, json, render_template, url_for
+import os
+
+from flask import Flask, json, render_template, send_from_directory, url_for
 from flask_sslify import SSLify
 from tinydb import Query, TinyDB
 from tinydb.middlewares import CachingMiddleware
@@ -53,6 +55,26 @@ def gist(name="worksheet"):
     gist_id = gistdb.get(Gist.name == gist_name).get("id")
 
     return render_template("gist.html", gist_name=gist_name, gist_id=gist_id)
+
+
+@app.route("/apple-touch-icon.png")
+def appletouchicon():
+    return send_from_directory(
+        os.path.join(app.root_path, "static"),
+        "apple-touch-icon.png",
+        mimetype="image/png",
+        cache_timeout=3600
+    )
+
+
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, "static"),
+        "favicon.ico",
+        mimetype="image/x-icon",
+        cache_timeout=3600
+    )
 
 
 @app.errorhandler(404)
