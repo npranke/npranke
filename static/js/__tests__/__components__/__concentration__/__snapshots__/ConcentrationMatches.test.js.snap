@@ -85,7 +85,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -93,7 +93,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -101,7 +101,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -109,7 +109,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -117,7 +117,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -125,7 +125,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -133,7 +133,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -141,7 +141,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -149,7 +149,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -157,7 +157,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -165,7 +165,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -173,7 +173,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -266,7 +266,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -274,7 +274,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -282,7 +282,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
@@ -290,7 +290,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
       href="image-link"
     >
       <img
-        alt=""
+        alt="alt-text"
         src=""
       />
     </a>
