@@ -67,6 +67,16 @@ def appletouchicon():
     )
 
 
+@app.route("/mask-icon.svg")
+def maskicon():
+    return send_from_directory(
+        os.path.join(app.root_path, "static"),
+        "mask-icon.svg",
+        mimetype="image/svg+xml",
+        cache_timeout=3600
+    )
+
+
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(
