@@ -50,10 +50,18 @@
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4, "first"],
         "react/jsx-one-expression-per-line": ["off"],
+        "react/jsx-props-no-spreading": [
+            {
+                "html": "enforce",
+                "custom": "ignore",
+                "exceptions": []
+            }
+        ],
         "react/self-closing-comp": [
             "error",
             { "component": true, "html": false }
         ],
+        "react/state-in-constructor": ["error", "always"],
         "semi": ["error", "never"]
     },
     "settings": {
