@@ -14,8 +14,8 @@
     },
     "dependencies": {
         "prop-types": "^15.7.2",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
         "react-router-dom": "^5.0.1"
     },
     "devDependencies": {
@@ -30,13 +30,13 @@
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
         "enzyme-to-json": "^3.4.0",
-        "eslint": "^5.16.0",
-        "eslint-config-airbnb": "^17.1.1",
+        "eslint": "^6.1.0",
+        "eslint-config-airbnb": "^18.0.0",
         "eslint-import-resolver-webpack": "^0.11.1",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-react": "^7.14.3",
-        "file-loader": "^4.1.0",
+        "file-loader": "^4.2.0",
         "image-webpack-loader": "^5.0.0",
         "jest": "^24.8.0",
         "jest-haste-map": "^24.8.0",
@@ -58,9 +58,9 @@
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
         "test": "DOTENV_CONFIG_PATH=./.env.mock jest --coverage",
-        "test:snapup": "jest --updateSnapshot",
+        "test:snapup": "DOTENV_CONFIG_PATH=./.env.mock jest --updateSnapshot",
         "watch:build": "webpack --progress --config webpack.dev.js --watch",
-        "watch:tests": "jest --watchAll"
+        "watch:tests": "DOTENV_CONFIG_PATH=./.env.mock jest --watchAll"
     },
     "jest": {
         "moduleNameMapper": {

@@ -11,7 +11,7 @@ const pictures = Array.from({ length: 12 }, (value, integer) => {
     return `${integer}`
 }).reduce((pictureAccumulator, pictureid) => {
     pictureAccumulator[`picture${pictureid}`] = {
-        image: <a href="image-link"><img src="" alt="" /></a>,
+        image: <a href="image-link"><img src="" alt="alt-text" /></a>,
     }
 
     return pictureAccumulator
