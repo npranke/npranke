@@ -58,9 +58,9 @@
         "lint": "eslint --ext .js --ext .jsx ./static/js/",
         "lint:fix": "eslint --ext .js --ext .jsx --fix ./static/js/",
         "test": "DOTENV_CONFIG_PATH=./.env.mock jest --coverage",
-        "test:snapup": "jest --updateSnapshot",
+        "test:snapup": "DOTENV_CONFIG_PATH=./.env.mock jest --updateSnapshot",
         "watch:build": "webpack --progress --config webpack.dev.js --watch",
-        "watch:tests": "jest --watchAll"
+        "watch:tests": "DOTENV_CONFIG_PATH=./.env.mock jest --watchAll"
     },
     "jest": {
         "moduleNameMapper": {
