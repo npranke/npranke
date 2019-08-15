@@ -5,6 +5,7 @@ import React from 'react'
 import withPortraitListener from '@components/hoc/PortraitListener'
 
 import Concentration from '@img/icon-concentration.png'
+import Tower from '@img/icon-tower.png'
 import Worksheet from '@img/icon-worksheet.png'
 
 import {
@@ -19,6 +20,7 @@ export class Workbook extends React.Component {
         super(props)
 
         this.concentration = React.createRef()
+        this.tower = React.createRef()
         this.worksheet = React.createRef()
 
         this.getItemClickHandler = this.getItemClickHandler.bind(this)
@@ -89,6 +91,37 @@ export class Workbook extends React.Component {
             </Link>
         )
 
+        const worksheetTower = (
+            <Link
+                onClick={ getSendEventHandler(
+                    'workbook',
+                    'navigate',
+                    'tower',
+                ) }
+                to="/workbook/tower"
+                target="_self"
+                rel="noreferrer"
+                innerRef={ this.tower }
+            >
+                <div className="button-worksheet-container">
+                    <span className="button-worksheet-wrapper">
+                        <span className="button-worksheet">
+                            <span className="button-worksheet-inner">
+                                <img
+                                    src={ Tower }
+                                    className="icon icon-tower"
+                                    alt="Tower icon"
+                                />
+                                <span className="text-worksheet">
+                                    Tower
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                </div>
+            </Link>
+        )
+
         const worksheet = (
             <Link
                 onClick={ this.getItemClickHandler('worksheet') }
@@ -126,7 +159,7 @@ export class Workbook extends React.Component {
                         this.concentration,
                         this.concentration,
                         this.concentration,
-                        this.worksheet,
+                        this.tower,
                         this.concentration,
                         this.worksheet,
                     ) }
@@ -139,7 +172,7 @@ export class Workbook extends React.Component {
                     className="table-cell-workbook"
                     role="gridcell"
                     onKeyUp={ this.getItemKeyUpHandler(
-                        this.worksheet,
+                        this.tower,
                         this.concentration,
                         this.concentration,
                         this.concentration,
@@ -148,6 +181,41 @@ export class Workbook extends React.Component {
                     ) }
                 >
                     { worksheetConcentration }
+                </td>
+            )
+
+        const workbookTableCellTower = this.props.isPortrait
+            ? (
+                <td
+                    id="workbook-worksheet-tower"
+                    className="table-cell-workbook"
+                    role="gridcell"
+                    onKeyUp={ this.getItemKeyUpHandler(
+                        this.tower,
+                        this.tower,
+                        this.concentration,
+                        this.worksheet,
+                        this.concentration,
+                        this.worksheet,
+                    ) }
+                >
+                    { worksheetTower }
+                </td>
+            ) : (
+                <td
+                    id="workbook-worksheet-tower"
+                    className="table-cell-workbook"
+                    role="gridcell"
+                    onKeyUp={ this.getItemKeyUpHandler(
+                        this.worksheet,
+                        this.concentration,
+                        this.tower,
+                        this.tower,
+                        this.concentration,
+                        this.worksheet,
+                    ) }
+                >
+                    { worksheetTower }
                 </td>
             )
 
@@ -160,7 +228,7 @@ export class Workbook extends React.Component {
                     onKeyUp={ this.getItemKeyUpHandler(
                         this.worksheet,
                         this.worksheet,
-                        this.concentration,
+                        this.tower,
                         this.worksheet,
                         this.concentration,
                         this.worksheet,
@@ -175,7 +243,7 @@ export class Workbook extends React.Component {
                     role="gridcell"
                     onKeyUp={ this.getItemKeyUpHandler(
                         this.worksheet,
-                        this.concentration,
+                        this.tower,
                         this.worksheet,
                         this.worksheet,
                         this.concentration,
@@ -193,6 +261,9 @@ export class Workbook extends React.Component {
                         { workbookTableCellConcentration }
                     </tr>
                     <tr className="table-row-workbook">
+                        { workbookTableCellTower }
+                    </tr>
+                    <tr className="table-row-workbook">
                         { workbookTableCellWorksheet }
                     </tr>
                 </tbody>
@@ -200,6 +271,7 @@ export class Workbook extends React.Component {
                 <tbody className="table-body-workbook">
                     <tr className="table-row-workbook">
                         { workbookTableCellConcentration }
+                        { workbookTableCellTower }
                         { workbookTableCellWorksheet }
                     </tr>
                 </tbody>
