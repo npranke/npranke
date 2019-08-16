@@ -67,7 +67,6 @@ function Header(props) {
             </a>
         ) : (
             <NavLink
-                exact
                 onClick={ getSendEventHandler(
                     'header',
                     'navigate',
