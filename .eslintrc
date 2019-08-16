@@ -22,6 +22,10 @@
         "function-paren-newline": ["off"],
         "import/no-named-as-default": ["off"],
         "indent": ["error", 4],
+        "jsx-a11y/label-has-associated-control": [
+            "error",
+            { "assert": "either" }
+        ],
         "jsx-a11y/no-noninteractive-element-to-interactive-role": [
             "error",
             {
