@@ -40,6 +40,7 @@
         "file-loader": "^4.2.0",
         "image-webpack-loader": "^5.0.0",
         "jest": "^24.9.0",
+        "jest-date-mock": "^1.0.7",
         "jest-haste-map": "^24.9.0",
         "jest-resolve": "^24.9.0",
         "mini-css-extract-plugin": "^0.8.0",
@@ -73,6 +74,7 @@
         },
         "setupFiles": [
             "dotenv/config",
+            "jest-date-mock",
             "<rootDir>/jest.setup.js"
         ],
         "snapshotSerializers": [

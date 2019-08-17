@@ -982,9 +982,9 @@
     source-map "^0.6.1"
 
 "@types/webpack@^4.4.31":
-  version "4.32.1"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.32.1.tgz#6e95010e806f808abd6551c112097ac09035aacf"
-  integrity sha512-9n38CBx9uga1FEAdTipnt0EkbKpsCJFh7xJb1LE65FFb/A6OOLFX022vYsGC1IyVCZ/GroNg9u/RMmlDxGcLIw==
+  version "4.32.2"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.32.2.tgz#e0f1ce77b2f13fe5d9cfd3fcf4b99aee3f92ac51"
+  integrity sha512-KZyRrE2XxE/buUNKFhSxqCqLQ+QMCe/AX/edeQtnFuSCucxPkb8cVgmPecGdOIgoL1Z7KgCgrwVg0BMJbZr5aw==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
@@ -2954,9 +2954,9 @@ ecc-jsbn@~0.1.1:
     safer-buffer "^2.1.0"
 
 electron-to-chromium@^1.3.191:
-  version "1.3.230"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.230.tgz#2d0618cb6f724391d5fd0926dde84d6c67cbcda9"
-  integrity sha512-r0RljY5DZi9RX4v8mjHxJkDWnQe+nsrkGlHtrDF2uvZcvAkw+iglvlQi1794gZhwRtJoDOomMJlDHL2LfXSCZA==
+  version "1.3.231"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.231.tgz#8e1998a97fb0bf473d8d08fa688dbbfd7ce6cc31"
+  integrity sha512-8yUPELSlg6IZSyx4llJK3Ru5xHwcUERCGJeHaRiLxy32HbSIp2uMK22Qqf2mQQY/LIU4D91xs2ikXVOf2SvSSw==
 
 elliptic@^6.0.0:
   version "6.5.0"
@@ -4999,6 +4999,11 @@ jest-config@^24.9.0:
     micromatch "^3.1.10"
     pretty-format "^24.9.0"
     realpath-native "^1.1.0"
+
+jest-date-mock@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/jest-date-mock/-/jest-date-mock-1.0.7.tgz#b1e5071beb314cbfcfb0a21d8560a2122519f5c3"
+  integrity sha512-ZgbYlURRhVpf52Jho4tlyUgpJJ+nYvhxIWhIIEdarmsSuTxFZlC9DmKCyQXsuEljfxK+7HsqdBX/L6rxwWraYw==
 
 jest-diff@^24.9.0:
   version "24.9.0"
