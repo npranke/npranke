@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeRunner snapshot matches snapshot 1`] = `
+<ComponentUseTimeRunnerMock
+  isTimeRunning={false}
+>
+  <div
+    className="component-use-time-runner-mock"
+  >
+    <div
+      className="centiseconds"
+    >
+      00
+    </div>
+    <div
+      className="seconds"
+    >
+      00
+    </div>
+    <div
+      className="minutes"
+    >
+      00
+    </div>
+  </div>
+</ComponentUseTimeRunnerMock>
+`;
