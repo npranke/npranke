@@ -8,9 +8,8 @@ exports[`Concentration snapshot matches snapshot 1`] = `
     className="matches-wrapper"
   >
     <ConcentrationMatches
-      centiseconds="00"
+      isTimeRunning={false}
       matches={Array []}
-      minutes="00"
       pictures={
         Object {
           "picture0": Object {
@@ -195,7 +194,6 @@ exports[`Concentration snapshot matches snapshot 1`] = `
           },
         }
       }
-      seconds="00"
       turns={0}
     />
   </div>

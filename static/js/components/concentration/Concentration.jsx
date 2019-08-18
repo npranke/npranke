@@ -43,9 +43,6 @@ export class Concentration extends React.Component {
 
         this.state = {
             isTimeRunning: false,
-            centiseconds: '00',
-            seconds: '00',
-            minutes: '00',
             turns: 0,
             internalMatches: [],
             displayedMatches: [],
@@ -55,7 +52,6 @@ export class Concentration extends React.Component {
 
         this.pictureClickHandler = this.pictureClickHandler.bind(this)
         this.pictureKeyUpHandler = this.pictureKeyUpHandler.bind(this)
-        this.updateTime = this.updateTime.bind(this)
 
         this.matchesPictures = Object.keys(pictureSources).reduce(
             (pictureAccumulator, pictureid) => {
@@ -182,47 +178,8 @@ export class Concentration extends React.Component {
         })
     }
 
-    componentDidMount() {
-        this.timeInterval = setInterval(this.updateTime, 10)
-    }
-
     componentWillUnmount() {
         clearTimeout(this.pictureTimeout)
-
-        clearInterval(this.timeInterval)
-    }
-
-    updateTime() {
-        this.setState((state) => {
-            if (!state.isTimeRunning || state.internalMatches.length === 12) {
-                return { isTimeRunning: false }
-            }
-
-            let centiseconds = parseInt(state.centiseconds, 10) + 1
-            let seconds = parseInt(state.seconds, 10)
-            let minutes = parseInt(state.minutes, 10)
-
-            if (centiseconds >= 100) {
-                centiseconds %= 100
-                seconds += 1
-            }
-            if (seconds >= 60) {
-                seconds %= 60
-                minutes += 1
-            }
-
-            centiseconds = centiseconds < 10
-                ? `0${centiseconds}`
-                : `${centiseconds}`
-            seconds = seconds < 10 ? `0${seconds}` : `${seconds}`
-            minutes = minutes < 10 ? `0${minutes}` : `${minutes}`
-
-            return {
-                centiseconds,
-                seconds,
-                minutes,
-            }
-        })
     }
 
     pictureClickHandler(event) {
@@ -242,6 +199,8 @@ export class Concentration extends React.Component {
             ) {
                 sendEvent('concentration', 'find', 'match')
 
+                const isLastMatch = state.internalMatches.length === 11
+
                 this.pictureTimeout = setTimeout(() => {
                     this.setState({
                         first: { id: null, pictureid: null },
@@ -249,7 +208,7 @@ export class Concentration extends React.Component {
                         displayedMatches: state.displayedMatches.concat(
                             [pictureid],
                         ),
-                        isTimeRunning: true,
+                        isTimeRunning: !isLastMatch,
                     })
                 }, 1000)
 
@@ -258,7 +217,7 @@ export class Concentration extends React.Component {
                     second: { id, pictureid },
                     internalMatches: state.internalMatches.concat([pictureid]),
                     displayedMatches: state.internalMatches,
-                    isTimeRunning: true,
+                    isTimeRunning: !isLastMatch,
                 }
             } else if (
                 state.second.id === null && state.first.pictureid !== pictureid
@@ -307,11 +266,9 @@ export class Concentration extends React.Component {
             <div className="concentration">
                 <div className="matches-wrapper">
                     <ConcentrationMatches
+                        isTimeRunning={ this.state.isTimeRunning }
                         pictures={ this.matchesPictures }
                         matches={ this.state.displayedMatches }
-                        centiseconds={ this.state.centiseconds }
-                        minutes={ this.state.minutes }
-                        seconds={ this.state.seconds }
                         turns={ this.state.turns }
                     />
                 </div>

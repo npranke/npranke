@@ -290,6 +290,56 @@ describe('Concentration', () => {
             ).toEqual(['5', '9', '2'])
         })
 
+        test('sets isTimeRunning to false when last match', () => {
+            const concentration = shallow(<Concentration />)
+
+            concentration.setState({
+                first: { id: '11-a', pictureid: '11' },
+                internalMatches: Array.from(
+                    { length: 11 },
+                    (value, integer) => {
+                        return `${integer}`
+                    },
+                ),
+                isTimeRunning: true,
+            })
+
+            concentration.instance().pictureClickHandler({
+                currentTarget: {
+                    dataset: {
+                        id: '11-b',
+                        pictureid: '11',
+                    },
+                },
+            })
+
+            expect(
+                concentration.state('isTimeRunning'),
+            ).toBe(false)
+        })
+
+        test('sets isTimeRunning to true when not last match', () => {
+            const concentration = shallow(<Concentration />)
+
+            concentration.setState({
+                first: { id: '6-a', pictureid: '6' },
+                internalMatches: ['0', '1', '2', '3', '4', '5'],
+            })
+
+            concentration.instance().pictureClickHandler({
+                currentTarget: {
+                    dataset: {
+                        id: '6-b',
+                        pictureid: '6',
+                    },
+                },
+            })
+
+            expect(
+                concentration.state('isTimeRunning'),
+            ).toBe(true)
+        })
+
         test('sets second and not internalMatches when not match', () => {
             const concentration = shallow(<Concentration />)
 
@@ -518,97 +568,6 @@ describe('Concentration', () => {
             expect(
                 concentration.instance().pictureClickHandler,
             ).toHaveBeenCalled()
-        })
-    })
-
-    describe('updateTime()', () => {
-        test('stops time running when matches is 12', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({
-                isTimeRunning: true,
-                internalMatches: Array.from(
-                    { length: 12 },
-                    (value, integer) => {
-                        return `${integer}`
-                    },
-                ),
-            })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('isTimeRunning'),
-            ).toBe(false)
-        })
-
-        test('formats time when centiseconds is less than 10', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, centiseconds: '5' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('centiseconds'),
-            ).toEqual('06')
-        })
-
-        test('formats time when seconds is less than 10', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, seconds: '8' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('seconds'),
-            ).toEqual('08')
-        })
-
-        test('formats time when minutes is less than 10', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, minutes: '2' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('minutes'),
-            ).toEqual('02')
-        })
-
-        test('formats time when centiseconds is over 100', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({
-                isTimeRunning: true,
-                centiseconds: '103',
-            })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('centiseconds'),
-            ).toEqual('04')
-            expect(
-                concentration.state('seconds'),
-            ).toEqual('01')
-        })
-
-        test('formats time when seconds is over 60', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, seconds: '61' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('seconds'),
-            ).toEqual('01')
-            expect(
-                concentration.state('minutes'),
-            ).toEqual('01')
         })
     })
 })
