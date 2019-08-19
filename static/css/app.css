@@ -291,7 +291,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     height: 4%;
 }
 
-.concentration {
+.concentration, .tower {
     height: 100%;
 }
 
@@ -300,7 +300,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     width: 100%;
 }
 
-.concentration .matches {
+.tower .settings-wrapper {
+    width: 100%;
+}
+
+.concentration .matches,
+.tower .settings {
     height: 100%;
     width: 100%;
     border-bottom: 1px #131C27 solid;
@@ -311,36 +316,66 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     font-size: large;
 }
 
+.tower .settings {
+    padding-bottom: 24px;
+    font-size: large;
+}
+
 .concentration .matches-header .left-text,
-.concentration .matches-header .right-text {
+.concentration .matches-header .right-text,
+.tower .settings .left-text,
+.tower .settings .right-text {
     padding: 4px;
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
 }
 
-.concentration .matches-header .left-text {
+.concentration .matches-header .left-text,
+.tower .settings .left-text {
     text-align: left;
 }
 
-.concentration .matches-header .right-text {
+.concentration .matches-header .right-text,
+.tower .settings .right-text {
     float: right;
     margin-right: 4%;
     text-align: right;
 }
 
-.concentration .matches-header .turns-text {
+.concentration .matches-header .turns-text,
+.tower .settings .time-text {
     padding-left: 24px;
 }
 
 .concentration .matches-header .time-portion,
 .concentration .matches-header .turns-portion,
-.concentration .matches-header .matches-portion {
+.concentration .matches-header .matches-portion,
+.tower .settings .discs-portion,
+.tower .settings .moves-portion,
+.tower .settings .time-portion {
     flex: 0 0 auto;
 }
 
-.concentration .matches-header .number {
+.concentration .matches-header .number,
+.tower .settings .number {
     font-family: "Anonymous Pro", monospace;
+}
+
+.tower .settings input {
+    display: none;
+}
+
+.tower .settings label {
+    border: 1px transparent solid;
+    border-radius: 27% 12% / 7% 32%;
+    background-clip: padding-box;
+    padding: 3px 6px;
+    margin: 0 6px;
+}
+
+.tower .settings input:checked + label {
+    border: 1px #131C27 solid;
 }
 
 .concentration .matches-pictures {
@@ -448,7 +483,8 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .header .icon:hover,
     .welcome .button-workbook:hover,
     .pagenotfound .button-home:hover,
-    .workbook .table-cell-workbook:hover .button-worksheet-inner {
+    .workbook .table-cell-workbook:hover .button-worksheet-inner,
+    .tower .settings label:hover {
         border: 1px #131C27 solid;
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
         background: radial-gradient(rgba(233, 238, 239, 0.9), transparent);
@@ -483,7 +519,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         height: 18%;
     }
 
-    .welcome, .pagenotfound, .concentration .matches-header {
+    .welcome, .pagenotfound, .concentration .matches-header, .tower .settings {
         font-size: x-large;
     }
 
@@ -553,7 +589,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         width: 36px;
     }
 
-    .welcome, .pagenotfound, .concentration .matches-header {
+    .welcome, .pagenotfound, .concentration .matches-header, .tower .settings {
         font-size: xx-large;
     }
 
@@ -594,6 +630,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .welcome,
     .pagenotfound,
     .concentration .matches-header,
+    .tower .settings,
     .worksheet-section.info-wrapper {
         font-size: medium;
     }
@@ -656,6 +693,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .welcome,
     .pagenotfound,
     .concentration .matches-header,
+    .tower .settings,
     .worksheet-section.info-wrapper {
         font-size: small;
     }
@@ -724,6 +762,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .welcome,
     .pagenotfound,
     .concentration .matches-header,
+    .tower .settings,
     .worksheet-section.info-wrapper {
         font-size: x-small;
     }

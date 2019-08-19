@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tower snapshot matches snapshot 1`] = `
+<div
+  className="tower"
+>
+  <div
+    className="settings-wrapper"
+  >
+    <TowerSettings
+      discs={3}
+      isTimeRunning={false}
+      moves={0}
+      updateDiscs={[Function]}
+    />
+  </div>
+</div>
+`;
