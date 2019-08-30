@@ -29,7 +29,20 @@ describe('utils', () => {
             window.gtag.mockReset()
         })
 
-        test('getSendEventHandler returns a function', () => {
+        test('getSendEventHandler returns function with value arg', () => {
+            const sendEventHandler = getSendEventHandler(
+                'category',
+                'action',
+                'label',
+                0,
+            )
+
+            expect(
+                sendEventHandler,
+            ).toBeInstanceOf(Function)
+        })
+
+        test('getSendEventHandler returns function without value arg', () => {
             const sendEventHandler = getSendEventHandler(
                 'category',
                 'action',
@@ -41,7 +54,25 @@ describe('utils', () => {
             ).toBeInstanceOf(Function)
         })
 
-        test('sendEvent calls gtag()', () => {
+
+        test('sendEvent calls gtag() with value arg', () => {
+            sendEvent('category', 'action', 'label', 0)
+
+            expect(
+                window.gtag,
+            ).toHaveBeenNthCalledWith(
+                1,
+                'event',
+                'action',
+                {
+                    event_category: 'category',
+                    event_label: 'label',
+                    value: 0,
+                },
+            )
+        })
+
+        test('sendEvent calls gtag() without value arg', () => {
             sendEvent('category', 'action', 'label')
 
             expect(
