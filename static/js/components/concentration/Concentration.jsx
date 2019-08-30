@@ -201,6 +201,15 @@ export class Concentration extends React.Component {
 
                 const isLastMatch = state.internalMatches.length === 11
 
+                if (isLastMatch) {
+                    sendEvent(
+                        'concentration',
+                        'complete',
+                        'matches',
+                        state.turns + 1,
+                    )
+                }
+
                 this.pictureTimeout = setTimeout(() => {
                     this.setState({
                         first: { id: null, pictureid: null },

@@ -134,6 +134,44 @@ describe('Concentration', () => {
             )
         })
 
+        test('when last match is clicked', () => {
+            const concentration = mount(<Concentration />)
+
+            const pictureid = concentration.find(
+                '.picture-back',
+            ).first().props()['data-pictureid']
+
+            concentration.setState({
+                first: {
+                    id: `${pictureid}-x`,
+                    pictureid,
+                },
+                internalMatches: Array.from(
+                    { length: 12 },
+                    (value, integer) => {
+                        return `${integer}`
+                    },
+                ).filter(
+                    (internalMatch) => {
+                        return internalMatch !== pictureid
+                    },
+                ),
+                turns: 11,
+            })
+
+            concentration.find('.picture-back').first().simulate('click')
+
+            expect(
+                utils.sendEvent,
+            ).toHaveBeenNthCalledWith(
+                3,
+                'concentration',
+                'complete',
+                'matches',
+                12,
+            )
+        })
+
         test('when matches picture is clicked', () => {
             mount(<Concentration />)
 
