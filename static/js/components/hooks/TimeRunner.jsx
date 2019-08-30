@@ -50,7 +50,7 @@ function useTimeRunner(isTimeRunning) {
         return () => {
             clearInterval(timeInterval)
         }
-    })
+    }, [isTimeRunning])
 
     return state
 }

@@ -124,6 +124,46 @@ describe('TimeRunner', () => {
             component.find('.minutes').text(),
         ).toEqual('01')
     })
+
+    test('setInterval called when isTimeRunning changes', () => {
+        window.setInterval = jest.fn()
+
+        act(() => {
+            component.setProps({ isTimeRunning: true })
+        })
+
+        expect(
+            window.setInterval,
+        ).toHaveBeenCalledTimes(1)
+
+        act(() => {
+            component.setProps({ isTimeRunning: false })
+        })
+
+        expect(
+            window.setInterval,
+        ).toHaveBeenCalledTimes(2)
+    })
+
+    test('setInterval not called when isTimeRunning does not change', () => {
+        window.setInterval = jest.fn()
+
+        act(() => {
+            component.setProps({ isTimeRunning: false })
+        })
+
+        expect(
+            window.setInterval,
+        ).toHaveBeenCalledTimes(0)
+
+        act(() => {
+            component.setProps({ isTimeRunning: false })
+        })
+
+        expect(
+            window.setInterval,
+        ).toHaveBeenCalledTimes(0)
+    })
 })
 
 describe('TimeRunner snapshot', () => {
