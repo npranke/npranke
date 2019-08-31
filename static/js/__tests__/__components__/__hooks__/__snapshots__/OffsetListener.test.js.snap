@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OffsetListener snapshot matches snapshot 1`] = `
+<ComponentUseOffsetListenerMock
+  elementRef={
+    Object {
+      "current": Object {
+        "offsetHeight": 25,
+        "offsetWidth": 100,
+      },
+    }
+  }
+>
+  <div
+    className="component-use-offset-listener-mock"
+  >
+    <div
+      className="height"
+    >
+      25
+    </div>
+    <div
+      className="width"
+    >
+      100
+    </div>
+  </div>
+</ComponentUseOffsetListenerMock>
+`;
