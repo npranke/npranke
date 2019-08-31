@@ -5,153 +5,157 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
   className="settings"
 >
   <div
-    className="left-text"
+    className="settings-inner"
   >
-    <span
-      className="discs-text"
+    <div
+      className="left-text"
     >
       <span
-        className="discs-portion"
-        id="discs-label"
+        className="discs-text"
       >
-        discs: 
+        <span
+          className="discs-portion"
+          id="discs-label"
+        >
+          discs: 
+        </span>
+        <span
+          aria-labelledby="discs-label"
+          className="discs-portion"
+          id="discs-radiogroup"
+          role="radiogroup"
+        >
+          <input
+            aria-checked={false}
+            checked={false}
+            id="two-discs"
+            name="discs"
+            onChange={[Function]}
+            type="radio"
+            value="2"
+          />
+          <label
+            className="discs-portion number"
+            data-value="2"
+            htmlFor="two-discs"
+            id="two-discs-label"
+            onKeyUp={[Function]}
+            tabIndex="-1"
+          >
+            2
+          </label>
+          <input
+            aria-checked={true}
+            checked={true}
+            id="three-discs"
+            name="discs"
+            onChange={[Function]}
+            type="radio"
+            value="3"
+          />
+          <label
+            className="discs-portion number"
+            data-value="3"
+            htmlFor="three-discs"
+            id="three-discs-label"
+            onKeyUp={[Function]}
+            tabIndex="0"
+          >
+            3
+          </label>
+          <input
+            aria-checked={false}
+            checked={false}
+            id="four-discs"
+            name="discs"
+            onChange={[Function]}
+            type="radio"
+            value="4"
+          />
+          <label
+            className="discs-portion number"
+            data-value="4"
+            htmlFor="four-discs"
+            id="four-discs-label"
+            onKeyUp={[Function]}
+            tabIndex="-1"
+          >
+            4
+          </label>
+          <input
+            aria-checked={false}
+            checked={false}
+            id="five-discs"
+            name="discs"
+            onChange={[Function]}
+            type="radio"
+            value="5"
+          />
+          <label
+            className="discs-portion number"
+            data-value="5"
+            htmlFor="five-discs"
+            id="five-discs-label"
+            onKeyUp={[Function]}
+            tabIndex="-1"
+          >
+            5
+          </label>
+        </span>
       </span>
-      <span
-        aria-labelledby="discs-label"
-        className="discs-portion"
-        id="discs-radiogroup"
-        role="radiogroup"
-      >
-        <input
-          aria-checked={false}
-          checked={false}
-          id="two-discs"
-          name="discs"
-          onChange={[Function]}
-          type="radio"
-          value="2"
-        />
-        <label
-          className="discs-portion number"
-          data-value="2"
-          htmlFor="two-discs"
-          id="two-discs-label"
-          onKeyUp={[Function]}
-          tabIndex="-1"
-        >
-          2
-        </label>
-        <input
-          aria-checked={true}
-          checked={true}
-          id="three-discs"
-          name="discs"
-          onChange={[Function]}
-          type="radio"
-          value="3"
-        />
-        <label
-          className="discs-portion number"
-          data-value="3"
-          htmlFor="three-discs"
-          id="three-discs-label"
-          onKeyUp={[Function]}
-          tabIndex="0"
-        >
-          3
-        </label>
-        <input
-          aria-checked={false}
-          checked={false}
-          id="four-discs"
-          name="discs"
-          onChange={[Function]}
-          type="radio"
-          value="4"
-        />
-        <label
-          className="discs-portion number"
-          data-value="4"
-          htmlFor="four-discs"
-          id="four-discs-label"
-          onKeyUp={[Function]}
-          tabIndex="-1"
-        >
-          4
-        </label>
-        <input
-          aria-checked={false}
-          checked={false}
-          id="five-discs"
-          name="discs"
-          onChange={[Function]}
-          type="radio"
-          value="5"
-        />
-        <label
-          className="discs-portion number"
-          data-value="5"
-          htmlFor="five-discs"
-          id="five-discs-label"
-          onKeyUp={[Function]}
-          tabIndex="-1"
-        >
-          5
-        </label>
-      </span>
-    </span>
-  </div>
-  <div
-    className="right-text"
-  >
-    <span
-      className="moves-text"
+    </div>
+    <div
+      className="right-text"
     >
       <span
-        className="moves-portion"
+        className="moves-text"
       >
-        moves: 
+        <span
+          className="moves-portion"
+        >
+          moves: 
+        </span>
+        <span
+          className="moves-portion number"
+        >
+          00
+        </span>
       </span>
       <span
-        className="moves-portion number"
+        className="time-text"
       >
-        00
+        <span
+          className="time-portion"
+        >
+          time: 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
+        <span
+          className="time-portion"
+        >
+           : 
+        </span>
+        <span
+          className="time-portion number"
+        >
+          00
+        </span>
       </span>
-    </span>
-    <span
-      className="time-text"
-    >
-      <span
-        className="time-portion"
-      >
-        time: 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-      <span
-        className="time-portion"
-      >
-         : 
-      </span>
-      <span
-        className="time-portion number"
-      >
-        00
-      </span>
-    </span>
+    </div>
   </div>
 </div>
 `;
