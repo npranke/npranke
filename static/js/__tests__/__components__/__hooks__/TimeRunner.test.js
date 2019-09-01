@@ -44,6 +44,29 @@ describe('TimeRunner', () => {
         ).toEqual('00')
     })
 
+    test('return time 00 when shouldReset true', () => {
+        act(() => {
+            component.setProps(
+                { isTimeRunning: true, shouldReset: true },
+            )
+
+            for (let i = 0; i < 10; i++) {
+                jest.advanceTimersByTime(10)
+                advanceBy(10)
+            }
+        })
+
+        expect(
+            component.find('.centiseconds').text(),
+        ).toEqual('00')
+        expect(
+            component.find('.seconds').text(),
+        ).toEqual('00')
+        expect(
+            component.find('.minutes').text(),
+        ).toEqual('00')
+    })
+
     test('formats centiseconds when less than 10', () => {
         act(() => {
             component.setProps({ isTimeRunning: true })
@@ -125,44 +148,86 @@ describe('TimeRunner', () => {
         ).toEqual('01')
     })
 
-    test('setInterval called when isTimeRunning changes', () => {
-        window.setInterval = jest.fn()
+    describe('useEffect dependency changes', () => {
+        test('setInterval called with isTimeRunning change', () => {
+            window.setInterval = jest.fn()
 
-        act(() => {
-            component.setProps({ isTimeRunning: true })
+            act(() => {
+                component.setProps({ isTimeRunning: true })
+            })
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(1)
+
+            act(() => {
+                component.setProps({ isTimeRunning: false })
+            })
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(2)
         })
 
-        expect(
-            window.setInterval,
-        ).toHaveBeenCalledTimes(1)
+        test('setInterval not called without isTimeRunning change', () => {
+            window.setInterval = jest.fn()
 
-        act(() => {
-            component.setProps({ isTimeRunning: false })
+            act(() => {
+                component.setProps({ isTimeRunning: false })
+            })
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(0)
+
+            act(() => {
+                component.setProps({ isTimeRunning: false })
+            })
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(0)
         })
 
-        expect(
-            window.setInterval,
-        ).toHaveBeenCalledTimes(2)
-    })
+        test('setInterval called with shouldReset change', () => {
+            window.setInterval = jest.fn()
 
-    test('setInterval not called when isTimeRunning does not change', () => {
-        window.setInterval = jest.fn()
+            act(() => {
+                component.setProps({ shouldReset: true })
+            })
 
-        act(() => {
-            component.setProps({ isTimeRunning: false })
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(1)
+
+            act(() => {
+                component.setProps({ shouldReset: false })
+            })
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(2)
         })
 
-        expect(
-            window.setInterval,
-        ).toHaveBeenCalledTimes(0)
+        test('setInterval not called without shouldReset change', () => {
+            window.setInterval = jest.fn()
 
-        act(() => {
-            component.setProps({ isTimeRunning: false })
+            act(() => {
+                component.setProps({ shouldReset: false })
+            })
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(0)
+
+            act(() => {
+                component.setProps({ shouldReset: false })
+            })
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(0)
         })
-
-        expect(
-            window.setInterval,
-        ).toHaveBeenCalledTimes(0)
     })
 })
 

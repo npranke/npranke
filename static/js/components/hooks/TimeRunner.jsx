@@ -1,7 +1,16 @@
 import React from 'react'
 
-function useTimeRunner(isTimeRunning) {
+function useTimeRunner(isTimeRunning, shouldReset) {
     function reducer(state) {
+        if (shouldReset) {
+            return {
+                start: null,
+                centiseconds: '00',
+                seconds: '00',
+                minutes: '00',
+            }
+        }
+
         if (state.start === null) {
             return {
                 start: Date.now(),
@@ -42,7 +51,7 @@ function useTimeRunner(isTimeRunning) {
 
     React.useEffect(() => {
         function updateTime() {
-            if (isTimeRunning) { dispatch() }
+            if (isTimeRunning || shouldReset) { dispatch() }
         }
 
         const timeInterval = setInterval(updateTime, 10)
@@ -50,7 +59,7 @@ function useTimeRunner(isTimeRunning) {
         return () => {
             clearInterval(timeInterval)
         }
-    }, [isTimeRunning])
+    }, [isTimeRunning, shouldReset])
 
     return state
 }
