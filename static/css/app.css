@@ -545,10 +545,14 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     border-radius: 7%;
 }
 
+.tower .element .discs .disc.dragging img {
+    cursor: grabbing;
+}
+
 .tower .element .discs.notcomplete .disc img {
     border-width: 2px;
     border-style: solid;
-    animation-name: discenter, borderenter;
+    animation-name: opacitytofull, bordertodark;
     animation-duration: 1s, 2s;
     animation-timing-function: ease-out;
 }
@@ -556,23 +560,14 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 .tower .element .discs.target.complete .disc img {
     border: 2px #E9EEEF solid;
     box-shadow: 0px 0px 2px 2px rgba(233, 238, 239, 0.7);
-    animation-name: discenter;
+}
+
+.tower .element .discs.target.complete a {
+    height: 100%;
+    width: 100%;
+    animation-name: opacitytofull;
     animation-duration: 1s;
     animation-timing-function: ease-out;
-}
-
-@keyframes discenter {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes borderenter {
-    from { border-color: transparent; }
-    to { border-color: #131C27; }
-}
-
-.tower .element .discs .disc.dragging img {
-    cursor: grabbing;
 }
 
 .footer {
@@ -596,6 +591,16 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 .workbook .table-cell-workbook a,
 .worksheet-header .section-button a {
     color: #131C27;
+}
+
+@keyframes opacitytofull {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bordertodark {
+    from { border-color: transparent; }
+    to { border-color: #131C27; }
 }
 
 @media (hover: hover) {
