@@ -41,7 +41,8 @@
             {
                 "props": true,
                 "ignorePropertyModificationsFor": [
-                    "pictureAccumulator"
+                    "pictureAccumulator",
+                    "towerAccumulator"
                 ]
             }
         ],
