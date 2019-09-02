@@ -172,8 +172,8 @@ describe('Concentration', () => {
             )
         })
 
-        test('when matches picture is clicked', () => {
-            mount(<Concentration />)
+        test('with getSendEventHandler for matches picture', () => {
+            shallow(<Concentration />)
 
             expect(
                 utils.getSendEventHandler,
