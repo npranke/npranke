@@ -156,8 +156,8 @@ describe('Concentration', () => {
                 },
                 internalMatches: Array.from(
                     { length: 12 },
-                    (value, integer) => {
-                        return `${integer}`
+                    (value, index) => {
+                        return `${index}`
                     },
                 ).filter(
                     (internalMatch) => {
@@ -343,8 +343,8 @@ describe('Concentration', () => {
                 first: { id: '11-a', pictureid: '11' },
                 internalMatches: Array.from(
                     { length: 11 },
-                    (value, integer) => {
-                        return `${integer}`
+                    (value, index) => {
+                        return `${index}`
                     },
                 ),
                 isTimeRunning: true,
@@ -561,8 +561,8 @@ describe('Concentration', () => {
             concentration.setState({
                 internalMatches: Array.from(
                     { length: 4 },
-                    (value, integer) => {
-                        return `${integer}`
+                    (value, index) => {
+                        return `${index}`
                     },
                 ),
             })

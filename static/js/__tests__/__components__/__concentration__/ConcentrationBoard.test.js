@@ -6,8 +6,8 @@ import ConcentrationBoard from '@components/concentration/ConcentrationBoard'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-const pictures = Array.from({ length: 12 }, (value, integer) => {
-    return `${integer}`
+const pictures = Array.from({ length: 12 }, (value, index) => {
+    return `${index}`
 }).reduce((pictureAccumulator, pictureid) => {
     pictureAccumulator[`picture${pictureid}-a`] = {
         id: `${pictureid}-a`,
@@ -28,10 +28,10 @@ const pictures = Array.from({ length: 12 }, (value, integer) => {
     return pictureAccumulator
 }, {})
 
-const boardOrder = Array.from({ length: 12 }, (value, integer) => {
-    return `picture${integer}-a`
-}).concat(Array.from({ length: 12 }, (value, integer) => {
-    return `picture${integer}-b`
+const boardOrder = Array.from({ length: 12 }, (value, index) => {
+    return `picture${index}-a`
+}).concat(Array.from({ length: 12 }, (value, index) => {
+    return `picture${index}-b`
 }))
 
 describe('ConcentrationBoard', () => {
