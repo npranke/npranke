@@ -368,7 +368,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 .concentration .matches-header .time-portion,
 .concentration .matches-header .turns-portion,
 .concentration .matches-header .matches-portion,
-.tower .settings .discs-portion,
+.tower .settings .disks-portion,
 .tower .settings .moves-portion,
 .tower .settings .time-portion {
     flex: 0 0 auto;
@@ -530,35 +530,35 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     padding: 8px;
 }
 
-.tower .element .discs {
+.tower .element .disks {
     max-height: 70%;
     max-width: inherit;
 }
 
-.tower .element .discs .disc-wrapper {
+.tower .element .disks .disk-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-.tower .element .discs .disc {
+.tower .element .disks .disk {
     height: 100%;
     width: auto;
     flex: 0 0 auto;
 }
 
-.tower .element .discs .disc img {
+.tower .element .disks .disk img {
     height: calc(100% - 4px);
     width: auto;
     border-radius: 7%;
 }
 
-.tower .element .discs .disc.dragging img {
+.tower .element .disks .disk.dragging img {
     cursor: grabbing;
 }
 
-.tower .element .discs.notcomplete .disc img {
+.tower .element .disks.notcomplete .disk img {
     border-width: 2px;
     border-style: solid;
     animation-name: opacitytofull, bordertodark;
@@ -566,12 +566,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     animation-timing-function: ease-out;
 }
 
-.tower .element .discs.target.complete .disc img {
+.tower .element .disks.target.complete .disk img {
     border: 2px #E9EEEF solid;
     box-shadow: 0px 0px 2px 2px rgba(233, 238, 239, 0.7);
 }
 
-.tower .element .discs.target.complete a {
+.tower .element .disks.target.complete a {
     height: 100%;
     width: 100%;
     animation-name: opacitytofull;
@@ -634,17 +634,17 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
     }
 
-    .tower .element .discs .disc.candrag:hover img {
+    .tower .element .disks .disk.candrag:hover img {
         box-shadow: 0px 0px 6px 6px rgba(19, 28, 39, 0.5);
         cursor: grab;
     }
 
-    .tower .element .discs.target.complete:hover .disc img {
+    .tower .element .disks.target.complete:hover .disk img {
         border: 2px #131C27 solid;
         box-shadow: 0px 0px 4px 4px rgba(19, 28, 39, 0.5);
     }
 
-    .tower .element .discs.target.complete:hover {
+    .tower .element .disks.target.complete:hover {
         cursor: pointer;
     }
 }
@@ -763,21 +763,21 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 0;
     }
 
-    .tower .element .discs {
+    .tower .element .disks {
         max-height: inherit;
         max-width: 70%;
     }
 
-    .tower .element .discs .disc-wrapper {
+    .tower .element .disks .disk-wrapper {
         flex-direction: column;
     }
 
-    .tower .element .discs .disc {
+    .tower .element .disks .disk {
         height: auto;
         width: 100%;
     }
 
-    .tower .element .discs .disc img {
+    .tower .element .disks .disk img {
         height: auto;
         width: calc(100% - 4px);
     }
