@@ -84,13 +84,21 @@ describe('Concentration', () => {
 
     describe('sending concentration events', () => {
         beforeAll(() => {
-            utils.getSendEventHandler = jest.fn()
-            utils.sendEvent = jest.fn()
+            utils.getSendEventHandler = jest.spyOn(
+                utils,
+                'getSendEventHandler',
+            )
+            utils.sendEvent = jest.spyOn(utils, 'sendEvent')
         })
 
         afterEach(() => {
-            utils.getSendEventHandler.mockReset()
-            utils.sendEvent.mockReset()
+            utils.getSendEventHandler.mockClear()
+            utils.sendEvent.mockClear()
+        })
+
+        afterAll(() => {
+            utils.getSendEventHandler.mockRestore()
+            utils.sendEvent.mockRestore()
         })
 
         test('when picture is clicked', () => {
