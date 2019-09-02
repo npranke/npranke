@@ -8,39 +8,39 @@ function TowerSettings(props) {
         props.isTimeRunning,
     )
 
-    const twoDiscs = React.useRef(null)
-    const threeDiscs = React.useRef(null)
-    const fourDiscs = React.useRef(null)
-    const fiveDiscs = React.useRef(null)
+    const twoDisks = React.useRef(null)
+    const threeDisks = React.useRef(null)
+    const fourDisks = React.useRef(null)
+    const fiveDisks = React.useRef(null)
 
-    function discsInputChangeHandler(event) {
-        props.updateDiscs(event.target.value)
+    function disksInputChangeHandler(event) {
+        props.updateDisks(event.target.value)
     }
 
-    function discsLabelKeyUpHandler(event) {
+    function disksLabelKeyUpHandler(event) {
         const { value } = event.currentTarget.dataset
 
         if (event.key === 'Enter' || event.key === ' ') {
-            props.updateDiscs(value)
+            props.updateDisks(value)
         } else if (event.key === 'ArrowRight') {
             if (value === '2') {
-                threeDiscs.current.focus()
+                threeDisks.current.focus()
             } else if (value === '3') {
-                fourDiscs.current.focus()
+                fourDisks.current.focus()
             } else if (value === '4') {
-                fiveDiscs.current.focus()
+                fiveDisks.current.focus()
             } else if (value === '5') {
-                twoDiscs.current.focus()
+                twoDisks.current.focus()
             }
         } else if (event.key === 'ArrowLeft') {
             if (value === '2') {
-                fiveDiscs.current.focus()
+                fiveDisks.current.focus()
             } else if (value === '3') {
-                twoDiscs.current.focus()
+                twoDisks.current.focus()
             } else if (value === '4') {
-                threeDiscs.current.focus()
+                threeDisks.current.focus()
             } else if (value === '5') {
-                fourDiscs.current.focus()
+                fourDisks.current.focus()
             }
         }
     }
@@ -49,93 +49,93 @@ function TowerSettings(props) {
         <div className="settings">
             <div className="settings-inner">
                 <div className="left-text">
-                    <span className="discs-text">
-                        <span className="discs-portion" id="discs-label">
-                            discs:&ensp;
+                    <span className="disks-text">
+                        <span className="disks-portion" id="disks-label">
+                            disks:&ensp;
                         </span>
                         <span
-                            className="discs-portion"
-                            id="discs-radiogroup"
+                            className="disks-portion"
+                            id="disks-radiogroup"
                             role="radiogroup"
-                            aria-labelledby="discs-label"
+                            aria-labelledby="disks-label"
                         >
                             <input
-                                name="discs"
+                                name="disks"
                                 type="radio"
-                                id="two-discs"
+                                id="two-disks"
                                 value="2"
-                                onChange={ discsInputChangeHandler }
-                                checked={ props.discs === 2 }
-                                aria-checked={ props.discs === 2 }
+                                onChange={ disksInputChangeHandler }
+                                checked={ props.disks === 2 }
+                                aria-checked={ props.disks === 2 }
                             />
                             <label
-                                className="discs-portion number"
-                                id="two-discs-label"
-                                htmlFor="two-discs"
+                                className="disks-portion number"
+                                id="two-disks-label"
+                                htmlFor="two-disks"
                                 data-value="2"
-                                ref={ twoDiscs }
-                                onKeyUp={ discsLabelKeyUpHandler }
-                                tabIndex={ props.discs === 2 ? '0' : '-1' }
+                                ref={ twoDisks }
+                                onKeyUp={ disksLabelKeyUpHandler }
+                                tabIndex={ props.disks === 2 ? '0' : '-1' }
                             >
                                 2
                             </label>
                             <input
-                                name="discs"
+                                name="disks"
                                 type="radio"
-                                id="three-discs"
+                                id="three-disks"
                                 value="3"
-                                onChange={ discsInputChangeHandler }
-                                checked={ props.discs === 3 }
-                                aria-checked={ props.discs === 3 }
+                                onChange={ disksInputChangeHandler }
+                                checked={ props.disks === 3 }
+                                aria-checked={ props.disks === 3 }
                             />
                             <label
-                                className="discs-portion number"
-                                id="three-discs-label"
-                                htmlFor="three-discs"
+                                className="disks-portion number"
+                                id="three-disks-label"
+                                htmlFor="three-disks"
                                 data-value="3"
-                                ref={ threeDiscs }
-                                onKeyUp={ discsLabelKeyUpHandler }
-                                tabIndex={ props.discs === 3 ? '0' : '-1' }
+                                ref={ threeDisks }
+                                onKeyUp={ disksLabelKeyUpHandler }
+                                tabIndex={ props.disks === 3 ? '0' : '-1' }
                             >
                                 3
                             </label>
                             <input
-                                name="discs"
+                                name="disks"
                                 type="radio"
-                                id="four-discs"
+                                id="four-disks"
                                 value="4"
-                                onChange={ discsInputChangeHandler }
-                                checked={ props.discs === 4 }
-                                aria-checked={ props.discs === 4 }
+                                onChange={ disksInputChangeHandler }
+                                checked={ props.disks === 4 }
+                                aria-checked={ props.disks === 4 }
                             />
                             <label
-                                className="discs-portion number"
-                                id="four-discs-label"
-                                htmlFor="four-discs"
+                                className="disks-portion number"
+                                id="four-disks-label"
+                                htmlFor="four-disks"
                                 data-value="4"
-                                ref={ fourDiscs }
-                                onKeyUp={ discsLabelKeyUpHandler }
-                                tabIndex={ props.discs === 4 ? '0' : '-1' }
+                                ref={ fourDisks }
+                                onKeyUp={ disksLabelKeyUpHandler }
+                                tabIndex={ props.disks === 4 ? '0' : '-1' }
                             >
                                 4
                             </label>
                             <input
-                                name="discs"
+                                name="disks"
                                 type="radio"
-                                id="five-discs"
+                                id="five-disks"
                                 value="5"
-                                onChange={ discsInputChangeHandler }
-                                checked={ props.discs === 5 }
-                                aria-checked={ props.discs === 5 }
+                                onChange={ disksInputChangeHandler }
+                                checked={ props.disks === 5 }
+                                aria-checked={ props.disks === 5 }
                             />
                             <label
-                                className="discs-portion number"
-                                id="five-discs-label"
-                                htmlFor="five-discs"
+                                className="disks-portion number"
+                                id="five-disks-label"
+                                htmlFor="five-disks"
                                 data-value="5"
-                                ref={ fiveDiscs }
-                                onKeyUp={ discsLabelKeyUpHandler }
-                                tabIndex={ props.discs === 5 ? '0' : '-1' }
+                                ref={ fiveDisks }
+                                onKeyUp={ disksLabelKeyUpHandler }
+                                tabIndex={ props.disks === 5 ? '0' : '-1' }
                             >
                                 5
                             </label>
@@ -182,16 +182,16 @@ function TowerSettings(props) {
 }
 
 TowerSettings.defaultProps = {
-    discs: 3,
+    disks: 3,
     isTimeRunning: false,
     moves: 0,
 }
 
 TowerSettings.propTypes = {
-    discs: PropTypes.number,
+    disks: PropTypes.number,
     isTimeRunning: PropTypes.bool,
     moves: PropTypes.number,
-    updateDiscs: PropTypes.func.isRequired,
+    updateDisks: PropTypes.func.isRequired,
 }
 
 export default TowerSettings

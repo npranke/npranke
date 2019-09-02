@@ -11,34 +11,34 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
       className="left-text"
     >
       <span
-        className="discs-text"
+        className="disks-text"
       >
         <span
-          className="discs-portion"
-          id="discs-label"
+          className="disks-portion"
+          id="disks-label"
         >
-          discs: 
+          disks: 
         </span>
         <span
-          aria-labelledby="discs-label"
-          className="discs-portion"
-          id="discs-radiogroup"
+          aria-labelledby="disks-label"
+          className="disks-portion"
+          id="disks-radiogroup"
           role="radiogroup"
         >
           <input
             aria-checked={false}
             checked={false}
-            id="two-discs"
-            name="discs"
+            id="two-disks"
+            name="disks"
             onChange={[Function]}
             type="radio"
             value="2"
           />
           <label
-            className="discs-portion number"
+            className="disks-portion number"
             data-value="2"
-            htmlFor="two-discs"
-            id="two-discs-label"
+            htmlFor="two-disks"
+            id="two-disks-label"
             onKeyUp={[Function]}
             tabIndex="-1"
           >
@@ -47,17 +47,17 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
           <input
             aria-checked={true}
             checked={true}
-            id="three-discs"
-            name="discs"
+            id="three-disks"
+            name="disks"
             onChange={[Function]}
             type="radio"
             value="3"
           />
           <label
-            className="discs-portion number"
+            className="disks-portion number"
             data-value="3"
-            htmlFor="three-discs"
-            id="three-discs-label"
+            htmlFor="three-disks"
+            id="three-disks-label"
             onKeyUp={[Function]}
             tabIndex="0"
           >
@@ -66,17 +66,17 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
           <input
             aria-checked={false}
             checked={false}
-            id="four-discs"
-            name="discs"
+            id="four-disks"
+            name="disks"
             onChange={[Function]}
             type="radio"
             value="4"
           />
           <label
-            className="discs-portion number"
+            className="disks-portion number"
             data-value="4"
-            htmlFor="four-discs"
-            id="four-discs-label"
+            htmlFor="four-disks"
+            id="four-disks-label"
             onKeyUp={[Function]}
             tabIndex="-1"
           >
@@ -85,17 +85,17 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
           <input
             aria-checked={false}
             checked={false}
-            id="five-discs"
-            name="discs"
+            id="five-disks"
+            name="disks"
             onChange={[Function]}
             type="radio"
             value="5"
           />
           <label
-            className="discs-portion number"
+            className="disks-portion number"
             data-value="5"
-            htmlFor="five-discs"
-            id="five-discs-label"
+            htmlFor="five-disks"
+            id="five-disks-label"
             onKeyUp={[Function]}
             tabIndex="-1"
           >
