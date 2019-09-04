@@ -140,7 +140,17 @@ describe('OffsetListener', () => {
 })
 
 describe('OffsetListener snapshot', () => {
-    test('matches snapshot', () => {
+    test('matches snapshot without elementRef.current', () => {
+        const component = mount(
+            <ComponentUseOffsetListenerMock
+                elementRef={ {} }
+            />,
+        )
+
+        expect(component).toMatchSnapshot()
+    })
+
+    test('matches snapshot with elementRef.current', () => {
         const component = mount(
             <ComponentUseOffsetListenerMock
                 elementRef={ {
