@@ -6,7 +6,7 @@ import useTimeRunner from '@components/hooks/TimeRunner'
 function TowerSettings(props) {
     const { centiseconds, seconds, minutes } = useTimeRunner(
         props.isTimeRunning,
-        props.shouldResetTime,
+        props.shouldTimeReset,
     )
 
     const twoDisks = React.useRef(null)
@@ -185,14 +185,14 @@ function TowerSettings(props) {
 TowerSettings.defaultProps = {
     disks: 3,
     isTimeRunning: false,
-    shouldResetTime: false,
+    shouldTimeReset: false,
     moves: 0,
 }
 
 TowerSettings.propTypes = {
     disks: PropTypes.number,
     isTimeRunning: PropTypes.bool,
-    shouldResetTime: PropTypes.bool,
+    shouldTimeReset: PropTypes.bool,
     moves: PropTypes.number,
     updateDisks: PropTypes.func.isRequired,
 }
