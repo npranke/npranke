@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TowerElement snapshot when isPortrait matches snapshot when empty 1`] = `
+exports[`TowerLocation snapshot when isPortrait matches snapshot when empty 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"
@@ -14,17 +14,17 @@ exports[`TowerElement snapshot when isPortrait matches snapshot when empty 1`] =
     </div>
   </div>
   <div
-    className="element-section disks buffer notcomplete"
+    className="location-section disks buffer notcomplete"
   />
 </div>
 `;
 
-exports[`TowerElement snapshot when isPortrait matches snapshot with all disks and not target 1`] = `
+exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks and not target 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"
@@ -33,7 +33,7 @@ exports[`TowerElement snapshot when isPortrait matches snapshot with all disks a
     </div>
   </div>
   <div
-    className="element-section disks origin notcomplete"
+    className="location-section disks origin notcomplete"
   >
     <div
       className="disk-wrapper"
@@ -171,12 +171,12 @@ exports[`TowerElement snapshot when isPortrait matches snapshot with all disks a
 </div>
 `;
 
-exports[`TowerElement snapshot when isPortrait matches snapshot with all disks and target 1`] = `
+exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks and target 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"
@@ -185,11 +185,11 @@ exports[`TowerElement snapshot when isPortrait matches snapshot with all disks a
     </div>
   </div>
   <div
-    className="element-section disks target complete"
+    className="location-section disks target complete"
   >
     <a
       aria-label="NASA/JPL Space Images"
-      className="element-section"
+      className="location-section"
       href="navigate-link"
       onClick={[MockFunction]}
       rel="noreferrer noopener external"
@@ -332,12 +332,12 @@ exports[`TowerElement snapshot when isPortrait matches snapshot with all disks a
 </div>
 `;
 
-exports[`TowerElement snapshot when isPortrait matches snapshot with some disks 1`] = `
+exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"
@@ -346,7 +346,7 @@ exports[`TowerElement snapshot when isPortrait matches snapshot with some disks 
     </div>
   </div>
   <div
-    className="element-section disks buffer notcomplete"
+    className="location-section disks buffer notcomplete"
   >
     <div
       className="disk-wrapper"
@@ -414,15 +414,15 @@ exports[`TowerElement snapshot when isPortrait matches snapshot with some disks 
 </div>
 `;
 
-exports[`TowerElement snapshot when not isPortrait matches snapshot when empty 1`] = `
+exports[`TowerLocation snapshot when not isPortrait matches snapshot when empty 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section disks buffer notcomplete"
+    className="location-section disks buffer notcomplete"
   />
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"
@@ -433,12 +433,12 @@ exports[`TowerElement snapshot when not isPortrait matches snapshot when empty 1
 </div>
 `;
 
-exports[`TowerElement snapshot when not isPortrait matches snapshot with all disks and not target 1`] = `
+exports[`TowerLocation snapshot when not isPortrait matches snapshot with all disks and not target 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section disks origin notcomplete"
+    className="location-section disks origin notcomplete"
   >
     <div
       className="disk-wrapper"
@@ -504,7 +504,7 @@ exports[`TowerElement snapshot when not isPortrait matches snapshot with all dis
     </div>
   </div>
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"
@@ -515,16 +515,16 @@ exports[`TowerElement snapshot when not isPortrait matches snapshot with all dis
 </div>
 `;
 
-exports[`TowerElement snapshot when not isPortrait matches snapshot with all disks and target 1`] = `
+exports[`TowerLocation snapshot when not isPortrait matches snapshot with all disks and target 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section disks target complete"
+    className="location-section disks target complete"
   >
     <a
       aria-label="NASA/JPL Space Images"
-      className="element-section"
+      className="location-section"
       href="navigate-link"
       onClick={[MockFunction]}
       rel="noreferrer noopener external"
@@ -595,7 +595,7 @@ exports[`TowerElement snapshot when not isPortrait matches snapshot with all dis
     </a>
   </div>
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"
@@ -606,12 +606,12 @@ exports[`TowerElement snapshot when not isPortrait matches snapshot with all dis
 </div>
 `;
 
-exports[`TowerElement snapshot when not isPortrait matches snapshot with some disks 1`] = `
+exports[`TowerLocation snapshot when not isPortrait matches snapshot with some disks 1`] = `
 <div
-  className="element"
+  className="location"
 >
   <div
-    className="element-section disks buffer notcomplete"
+    className="location-section disks buffer notcomplete"
   >
     <div
       className="disk-wrapper"
@@ -645,7 +645,7 @@ exports[`TowerElement snapshot when not isPortrait matches snapshot with some di
     </div>
   </div>
   <div
-    className="element-section base"
+    className="location-section base"
   >
     <div
       className="name-text"

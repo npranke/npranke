@@ -424,13 +424,13 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     width: 100%;
 }
 
-.tower .elements-wrapper {
+.tower .locations-wrapper {
     height: 92%;
     width: 100%;
 }
 
 .concentration .board,
-.tower .elements-container {
+.tower .locations-container {
     height: calc(100% - 32px);
     width: calc(100% - 32px);
     padding: 16px;
@@ -443,7 +443,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     justify-content: space-around;
 }
 
-.tower .elements-container {
+.tower .locations-container {
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-around;
@@ -456,7 +456,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     flex: 0 0 auto;
 }
 
-.tower .elements-container .element-wrapper {
+.tower .locations-container .location-wrapper {
     height: 100%;
     width: calc(33% - 16px);
     padding: 0 8px;
@@ -497,7 +497,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     opacity: 0;
 }
 
-.tower .element {
+.tower .location {
     height: 100%;
     width: 100%;
     display: flex;
@@ -506,7 +506,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     align-items: center;
 }
 
-.tower .element .element-section {
+.tower .location .location-section {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
@@ -514,7 +514,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     align-items: center;
 }
 
-.tower .element .base {
+.tower .location .base {
     font-family: "Anonymous Pro", monospace;
     font-size: large;
     font-weight: 700;
@@ -526,39 +526,39 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     box-shadow: 0px 0px 6px 6px rgba(233, 238, 239, 0.7);
 }
 
-.tower .element .base .name-text {
+.tower .location .base .name-text {
     padding: 8px;
 }
 
-.tower .element .disks {
+.tower .location .disks {
     max-height: 70%;
     max-width: inherit;
 }
 
-.tower .element .disks .disk-wrapper {
+.tower .location .disks .disk-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-.tower .element .disks .disk {
+.tower .location .disks .disk {
     height: 100%;
     width: auto;
     flex: 0 0 auto;
 }
 
-.tower .element .disks .disk img {
+.tower .location .disks .disk img {
     height: calc(100% - 4px);
     width: auto;
     border-radius: 7%;
 }
 
-.tower .element .disks .disk.dragging img {
+.tower .location .disks .disk.dragging img {
     cursor: grabbing;
 }
 
-.tower .element .disks.notcomplete .disk img {
+.tower .location .disks.notcomplete .disk img {
     border-width: 2px;
     border-style: solid;
     animation-name: opacitytofull, bordertodark;
@@ -566,12 +566,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     animation-timing-function: ease-out;
 }
 
-.tower .element .disks.target.complete .disk img {
+.tower .location .disks.target.complete .disk img {
     border: 2px #E9EEEF solid;
     box-shadow: 0px 0px 2px 2px rgba(233, 238, 239, 0.7);
 }
 
-.tower .element .disks.target.complete a {
+.tower .location .disks.target.complete a {
     height: 100%;
     width: 100%;
     animation-name: opacitytofull;
@@ -634,17 +634,17 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
     }
 
-    .tower .element .disks .disk.candrag:hover img {
+    .tower .location .disks .disk.candrag:hover img {
         box-shadow: 0px 0px 6px 6px rgba(19, 28, 39, 0.5);
         cursor: grab;
     }
 
-    .tower .element .disks.target.complete:hover .disk img {
+    .tower .location .disks.target.complete:hover .disk img {
         border: 2px #131C27 solid;
         box-shadow: 0px 0px 4px 4px rgba(19, 28, 39, 0.5);
     }
 
-    .tower .element .disks.target.complete:hover {
+    .tower .location .disks.target.complete:hover {
         cursor: pointer;
     }
 }
@@ -670,7 +670,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .element .base {
+    .tower .location .base {
         font-size: x-large;
     }
 
@@ -714,11 +714,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         height: 85%;
     }
 
-    .tower .elements-wrapper {
+    .tower .locations-wrapper {
         height: 94%;
     }
 
-    .tower .elements-container {
+    .tower .locations-container {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -728,7 +728,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 3px 0;
     }
 
-    .tower .elements-container .element-wrapper {
+    .tower .locations-container .location-wrapper {
         height: calc(33% - 16px);
         width: 100%;
         padding: 8px 0;
@@ -748,36 +748,36 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
     }
 
-    .tower .element {
+    .tower .location {
         flex-direction: row;
         justify-content: flex-start;
     }
 
-    .tower .element .element-section {
+    .tower .location .location-section {
         flex-direction: row;
         justify-content: flex-start;
     }
 
-    .tower .element .base {
+    .tower .location .base {
         transform: rotate(90deg);
         margin: 0;
     }
 
-    .tower .element .disks {
+    .tower .location .disks {
         max-height: inherit;
         max-width: 70%;
     }
 
-    .tower .element .disks .disk-wrapper {
+    .tower .location .disks .disk-wrapper {
         flex-direction: column;
     }
 
-    .tower .element .disks .disk {
+    .tower .location .disks .disk {
         height: auto;
         width: 100%;
     }
 
-    .tower .element .disks .disk img {
+    .tower .location .disks .disk img {
         height: auto;
         width: calc(100% - 4px);
     }
@@ -797,7 +797,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .element .base {
+    .tower .location .base {
         font-size: xx-large;
     }
 
@@ -839,7 +839,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .element .base,
+    .tower .location .base,
     .worksheet-section.info-wrapper {
         font-size: medium;
     }
@@ -903,7 +903,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .element .base,
+    .tower .location .base,
     .worksheet-section.info-wrapper {
         font-size: small;
     }
@@ -973,7 +973,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .element .base,
+    .tower .location .base,
     .worksheet-section.info-wrapper {
         font-size: x-small;
     }

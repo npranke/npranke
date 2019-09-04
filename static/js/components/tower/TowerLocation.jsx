@@ -27,9 +27,9 @@ export function collect(connect) {
     }
 }
 
-export function TowerElement(props) {
-    const elementRef = React.useRef(null)
-    const { height, width } = useOffsetListener(elementRef)
+export function TowerLocation(props) {
+    const locationRef = React.useRef(null)
+    const { height, width } = useOffsetListener(locationRef)
 
     let diskHeight, diskWidth, scaleFactor
 
@@ -104,7 +104,7 @@ export function TowerElement(props) {
     if (props.isComplete) {
         towerDisks = (
             <a
-                className="element-section"
+                className="location-section"
                 onClick={ props.tower.navigateEventHandler }
                 href={ props.tower.navigateLink }
                 target="_blank"
@@ -119,7 +119,7 @@ export function TowerElement(props) {
     towerDisks = (
         <div
             className={
-                'element-section disks '
+                'location-section disks '
                 + `${props.name} `
                 + `${props.isComplete ? 'complete' : 'notcomplete'}`
             }
@@ -129,8 +129,8 @@ export function TowerElement(props) {
     )
 
     return props.isPortrait ? props.connectDropTarget(
-        <div className="element" ref={ elementRef }>
-            <div className="element-section base">
+        <div className="location" ref={ locationRef }>
+            <div className="location-section base">
                 <div className="name-text">
                     { props.name }
                 </div>
@@ -138,9 +138,9 @@ export function TowerElement(props) {
             { towerDisks }
         </div>,
     ) : props.connectDropTarget(
-        <div className="element" ref={ elementRef }>
+        <div className="location" ref={ locationRef }>
             { towerDisks }
-            <div className="element-section base">
+            <div className="location-section base">
                 <div className="name-text">
                     { props.name }
                 </div>
@@ -149,14 +149,14 @@ export function TowerElement(props) {
     )
 }
 
-TowerElement.defaultProps = {
+TowerLocation.defaultProps = {
     connectDropTarget: undefined,
     diskids: [],
     isComplete: false,
     isPortrait: false,
 }
 
-TowerElement.propTypes = {
+TowerLocation.propTypes = {
     connectDropTarget: PropTypes.func,
     disks: PropTypes.number.isRequired,
     diskids: PropTypes.arrayOf(PropTypes.string),
@@ -182,4 +182,4 @@ TowerElement.propTypes = {
     }).isRequired,
 }
 
-export default DropTarget('disk', spec, collect)(TowerElement)
+export default DropTarget('disk', spec, collect)(TowerLocation)
