@@ -14,7 +14,12 @@ describe('TimeRunner', () => {
     beforeEach(() => {
         jest.useFakeTimers()
         advanceTo(0)
-        component = mount(<ComponentUseTimeRunnerMock />)
+        component = mount(
+            <ComponentUseTimeRunnerMock
+                isRunning={ false }
+                shouldReset={ false }
+            />,
+        )
     })
 
     afterEach(() => {
@@ -23,9 +28,9 @@ describe('TimeRunner', () => {
         jest.clearAllTimers()
     })
 
-    test('return time 00 when isTimeRunning false', () => {
+    test('return time 00 when isRunning false', () => {
         act(() => {
-            component.setProps({ isTimeRunning: false })
+            component.setProps({ isRunning: false })
 
             for (let i = 0; i < 10; i++) {
                 jest.advanceTimersByTime(10)
@@ -47,7 +52,7 @@ describe('TimeRunner', () => {
     test('return time 00 when shouldReset true', () => {
         act(() => {
             component.setProps(
-                { isTimeRunning: true, shouldReset: true },
+                { isRunning: true, shouldReset: true },
             )
 
             for (let i = 0; i < 10; i++) {
@@ -69,7 +74,7 @@ describe('TimeRunner', () => {
 
     test('formats centiseconds when less than 10', () => {
         act(() => {
-            component.setProps({ isTimeRunning: true })
+            component.setProps({ isRunning: true })
 
             for (let i = 0; i < 6; i++) {
                 jest.advanceTimersByTime(10)
@@ -84,7 +89,7 @@ describe('TimeRunner', () => {
 
     test('formats seconds when less than 10', () => {
         act(() => {
-            component.setProps({ isTimeRunning: true })
+            component.setProps({ isRunning: true })
 
             for (let i = 0; i < 820; i++) {
                 jest.advanceTimersByTime(10)
@@ -99,7 +104,7 @@ describe('TimeRunner', () => {
 
     test('formats minutes when less than 10', () => {
         act(() => {
-            component.setProps({ isTimeRunning: true })
+            component.setProps({ isRunning: true })
 
             for (let i = 0; i < 12400; i++) {
                 jest.advanceTimersByTime(10)
@@ -114,7 +119,7 @@ describe('TimeRunner', () => {
 
     test('formats centiseconds when over 100', () => {
         act(() => {
-            component.setProps({ isTimeRunning: true })
+            component.setProps({ isRunning: true })
 
             for (let i = 0; i < 105; i++) {
                 jest.advanceTimersByTime(10)
@@ -132,7 +137,7 @@ describe('TimeRunner', () => {
 
     test('formats seconds when over 60', () => {
         act(() => {
-            component.setProps({ isTimeRunning: true })
+            component.setProps({ isRunning: true })
 
             for (let i = 0; i < 6300; i++) {
                 jest.advanceTimersByTime(10)
@@ -149,11 +154,11 @@ describe('TimeRunner', () => {
     })
 
     describe('useEffect dependency changes', () => {
-        test('setInterval called with isTimeRunning change', () => {
+        test('setInterval called with isRunning change', () => {
             window.setInterval = jest.fn()
 
             act(() => {
-                component.setProps({ isTimeRunning: true })
+                component.setProps({ isRunning: true })
             })
 
             expect(
@@ -161,7 +166,7 @@ describe('TimeRunner', () => {
             ).toHaveBeenCalledTimes(1)
 
             act(() => {
-                component.setProps({ isTimeRunning: false })
+                component.setProps({ isRunning: false })
             })
 
             expect(
@@ -169,11 +174,11 @@ describe('TimeRunner', () => {
             ).toHaveBeenCalledTimes(2)
         })
 
-        test('setInterval not called without isTimeRunning change', () => {
+        test('setInterval not called without isRunning change', () => {
             window.setInterval = jest.fn()
 
             act(() => {
-                component.setProps({ isTimeRunning: false })
+                component.setProps({ isRunning: false })
             })
 
             expect(
@@ -181,7 +186,7 @@ describe('TimeRunner', () => {
             ).toHaveBeenCalledTimes(0)
 
             act(() => {
-                component.setProps({ isTimeRunning: false })
+                component.setProps({ isRunning: false })
             })
 
             expect(
@@ -233,7 +238,12 @@ describe('TimeRunner', () => {
 
 describe('TimeRunner snapshot', () => {
     test('matches snapshot', () => {
-        const component = mount(<ComponentUseTimeRunnerMock />)
+        const component = mount(
+            <ComponentUseTimeRunnerMock
+                isRunning={ false }
+                shouldReset={ false }
+            />,
+        )
 
         expect(component).toMatchSnapshot()
     })

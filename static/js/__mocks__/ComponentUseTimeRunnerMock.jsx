@@ -5,7 +5,7 @@ import useTimeRunner from '@components/hooks/TimeRunner'
 
 function ComponentUseTimeRunnerMock(props) {
     const { centiseconds, seconds, minutes } = useTimeRunner(
-        props.isTimeRunning,
+        props.isRunning,
         props.shouldReset,
     )
 
@@ -19,12 +19,12 @@ function ComponentUseTimeRunnerMock(props) {
 }
 
 ComponentUseTimeRunnerMock.defaultProps = {
-    isTimeRunning: false,
+    isRunning: false,
     shouldReset: false,
 }
 
 ComponentUseTimeRunnerMock.propTypes = {
-    isTimeRunning: PropTypes.bool,
+    isRunning: PropTypes.bool,
     shouldReset: PropTypes.bool,
 }
 

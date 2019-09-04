@@ -2,7 +2,7 @@
 
 exports[`TimeRunner snapshot matches snapshot 1`] = `
 <ComponentUseTimeRunnerMock
-  isTimeRunning={false}
+  isRunning={false}
   shouldReset={false}
 >
   <div
