@@ -92,8 +92,8 @@ describe('TowerDisk', () => {
                 diskids: ['3', '2', '1'],
                 image: diskImage,
                 isComplete: false,
+                location: 'origin',
                 moveDisk: jest.fn(),
-                tower: 'origin',
             }
         })
 
@@ -135,7 +135,7 @@ describe('TowerDisk', () => {
         test('endDrag calls moveDisk when didDrop true', () => {
             monitor.didDrop.mockImplementationOnce(() => { return true })
             monitor.getDropResult.mockImplementationOnce(
-                () => { return { toTower: 'target' } },
+                () => { return { toLocation: 'target' } },
             )
 
             spec.endDrag(props, monitor)
@@ -164,7 +164,7 @@ describe('TowerDisk', () => {
             props.diskid = '1'
             props.diskids = ['3', '2', '1']
             props.isComplete = true
-            props.tower = 'target'
+            props.location = 'target'
 
             const canDragResult = spec.canDrag(props)
 
@@ -175,7 +175,7 @@ describe('TowerDisk', () => {
             props.diskid = '3'
             props.diskids = ['5', '4', '3', '2', '1']
             props.isComplete = false
-            props.tower = 'origin'
+            props.location = 'origin'
 
             const canDragResult = spec.canDrag(props)
 
@@ -186,7 +186,7 @@ describe('TowerDisk', () => {
             props.diskid = '4'
             props.diskids = ['4', '3', '2', '1']
             props.isComplete = false
-            props.tower = 'origin'
+            props.location = 'origin'
 
             const canDragResult = spec.canDrag(props)
 
@@ -197,7 +197,7 @@ describe('TowerDisk', () => {
             props.diskid = '1'
             props.diskids = ['2', '1']
             props.isComplete = false
-            props.tower = 'buffer'
+            props.location = 'buffer'
 
             const canDragResult = spec.canDrag(props)
 
@@ -213,8 +213,8 @@ describe('TowerDisk', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                tower="buffer"
             />,
         )
 
@@ -231,8 +231,8 @@ describe('TowerDisk', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                tower="buffer"
             />,
         )
 
@@ -253,8 +253,8 @@ describe('TowerDisk', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                location="origin"
                 moveDisk={ jest.fn() }
-                tower="origin"
             />,
         )
 
@@ -272,8 +272,8 @@ describe('TowerDisk', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                location="origin"
                 moveDisk={ jest.fn() }
-                tower="origin"
             />,
         )
 
@@ -291,8 +291,8 @@ describe('TowerDisk', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                location="origin"
                 moveDisk={ jest.fn() }
-                tower="origin"
             />,
         )
 
@@ -310,8 +310,8 @@ describe('TowerDisk', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                location="origin"
                 moveDisk={ jest.fn() }
-                tower="origin"
             />,
         )
 
@@ -330,8 +330,8 @@ describe('TowerDisk snapshot', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                tower="buffer"
             />,
         )
 

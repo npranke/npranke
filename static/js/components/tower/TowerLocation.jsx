@@ -8,7 +8,7 @@ import useOffsetListener from '@components/hooks/OffsetListener'
 
 export const spec = {
     drop: (props) => {
-        return { toTower: props.location }
+        return { toLocation: props.location }
     },
     canDrop: (props, monitor) => {
         const diskid = parseInt(monitor.getItem().diskid, 10)
@@ -90,7 +90,7 @@ export function TowerLocation(props) {
                         image={ disk.image }
                         isComplete={ props.isComplete }
                         moveDisk={ props.moveDisk }
-                        tower={ props.location }
+                        location={ props.location }
                     />
                 </div>
             </React.Fragment>

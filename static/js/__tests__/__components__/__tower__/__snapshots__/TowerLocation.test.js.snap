@@ -64,8 +64,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
         }
         isComplete={false}
         isDragging={false}
+        location="origin"
         moveDisk={[MockFunction]}
-        tower="origin"
       />
     </div>
     <div
@@ -97,8 +97,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
         }
         isComplete={false}
         isDragging={false}
+        location="origin"
         moveDisk={[MockFunction]}
-        tower="origin"
       />
     </div>
     <div
@@ -130,8 +130,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
         }
         isComplete={false}
         isDragging={false}
+        location="origin"
         moveDisk={[MockFunction]}
-        tower="origin"
       />
     </div>
     <div
@@ -163,8 +163,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
         }
         isComplete={false}
         isDragging={false}
+        location="origin"
         moveDisk={[MockFunction]}
-        tower="origin"
       />
     </div>
   </div>
@@ -224,8 +224,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           }
           isComplete={true}
           isDragging={false}
+          location="target"
           moveDisk={[MockFunction]}
-          tower="target"
         />
       </div>
       <div
@@ -257,8 +257,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           }
           isComplete={true}
           isDragging={false}
+          location="target"
           moveDisk={[MockFunction]}
-          tower="target"
         />
       </div>
       <div
@@ -290,8 +290,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           }
           isComplete={true}
           isDragging={false}
+          location="target"
           moveDisk={[MockFunction]}
-          tower="target"
         />
       </div>
       <div
@@ -323,8 +323,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           }
           isComplete={true}
           isDragging={false}
+          location="target"
           moveDisk={[MockFunction]}
-          tower="target"
         />
       </div>
     </a>
@@ -375,8 +375,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks
         }
         isComplete={false}
         isDragging={false}
+        location="buffer"
         moveDisk={[MockFunction]}
-        tower="buffer"
       />
     </div>
     <div
@@ -406,8 +406,8 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks
         }
         isComplete={false}
         isDragging={false}
+        location="buffer"
         moveDisk={[MockFunction]}
-        tower="buffer"
       />
     </div>
   </div>
@@ -467,8 +467,8 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
         }
         isComplete={false}
         isDragging={false}
+        location="origin"
         moveDisk={[MockFunction]}
-        tower="origin"
       />
     </div>
     <div
@@ -498,8 +498,8 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
         }
         isComplete={false}
         isDragging={false}
+        location="origin"
         moveDisk={[MockFunction]}
-        tower="origin"
       />
     </div>
   </div>
@@ -557,8 +557,8 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
           }
           isComplete={true}
           isDragging={false}
+          location="target"
           moveDisk={[MockFunction]}
-          tower="target"
         />
       </div>
       <div
@@ -588,8 +588,8 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
           }
           isComplete={true}
           isDragging={false}
+          location="target"
           moveDisk={[MockFunction]}
-          tower="target"
         />
       </div>
     </a>
@@ -639,8 +639,8 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with some d
         }
         isComplete={false}
         isDragging={false}
+        location="buffer"
         moveDisk={[MockFunction]}
-        tower="buffer"
       />
     </div>
   </div>

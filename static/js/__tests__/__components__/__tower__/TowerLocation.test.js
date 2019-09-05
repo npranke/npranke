@@ -123,7 +123,7 @@ describe('TowerLocation', () => {
 
             expect(
                 dropResult,
-            ).toEqual({ toTower: 'buffer' })
+            ).toEqual({ toLocation: 'buffer' })
         })
 
         test('canDrop returns false when isComplete true', () => {

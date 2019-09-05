@@ -10,7 +10,7 @@ export const spec = {
         if (monitor.didDrop()) {
             const result = monitor.getDropResult()
 
-            props.moveDisk(props.diskid, props.tower, result.toTower)
+            props.moveDisk(props.diskid, props.location, result.toLocation)
         }
     },
     canDrag: (props) => {
@@ -59,8 +59,8 @@ TowerDisk.propTypes = {
     image: PropTypes.node.isRequired,
     isComplete: PropTypes.bool,
     isDragging: PropTypes.bool,
+    location: PropTypes.string.isRequired,
     moveDisk: PropTypes.func.isRequired,
-    tower: PropTypes.string.isRequired,
 }
 
 export default DragSource('disk', spec, collect)(TowerDisk)
