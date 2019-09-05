@@ -86,11 +86,11 @@ describe('TowerLocation', () => {
 
         beforeEach(() => {
             props = {
-                disks: 3,
                 diskids: ['3', '2', '1'],
+                disks: 3,
                 isComplete: false,
+                location: 'origin',
                 moveDisk: jest.fn(),
-                name: 'origin',
                 tower: towers[3],
             }
         })
@@ -117,7 +117,7 @@ describe('TowerLocation', () => {
         })
 
         test('drop returns expected object', () => {
-            props.name = 'buffer'
+            props.location = 'buffer'
 
             const dropResult = spec.drop(props)
 
@@ -132,7 +132,7 @@ describe('TowerLocation', () => {
             )
             props.diskids = ['3', '2', '1']
             props.isComplete = true
-            props.name = 'target'
+            props.location = 'target'
 
             const canDropResult = spec.canDrop(props, monitor)
 
@@ -145,7 +145,7 @@ describe('TowerLocation', () => {
             )
             props.diskids = ['1']
             props.isComplete = false
-            props.name = 'target'
+            props.location = 'target'
 
             const canDropResult = spec.canDrop(props, monitor)
 
@@ -158,7 +158,7 @@ describe('TowerLocation', () => {
             )
             props.diskids = ['3']
             props.isComplete = false
-            props.name = 'target'
+            props.location = 'target'
 
             const canDropResult = spec.canDrop(props, monitor)
 
@@ -171,7 +171,7 @@ describe('TowerLocation', () => {
             )
             props.diskids = []
             props.isComplete = false
-            props.name = 'target'
+            props.location = 'target'
 
             const canDropResult = spec.canDrop(props, monitor)
 
@@ -186,8 +186,8 @@ describe('TowerLocation', () => {
                     jest.fn((locationNode) => { return locationNode })
                 }
                 disks={ 3 }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                name="buffer"
                 tower={ towers[3] }
             />,
         )
@@ -204,8 +204,8 @@ describe('TowerLocation', () => {
                     jest.fn((locationNode) => { return locationNode })
                 }
                 disks={ 3 }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                name="buffer"
                 tower={ towers[3] }
             />,
         )
@@ -215,36 +215,36 @@ describe('TowerLocation', () => {
         ).toBe(2)
     })
 
-    test('has base section with name text', () => {
+    test('has name section with name text', () => {
         const towerLocation = shallow(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
                 }
                 disks={ 3 }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                name="buffer"
                 tower={ towers[3] }
             />,
         )
 
         expect(
-            towerLocation.find('.location-section.base').length,
+            towerLocation.find('.location-section.name').length,
         ).toBe(1)
         expect(
-            towerLocation.find('.location-section.base .name-text').text(),
+            towerLocation.find('.location-section.name .name-text').text(),
         ).toEqual('buffer')
     })
 
-    test('has disks section with name class', () => {
+    test('has disks section with specific location class', () => {
         const towerLocation = shallow(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
                 }
                 disks={ 3 }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                name="buffer"
                 tower={ towers[3] }
             />,
         )
@@ -266,8 +266,8 @@ describe('TowerLocation', () => {
                 diskids={ ['3', '2', '1'] }
                 disks={ 3 }
                 isComplete
+                location="target"
                 moveDisk={ jest.fn() }
-                name="target"
                 tower={ towers[3] }
             />,
         )
@@ -285,8 +285,8 @@ describe('TowerLocation', () => {
                 }
                 diskids={ ['3', '2', '1'] }
                 disks={ 3 }
+                location="origin"
                 moveDisk={ jest.fn() }
-                name="origin"
                 tower={ towers[3] }
             />,
         )
@@ -305,8 +305,8 @@ describe('TowerLocation', () => {
                 diskids={ ['3', '2', '1'] }
                 disks={ 3 }
                 isComplete
+                location="target"
                 moveDisk={ jest.fn() }
-                name="target"
                 tower={ towers[3] }
             />,
         )
@@ -327,8 +327,8 @@ describe('TowerLocation', () => {
                 }
                 diskids={ ['3', '2', '1'] }
                 disks={ 3 }
+                location="origin"
                 moveDisk={ jest.fn() }
-                name="origin"
                 tower={ towers[3] }
             />,
         )
@@ -346,8 +346,8 @@ describe('TowerLocation', () => {
                 }
                 diskids={ [] }
                 disks={ 3 }
+                location="origin"
                 moveDisk={ jest.fn() }
-                name="origin"
                 tower={ towers[3] }
             />,
         )
@@ -365,8 +365,8 @@ describe('TowerLocation', () => {
                 }
                 diskids={ ['2', '1'] }
                 disks={ 3 }
+                location="buffer"
                 moveDisk={ jest.fn() }
-                name="buffer"
                 tower={ towers[3] }
             />,
         )
@@ -385,8 +385,8 @@ describe('TowerLocation', () => {
                 diskids={ ['3', '2', '1'] }
                 disks={ 3 }
                 isComplete
+                location="target"
                 moveDisk={ jest.fn() }
-                name="target"
                 tower={ towers[3] }
             />,
         )
@@ -425,8 +425,8 @@ describe('TowerLocation', () => {
                         diskids={ ['5', '4'] }
                         disks={ 5 }
                         isComplete={ false }
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[5] }
                     />,
                 )
@@ -453,8 +453,8 @@ describe('TowerLocation', () => {
                         diskids={ ['5', '4', '3'] }
                         disks={ 5 }
                         isComplete={ false }
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[5] }
                     />,
                 )
@@ -481,8 +481,8 @@ describe('TowerLocation', () => {
                         diskids={ ['4'] }
                         disks={ 4 }
                         isComplete={ false }
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[4] }
                     />,
                 )
@@ -509,8 +509,8 @@ describe('TowerLocation', () => {
                         diskids={ ['4', '3', '2', '1'] }
                         disks={ 4 }
                         isComplete
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[4] }
                     />,
                 )
@@ -540,8 +540,8 @@ describe('TowerLocation', () => {
                         disks={ 5 }
                         isComplete={ false }
                         isPortrait
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[5] }
                     />,
                 )
@@ -569,8 +569,8 @@ describe('TowerLocation', () => {
                         disks={ 5 }
                         isComplete={ false }
                         isPortrait
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[5] }
                     />,
                 )
@@ -598,8 +598,8 @@ describe('TowerLocation', () => {
                         disks={ 4 }
                         isComplete={ false }
                         isPortrait
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[4] }
                     />,
                 )
@@ -627,8 +627,8 @@ describe('TowerLocation', () => {
                         disks={ 4 }
                         isComplete
                         isPortrait
+                        location="target"
                         moveDisk={ jest.fn() }
-                        name="target"
                         tower={ towers[4] }
                     />,
                 )
@@ -655,8 +655,8 @@ describe('TowerLocation snapshot', () => {
                     }
                     diskids={ [] }
                     disks={ 2 }
+                    location="buffer"
                     moveDisk={ jest.fn() }
-                    name="buffer"
                     tower={ towers[2] }
                 />,
             )
@@ -672,8 +672,8 @@ describe('TowerLocation snapshot', () => {
                     }
                     diskids={ ['1'] }
                     disks={ 2 }
+                    location="buffer"
                     moveDisk={ jest.fn() }
-                    name="buffer"
                     tower={ towers[2] }
                 />,
             )
@@ -690,8 +690,8 @@ describe('TowerLocation snapshot', () => {
                     diskids={ ['2', '1'] }
                     disks={ 2 }
                     isComplete={ false }
+                    location="origin"
                     moveDisk={ jest.fn() }
-                    name="origin"
                     tower={ towers[2] }
                 />,
             )
@@ -708,8 +708,8 @@ describe('TowerLocation snapshot', () => {
                     diskids={ ['2', '1'] }
                     disks={ 2 }
                     isComplete
+                    location="target"
                     moveDisk={ jest.fn() }
-                    name="target"
                     tower={ towers[2] }
                 />,
             )
@@ -728,8 +728,8 @@ describe('TowerLocation snapshot', () => {
                     diskids={ [] }
                     disks={ 4 }
                     isPortrait
+                    location="buffer"
                     moveDisk={ jest.fn() }
-                    name="buffer"
                     tower={ towers[4] }
                 />,
             )
@@ -746,8 +746,8 @@ describe('TowerLocation snapshot', () => {
                     diskids={ ['3', '2'] }
                     disks={ 4 }
                     isPortrait
+                    location="buffer"
                     moveDisk={ jest.fn() }
-                    name="buffer"
                     tower={ towers[4] }
                 />,
             )
@@ -765,8 +765,8 @@ describe('TowerLocation snapshot', () => {
                     disks={ 4 }
                     isComplete={ false }
                     isPortrait
+                    location="origin"
                     moveDisk={ jest.fn() }
-                    name="origin"
                     tower={ towers[4] }
                 />,
             )
@@ -784,8 +784,8 @@ describe('TowerLocation snapshot', () => {
                     disks={ 4 }
                     isComplete
                     isPortrait
+                    location="target"
                     moveDisk={ jest.fn() }
-                    name="target"
                     tower={ towers[4] }
                 />,
             )

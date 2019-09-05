@@ -5,7 +5,7 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot when empty 1`] 
   className="location"
 >
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"
@@ -24,7 +24,7 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
   className="location"
 >
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"
@@ -176,7 +176,7 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
   className="location"
 >
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"
@@ -337,7 +337,7 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks
   className="location"
 >
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"
@@ -422,7 +422,7 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot when empty 
     className="location-section disks buffer notcomplete"
   />
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"
@@ -504,7 +504,7 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
     </div>
   </div>
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"
@@ -595,7 +595,7 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
     </a>
   </div>
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"
@@ -645,7 +645,7 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with some d
     </div>
   </div>
   <div
-    className="location-section base"
+    className="location-section name"
   >
     <div
       className="name-text"

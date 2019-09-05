@@ -514,7 +514,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     align-items: center;
 }
 
-.tower .location .base {
+.tower .location .name {
     font-family: "Anonymous Pro", monospace;
     font-size: large;
     font-weight: 700;
@@ -526,7 +526,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     box-shadow: 0px 0px 6px 6px rgba(233, 238, 239, 0.7);
 }
 
-.tower .location .base .name-text {
+.tower .location .name .name-text {
     padding: 8px;
 }
 
@@ -670,7 +670,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .location .base {
+    .tower .location .name {
         font-size: x-large;
     }
 
@@ -758,7 +758,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         justify-content: flex-start;
     }
 
-    .tower .location .base {
+    .tower .location .name {
         transform: rotate(90deg);
         margin: 0;
     }
@@ -797,7 +797,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .location .base {
+    .tower .location .name {
         font-size: xx-large;
     }
 
@@ -839,7 +839,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .location .base,
+    .tower .location .name,
     .worksheet-section.info-wrapper {
         font-size: medium;
     }
@@ -903,7 +903,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .location .base,
+    .tower .location .name,
     .worksheet-section.info-wrapper {
         font-size: small;
     }
@@ -973,7 +973,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .pagenotfound,
     .concentration .matches-header,
     .tower .settings,
-    .tower .location .base,
+    .tower .location .name,
     .worksheet-section.info-wrapper {
         font-size: x-small;
     }

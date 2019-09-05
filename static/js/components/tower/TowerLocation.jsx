@@ -8,7 +8,7 @@ import useOffsetListener from '@components/hooks/OffsetListener'
 
 export const spec = {
     drop: (props) => {
-        return { toTower: props.name }
+        return { toTower: props.location }
     },
     canDrop: (props, monitor) => {
         const diskid = parseInt(monitor.getItem().diskid, 10)
@@ -90,7 +90,7 @@ export function TowerLocation(props) {
                         image={ disk.image }
                         isComplete={ props.isComplete }
                         moveDisk={ props.moveDisk }
-                        tower={ props.name }
+                        tower={ props.location }
                     />
                 </div>
             </React.Fragment>
@@ -120,7 +120,7 @@ export function TowerLocation(props) {
         <div
             className={
                 'location-section disks '
-                + `${props.name} `
+                + `${props.location} `
                 + `${props.isComplete ? 'complete' : 'notcomplete'}`
             }
         >
@@ -130,9 +130,9 @@ export function TowerLocation(props) {
 
     return props.isPortrait ? props.connectDropTarget(
         <div className="location" ref={ locationRef }>
-            <div className="location-section base">
+            <div className="location-section name">
                 <div className="name-text">
-                    { props.name }
+                    { props.location }
                 </div>
             </div>
             { towerDisks }
@@ -140,9 +140,9 @@ export function TowerLocation(props) {
     ) : props.connectDropTarget(
         <div className="location" ref={ locationRef }>
             { towerDisks }
-            <div className="location-section base">
+            <div className="location-section name">
                 <div className="name-text">
-                    { props.name }
+                    { props.location }
                 </div>
             </div>
         </div>,
@@ -158,12 +158,12 @@ TowerLocation.defaultProps = {
 
 TowerLocation.propTypes = {
     connectDropTarget: PropTypes.func,
-    disks: PropTypes.number.isRequired,
     diskids: PropTypes.arrayOf(PropTypes.string),
+    disks: PropTypes.number.isRequired,
     isComplete: PropTypes.bool,
     isPortrait: PropTypes.bool,
+    location: PropTypes.string.isRequired,
     moveDisk: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
     tower: PropTypes.shape({
         clickHandler: PropTypes.func.isRequired,
         landscape: PropTypes.arrayOf(
