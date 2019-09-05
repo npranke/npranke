@@ -146,7 +146,7 @@ function TowerSettings(props) {
                 <div className="right-text">
                     <span className="moves-text">
                         <span className="moves-portion">
-                            moves:&ensp;
+                            moves:&emsp;
                         </span>
                         <span className="moves-portion number">
                             {
