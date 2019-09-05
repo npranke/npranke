@@ -190,7 +190,7 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
     <a
       aria-label="NASA/JPL Space Images"
       className="location-section"
-      href="navigate-link"
+      href="tower-link"
       onClick={[MockFunction]}
       rel="noreferrer noopener external"
       target="_blank"
@@ -525,7 +525,7 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
     <a
       aria-label="NASA/JPL Space Images"
       className="location-section"
-      href="navigate-link"
+      href="tower-link"
       onClick={[MockFunction]}
       rel="noreferrer noopener external"
       target="_blank"

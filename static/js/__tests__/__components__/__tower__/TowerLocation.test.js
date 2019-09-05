@@ -14,8 +14,8 @@ const towers = Array.from(
     (value, index) => { return index + 2 },
 ).reduce((towerAccumulator, tower) => {
     towerAccumulator[tower] = {
-        navigateLink: 'navigate-link',
-        navigateEventHandler: jest.fn(),
+        clickHandler: jest.fn(),
+        link: 'tower-link',
     }
 
     towerLayouts.forEach((layout) => {
@@ -97,7 +97,7 @@ describe('TowerLocation', () => {
 
         afterEach(() => {
             props.moveDisk.mockReset()
-            props.tower.navigateEventHandler.mockReset()
+            props.tower.clickHandler.mockReset()
             monitor.getItem.mockReset()
         })
 
@@ -316,7 +316,7 @@ describe('TowerLocation', () => {
         ).toBe(1)
         expect(
             towerLocation.find('.disks a').first().props().href,
-        ).toEqual('navigate-link')
+        ).toEqual('tower-link')
     })
 
     test('disks section does not have link when not isComplete', () => {

@@ -105,8 +105,8 @@ export function TowerLocation(props) {
         towerDisks = (
             <a
                 className="location-section"
-                onClick={ props.tower.navigateEventHandler }
-                href={ props.tower.navigateLink }
+                onClick={ props.tower.clickHandler }
+                href={ props.tower.link }
                 target="_blank"
                 rel="noreferrer noopener external"
                 aria-label="NASA/JPL Space Images"
@@ -165,20 +165,20 @@ TowerLocation.propTypes = {
     moveDisk: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
     tower: PropTypes.shape({
+        clickHandler: PropTypes.func.isRequired,
         landscape: PropTypes.arrayOf(
             PropTypes.shape({
                 diskid: PropTypes.string.isRequired,
                 image: PropTypes.node.isRequired,
             }).isRequired,
         ).isRequired,
+        link: PropTypes.string.isRequired,
         portrait: PropTypes.arrayOf(
             PropTypes.shape({
                 diskid: PropTypes.string.isRequired,
                 image: PropTypes.node.isRequired,
             }).isRequired,
         ).isRequired,
-        navigateLink: PropTypes.string.isRequired,
-        navigateEventHandler: PropTypes.func.isRequired,
     }).isRequired,
 }
 
