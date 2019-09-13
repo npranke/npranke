@@ -19,6 +19,8 @@ jest.mock('@components/tower/Tower')
 
 Enzyme.configure({ adapter: new Adapter() })
 
+const { CONCENTRATION, TOWER } = worksheets
+
 describe('App', () => {
     test('contains background', () => {
         const app = shallow(<App />)
@@ -99,7 +101,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '' } }
-                worksheet={ worksheets.concentration }
+                worksheet={ CONCENTRATION }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -122,7 +124,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '#info' } }
-                worksheet={ worksheets.concentration }
+                worksheet={ CONCENTRATION }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -145,7 +147,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '#gist' } }
-                worksheet={ worksheets.concentration }
+                worksheet={ CONCENTRATION }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -168,7 +170,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '' } }
-                worksheet={ worksheets.tower }
+                worksheet={ TOWER }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -191,7 +193,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '#info' } }
-                worksheet={ worksheets.tower }
+                worksheet={ TOWER }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -214,7 +216,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '#gist' } }
-                worksheet={ worksheets.tower }
+                worksheet={ TOWER }
             />,
             { wrappingComponent: MemoryRouter },
         )

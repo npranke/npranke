@@ -9,7 +9,7 @@ import ConcentrationIcon from '@img/icon-concentration.png'
 import TowerIcon from '@img/icon-tower.png'
 
 const worksheets = {
-    concentration: {
+    CONCENTRATION: {
         component: <Concentration />,
         icon: ConcentrationIcon,
         infoComponent: <ConcentrationInfo />,
@@ -17,7 +17,7 @@ const worksheets = {
         properTitle: 'Concentration',
         title: 'concentration',
     },
-    tower: {
+    TOWER: {
         component: <Tower />,
         icon: TowerIcon,
         infoComponent: <TowerInfo />,

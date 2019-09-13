@@ -12,7 +12,7 @@ import WorksheetContainer from '@components/WorksheetContainer'
 import worksheets from '@constants/worksheets'
 
 function App() {
-    const { concentration, tower } = worksheets
+    const { CONCENTRATION, TOWER } = worksheets
 
     return (
         <div className="app">
@@ -57,7 +57,7 @@ function App() {
                         return (
                             <WorksheetContainer
                                 { ...props }
-                                worksheet={ concentration }
+                                worksheet={ CONCENTRATION }
                             />
                         )
                     } }
@@ -70,7 +70,7 @@ function App() {
                         return (
                             <WorksheetContainer
                                 { ...props }
-                                worksheet={ tower }
+                                worksheet={ TOWER }
                             />
                         )
                     } }
