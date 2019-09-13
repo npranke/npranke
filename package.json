@@ -42,7 +42,7 @@
         "eslint-plugin-react": "^7.14.3",
         "eslint-plugin-react-hooks": "^1.7.0",
         "file-loader": "^4.2.0",
-        "image-webpack-loader": "^5.0.0",
+        "image-webpack-loader": "^6.0.0",
         "jest": "^24.9.0",
         "jest-date-mock": "^1.0.7",
         "jest-haste-map": "^24.9.0",
