@@ -10,7 +10,7 @@ const prodConfig = {
     plugins: [
         new OptimizeCSSAssetsPlugin(),
         new UglifyJSPlugin(),
-        new webpack.EnvironmentPlugin(['GA']),
+        new webpack.EnvironmentPlugin({ GA: null }),
     ],
 }
 
