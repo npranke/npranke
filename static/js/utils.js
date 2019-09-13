@@ -7,15 +7,27 @@ export const getLocationPageTitle = (location) => {
     return `${location} | ${titleArray.slice(1).join(' | ')}`
 }
 
-export const sendEvent = (category, action, label) => {
-    gtag(
-        'event',
-        action,
-        {
-            event_category: category,
-            event_label: label,
-        },
-    )
+export const sendEvent = (category, action, label, value) => {
+    if (typeof value !== 'undefined') {
+        gtag(
+            'event',
+            action,
+            {
+                event_category: category,
+                event_label: label,
+                value,
+            },
+        )
+    } else {
+        gtag(
+            'event',
+            action,
+            {
+                event_category: category,
+                event_label: label,
+            },
+        )
+    }
 }
 
 export const sendPageview = () => {
@@ -30,7 +42,13 @@ export const sendPageview = () => {
     )
 }
 
-export const getSendEventHandler = (category, action, label) => {
+export const getSendEventHandler = (category, action, label, value) => {
+    if (typeof value !== 'undefined') {
+        return function sendEventHandler() {
+            sendEvent(category, action, label, value)
+        }
+    }
+
     return function sendEventHandler() {
         sendEvent(category, action, label)
     }

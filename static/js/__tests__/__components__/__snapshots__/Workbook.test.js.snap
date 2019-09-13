@@ -65,6 +65,55 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
       >
         <td
           className="table-cell-workbook"
+          id="workbook-worksheet-tower"
+          onKeyUp={[Function]}
+          role="gridcell"
+        >
+          <Link
+            innerRef={
+              Object {
+                "current": null,
+              }
+            }
+            onClick={[Function]}
+            rel="noreferrer"
+            target="_self"
+            to="/workbook/tower"
+          >
+            <div
+              className="button-worksheet-container"
+            >
+              <span
+                className="button-worksheet-wrapper"
+              >
+                <span
+                  className="button-worksheet"
+                >
+                  <span
+                    className="button-worksheet-inner"
+                  >
+                    <img
+                      alt="Tower icon"
+                      className="icon icon-tower"
+                      src="image-mock"
+                    />
+                    <span
+                      className="text-worksheet"
+                    >
+                      Tower
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </Link>
+        </td>
+      </tr>
+      <tr
+        className="table-row-workbook"
+      >
+        <td
+          className="table-cell-workbook"
           id="workbook-worksheet"
           onKeyUp={[Function]}
           role="gridcell"
@@ -166,6 +215,51 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
                       className="text-worksheet"
                     >
                       Concentration
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </Link>
+        </td>
+        <td
+          className="table-cell-workbook"
+          id="workbook-worksheet-tower"
+          onKeyUp={[Function]}
+          role="gridcell"
+        >
+          <Link
+            innerRef={
+              Object {
+                "current": null,
+              }
+            }
+            onClick={[Function]}
+            rel="noreferrer"
+            target="_self"
+            to="/workbook/tower"
+          >
+            <div
+              className="button-worksheet-container"
+            >
+              <span
+                className="button-worksheet-wrapper"
+              >
+                <span
+                  className="button-worksheet"
+                >
+                  <span
+                    className="button-worksheet-inner"
+                  >
+                    <img
+                      alt="Tower icon"
+                      className="icon icon-tower"
+                      src="image-mock"
+                    />
+                    <span
+                      className="text-worksheet"
+                    >
+                      Tower
                     </span>
                   </span>
                 </span>

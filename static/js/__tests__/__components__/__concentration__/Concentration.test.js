@@ -84,13 +84,21 @@ describe('Concentration', () => {
 
     describe('sending concentration events', () => {
         beforeAll(() => {
-            utils.getSendEventHandler = jest.fn()
-            utils.sendEvent = jest.fn()
+            utils.getSendEventHandler = jest.spyOn(
+                utils,
+                'getSendEventHandler',
+            )
+            utils.sendEvent = jest.spyOn(utils, 'sendEvent')
         })
 
         afterEach(() => {
-            utils.getSendEventHandler.mockReset()
-            utils.sendEvent.mockReset()
+            utils.getSendEventHandler.mockClear()
+            utils.sendEvent.mockClear()
+        })
+
+        afterAll(() => {
+            utils.getSendEventHandler.mockRestore()
+            utils.sendEvent.mockRestore()
         })
 
         test('when picture is clicked', () => {
@@ -134,8 +142,46 @@ describe('Concentration', () => {
             )
         })
 
-        test('when matches picture is clicked', () => {
-            mount(<Concentration />)
+        test('when last match is clicked', () => {
+            const concentration = mount(<Concentration />)
+
+            const pictureid = concentration.find(
+                '.picture-back',
+            ).first().props()['data-pictureid']
+
+            concentration.setState({
+                first: {
+                    id: `${pictureid}-x`,
+                    pictureid,
+                },
+                internalMatches: Array.from(
+                    { length: 12 },
+                    (value, index) => {
+                        return `${index}`
+                    },
+                ).filter(
+                    (internalMatch) => {
+                        return internalMatch !== pictureid
+                    },
+                ),
+                turns: 11,
+            })
+
+            concentration.find('.picture-back').first().simulate('click')
+
+            expect(
+                utils.sendEvent,
+            ).toHaveBeenNthCalledWith(
+                3,
+                'concentration',
+                'complete',
+                'matches',
+                12,
+            )
+        })
+
+        test('with getSendEventHandler for matches picture', () => {
+            shallow(<Concentration />)
 
             expect(
                 utils.getSendEventHandler,
@@ -288,6 +334,56 @@ describe('Concentration', () => {
             expect(
                 concentration.state('displayedMatches'),
             ).toEqual(['5', '9', '2'])
+        })
+
+        test('sets isTimeRunning to false when last match', () => {
+            const concentration = shallow(<Concentration />)
+
+            concentration.setState({
+                first: { id: '11-a', pictureid: '11' },
+                internalMatches: Array.from(
+                    { length: 11 },
+                    (value, index) => {
+                        return `${index}`
+                    },
+                ),
+                isTimeRunning: true,
+            })
+
+            concentration.instance().pictureClickHandler({
+                currentTarget: {
+                    dataset: {
+                        id: '11-b',
+                        pictureid: '11',
+                    },
+                },
+            })
+
+            expect(
+                concentration.state('isTimeRunning'),
+            ).toBe(false)
+        })
+
+        test('sets isTimeRunning to true when not last match', () => {
+            const concentration = shallow(<Concentration />)
+
+            concentration.setState({
+                first: { id: '6-a', pictureid: '6' },
+                internalMatches: ['0', '1', '2', '3', '4', '5'],
+            })
+
+            concentration.instance().pictureClickHandler({
+                currentTarget: {
+                    dataset: {
+                        id: '6-b',
+                        pictureid: '6',
+                    },
+                },
+            })
+
+            expect(
+                concentration.state('isTimeRunning'),
+            ).toBe(true)
         })
 
         test('sets second and not internalMatches when not match', () => {
@@ -465,8 +561,8 @@ describe('Concentration', () => {
             concentration.setState({
                 internalMatches: Array.from(
                     { length: 4 },
-                    (value, integer) => {
-                        return `${integer}`
+                    (value, index) => {
+                        return `${index}`
                     },
                 ),
             })
@@ -518,97 +614,6 @@ describe('Concentration', () => {
             expect(
                 concentration.instance().pictureClickHandler,
             ).toHaveBeenCalled()
-        })
-    })
-
-    describe('updateTime()', () => {
-        test('stops time running when matches is 12', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({
-                isTimeRunning: true,
-                internalMatches: Array.from(
-                    { length: 12 },
-                    (value, integer) => {
-                        return `${integer}`
-                    },
-                ),
-            })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('isTimeRunning'),
-            ).toBe(false)
-        })
-
-        test('formats time when centiseconds is less than 10', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, centiseconds: '5' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('centiseconds'),
-            ).toEqual('06')
-        })
-
-        test('formats time when seconds is less than 10', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, seconds: '8' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('seconds'),
-            ).toEqual('08')
-        })
-
-        test('formats time when minutes is less than 10', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, minutes: '2' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('minutes'),
-            ).toEqual('02')
-        })
-
-        test('formats time when centiseconds is over 100', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({
-                isTimeRunning: true,
-                centiseconds: '103',
-            })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('centiseconds'),
-            ).toEqual('04')
-            expect(
-                concentration.state('seconds'),
-            ).toEqual('01')
-        })
-
-        test('formats time when seconds is over 60', () => {
-            const concentration = shallow(<Concentration />)
-
-            concentration.setState({ isTimeRunning: true, seconds: '61' })
-
-            concentration.instance().updateTime()
-
-            expect(
-                concentration.state('seconds'),
-            ).toEqual('01')
-            expect(
-                concentration.state('minutes'),
-            ).toEqual('01')
         })
     })
 })

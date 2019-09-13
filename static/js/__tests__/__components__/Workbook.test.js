@@ -48,6 +48,22 @@ describe('Workbook', () => {
         ).toEqual('Concentration icon')
     })
 
+    test('has link to tower', () => {
+        const workbook = shallow(<Workbook />)
+
+        expect(
+            workbook.find('#workbook-worksheet-tower Link').props().to,
+        ).toEqual('/workbook/tower')
+    })
+
+    test('has alt text for tower icon', () => {
+        const workbook = shallow(<Workbook />)
+
+        expect(
+            workbook.find('#workbook-worksheet-tower img').props().alt,
+        ).toEqual('Tower icon')
+    })
+
     test('has multiple rows when portrait', () => {
         const workbook = shallow(<Workbook isPortrait />)
 
@@ -76,7 +92,7 @@ describe('Workbook', () => {
         )
 
         expect(
-            document.activeElement.href.endsWith('workbook'),
+            document.activeElement.href.endsWith('tower'),
         ).toBe(true)
     })
 
@@ -220,7 +236,7 @@ describe('Workbook', () => {
         )
 
         expect(
-            document.activeElement.href.endsWith('workbook'),
+            document.activeElement.href.endsWith('tower'),
         ).toBe(true)
     })
 

@@ -4,7 +4,7 @@ import React from 'react'
 import ConcentrationBoardRow from
     '@components/concentration/ConcentrationBoardRow'
 
-export function ConcentrationBoard(props) {
+function ConcentrationBoard(props) {
     const boardPictures = props.boardOrder.map((pictureName) => {
         return ({ [pictureName]: props.pictures[pictureName] })
     })

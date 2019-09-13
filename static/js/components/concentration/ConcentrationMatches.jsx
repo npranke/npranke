@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export function ConcentrationMatches(props) {
+import useTimeRunner from '@components/hooks/TimeRunner'
+
+function ConcentrationMatches(props) {
     const matchedPictures = props.matches.map((pictureid) => {
         return (
             <React.Fragment key={ pictureid }>
@@ -9,6 +11,10 @@ export function ConcentrationMatches(props) {
             </React.Fragment>
         )
     })
+
+    const { centiseconds, seconds, minutes } = useTimeRunner(
+        props.isTimeRunning,
+    )
 
     return (
         <div className="matches">
@@ -45,19 +51,19 @@ export function ConcentrationMatches(props) {
                             time:&emsp;
                         </span>
                         <span className="time-portion number">
-                            { props.minutes }
+                            { minutes }
                         </span>
                         <span className="time-portion">
                             &ensp;:&ensp;
                         </span>
                         <span className="time-portion number">
-                            { props.seconds }
+                            { seconds }
                         </span>
                         <span className="time-portion">
                             &ensp;:&ensp;
                         </span>
                         <span className="time-portion number">
-                            { props.centiseconds }
+                            { centiseconds }
                         </span>
                     </span>
                 </div>
@@ -70,23 +76,19 @@ export function ConcentrationMatches(props) {
 }
 
 ConcentrationMatches.defaultProps = {
-    centiseconds: '00',
+    isTimeRunning: false,
     matches: [],
-    minutes: '00',
-    seconds: '00',
     turns: 0,
 }
 
 ConcentrationMatches.propTypes = {
-    centiseconds: PropTypes.string,
+    isTimeRunning: PropTypes.bool,
     matches: PropTypes.arrayOf(PropTypes.string),
-    minutes: PropTypes.string,
     pictures: PropTypes.objectOf(
         PropTypes.shape({
             image: PropTypes.node.isRequired,
         }).isRequired,
     ).isRequired,
-    seconds: PropTypes.string,
     turns: PropTypes.number,
 }
 

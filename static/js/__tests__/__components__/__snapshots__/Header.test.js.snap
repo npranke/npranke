@@ -37,7 +37,6 @@ exports[`Header snapshot matches snapshot when not pagenotfound 1`] = `
       <NavLink
         aria-label="Workbook"
         className="navlink navlink-workbook"
-        exact={true}
         onClick={[Function]}
         rel="noreferrer"
         target="_self"

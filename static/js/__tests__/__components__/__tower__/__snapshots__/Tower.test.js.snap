@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tower snapshot matches snapshot 1`] = `
+<div
+  className="tower"
+>
+  <div
+    className="settings-wrapper"
+  >
+    <TowerSettings
+      disks={3}
+      isTimeRunning={false}
+      moves={0}
+      shouldTimeReset={false}
+      updateDisks={[Function]}
+    />
+  </div>
+  <div
+    className="locations-wrapper"
+  >
+    <div
+      className="locations-container"
+    >
+      <div
+        className="location-wrapper"
+      >
+        <TowerLocation
+          diskids={Array []}
+          disks={3}
+          isComplete={false}
+          isPortrait={false}
+          location="origin"
+          moveDisk={[Function]}
+          tower={
+            Object {
+              "clickHandler": [Function],
+              "landscape": Array [
+                Object {
+                  "diskid": "1",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "2",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "3",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
+                  />,
+                },
+              ],
+              "link": "https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22938",
+              "portrait": Array [
+                Object {
+                  "diskid": "1",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "2",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "3",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
+                  />,
+                },
+              ],
+            }
+          }
+        />
+      </div>
+      <div
+        className="location-wrapper"
+      >
+        <TowerLocation
+          diskids={Array []}
+          disks={3}
+          isComplete={false}
+          isPortrait={false}
+          location="buffer"
+          moveDisk={[Function]}
+          tower={
+            Object {
+              "clickHandler": [Function],
+              "landscape": Array [
+                Object {
+                  "diskid": "1",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "2",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "3",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
+                  />,
+                },
+              ],
+              "link": "https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22938",
+              "portrait": Array [
+                Object {
+                  "diskid": "1",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "2",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "3",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
+                  />,
+                },
+              ],
+            }
+          }
+        />
+      </div>
+      <div
+        className="location-wrapper"
+      >
+        <TowerLocation
+          diskids={Array []}
+          disks={3}
+          isComplete={false}
+          isPortrait={false}
+          location="target"
+          moveDisk={[Function]}
+          tower={
+            Object {
+              "clickHandler": [Function],
+              "landscape": Array [
+                Object {
+                  "diskid": "1",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "2",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "3",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
+                  />,
+                },
+              ],
+              "link": "https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22938",
+              "portrait": Array [
+                Object {
+                  "diskid": "1",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "2",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
+                  />,
+                },
+                Object {
+                  "diskid": "3",
+                  "image": <img
+                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
+                    className="disk-image"
+                    src="image-mock"
+                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
+                  />,
+                },
+              ],
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

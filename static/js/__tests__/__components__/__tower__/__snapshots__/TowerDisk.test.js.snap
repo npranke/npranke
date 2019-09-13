@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TowerDisk snapshot matches snapshot 1`] = `
+<div
+  className="disk"
+>
+  <img
+    alt="alt-text"
+    className="disk-image"
+    src=""
+  />
+</div>
+`;

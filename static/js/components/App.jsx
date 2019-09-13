@@ -12,7 +12,7 @@ import WorksheetContainer from '@components/WorksheetContainer'
 import worksheets from '@constants/worksheets'
 
 function App() {
-    const { concentration } = worksheets
+    const { CONCENTRATION, TOWER } = worksheets
 
     return (
         <div className="app">
@@ -26,6 +26,7 @@ function App() {
                         '/home',
                         '/workbook',
                         '/workbook/concentration',
+                        '/workbook/tower',
                     ] }
                     component={ Header }
                 />
@@ -56,7 +57,20 @@ function App() {
                         return (
                             <WorksheetContainer
                                 { ...props }
-                                worksheet={ concentration }
+                                worksheet={ CONCENTRATION }
+                            />
+                        )
+                    } }
+                />
+                <Route
+                    exact
+                    strict
+                    path="/workbook/tower"
+                    render={ (props) => {
+                        return (
+                            <WorksheetContainer
+                                { ...props }
+                                worksheet={ TOWER }
                             />
                         )
                     } }

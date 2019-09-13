@@ -8,15 +8,15 @@ exports[`Concentration snapshot matches snapshot 1`] = `
     className="matches-wrapper"
   >
     <ConcentrationMatches
-      centiseconds="00"
+      isTimeRunning={false}
       matches={Array []}
-      minutes="00"
       pictures={
         Object {
           "picture0": Object {
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22332"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -32,6 +32,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22512"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -47,6 +48,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23233"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -62,6 +64,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23239"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -77,6 +80,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22585"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -92,6 +96,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22594"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -107,6 +112,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23056"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -122,6 +128,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23080"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -137,6 +144,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23103"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -152,6 +160,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23183"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -167,6 +176,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23184"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -182,6 +192,7 @@ exports[`Concentration snapshot matches snapshot 1`] = `
             "image": <a
               aria-label="NASA/JPL Space Images"
               href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23231"
+              onClick={[Function]}
               rel="noreferrer noopener external"
               target="_blank"
             >
@@ -195,7 +206,6 @@ exports[`Concentration snapshot matches snapshot 1`] = `
           },
         }
       }
-      seconds="00"
       turns={0}
     />
   </div>

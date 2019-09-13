@@ -1,0 +1,657 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TowerLocation snapshot when isPortrait matches snapshot when empty 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      buffer
+    </div>
+  </div>
+  <div
+    className="location-section disks buffer notcomplete"
+  />
+</div>
+`;
+
+exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks and not target 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      origin
+    </div>
+  </div>
+  <div
+    className="location-section disks origin notcomplete"
+  >
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="4"
+        diskids={
+          Array [
+            "4",
+            "3",
+            "2",
+            "1",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="origin"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="3"
+        diskids={
+          Array [
+            "4",
+            "3",
+            "2",
+            "1",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="origin"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="2"
+        diskids={
+          Array [
+            "4",
+            "3",
+            "2",
+            "1",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="origin"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="1"
+        diskids={
+          Array [
+            "4",
+            "3",
+            "2",
+            "1",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="origin"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks and target 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      target
+    </div>
+  </div>
+  <div
+    className="location-section disks target complete"
+  >
+    <a
+      aria-label="NASA/JPL Space Images"
+      className="location-section"
+      href="tower-link"
+      onClick={[MockFunction]}
+      rel="noreferrer noopener external"
+      target="_blank"
+    >
+      <div
+        className="disk-wrapper"
+        style={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+      >
+        <TowerDisk
+          canDrag={false}
+          diskid="4"
+          diskids={
+            Array [
+              "4",
+              "3",
+              "2",
+              "1",
+            ]
+          }
+          image={
+            <img
+              alt="alt-text"
+              className="disk-image"
+              src=""
+            />
+          }
+          isComplete={true}
+          isDragging={false}
+          location="target"
+          moveDisk={[MockFunction]}
+        />
+      </div>
+      <div
+        className="disk-wrapper"
+        style={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+      >
+        <TowerDisk
+          canDrag={false}
+          diskid="3"
+          diskids={
+            Array [
+              "4",
+              "3",
+              "2",
+              "1",
+            ]
+          }
+          image={
+            <img
+              alt="alt-text"
+              className="disk-image"
+              src=""
+            />
+          }
+          isComplete={true}
+          isDragging={false}
+          location="target"
+          moveDisk={[MockFunction]}
+        />
+      </div>
+      <div
+        className="disk-wrapper"
+        style={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+      >
+        <TowerDisk
+          canDrag={false}
+          diskid="2"
+          diskids={
+            Array [
+              "4",
+              "3",
+              "2",
+              "1",
+            ]
+          }
+          image={
+            <img
+              alt="alt-text"
+              className="disk-image"
+              src=""
+            />
+          }
+          isComplete={true}
+          isDragging={false}
+          location="target"
+          moveDisk={[MockFunction]}
+        />
+      </div>
+      <div
+        className="disk-wrapper"
+        style={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+      >
+        <TowerDisk
+          canDrag={false}
+          diskid="1"
+          diskids={
+            Array [
+              "4",
+              "3",
+              "2",
+              "1",
+            ]
+          }
+          image={
+            <img
+              alt="alt-text"
+              className="disk-image"
+              src=""
+            />
+          }
+          isComplete={true}
+          isDragging={false}
+          location="target"
+          moveDisk={[MockFunction]}
+        />
+      </div>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      buffer
+    </div>
+  </div>
+  <div
+    className="location-section disks buffer notcomplete"
+  >
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="3"
+        diskids={
+          Array [
+            "3",
+            "2",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="buffer"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="2"
+        diskids={
+          Array [
+            "3",
+            "2",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="buffer"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TowerLocation snapshot when not isPortrait matches snapshot when empty 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section disks buffer notcomplete"
+  />
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      buffer
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TowerLocation snapshot when not isPortrait matches snapshot with all disks and not target 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section disks origin notcomplete"
+  >
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="1"
+        diskids={
+          Array [
+            "2",
+            "1",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="origin"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="2"
+        diskids={
+          Array [
+            "2",
+            "1",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="origin"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+  </div>
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      origin
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TowerLocation snapshot when not isPortrait matches snapshot with all disks and target 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section disks target complete"
+  >
+    <a
+      aria-label="NASA/JPL Space Images"
+      className="location-section"
+      href="tower-link"
+      onClick={[MockFunction]}
+      rel="noreferrer noopener external"
+      target="_blank"
+    >
+      <div
+        className="disk-wrapper"
+        style={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+      >
+        <TowerDisk
+          canDrag={false}
+          diskid="1"
+          diskids={
+            Array [
+              "2",
+              "1",
+            ]
+          }
+          image={
+            <img
+              alt="alt-text"
+              className="disk-image"
+              src=""
+            />
+          }
+          isComplete={true}
+          isDragging={false}
+          location="target"
+          moveDisk={[MockFunction]}
+        />
+      </div>
+      <div
+        className="disk-wrapper"
+        style={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+      >
+        <TowerDisk
+          canDrag={false}
+          diskid="2"
+          diskids={
+            Array [
+              "2",
+              "1",
+            ]
+          }
+          image={
+            <img
+              alt="alt-text"
+              className="disk-image"
+              src=""
+            />
+          }
+          isComplete={true}
+          isDragging={false}
+          location="target"
+          moveDisk={[MockFunction]}
+        />
+      </div>
+    </a>
+  </div>
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      target
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TowerLocation snapshot when not isPortrait matches snapshot with some disks 1`] = `
+<div
+  className="location"
+>
+  <div
+    className="location-section disks buffer notcomplete"
+  >
+    <div
+      className="disk-wrapper"
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    >
+      <TowerDisk
+        canDrag={false}
+        diskid="1"
+        diskids={
+          Array [
+            "1",
+          ]
+        }
+        image={
+          <img
+            alt="alt-text"
+            className="disk-image"
+            src=""
+          />
+        }
+        isComplete={false}
+        isDragging={false}
+        location="buffer"
+        moveDisk={[MockFunction]}
+      />
+    </div>
+  </div>
+  <div
+    className="location-section name"
+  >
+    <div
+      className="name-text"
+    >
+      buffer
+    </div>
+  </div>
+</div>
+`;
