@@ -621,6 +621,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     to { opacity: 1; }
 }
 
+@keyframes opacitytozero {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 @keyframes bordertodark {
     from { border-color: transparent; }
     to { border-color: #131C27; }
