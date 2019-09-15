@@ -179,7 +179,7 @@ class WorksheetContainer extends React.Component {
                                 className="icon icon-info"
                                 alt="Info icon"
                             />
-                            <span className="section-button-text">
+                            <span className="text-section-button">
                                 info
                             </span>
                         </NavLink>
@@ -216,7 +216,7 @@ class WorksheetContainer extends React.Component {
                                     `${this.props.worksheet.properTitle} icon`
                                 }
                             />
-                            <span className="section-button-text">
+                            <span className="text-section-button">
                                 { this.props.worksheet.title }
                             </span>
                         </NavLink>
@@ -248,7 +248,7 @@ class WorksheetContainer extends React.Component {
                                 className="icon icon-code"
                                 alt="Code icon"
                             />
-                            <span className="section-button-text">
+                            <span className="text-section-button">
                                 gist
                             </span>
                         </NavLink>

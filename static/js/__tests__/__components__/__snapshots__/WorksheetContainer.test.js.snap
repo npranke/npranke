@@ -38,7 +38,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           info
         </span>
@@ -74,7 +74,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           component
         </span>
@@ -110,7 +110,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           gist
         </span>
@@ -176,7 +176,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           info
         </span>
@@ -212,7 +212,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           component
         </span>
@@ -248,7 +248,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           gist
         </span>
@@ -316,7 +316,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           info
         </span>
@@ -352,7 +352,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           component
         </span>
@@ -388,7 +388,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
           src="image-mock"
         />
         <span
-          className="section-button-text"
+          className="text-section-button"
         >
           gist
         </span>

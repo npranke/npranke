@@ -130,6 +130,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
 .welcome .text-workbook, .pagenotfound .text-home {
     vertical-align: middle;
+    text-decoration: underline;
 }
 
 .workbook {
@@ -159,6 +160,12 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     background: rgba(233, 238, 239, 0.7);
 }
 
+.workbook .table-cell-workbook a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
 .workbook .button-worksheet-container {
     display: inline-table;
     height: 100%;
@@ -173,9 +180,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
 .workbook .button-worksheet {
     display: table-cell;
-    overflow: hidden;
     white-space: nowrap;
-    text-decoration: underline;
     text-overflow: ellipsis;
     text-align: center;
     vertical-align: middle;
@@ -197,6 +202,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .workbook .text-worksheet {
+    text-decoration: underline;
     vertical-align: middle;
     font-size: x-large;
 }
@@ -233,6 +239,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
 .worksheet-header .section-button .local-navlink.active {
     border: 1px #131C27 solid;
+}
+
+.worksheet-header .section-button .text-section-button {
+    text-decoration: underline;
 }
 
 .worksheet-header .icon {
@@ -603,6 +613,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 .workbook .table-cell-workbook a,
 .worksheet-header .section-button a {
     color: #131C27;
+    text-decoration: none;
 }
 
 @keyframes opacitytofull {
