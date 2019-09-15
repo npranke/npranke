@@ -605,7 +605,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     bottom: 0;
     margin: 12px;
     color: #E9EEEF;
-    background: radial-gradient(rgba(19, 28, 39, 0.9), transparent);
+    background: radial-gradient(rgba(19, 28, 39, 0.9), rgba(19, 28, 39, 0.0));
 }
 
 .welcome .button-workbook a,
@@ -634,7 +634,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     .tower .settings label:hover {
         border: 1px #131C27 solid;
         box-shadow: 0px 0px 2px 2px rgba(19, 28, 39, 0.5);
-        background: radial-gradient(rgba(233, 238, 239, 0.9), transparent);
+        background: radial-gradient(
+            rgba(233, 238, 239, 0.9),
+            rgba(233, 238, 239, 0.0)
+        );
     }
 
     .workbook .table-cell-workbook:hover {
