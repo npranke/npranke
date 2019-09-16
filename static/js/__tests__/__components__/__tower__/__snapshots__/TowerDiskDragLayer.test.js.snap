@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TowerDiskDragLayer snapshot matches snapshot with sourceClientOffset 1`] = `
+<div
+  className="disk-drag-layer"
+  style={
+    Object {
+      "height": "100%",
+      "left": 0,
+      "pointerEvents": "none",
+      "position": "fixed",
+      "top": 0,
+      "width": "100%",
+      "zIndex": 10,
+    }
+  }
+>
+  <div
+    className="disk dragging-preview"
+    style={
+      Object {
+        "height": 150,
+        "transform": "translate(25px, 75px)",
+        "width": 300,
+      }
+    }
+  >
+    <img
+      alt="alt-text"
+      className="disk-image"
+      src=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TowerDiskDragLayer snapshot matches snapshot without sourceClientOffset 1`] = `
+<div
+  className="disk-drag-layer"
+  style={
+    Object {
+      "height": "100%",
+      "left": 0,
+      "pointerEvents": "none",
+      "position": "fixed",
+      "top": 0,
+      "width": "100%",
+      "zIndex": 10,
+    }
+  }
+>
+  <div
+    className="disk dragging-preview"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <img
+      alt="alt-text"
+      className="disk-image"
+      src=""
+    />
+  </div>
+</div>
+`;
