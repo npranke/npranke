@@ -7,6 +7,17 @@
     "globals": {
         "gtag": "readonly"
     },
+    "overrides": [
+        {
+            "files": [
+                "TowerDisk.jsx",
+                "TowerLocation.jsx"
+            ],
+            "rules": {
+                "react/no-unused-prop-types": ["off"]
+            }
+        }
+    ],
     "rules": {
         "arrow-body-style": ["error", "always"],
         "class-methods-use-this": [
