@@ -71,7 +71,7 @@
     "jest": {
         "moduleNameMapper": {
             "\\.(jp(e)?g|png|gif)$": "<rootDir>/static/js/__mocks__/ImageMock.js",
-            "^react-dnd$": "<rootDir>/static/js/__mocks__/DragAndDropMock.js",
+            "^react-dnd$": "<rootDir>/static/js/__mocks__/DragAndDropMock.jsx",
             "^react-dnd-multi-backend$": "<rootDir>/static/js/__mocks__/DragAndDropBackendMock.js",
             "^react-dnd-multi-backend/lib/HTML5toTouch$": "<rootDir>/static/js/__mocks__/DragAndDropBackendPipelineMock.js",
             "^@__mocks__(.*)$": "<rootDir>/static/js/__mocks__/$1",

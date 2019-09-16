@@ -14,6 +14,7 @@ describe('TowerDisk', () => {
 
         beforeAll(() => {
             connect = {
+                dragPreview: jest.fn(),
                 dragSource: jest.fn(),
             }
             monitor = {
@@ -23,6 +24,7 @@ describe('TowerDisk', () => {
         })
 
         afterEach(() => {
+            connect.dragPreview.mockReset()
             connect.dragSource.mockReset()
             monitor.canDrag.mockReset()
             monitor.isDragging.mockReset()
@@ -32,14 +34,17 @@ describe('TowerDisk', () => {
             expect(collect).toBeInstanceOf(Function)
         })
 
-        test('returns object with expected 3 keys', () => {
+        test('returns object with expected 4 keys', () => {
             const collectResult = collect(connect, monitor)
             const collectResultKeys = Object.keys(collectResult)
 
             expect(collectResult).toBeInstanceOf(Object)
             expect(
                 collectResultKeys.length,
-            ).toBe(3)
+            ).toBe(4)
+            expect(
+                collectResultKeys.indexOf('connectDragPreview'),
+            ).toBeGreaterThan(-1)
             expect(
                 collectResultKeys.indexOf('connectDragSource'),
             ).toBeGreaterThan(-1)
@@ -49,6 +54,14 @@ describe('TowerDisk', () => {
             expect(
                 collectResultKeys.indexOf('isDragging'),
             ).toBeGreaterThan(-1)
+        })
+
+        test('calls connect.dragPreview', () => {
+            collect(connect, monitor)
+
+            expect(
+                connect.dragPreview,
+            ).toHaveBeenCalledTimes(1)
         })
 
         test('calls connect.dragSource', () => {
@@ -242,6 +255,27 @@ describe('TowerDisk', () => {
         expect(
             towerDisk.find('img').length,
         ).toBe(1)
+    })
+
+    test('has one disk preview image', () => {
+        const towerDisk = shallow(
+            <TowerDisk
+                connectDragSource={
+                    jest.fn((diskNode) => { return diskNode })
+                }
+                diskid="2"
+                image={ diskImage }
+                location="origin"
+                moveDisk={ jest.fn() }
+            />,
+        )
+
+        expect(
+            towerDisk.find('DragPreviewImage').length,
+        ).toBe(1)
+        expect(
+            towerDisk.find('DragPreviewImage').props().src,
+        ).toBeTruthy()
     })
 
     test('has candrag class when canDrag true', () => {

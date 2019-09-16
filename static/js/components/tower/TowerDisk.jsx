@@ -1,6 +1,8 @@
-import { DragSource } from 'react-dnd'
+import { DragPreviewImage, DragSource } from 'react-dnd'
 import PropTypes from 'prop-types'
 import React from 'react'
+
+import { EMPTY_PREVIEW_SOURCE } from '@constants/tower'
 
 export const spec = {
     beginDrag: (props) => {
@@ -23,6 +25,7 @@ export const spec = {
 
 export function collect(connect, monitor) {
     return {
+        connectDragPreview: connect.dragPreview(),
         connectDragSource: connect.dragSource(),
         canDrag: monitor.canDrag(),
         isDragging: monitor.isDragging(),
@@ -30,7 +33,7 @@ export function collect(connect, monitor) {
 }
 
 export function TowerDisk(props) {
-    return props.connectDragSource(
+    const diskDragSource = props.connectDragSource(
         <div
             className={
                 'disk'
@@ -41,10 +44,21 @@ export function TowerDisk(props) {
             { props.image }
         </div>,
     )
+
+    return (
+        <React.Fragment key={ props.diskid }>
+            <DragPreviewImage
+                connect={ props.connectDragPreview }
+                src={ EMPTY_PREVIEW_SOURCE }
+            />
+            { diskDragSource }
+        </React.Fragment>
+    )
 }
 
 TowerDisk.defaultProps = {
     canDrag: false,
+    connectDragPreview: undefined,
     connectDragSource: undefined,
     diskids: [],
     height: 0,
@@ -55,6 +69,7 @@ TowerDisk.defaultProps = {
 
 TowerDisk.propTypes = {
     canDrag: PropTypes.bool,
+    connectDragPreview: PropTypes.func,
     connectDragSource: PropTypes.func,
     diskid: PropTypes.string.isRequired,
     diskids: PropTypes.arrayOf(PropTypes.string),
