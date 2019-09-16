@@ -280,11 +280,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 .worksheet-section.info-wrapper .worksheet-info sup {
-    line-height: 0;
     position: relative;
-    vertical-align: super;
-    top: -0.2em;
-    font-size: 0.8em;
+    top: 0;
+    line-height: 0;
+    vertical-align: text-top;
+    font-size: 90%;
 }
 
 .worksheet-section.info-wrapper .worksheet-info .math {
