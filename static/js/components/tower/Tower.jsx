@@ -1,5 +1,4 @@
 import { DragDropContext } from 'react-dnd'
-import HTML5toTouch from 'react-dnd-multi-backend/lib/HTML5toTouch'
 import MultiBackend from 'react-dnd-multi-backend'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -8,7 +7,12 @@ import TowerLocation from '@components/tower/TowerLocation'
 import TowerSettings from '@components/tower/TowerSettings'
 import withPortraitListener from '@components/hoc/PortraitListener'
 
-import { LAYOUTS, LOCATIONS, TOWER_SOURCES } from '@constants/tower'
+import {
+    DRAG_AND_DROP_BACKEND_PIPELINE,
+    LAYOUTS,
+    LOCATIONS,
+    TOWER_SOURCES,
+} from '@constants/tower'
 
 import { getSendEventHandler, sendEvent } from '@utils'
 
@@ -203,6 +207,6 @@ Tower.propTypes = {
     isPortrait: PropTypes.bool,
 }
 
-export default DragDropContext(MultiBackend(HTML5toTouch))(
+export default DragDropContext(MultiBackend(DRAG_AND_DROP_BACKEND_PIPELINE))(
     withPortraitListener(Tower),
 )
