@@ -15,6 +15,7 @@ DragPreviewImage.defaultProps = { src: '' }
 DragPreviewImage.propTypes = { src: PropTypes.string }
 
 reactdnd.DragDropContext = ComponentWrapper
+reactdnd.DragLayer = ComponentWrapper
 reactdnd.DragPreviewImage = DragPreviewImage
 reactdnd.DragSource = ComponentWrapper
 reactdnd.DropTarget = ComponentWrapper
