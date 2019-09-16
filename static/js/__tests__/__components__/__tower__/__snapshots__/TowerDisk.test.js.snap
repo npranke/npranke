@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TowerDisk snapshot matches snapshot 1`] = `
+exports[`TowerDisk snapshot matches snapshot with isDragging false 1`] = `
 <Fragment
   key="1"
 >
@@ -16,5 +16,36 @@ exports[`TowerDisk snapshot matches snapshot 1`] = `
       src=""
     />
   </div>
+</Fragment>
+`;
+
+exports[`TowerDisk snapshot matches snapshot with isDragging true 1`] = `
+<Fragment
+  key="1"
+>
+  <DragPreviewImage
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  />
+  <div
+    className="disk dragging"
+  >
+    <img
+      alt="alt-text"
+      className="disk-image"
+      src=""
+    />
+  </div>
+  <TowerDiskDragLayer
+    height={0}
+    image={
+      <img
+        alt="alt-text"
+        className="disk-image"
+        src=""
+      />
+    }
+    sourceClientOffset={null}
+    width={0}
+  />
 </Fragment>
 `;

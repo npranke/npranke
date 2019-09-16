@@ -353,10 +353,48 @@ describe('TowerDisk', () => {
             towerDisk.find('.disk.dragging').exists(),
         ).toBe(false)
     })
+
+    test('has disk drag layer when isDragging true', () => {
+        const towerDisk = shallow(
+            <TowerDisk
+                isDragging
+                connectDragSource={
+                    jest.fn((diskNode) => { return diskNode })
+                }
+                diskid="3"
+                image={ diskImage }
+                location="origin"
+                moveDisk={ jest.fn() }
+            />,
+        )
+
+        expect(
+            towerDisk.find('TowerDiskDragLayer').exists(),
+        ).toBe(true)
+    })
+
+    test('does not have disk drag layer when isDragging false', () => {
+        const towerDisk = shallow(
+            <TowerDisk
+                isDragging={ false }
+                connectDragSource={
+                    jest.fn((diskNode) => { return diskNode })
+                }
+                diskid="2"
+                image={ diskImage }
+                location="buffer"
+                moveDisk={ jest.fn() }
+            />,
+        )
+
+        expect(
+            towerDisk.find('TowerDiskDragLayer').exists(),
+        ).toBe(false)
+    })
 })
 
 describe('TowerDisk snapshot', () => {
-    test('matches snapshot', () => {
+    test('matches snapshot with isDragging false', () => {
         const towerDisk = shallow(
             <TowerDisk
                 connectDragSource={
@@ -364,6 +402,24 @@ describe('TowerDisk snapshot', () => {
                 }
                 diskid="1"
                 image={ diskImage }
+                isDragging={ false }
+                location="buffer"
+                moveDisk={ jest.fn() }
+            />,
+        )
+
+        expect(towerDisk).toMatchSnapshot()
+    })
+
+    test('matches snapshot with isDragging true', () => {
+        const towerDisk = shallow(
+            <TowerDisk
+                connectDragSource={
+                    jest.fn((diskNode) => { return diskNode })
+                }
+                diskid="1"
+                image={ diskImage }
+                isDragging
                 location="buffer"
                 moveDisk={ jest.fn() }
             />,

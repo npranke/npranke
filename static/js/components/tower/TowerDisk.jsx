@@ -2,6 +2,8 @@ import { DragPreviewImage, DragSource } from 'react-dnd'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import TowerDiskDragLayer from '@components/tower/TowerDiskDragLayer'
+
 import { EMPTY_PREVIEW_SOURCE } from '@constants/tower'
 
 export const spec = {
@@ -45,6 +47,14 @@ export function TowerDisk(props) {
         </div>,
     )
 
+    const diskDragLayer = props.isDragging ? (
+        <TowerDiskDragLayer
+            image={ props.image }
+            height={ props.height }
+            width={ props.width }
+        />
+    ) : null
+
     return (
         <React.Fragment key={ props.diskid }>
             <DragPreviewImage
@@ -52,6 +62,7 @@ export function TowerDisk(props) {
                 src={ EMPTY_PREVIEW_SOURCE }
             />
             { diskDragSource }
+            { diskDragLayer }
         </React.Fragment>
     )
 }
