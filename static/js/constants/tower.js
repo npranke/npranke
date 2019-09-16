@@ -1,3 +1,7 @@
+import HTML5Backend from 'react-dnd-html5-backend'
+import { MouseTransition, TouchTransition } from 'react-dnd-multi-backend'
+import TouchBackend from 'react-dnd-touch-backend'
+
 import Landscape1of2 from '@img/tower-landscape-22931-two-1-of-2.jpg'
 import Landscape2of2 from '@img/tower-landscape-22931-two-2-of-2.jpg'
 import Portrait1of2 from '@img/tower-portrait-22931-two-1-of-2.jpg'
@@ -29,6 +33,29 @@ import Portrait2of5 from '@img/tower-portrait-22423-five-2-of-5.jpg'
 import Portrait3of5 from '@img/tower-portrait-22423-five-3-of-5.jpg'
 import Portrait4of5 from '@img/tower-portrait-22423-five-4-of-5.jpg'
 import Portrait5of5 from '@img/tower-portrait-22423-five-5-of-5.jpg'
+
+export const DRAG_AND_DROP_BACKEND_PIPELINE = {
+    backends: [
+        {
+            backend: HTML5Backend,
+        },
+        {
+            backend: TouchBackend,
+            preview: false,
+            transition: TouchTransition,
+        },
+        {
+            backend: HTML5Backend,
+            preview: false,
+            transition: MouseTransition,
+        },
+    ],
+}
+
+export const EMPTY_PREVIEW_SOURCE = (
+    'data:image/gif;base64,'
+    + 'R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+)
 
 export const LAYOUTS = ['landscape', 'portrait']
 
