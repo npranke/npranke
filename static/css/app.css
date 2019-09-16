@@ -572,6 +572,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     animation-name: opacitytofull, bordertodark;
     animation-duration: 1s, 2s;
     animation-timing-function: ease-out;
+    animation-fill-mode: both;
 }
 
 .tower .location .disks.notcomplete .disk.dragging img {
@@ -592,6 +593,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     animation-name: opacitytofull;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+    animation-fill-mode: both;
 }
 
 .footer {
