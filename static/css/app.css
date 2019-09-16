@@ -287,6 +287,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
 .worksheet-section.info-wrapper .worksheet-info .math {
     font-family: "Old Standard TT", serif;
+    white-space: nowrap;
 }
 
 .worksheet-section.worksheet-wrapper {
