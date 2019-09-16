@@ -88,6 +88,8 @@ export function TowerLocation(props) {
                         diskid={ disk.diskid }
                         diskids={ props.diskids }
                         image={ disk.image }
+                        height={ diskHeight }
+                        width={ diskWidth }
                         isComplete={ props.isComplete }
                         moveDisk={ props.moveDisk }
                         location={ props.location }

@@ -47,8 +47,10 @@ TowerDisk.defaultProps = {
     canDrag: false,
     connectDragSource: undefined,
     diskids: [],
+    height: 0,
     isComplete: false,
     isDragging: false,
+    width: 0,
 }
 
 TowerDisk.propTypes = {
@@ -56,11 +58,13 @@ TowerDisk.propTypes = {
     connectDragSource: PropTypes.func,
     diskid: PropTypes.string.isRequired,
     diskids: PropTypes.arrayOf(PropTypes.string),
+    height: PropTypes.number,
     image: PropTypes.node.isRequired,
     isComplete: PropTypes.bool,
     isDragging: PropTypes.bool,
     location: PropTypes.string.isRequired,
     moveDisk: PropTypes.func.isRequired,
+    width: PropTypes.number,
 }
 
 export default DragSource('disk', spec, collect)(TowerDisk)
