@@ -12,12 +12,13 @@ icon only       -   27% 12% / 7% 32%
 icon and label  -   37% 22% / 17% 42%
 main content    -   7% 12% / 2% 5%
 
-max 5/8     -   28px, x-large,  32px, xx-large, 36px, xx-large, 40px
-portrait    -   24px, large,    28px, x-large,  32px, xx-large, 36px
-default     -   20px, medium,   24px, large,    28px, x-large,  32px
-max 900px   -   16px, small,    20px, medium,   24px, large,    28px
-max 700px   -   12px, x-small,  16px, small,    20px, medium,   24px
-max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
+default       - medium,   20px, medium,   24px, large,   28px, x-large, 32px
+portrait:800  - small,    16px, medium,   24px, large,   28px, x-large, 32px
+portrait:600  - x-small,  12px, small,    20px, medium,  24px, large,   28px
+portrait:400  - xx-small, 8px,  x-small,  16px, small,   20px, medium,  24px
+landscape:900 - small,    16px, small,    20px, medium,  24px, large,   28px
+landscape:700 - x-small,  12px, x-small,  16px, small,   20px, medium,  24px
+landscape:500 - xx-small, 8px,  xx-small, 12px, x-small, 16px, small,   20px
 */
 
 .app {
@@ -245,8 +246,8 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     text-decoration: underline;
 }
 
-.worksheet-header .icon {
-    height: 22px;
+.workbook .worksheet-header .icon {
+    height: 20px;
     width: 20px;
     margin: 2px 4px 2px 2px;
     vertical-align: middle;
@@ -414,7 +415,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     height: 70%;
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-start;
 }
 
@@ -688,15 +689,6 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 }
 
 @media (orientation: portrait) {
-    .app {
-        font-size: large;
-    }
-
-    .header .icon {
-        height: 32px;
-        width: 32px;
-    }
-
     .welcome, .pagenotfound {
         margin-right: 12%;
         margin-left: 12%;
@@ -704,35 +696,15 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         height: 18%;
     }
 
-    .welcome,
-    .pagenotfound,
-    .concentration .matches-header,
-    .tower .settings,
-    .tower .location .name {
-        font-size: x-large;
+    .workbook {
+        margin: 0 12px;
+        top: 10%;
+        height: 82%;
     }
 
-    .welcome .icon-workbook, .pagenotfound .icon-home {
-        height: 28px;
-        width: 28px;
-    }
-
-    .workbook .button-worksheet-inner {
-        padding: 24px;
-    }
-
-    .workbook .icon {
-        height: 36px;
-        width: 36px;
-    }
-
-    .workbook .text-worksheet {
-        font-size: xx-large;
-    }
-
-    .worksheet-header .icon {
-        height: 24px;
-        width: 24px;
+    .worksheet-section.worksheet-wrapper {
+        height: calc(90% - 15px);
+        padding: 12px 12px 3px 12px;
     }
 
     .concentration .matches-wrapper {
@@ -741,6 +713,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
     .tower .settings-wrapper {
         height: 6%;
+    }
+
+    .tower .settings-inner {
+        padding-bottom: 12px;
     }
 
     .concentration .matches-pictures a {
@@ -754,6 +730,13 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
     .tower .locations-wrapper {
         height: 94%;
+    }
+
+    .concentration .board,
+    .tower .locations-container {
+        height: calc(100% - 16px);
+        width: calc(100% - 16px);
+        padding: 8px;
     }
 
     .tower .locations-container {
@@ -801,6 +784,10 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 0;
     }
 
+    .tower .location .name .name-text {
+        padding: 10px;
+    }
+
     .tower .location .disks {
         max-height: inherit;
         max-width: 70%;
@@ -821,49 +808,244 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
     }
 }
 
-@media (max-aspect-ratio: 5/8) {
-    .app {
-        font-size: x-large;
+@media (max-width: 800px) and (orientation: portrait) {
+    .header .icon-container {
+        margin: 0 10px;
+    }
+
+    .workbook .worksheet-header .icon {
+        height: 16px;
+        width: 16px;
+    }
+
+    .worksheet-header .text-section-button  {
+        font-size: small;
+    }
+
+    .worksheet-section.info-wrapper .worksheet-info {
+        max-height: calc(100% - 54px);
+        padding: 36px 36px 18px 36px;
+    }
+
+    .worksheet-section.info-wrapper .worksheet-info p {
+        margin: 40px 20px;
+    }
+
+    .worksheet-section.gist-wrapper iframe#worksheet-gist {
+        height: calc(98% - 27px);
+        width: calc(100% - 36px);
+        padding: 0 18px;
+        margin: 18px 0 9px 0;
+    }
+
+    .concentration .matches-header,
+    .tower .settings,
+    .tower .location .name {
+        font-size: medium;
+    }
+
+    .tower .location .name .name-text {
+        padding: 8px;
+    }
+
+    .concentration .matches-header .right-text,
+    .tower .settings .right-text {
+        margin-right: 2%;
+    }
+
+    .tower .settings label {
+        margin: 0 4px;
+    }
+
+    .concentration .matches-header .turns-text,
+    .tower .settings .time-text {
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+    .app,
+    .concentration .matches-header,
+    .tower .settings,
+    .tower .location .name {
+        color: pink !important;
+        font-size: small;
+    }
+
+    .header .icon-container {
+        margin: 0 8px;
     }
 
     .header .icon {
-        height: 36px;
-        width: 36px;
+        height: 24px;
+        width: 24px;
     }
 
     .welcome,
     .pagenotfound,
-    .concentration .matches-header,
-    .tower .settings,
-    .tower .location .name {
-        font-size: xx-large;
+    .worksheet-section.info-wrapper {
+        font-size: medium;
     }
 
     .welcome .icon-workbook, .pagenotfound .icon-home {
-        height: 32px;
-        width: 32px;
+        height: 20px;
+        width: 20px;
     }
 
     .workbook .button-worksheet-inner {
-        padding: 28px;
+        padding: 16px;
     }
 
     .workbook .icon {
-        height: 40px;
-        width: 40px;
-    }
-
-    .workbook .text-worksheet {
-        font-size: xx-large;
-    }
-
-    .worksheet-header .icon {
         height: 28px;
         width: 28px;
     }
+
+    .workbook .text-worksheet {
+        font-size: large;
+    }
+
+    .workbook .worksheet-header .icon {
+        height: 12px;
+        width: 12px;
+    }
+
+    .worksheet-header .text-section-button  {
+        font-size: x-small;
+    }
+
+    .worksheet-section.info-wrapper .worksheet-info {
+        max-height: calc(100% - 36px);
+        padding: 24px 24px 12px 24px;
+    }
+
+    .worksheet-section.info-wrapper .worksheet-info p {
+        margin: 32px 16px;
+    }
+
+    .worksheet-section.gist-wrapper iframe#worksheet-gist {
+        height: calc(98% - 18px);
+        width: calc(100% - 24px);
+        padding: 0 12px;
+        margin: 12px 0 6px 0;
+    }
+
+    .concentration .matches-header .right-text,
+    .tower .settings .right-text {
+        margin-right: 1%;
+    }
+
+    .tower .settings label {
+        padding: 2px 4px;
+        margin: 0 2px;
+    }
+
+    .concentration .matches-header .turns-text,
+    .tower .settings .time-text {
+        padding-left: 12px;
+    }
+
+    .tower .location .name .name-text {
+        padding: 6px;
+    }
 }
 
-@media (max-height: 900px) {
+@media (max-width: 400px) and (orientation: portrait) {
+    .app,
+    .concentration .matches-header,
+    .tower .settings,
+    .tower .location .name {
+        color: gold !important;
+        font-size: x-small;
+    }
+
+    .header .icon-container {
+        margin: 0 6px;
+    }
+
+    .header .icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .welcome,
+    .pagenotfound,
+    .worksheet-section.info-wrapper {
+        font-size: small;
+    }
+
+    .welcome .intro, .pagenotfound .intro {
+        margin: 6px;
+    }
+
+    .welcome .button-workbook, .pagenotfound .button-home {
+        margin: 6px;
+        padding: 2px;
+    }
+
+    .welcome .icon-workbook, .pagenotfound .icon-home {
+        height: 16px;
+        width: 16px;
+    }
+
+    .workbook .button-worksheet-inner {
+        padding: 12px;
+    }
+
+    .workbook .icon {
+        height: 24px;
+        width: 24px;
+    }
+
+    .workbook .text-worksheet {
+        font-size: medium;
+    }
+
+    .workbook .worksheet-header .icon {
+        height: 8px;
+        width: 8px;
+    }
+
+    .worksheet-header .text-section-button {
+        font-size: xx-small;
+    }
+
+    .worksheet-section.info-wrapper .worksheet-info {
+        max-height: calc(100% - 18px);
+        padding: 12px 12px 6px 12px;
+    }
+
+    .worksheet-section.info-wrapper .worksheet-info p {
+        margin: 24px 12px;
+    }
+
+    .worksheet-section.gist-wrapper iframe#worksheet-gist {
+        height: calc(98% - 9px);
+        width: calc(100% - 12px);
+        padding: 0 6px;
+        margin: 6px 0 3px 0;
+    }
+
+    .concentration .matches-header .right-text,
+    .tower .settings .right-text {
+        margin-right: 0;
+    }
+
+    .tower .settings label {
+        margin: 0;
+    }
+
+    .concentration .matches-header .turns-text,
+    .tower .settings .time-text {
+        padding-left: 8px;
+    }
+
+    .tower .location .name .name-text {
+        padding: 4px;
+    }
+}
+
+@media (max-height: 900px) and (orientation: landscape) {
     .app {
         font-size: small;
     }
@@ -900,7 +1082,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: large;
     }
 
-    .worksheet-header .icon {
+    .worksheet-header {
+        height: 7%;
+    }
+
+    .workbook .worksheet-header .icon {
         height: 16px;
         width: 16px;
     }
@@ -921,13 +1107,26 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 36px 0 18px 0;
     }
 
+    .worksheet-footer {
+        height: 3%;
+    }
+
+    .concentration .matches-pictures a {
+        min-height: 72%;
+        max-height: 80%;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 72px) / 4);
         margin: 9px 0;
     }
+
+    .tower .location .name .name-text {
+        padding: 6px;
+    }
 }
 
-@media (max-height: 700px) {
+@media (max-height: 700px) and (orientation: landscape) {
     .app {
         font-size: x-small;
     }
@@ -953,8 +1152,7 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
 
     .workbook {
         top: 10%;
-        bottom: 10%;
-        height: 80%;
+        height: 82%;
     }
 
     .workbook .button-worksheet-inner {
@@ -970,7 +1168,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: medium;
     }
 
-    .worksheet-header .icon {
+    .worksheet-header {
+        height: 8%;
+    }
+
+    .workbook .worksheet-header .icon {
         height: 12px;
         width: 12px;
     }
@@ -984,6 +1186,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 32px 16px;
     }
 
+    .worksheet-section.worksheet-wrapper {
+        height: calc(90% - 20px);
+        padding: 16px 16px 4px 16px;
+    }
+
     .worksheet-section.gist-wrapper iframe#worksheet-gist {
         height: calc(98% - 36px);
         width: calc(100% - 48px);
@@ -991,13 +1198,34 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 24px 0 12px 0;
     }
 
+    .worksheet-footer {
+        height: 2%;
+    }
+
+    .concentration .matches-pictures a {
+        min-height: 68%;
+        max-height: 76%;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 48px) / 4);
         margin: 6px 0;
     }
+
+    .tower .settings-inner {
+        padding-bottom: 16px;
+    }
+
+    .tower .location .disks {
+        max-height: 65%;
+    }
+
+    .tower .location .name .name-text {
+        padding: 4px;
+    }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 500px) and (orientation: landscape) {
     .app {
         font-size: xx-small;
     }
@@ -1016,14 +1244,23 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: x-small;
     }
 
+    .welcome .intro, .pagenotfound .intro {
+        margin: 4px;
+    }
+
+    .welcome .button-workbook, .pagenotfound .button-home {
+        margin: 4px;
+        padding: 2px;
+    }
+
     .welcome .icon-workbook, .pagenotfound .icon-home {
         height: 12px;
         width: 12px;
     }
 
     .workbook {
-        top: 12%;
-        bottom: 12%;
+        top: 14%;
+        bottom: 10%;
         height: 76%;
     }
 
@@ -1040,7 +1277,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         font-size: small;
     }
 
-    .worksheet-header .icon {
+    .worksheet-header {
+        height: 9%;
+    }
+
+    .workbook .worksheet-header .icon {
         height: 8px;
         width: 8px;
     }
@@ -1054,6 +1295,11 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 24px 12px;
     }
 
+    .worksheet-section.worksheet-wrapper {
+        height: calc(90% - 10px);
+        padding: 8px 8px 2px 8px;
+    }
+
     .worksheet-section.gist-wrapper iframe#worksheet-gist {
         height: calc(98% - 18px);
         width: calc(100% - 24px);
@@ -1061,8 +1307,36 @@ max 500px   -   8px,  xx-small, 12px, x-small,  16px, small,    20px
         margin: 12px 0 6px 0;
     }
 
+    .worksheet-footer {
+        height: 1%;
+    }
+
+    .concentration .matches-pictures a {
+        min-height: 64%;
+        max-height: 72%;
+    }
+
+    .concentration .board,
+    .tower .locations-container {
+        height: calc(100% - 16px);
+        width: calc(100% - 16px);
+        padding: 8px;
+    }
+
     .concentration .board .board-row-wrapper {
         height: calc((100% - 24px) / 4);
         margin: 3px 0;
+    }
+
+    .tower .settings-inner {
+        padding-bottom: 8px;
+    }
+
+    .tower .location .disks {
+        max-height: 60%;
+    }
+
+    .tower .location .name .name-text {
+        padding: 2px;
     }
 }
