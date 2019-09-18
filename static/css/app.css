@@ -868,7 +868,6 @@ landscape:500 - xx-small, 8px,  xx-small, 12px, x-small, 16px, small,   20px
     .concentration .matches-header,
     .tower .settings,
     .tower .location .name {
-        color: pink !important;
         font-size: small;
     }
 
@@ -955,7 +954,6 @@ landscape:500 - xx-small, 8px,  xx-small, 12px, x-small, 16px, small,   20px
     .concentration .matches-header,
     .tower .settings,
     .tower .location .name {
-        color: gold !important;
         font-size: x-small;
     }
 
