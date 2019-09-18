@@ -414,7 +414,7 @@ describe('TowerLocation', () => {
         describe('when not isPortrait', () => {
             test('diskWidth greater than location width', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 1175, width: 452 },
+                    { height: 1645, width: 452 },
                 )
 
                 const towerLocation = shallow(
@@ -422,12 +422,12 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['5', '4'] }
-                        disks={ 5 }
+                        diskids={ ['3', '2'] }
+                        disks={ 3 }
                         isComplete={ false }
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[5] }
+                        tower={ towers[3] }
                     />,
                 )
 
@@ -442,7 +442,7 @@ describe('TowerLocation', () => {
 
             test('diskWidth not greater than location width', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 2350, width: 904 },
+                    { height: 3290, width: 904 },
                 )
 
                 const towerLocation = shallow(
@@ -450,12 +450,12 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['5', '4', '3'] }
-                        disks={ 5 }
-                        isComplete={ false }
+                        diskids={ ['3', '2', '1'] }
+                        disks={ 3 }
+                        isComplete
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[5] }
+                        tower={ towers[3] }
                     />,
                 )
 
@@ -470,7 +470,7 @@ describe('TowerLocation', () => {
 
             test('disks height greater than availableHeight', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 940, width: 904 },
+                    { height: 822.5, width: 904 },
                 )
 
                 const towerLocation = shallow(
@@ -478,12 +478,12 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['4'] }
-                        disks={ 4 }
+                        diskids={ ['3'] }
+                        disks={ 3 }
                         isComplete={ false }
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[4] }
+                        tower={ towers[3] }
                     />,
                 )
 
@@ -498,7 +498,7 @@ describe('TowerLocation', () => {
 
             test('disks height not greater than availableHeight', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 1880, width: 904 },
+                    { height: 1645, width: 904 },
                 )
 
                 const towerLocation = shallow(
@@ -506,12 +506,12 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['4', '3', '2', '1'] }
-                        disks={ 4 }
+                        diskids={ ['3', '2', '1'] }
+                        disks={ 3 }
                         isComplete
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[4] }
+                        tower={ towers[3] }
                     />,
                 )
 
@@ -528,7 +528,7 @@ describe('TowerLocation', () => {
         describe('when isPortrait', () => {
             test('diskHeight greater than location height', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 452, width: 1175 },
+                    { height: 452, width: 1645 },
                 )
 
                 const towerLocation = shallow(
@@ -536,13 +536,13 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['5', '4'] }
-                        disks={ 5 }
+                        diskids={ ['3', '2'] }
+                        disks={ 3 }
                         isComplete={ false }
                         isPortrait
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[5] }
+                        tower={ towers[3] }
                     />,
                 )
 
@@ -557,7 +557,7 @@ describe('TowerLocation', () => {
 
             test('diskHeight not greater than location height', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 904, width: 2350 },
+                    { height: 904, width: 3290 },
                 )
 
                 const towerLocation = shallow(
@@ -565,13 +565,13 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['5', '4', '3'] }
-                        disks={ 5 }
-                        isComplete={ false }
+                        diskids={ ['3', '2', '1'] }
+                        disks={ 3 }
+                        isComplete
                         isPortrait
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[5] }
+                        tower={ towers[3] }
                     />,
                 )
 
@@ -586,7 +586,7 @@ describe('TowerLocation', () => {
 
             test('disks width greater than availableWidth', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 904, width: 940 },
+                    { height: 904, width: 822.5 },
                 )
 
                 const towerLocation = shallow(
@@ -594,13 +594,13 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['4'] }
-                        disks={ 4 }
+                        diskids={ ['3'] }
+                        disks={ 3 }
                         isComplete={ false }
                         isPortrait
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[4] }
+                        tower={ towers[3] }
                     />,
                 )
 
@@ -615,7 +615,7 @@ describe('TowerLocation', () => {
 
             test('disks width not greater than availableWidth', () => {
                 useOffsetListener.mockReturnValue(
-                    { height: 904, width: 1880 },
+                    { height: 904, width: 1645 },
                 )
 
                 const towerLocation = shallow(
@@ -623,13 +623,13 @@ describe('TowerLocation', () => {
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
                         }
-                        diskids={ ['4', '3', '2', '1'] }
-                        disks={ 4 }
+                        diskids={ ['3', '2', '1'] }
+                        disks={ 3 }
                         isComplete
                         isPortrait
                         location="target"
                         moveDisk={ jest.fn() }
-                        tower={ towers[4] }
+                        tower={ towers[3] }
                     />,
                 )
 

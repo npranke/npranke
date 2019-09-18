@@ -44,7 +44,7 @@ export function TowerLocation(props) {
             diskHeight = height
         }
 
-        const availableWidth = width * 0.7
+        const availableWidth = width * 0.6
         const disksWidth = diskWidth * props.disks
 
         if (disksWidth > availableWidth) {
@@ -63,7 +63,7 @@ export function TowerLocation(props) {
             diskWidth = width
         }
 
-        const availableHeight = height * 0.7
+        const availableHeight = height * 0.6
         const disksHeight = diskHeight * props.disks
 
         if (disksHeight > availableHeight) {

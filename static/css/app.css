@@ -547,7 +547,7 @@ landscape:500 - xx-small, 8px,  xx-small, 12px, x-small, 16px, small,   20px
 }
 
 .tower .location .disks {
-    max-height: 70%;
+    max-height: 60%;
     max-width: inherit;
 }
 
@@ -790,7 +790,7 @@ landscape:500 - xx-small, 8px,  xx-small, 12px, x-small, 16px, small,   20px
 
     .tower .location .disks {
         max-height: inherit;
-        max-width: 70%;
+        max-width: 60%;
     }
 
     .tower .location .disks .disk-wrapper {
@@ -1214,10 +1214,6 @@ landscape:500 - xx-small, 8px,  xx-small, 12px, x-small, 16px, small,   20px
         padding-bottom: 16px;
     }
 
-    .tower .location .disks {
-        max-height: 65%;
-    }
-
     .tower .location .name .name-text {
         padding: 4px;
     }
@@ -1328,10 +1324,6 @@ landscape:500 - xx-small, 8px,  xx-small, 12px, x-small, 16px, small,   20px
 
     .tower .settings-inner {
         padding-bottom: 8px;
-    }
-
-    .tower .location .disks {
-        max-height: 60%;
     }
 
     .tower .location .name .name-text {
