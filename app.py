@@ -16,9 +16,9 @@ sslify = SSLify(app, permanent=True, subdomains=True)
 
 gistdb = TinyDB(
     "db/gistdb.json",
-    default_table="gist",
     storage=ReadOnlyMiddleware(CachingMiddleware(JSONStorage))
 )
+gistdb.default_table_name = "gist"
 
 
 @app.context_processor
