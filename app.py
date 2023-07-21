@@ -62,7 +62,7 @@ def appletouchicon():
         os.path.join(app.root_path, "static"),
         "apple-touch-icon.png",
         mimetype="image/png",
-        cache_timeout=3600
+        max_age=3600
     )
 
 
@@ -72,7 +72,7 @@ def maskicon():
         os.path.join(app.root_path, "static"),
         "mask-icon.svg",
         mimetype="image/svg+xml",
-        cache_timeout=3600
+        max_age=3600
     )
 
 
@@ -82,7 +82,7 @@ def favicon():
         os.path.join(app.root_path, "static"),
         "favicon.ico",
         mimetype="image/x-icon",
-        cache_timeout=3600
+        max_age=3600
     )
 
 
