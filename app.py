@@ -1,7 +1,6 @@
 import os
 
 from flask import Flask, json, render_template, send_from_directory, url_for
-from flask_sslify import SSLify
 from tinydb import Query, TinyDB
 from tinydb.middlewares import CachingMiddleware
 from tinydb.storages import JSONStorage
@@ -12,7 +11,6 @@ from db.middleware import ReadOnlyMiddleware
 app = Flask(__name__)
 app.config.from_object(AppConfig)
 
-sslify = SSLify(app, permanent=True, subdomains=True)
 
 gistdb = TinyDB(
     "db/gistdb.json",

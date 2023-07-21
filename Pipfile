@@ -9,7 +9,6 @@ name = "pypi"
 
 gunicorn = "21.2.0"
 flask = "1.1.1"
-flask-sslify = "0.1.5"
 python-decouple = "3.8"
 tinydb = "4.8.0"
 
