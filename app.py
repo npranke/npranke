@@ -23,11 +23,11 @@ talisman = Talisman(
         "object-src": "'none'",
         "script-src": "'self' 'unsafe-eval' www.googletagmanager.com",
         "style-src": (
-            "'self' 'unsafe-inline' fonts.googleapis.com "
-            "github.githubassets.com"
+            "'self' 'sha256-Xb6VsMsUW5jBy8HAXlMcrIeEC0qAgR5OuKvwp+fJWi0=' "
+            "'unsafe-hashes' fonts.googleapis.com github.githubassets.com"
         )
     },
-    content_security_policy_nonce_in=["script-src"],
+    content_security_policy_nonce_in=["script-src", "style-src"],
     force_https_permanent=True
 )
 
