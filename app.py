@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, json, render_template, send_from_directory, url_for
-from flask_sslify import SSLify
+from flask_talisman import Talisman
 from tinydb import Query, TinyDB
 from tinydb.middlewares import CachingMiddleware
 from tinydb.storages import JSONStorage
@@ -12,13 +12,28 @@ from db.middleware import ReadOnlyMiddleware
 app = Flask(__name__)
 app.config.from_object(AppConfig)
 
-sslify = SSLify(app, permanent=True, subdomains=True)
+
+talisman = Talisman(
+    app,
+    content_security_policy={
+        "connect-src": "'self' www.google-analytics.com",
+        "default-src": "'self'",
+        "font-src": "'self' fonts.gstatic.com",
+        "img-src": "'self' www.google-analytics.com",
+        "object-src": "'none'",
+        "script-src": "'self' 'unsafe-eval' www.googletagmanager.com",
+        "style-src": "'self' fonts.googleapis.com"
+    },
+    content_security_policy_nonce_in=['script-src'],
+    force_https_permanent=True
+)
+
 
 gistdb = TinyDB(
     "db/gistdb.json",
-    default_table="gist",
     storage=ReadOnlyMiddleware(CachingMiddleware(JSONStorage))
 )
+gistdb.default_table_name = "gist"
 
 
 @app.context_processor
@@ -64,7 +79,7 @@ def appletouchicon():
         os.path.join(app.root_path, "static"),
         "apple-touch-icon.png",
         mimetype="image/png",
-        cache_timeout=3600
+        max_age=3600
     )
 
 
@@ -74,7 +89,7 @@ def maskicon():
         os.path.join(app.root_path, "static"),
         "mask-icon.svg",
         mimetype="image/svg+xml",
-        cache_timeout=3600
+        max_age=3600
     )
 
 
@@ -84,7 +99,7 @@ def favicon():
         os.path.join(app.root_path, "static"),
         "favicon.ico",
         mimetype="image/x-icon",
-        cache_timeout=3600
+        max_age=3600
     )
 
 

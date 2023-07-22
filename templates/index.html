@@ -59,7 +59,7 @@
         src="https://www.googletagmanager.com/gtag/js?id={{ config.get('GA') }}"
     >
     </script>
-    <script type="text/javascript">
+    <script type="text/javascript" nonce="{{ csp_nonce() }}">
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
