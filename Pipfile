@@ -20,4 +20,4 @@ tinydb = "4.8.0"
 
 [requires]
 
-python_full_version = "3.8.17"
+python_full_version = "3.9.17"
