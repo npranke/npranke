@@ -5,7 +5,7 @@ exports[`TowerDisk snapshot matches snapshot with isDragging false 1`] = `
   key="1"
 >
   <DragPreviewImage
-    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="image-mock"
   />
   <div
     className="disk"
@@ -24,7 +24,7 @@ exports[`TowerDisk snapshot matches snapshot with isDragging true 1`] = `
   key="1"
 >
   <DragPreviewImage
-    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    src="image-mock"
   />
   <div
     className="disk dragging"

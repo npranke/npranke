@@ -2,6 +2,8 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import { MouseTransition, TouchTransition } from 'react-dnd-multi-backend'
 import TouchBackend from 'react-dnd-touch-backend'
 
+import EmptyDiscPreview from '@img/tower-empty-disc-preview.gif'
+
 import Landscape1of2 from '@img/tower-landscape-22931-two-1-of-2.jpg'
 import Landscape2of2 from '@img/tower-landscape-22931-two-2-of-2.jpg'
 import Portrait1of2 from '@img/tower-portrait-22931-two-1-of-2.jpg'
@@ -52,10 +54,7 @@ export const DRAG_AND_DROP_BACKEND_PIPELINE = {
     ],
 }
 
-export const EMPTY_PREVIEW_SOURCE = (
-    'data:image/gif;base64,'
-    + 'R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
-)
+export const EMPTY_PREVIEW_SOURCE = EmptyDiscPreview
 
 export const LAYOUTS = ['landscape', 'portrait']
 
