@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cc8eb52dba713a7f329d1261dac3f64aa8af33f8cbe524fc098f277ffa337370"
+            "sha256": "9bbf1201041df298a71a92c36fdc2c950577d2aaedc9418d812d0d7d4850b997"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,6 +39,14 @@
             ],
             "index": "pypi",
             "version": "==2.3.2"
+        },
+        "flask-talisman": {
+            "hashes": [
+                "sha256:205d3de7c5ecfad667c84123f5fbe580b1f68cd9a1b058d7353cc0348e15b1bf",
+                "sha256:be2767b6b2bc11b36bf9a0e09ffa10622fbe0d971fd7057a843f82cd795a854b"
+            ],
+            "index": "pypi",
+            "version": "==1.0.0"
         },
         "gunicorn": {
             "hashes": [

@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, json, render_template, send_from_directory, url_for
+from flask_talisman import Talisman
 from tinydb import Query, TinyDB
 from tinydb.middlewares import CachingMiddleware
 from tinydb.storages import JSONStorage
@@ -10,6 +11,22 @@ from db.middleware import ReadOnlyMiddleware
 
 app = Flask(__name__)
 app.config.from_object(AppConfig)
+
+
+talisman = Talisman(
+    app,
+    content_security_policy={
+        "connect-src": "'self' www.google-analytics.com",
+        "default-src": "'self'",
+        "font-src": "'self' fonts.gstatic.com",
+        "img-src": "'self' www.google-analytics.com",
+        "object-src": "'none'",
+        "script-src": "'self' 'unsafe-eval' www.googletagmanager.com",
+        "style-src": "'self' fonts.googleapis.com"
+    },
+    content_security_policy_nonce_in=['script-src'],
+    force_https_permanent=True
+)
 
 
 gistdb = TinyDB(
