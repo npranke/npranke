@@ -22,9 +22,12 @@ talisman = Talisman(
         "img-src": "'self' www.google-analytics.com",
         "object-src": "'none'",
         "script-src": "'self' 'unsafe-eval' www.googletagmanager.com",
-        "style-src": "'self' fonts.googleapis.com"
+        "style-src": (
+            "'self' 'unsafe-inline' fonts.googleapis.com "
+            "github.githubassets.com"
+        )
     },
-    content_security_policy_nonce_in=['script-src'],
+    content_security_policy_nonce_in=["script-src"],
     force_https_permanent=True
 )
 

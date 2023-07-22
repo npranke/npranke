@@ -47,6 +47,7 @@
     </style>
 
     <script
+        nonce="{{ csp_nonce() }}"
         src="{{ 'https://gist.github.com/npranke/{0}.js'.format(gist_id) }}"
     >
     </script>
