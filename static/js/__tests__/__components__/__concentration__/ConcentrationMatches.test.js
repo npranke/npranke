@@ -7,8 +7,8 @@ import ConcentrationMatches from
 
 Enzyme.configure({ adapter: new Adapter() })
 
-const pictures = Array.from({ length: 12 }, (value, integer) => {
-    return `${integer}`
+const pictures = Array.from({ length: 12 }, (value, index) => {
+    return `${index}`
 }).reduce((pictureAccumulator, pictureid) => {
     pictureAccumulator[`picture${pictureid}`] = {
         image: <a href="image-link"><img src="" alt="alt-text" /></a>,
@@ -58,7 +58,7 @@ describe('ConcentrationMatches', () => {
                 matches={
                     Array.from(
                         { length: 10 },
-                        (value, integer) => { return `${integer}` },
+                        (value, index) => { return `${index}` },
                     )
                 }
             />,
@@ -76,7 +76,7 @@ describe('ConcentrationMatches', () => {
                 matches={
                     Array.from(
                         { length: 12 },
-                        (value, integer) => { return `${integer}` },
+                        (value, index) => { return `${index}` },
                     )
                 }
             />,
@@ -176,7 +176,7 @@ describe('ConcentrationMatches', () => {
                 matches={
                     Array.from(
                         { length: 12 },
-                        (value, integer) => { return `${integer}` },
+                        (value, index) => { return `${index}` },
                     )
                 }
             />,
@@ -215,7 +215,7 @@ describe('ConcentrationMatches snapshot', () => {
                 matches={
                     Array.from(
                         { length: 12 },
-                        (value, integer) => { return `${integer}` },
+                        (value, index) => { return `${index}` },
                     )
                 }
             />,

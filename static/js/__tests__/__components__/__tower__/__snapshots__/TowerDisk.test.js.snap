@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TowerDisk snapshot matches snapshot with isDragging false 1`] = `
+<Fragment
+  key="1"
+>
+  <DragPreviewImage
+    src="image-mock"
+  />
+  <div
+    className="disk"
+  >
+    <img
+      alt="alt-text"
+      className="disk-image"
+      src=""
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`TowerDisk snapshot matches snapshot with isDragging true 1`] = `
+<Fragment
+  key="1"
+>
+  <DragPreviewImage
+    src="image-mock"
+  />
+  <div
+    className="disk dragging"
+  >
+    <img
+      alt="alt-text"
+      className="disk-image"
+      src=""
+    />
+  </div>
+  <TowerDiskDragLayer
+    height={0}
+    image={
+      <img
+        alt="alt-text"
+        className="disk-image"
+        src=""
+      />
+    }
+    sourceClientOffset={null}
+    width={0}
+  />
+</Fragment>
+`;

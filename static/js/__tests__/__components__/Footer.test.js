@@ -20,7 +20,7 @@ describe('Footer', () => {
 
         expect(
             footer.find('.copyright').text(),
-        ).toMatch(/2019/)
+        ).toMatch(/2023/)
     })
 })
 

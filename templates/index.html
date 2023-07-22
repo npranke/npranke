@@ -25,6 +25,7 @@
         content="Welcome! My name is Nicole; I'm a software engineer."
     >
     <meta name="author" content="Nicole Pranke">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <base href="{{ config.get('BASE_URL') }}">
 
@@ -42,7 +43,8 @@
         type="text/css"
         href="{{
             'https://fonts.googleapis.com/css?family='
-                + 'Anonymous+Pro|'
+                + 'Anonymous+Pro:400,700|'
+                + 'Old+Standard+TT:400,400i|'
                 + 'Work+Sans:400,600'
         }}"
     >
@@ -57,7 +59,7 @@
         src="https://www.googletagmanager.com/gtag/js?id={{ config.get('GA') }}"
     >
     </script>
-    <script type="text/javascript">
+    <script type="text/javascript" nonce="{{ csp_nonce() }}">
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());

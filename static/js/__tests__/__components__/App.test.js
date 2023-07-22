@@ -15,8 +15,11 @@ import WorksheetContainer from '@components/WorksheetContainer'
 import worksheets from '@constants/worksheets'
 
 jest.mock('@components/concentration/Concentration')
+jest.mock('@components/tower/Tower')
 
 Enzyme.configure({ adapter: new Adapter() })
+
+const { CONCENTRATION, TOWER } = worksheets
 
 describe('App', () => {
     test('contains background', () => {
@@ -40,7 +43,7 @@ describe('App', () => {
 
         expect(
             app.find('Route'),
-        ).toHaveLength(6)
+        ).toHaveLength(7)
     })
 
     test('contains route with header component', () => {
@@ -98,7 +101,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '' } }
-                worksheet={ worksheets.concentration }
+                worksheet={ CONCENTRATION }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -121,7 +124,7 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '#info' } }
-                worksheet={ worksheets.concentration }
+                worksheet={ CONCENTRATION }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -144,7 +147,76 @@ describe('App', () => {
         const expected = mount(
             <WorksheetContainer
                 location={ { hash: '#gist' } }
-                worksheet={ worksheets.concentration }
+                worksheet={ CONCENTRATION }
+            />,
+            { wrappingComponent: MemoryRouter },
+        )
+
+        expect(
+            worksheetContainer.html(),
+        ).toEqual(expected.html())
+    })
+
+    test('contains route with render for tower worksheet', () => {
+        const app = shallow(<App />)
+
+        const worksheetContainer = mount(
+            app.find('Route').at(5).props().render(
+                { location: { hash: '' } },
+            ),
+            { wrappingComponent: MemoryRouter },
+        )
+
+        const expected = mount(
+            <WorksheetContainer
+                location={ { hash: '' } }
+                worksheet={ TOWER }
+            />,
+            { wrappingComponent: MemoryRouter },
+        )
+
+        expect(
+            worksheetContainer.html(),
+        ).toEqual(expected.html())
+    })
+
+    test('contains route with render for tower worksheet info', () => {
+        const app = shallow(<App />)
+
+        const worksheetContainer = mount(
+            app.find('Route').at(5).props().render(
+                { location: { hash: '#info' } },
+            ),
+            { wrappingComponent: MemoryRouter },
+        )
+
+        const expected = mount(
+            <WorksheetContainer
+                location={ { hash: '#info' } }
+                worksheet={ TOWER }
+            />,
+            { wrappingComponent: MemoryRouter },
+        )
+
+        expect(
+            worksheetContainer.html(),
+        ).toEqual(expected.html())
+    })
+
+    test('contains route with render for tower worksheet gist', () => {
+        const app = shallow(<App />)
+
+        const worksheetContainer = mount(
+            app.find('Route').at(5).props().render(
+                { location: { hash: '#gist' } },
+            ),
+            { wrappingComponent: MemoryRouter },
+        )
+
+        const expected = mount(
+            <WorksheetContainer
+                location={ { hash: '#gist' } }
+                worksheet={ TOWER }
             />,
             { wrappingComponent: MemoryRouter },
         )
@@ -158,7 +230,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         expect(
-            app.find('Route').at(5).props().component,
+            app.find('Route').at(6).props().component,
         ).toEqual(PageNotFound)
     })
 

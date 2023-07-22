@@ -8,10 +8,46 @@
 
     <meta name="robots" content="noindex, nofollow">
     <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <base target="_top">
 
+    <style type="text/css">
+        html {
+            width: 1px;
+            min-width: 100%;
+        }
+        @media (max-width: 680px) {
+            .gist .blob-num, .gist .blob-code-inner {
+                font-size: 10px !important;
+                line-height: 16px !important;
+            }
+            .gist .gist-meta {
+                font-size: 10px !important;
+            }
+        }
+        @media (max-width: 460px) {
+            .gist .blob-num, .gist .blob-code-inner {
+                font-size: 8px !important;
+                line-height: 12px !important;
+            }
+            .gist .gist-meta {
+                font-size: 8px !important;
+            }
+        }
+        @media (max-width: 340px) {
+            .gist .blob-num, .gist .blob-code-inner {
+                font-size: 6px !important;
+                line-height: 8px !important;
+            }
+            .gist .gist-meta {
+                font-size: 6px !important;
+            }
+        }
+    </style>
+
     <script
+        nonce="{{ csp_nonce() }}"
         src="{{ 'https://gist.github.com/npranke/{0}.js'.format(gist_id) }}"
     >
     </script>

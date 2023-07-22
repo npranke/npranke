@@ -7,8 +7,8 @@ import ConcentrationBoardRow from
 
 Enzyme.configure({ adapter: new Adapter() })
 
-const pictures = Array.from({ length: 6 }, (value, integer) => {
-    return `${integer}`
+const pictures = Array.from({ length: 6 }, (value, index) => {
+    return `${index}`
 }).map((pictureid) => {
     return {
         [`picture${pictureid}-a`]: {
@@ -152,7 +152,7 @@ describe('ConcentrationBoardRow', () => {
                 matches={
                     Array.from(
                         { length: 6 },
-                        (value, integer) => { return `${integer}` },
+                        (value, index) => { return `${index}` },
                     )
                 }
             />,

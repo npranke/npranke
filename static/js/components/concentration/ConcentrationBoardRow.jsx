@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export function ConcentrationBoardRow(props) {
+function ConcentrationBoardRow(props) {
     const rowPictures = props.pictures.map((picture) => {
         const pictureName = Object.keys(picture)[0]
 

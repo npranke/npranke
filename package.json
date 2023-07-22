@@ -10,19 +10,23 @@
     "engines": {
         "node": "12.7.0",
         "npm": "6.10.0",
-        "yarn": "1.17.3"
+        "yarn": "1.22.19"
     },
     "dependencies": {
         "prop-types": "^15.7.2",
         "react": "^16.9.0",
+        "react-dnd": "7.7.0",
+        "react-dnd-html5-backend": "7.7.0",
+        "react-dnd-multi-backend": "3.2.2",
+        "react-dnd-touch-backend": "0.7.1",
         "react-dom": "^16.9.0",
         "react-router-dom": "^5.0.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.5.5",
-        "@babel/preset-env": "^7.5.5",
+        "@babel/core": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
         "@babel/preset-react": "^7.0.0",
-        "babel-jest": "^24.8.0",
+        "babel-jest": "^24.9.0",
         "babel-loader": "^8.0.6",
         "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.2.0",
@@ -30,24 +34,26 @@
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
         "enzyme-to-json": "^3.4.0",
-        "eslint": "^6.1.0",
-        "eslint-config-airbnb": "^18.0.0",
+        "eslint": "^6.3.0",
+        "eslint-config-airbnb": "^18.0.1",
         "eslint-import-resolver-webpack": "^0.11.1",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-react": "^7.14.3",
+        "eslint-plugin-react-hooks": "^1.7.0",
         "file-loader": "^4.2.0",
-        "image-webpack-loader": "^5.0.0",
-        "jest": "^24.8.0",
-        "jest-haste-map": "^24.8.0",
-        "jest-resolve": "^24.8.0",
+        "image-webpack-loader": "^6.0.0",
+        "jest": "^24.9.0",
+        "jest-date-mock": "^1.0.7",
+        "jest-haste-map": "^24.9.0",
+        "jest-resolve": "^24.9.0",
         "mini-css-extract-plugin": "^0.8.0",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "uglifyjs-webpack-plugin": "^2.2.0",
-        "webpack": "^4.39.1",
-        "webpack-cli": "^3.3.6",
+        "webpack": "^4.40.2",
+        "webpack-cli": "^3.3.8",
         "webpack-manifest-plugin": "^2.0.4",
-        "webpack-merge": "^4.2.1"
+        "webpack-merge": "^4.2.2"
     },
     "scripts": {
         "build:dev": "webpack --progress --config webpack.dev.js",
@@ -65,6 +71,8 @@
     "jest": {
         "moduleNameMapper": {
             "\\.(jp(e)?g|png|gif)$": "<rootDir>/static/js/__mocks__/ImageMock.js",
+            "^react-dnd$": "<rootDir>/static/js/__mocks__/DragAndDropMock.js",
+            "^react-dnd-multi-backend$": "<rootDir>/static/js/__mocks__/DragAndDropBackendMock.js",
             "^@__mocks__(.*)$": "<rootDir>/static/js/__mocks__/$1",
             "^@components(.*)$": "<rootDir>/static/js/components/$1",
             "^@constants(.*)$": "<rootDir>/static/js/constants/$1",
@@ -72,6 +80,7 @@
         },
         "setupFiles": [
             "dotenv/config",
+            "jest-date-mock",
             "<rootDir>/jest.setup.js"
         ],
         "snapshotSerializers": [
