@@ -49,13 +49,13 @@ function TowerInfo() {
                     onClick={ getSendEventHandler(
                         'tower',
                         'navigate',
-                        'JPL Space Images Gallery',
+                        'JPL Image Gallery',
                     ) }
-                    href="https://www.jpl.nasa.gov/spaceimages/"
+                    href="https://www.jpl.nasa.gov/images"
                     target="_blank"
                     rel="noreferrer noopener external"
                 >
-                    JPL Space Images Gallery
+                    JPL Image Gallery
                 </a>.
             </p>
         </div>

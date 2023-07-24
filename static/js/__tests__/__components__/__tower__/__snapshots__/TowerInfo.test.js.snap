@@ -45,12 +45,12 @@ exports[`TowerInfo snapshot matches snapshot 1`] = `
   <p>
     The images used in Tower are courtesy of NASA/JPL-Caltech. Discover more images by visiting the 
     <a
-      href="https://www.jpl.nasa.gov/spaceimages/"
+      href="https://www.jpl.nasa.gov/images"
       onClick={[Function]}
       rel="noreferrer noopener external"
       target="_blank"
     >
-      JPL Space Images Gallery
+      JPL Image Gallery
     </a>
     .
   </p>
