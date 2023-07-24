@@ -30,12 +30,12 @@ else
     echo -e "\nGreat, continuing..."
 fi
 
-echo -n "Checking that current branch is master... "
+echo -n "Checking that current branch is trunk... "
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-if [[ $BRANCH != "master" ]]
+if [[ $BRANCH != "trunk" ]]
 then
     echo "${NOT_ALRIGHT_MSG}"
-    echo -e "Branch is ${MAGENTA}${BRANCH}${NORMAL}, should be master. Deploy aborted.\n"
+    echo -e "Branch is ${MAGENTA}${BRANCH}${NORMAL}, should be trunk. Deploy aborted.\n"
     exit 1
 else
     echo "${ALRIGHT_MSG}"
@@ -53,7 +53,7 @@ else
 fi
 
 echo -n "Pulling with fast forward only from origin... "
-PULL_RESULT=$(git pull --ff-only origin master 2>&1)
+PULL_RESULT=$(git pull --ff-only origin trunk 2>&1)
 if [[ $? != 0 ]]
 then
     echo "${NOT_ALRIGHT_MSG}"
@@ -97,7 +97,7 @@ else
 fi
 
 echo -n "Pushing to origin... "
-PUSH_RESULT=$(git push origin master 2>&1)
+PUSH_RESULT=$(git push origin trunk 2>&1)
 if [[ $? != 0 ]]
 then
     echo "${NOT_ALRIGHT_MSG}"
@@ -108,7 +108,7 @@ else
 fi
 
 echo -e "Deploying to prod...\n"
-git push prod master:main
+git push prod trunk:main
 if [[ $? != 0 ]]
 then
     echo -e "\n${MAGENTA}Deploy failed, see output above.${NORMAL}\n"
