@@ -33,14 +33,14 @@ describe('TowerInfo', () => {
         ).toEqual('https://solarsystem.nasa.gov/planets/jupiter/overview/')
     })
 
-    test('has link to jpl space images gallery', () => {
+    test('has link to jpl image gallery', () => {
         const towerInfo = shallow(<TowerInfo />)
 
         expect(
             towerInfo.find(
                 '.tower-info a',
             ).last().props().href,
-        ).toEqual('https://www.jpl.nasa.gov/spaceimages/')
+        ).toEqual('https://www.jpl.nasa.gov/images')
     })
 })
 

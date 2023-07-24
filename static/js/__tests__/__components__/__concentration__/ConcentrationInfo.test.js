@@ -33,14 +33,14 @@ describe('ConcentrationInfo', () => {
         ).toEqual('https://mars.nasa.gov')
     })
 
-    test('has link to jpl space images gallery', () => {
+    test('has link to jpl image gallery', () => {
         const concentrationInfo = shallow(<ConcentrationInfo />)
 
         expect(
             concentrationInfo.find(
                 '.concetration-info a',
             ).last().props().href,
-        ).toEqual('https://www.jpl.nasa.gov/spaceimages/')
+        ).toEqual('https://www.jpl.nasa.gov/images')
     })
 })
 
