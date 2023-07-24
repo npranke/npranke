@@ -97,7 +97,7 @@ else
 fi
 
 echo -e "Deploying to staging...\n"
-git push staging develop:master
+git push staging develop:main
 if [[ $? != 0 ]]
 then
     echo -e "\n${MAGENTA}Deploy failed, see output above.${NORMAL}\n"

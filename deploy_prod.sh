@@ -108,7 +108,7 @@ else
 fi
 
 echo -e "Deploying to prod...\n"
-git push prod master:master
+git push prod master:main
 if [[ $? != 0 ]]
 then
     echo -e "\n${MAGENTA}Deploy failed, see output above.${NORMAL}\n"
