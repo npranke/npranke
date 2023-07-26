@@ -21,7 +21,7 @@ talisman = Talisman(
         "font-src": "'self' fonts.gstatic.com",
         "img-src": "'self' www.google-analytics.com",
         "object-src": "'none'",
-        "script-src": "'self' 'unsafe-eval' www.googletagmanager.com",
+        "script-src": "'self' www.googletagmanager.com",
         "style-src": (
             "'self' 'sha256-Xb6VsMsUW5jBy8HAXlMcrIeEC0qAgR5OuKvwp+fJWi0=' "
             "'unsafe-hashes' fonts.googleapis.com github.githubassets.com"

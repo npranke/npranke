@@ -6,7 +6,7 @@ const { mergeWithRules } = require('webpack-merge')
 const commonConfig = require('./webpack.common.js')
 
 const devConfig = {
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     mode: 'development',
     module: {
         rules: [
