@@ -27,7 +27,7 @@
         "@babel/preset-env": "7.6.0",
         "@babel/preset-react": "7.0.0",
         "babel-jest": "24.9.0",
-        "babel-loader": "8.2.1",
+        "babel-loader": "8.2.5",
         "clean-webpack-plugin": "4.0.0",
         "css-loader": "5.0.2",
         "dotenv-webpack": "8.0.1",
