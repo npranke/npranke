@@ -25,7 +25,8 @@ const commonConfig = {
             {
                 test: /\.js(x)?$/,
                 include: paths.JS,
-                loader: 'babel-loader?cacheDirectory',
+                loader: 'babel-loader',
+                options: { cacheDirectory: true }
             },
             {
                 test: /\.css$/,
