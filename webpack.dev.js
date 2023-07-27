@@ -33,15 +33,15 @@ const devConfig = {
 
 const rules = {
     module: {
-        rules:{
-            test: "match",
-            include: "match",
+        rules: {
+            test: 'match',
+            include: 'match',
             use: {
-                loader: "match",
-                options: "replace"
-            }
-        }
-    }
+                loader: 'match',
+                options: 'replace',
+            },
+        },
+    },
 }
 
 module.exports = mergeWithRules(rules)(commonConfig, devConfig)

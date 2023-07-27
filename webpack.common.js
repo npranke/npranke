@@ -25,7 +25,8 @@ const commonConfig = {
             {
                 test: /\.js(x)?$/,
                 include: paths.JS,
-                loader: 'babel-loader?cacheDirectory',
+                loader: 'babel-loader',
+                options: { cacheDirectory: true },
             },
             {
                 test: /\.css$/,
@@ -73,7 +74,9 @@ const commonConfig = {
             cleanStaleWebpackAssets: false,
             verbose: true,
         }),
-        new WebpackManifestPlugin({ fileName: 'webpack-assets-manifest.json' }),
+        new WebpackManifestPlugin({
+            fileName: 'webpack-assets-manifest.json',
+        }),
         new MiniCssExtractPlugin({
             filename: '[id]-[contenthash].bundle.css',
         }),
