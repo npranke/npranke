@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PortraitListener snapshot matches snapshot 1`] = `
-<_class>
+<Component>
   <ComponentMock
     isPortrait={false}
   >
@@ -11,5 +11,5 @@ exports[`PortraitListener snapshot matches snapshot 1`] = `
       mock
     </div>
   </ComponentMock>
-</_class>
+</Component>
 `;

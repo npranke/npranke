@@ -1,12 +1,12 @@
 const path = require('path')
 
 const Dotenv = require('dotenv-webpack')
-const merge = require('webpack-merge')
+const { mergeWithRules } = require('webpack-merge')
 
 const commonConfig = require('./webpack.common.js')
 
 const devConfig = {
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     mode: 'development',
     module: {
         rules: [
@@ -31,4 +31,17 @@ const devConfig = {
     ],
 }
 
-module.exports = merge.smart(commonConfig, devConfig)
+const rules = {
+    module: {
+        rules: {
+            test: 'match',
+            include: 'match',
+            use: {
+                loader: 'match',
+                options: 'replace',
+            },
+        },
+    },
+}
+
+module.exports = mergeWithRules(rules)(commonConfig, devConfig)
