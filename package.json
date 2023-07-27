@@ -23,9 +23,9 @@
         "react-router-dom": "5.0.1"
     },
     "devDependencies": {
-        "@babel/core": "7.6.0",
-        "@babel/preset-env": "7.6.0",
-        "@babel/preset-react": "7.0.0",
+        "@babel/core": "7.22.9",
+        "@babel/preset-env": "7.22.9",
+        "@babel/preset-react": "7.22.5",
         "babel-jest": "24.9.0",
         "babel-loader": "8.2.5",
         "clean-webpack-plugin": "4.0.0",
