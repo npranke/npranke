@@ -17,32 +17,37 @@ const prodConfig = {
         minimizer: [new TerserPlugin({ extractComments: false })],
     },
     output: {
-        filename: '[contenthash].js?name=[name].js',
+        filename: '[contenthash].bundle.js?name=[name].js',
         path: path.resolve(__dirname, 'static/dist'),
     },
     plugins: [
         new webpack.EnvironmentPlugin({ GA: null }),
         new MiniCssExtractPlugin({
-            filename: '[contenthash].css?name=[name].css',
+            filename: '[contenthash].bundle.css?name=[name].css',
         }),
         new OptimizeCSSAssetsPlugin(),
         new CompressionPlugin({
             test: /\.(css|js)$/,
-            algorithm: "brotliCompress",
-            deleteOriginalAssets: true,
-            filename: '[name].bundle[ext].br[query]',
+            algorithm: 'gzip',
+            filename: '[base].gz[query].gz',
+        }),
+        new CompressionPlugin({
+            test: /\.(css|js)$/,
+            algorithm: 'brotliCompress',
+            filename: '[base].br[query].br',
         }),
         new WebpackManifestPlugin({
             fileName: 'webpack-manifest.json',
-            filter: (file) => { return file.isChunk === false },
             map: (file) => {
-                if (file.name.includes('.br?name=')) {
+                if (RegExp('bundle').test(file.path)) {
                     const [
-                        compressedPath,
-                        compressedName,
-                    ] = file.name.split('?name=')
-                    file.path = compressedPath
-                    file.name = compressedName
+                        manifestValue,
+                        manifestKey,
+                    ] = file.path.split('?name=')
+                    if (manifestKey) {
+                        file.name = manifestKey
+                    }
+                    file.path = manifestValue
                 }
                 return file
             },
