@@ -43,7 +43,7 @@ gistdb.default_table_name = "gist"
 def url_for_webpack_asset_processor():
     def url_for_webpack_asset(asset_name):
         with app.open_resource(
-            "static/dist/webpack-assets-manifest.json"
+            "static/dist/webpack-manifest.json"
         ) as file:
             manifest = json.load(file)
 

@@ -75,7 +75,7 @@ const commonConfig = {
             verbose: true,
         }),
         new WebpackManifestPlugin({
-            fileName: 'webpack-assets-manifest.json',
+            fileName: 'webpack-manifest.json',
         }),
         new MiniCssExtractPlugin({
             filename: '[id]-[contenthash].bundle.css',
