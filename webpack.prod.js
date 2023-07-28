@@ -27,6 +27,7 @@ const prodConfig = {
         }),
         new OptimizeCSSAssetsPlugin(),
         new CompressionPlugin({
+            test: /\.(css|js)$/,
             deleteOriginalAssets: true,
             filename: '[name].bundle[ext].gz[query]',
         }),
