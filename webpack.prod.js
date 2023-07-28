@@ -28,14 +28,15 @@ const prodConfig = {
         new OptimizeCSSAssetsPlugin(),
         new CompressionPlugin({
             test: /\.(css|js)$/,
+            algorithm: "brotliCompress",
             deleteOriginalAssets: true,
-            filename: '[name].bundle[ext].gz[query]',
+            filename: '[name].bundle[ext].br[query]',
         }),
         new WebpackManifestPlugin({
             fileName: 'webpack-manifest.json',
             filter: (file) => { return file.isChunk === false },
             map: (file) => {
-                if (file.name.includes('.gz?name=')) {
+                if (file.name.includes('.br?name=')) {
                     const [
                         compressedPath,
                         compressedName,
