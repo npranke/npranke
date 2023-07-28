@@ -29,6 +29,7 @@
         "babel-jest": "24.9.0",
         "babel-loader": "8.2.5",
         "clean-webpack-plugin": "4.0.0",
+        "compression-webpack-plugin": "6.1.1",
         "css-loader": "5.0.2",
         "dotenv-webpack": "8.0.1",
         "enzyme": "3.10.0",
