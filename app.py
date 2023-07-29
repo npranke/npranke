@@ -7,6 +7,7 @@ from tinydb.middlewares import CachingMiddleware
 from tinydb.storages import JSONStorage
 
 from config import AppConfig
+from constants import BROTLI
 from db.middleware import ReadOnlyMiddleware
 
 app = flask.Flask(__name__)
@@ -88,12 +89,29 @@ def bundle(asset=None):
     else:
         return flask.abort(404)
 
-    response =  flask.send_from_directory(
+    asset_to_serve = asset
+    asset_encoding = None
+    accepted_encodings = flask.request.headers.get("Accept-Encoding")
+
+    if BROTLI.code in accepted_encodings:
+        compressed_asset = "{0}.{1}".format(asset, BROTLI.ext)
+        with app.open_resource(
+            "static/dist/webpack-manifest.json"
+        ) as file:
+            manifest = flask.json.load(file)
+            if compressed_asset in manifest.values():
+                asset_to_serve = compressed_asset
+                asset_encoding = BROTLI.code
+
+    resp = flask.send_from_directory(
         os.path.join(app.root_path, "static", "dist"),
-        asset,
-        mimetype=content_type
+        asset_to_serve,
+        mimetype=content_type,
     )
-    return response
+    if asset_encoding:
+        resp.content_encoding = asset_encoding
+
+    return resp
 
 
 @app.route("/apple-touch-icon.png")
