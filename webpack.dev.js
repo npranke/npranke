@@ -13,7 +13,7 @@ const paths = {
 }
 
 const devConfig = {
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     mode: 'development',
     module: {
         rules: [
