@@ -28,11 +28,6 @@ const prodConfig = {
         new OptimizeCSSAssetsPlugin(),
         new CompressionPlugin({
             test: /\.(css|js)$/,
-            algorithm: 'gzip',
-            filename: '[base].gz[query].gz',
-        }),
-        new CompressionPlugin({
-            test: /\.(css|js)$/,
             algorithm: 'brotliCompress',
             filename: '[base].br[query].br',
         }),
