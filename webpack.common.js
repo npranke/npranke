@@ -1,7 +1,6 @@
 const path = require('path')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const paths = {
@@ -65,20 +64,10 @@ const commonConfig = {
             name: true,
         },
     },
-    output: {
-        filename: '[id]-[contenthash].bundle.js',
-        path: paths.DIST,
-    },
     plugins: [
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false,
             verbose: true,
-        }),
-        new WebpackManifestPlugin({
-            fileName: 'webpack-assets-manifest.json',
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[id]-[contenthash].bundle.css',
         }),
     ],
     resolve: {
