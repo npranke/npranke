@@ -16,7 +16,10 @@ function ComponentUseOffsetListenerMock(props) {
 
 ComponentUseOffsetListenerMock.propTypes = {
     elementRef: PropTypes.shape({
-        current: PropTypes.object,
+        current: PropTypes.shape({
+            offsetHeight: PropTypes.number,
+            offsetWidth: PropTypes.number,
+        }),
     }).isRequired,
 }
 

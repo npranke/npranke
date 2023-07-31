@@ -95,7 +95,6 @@ class WorksheetContainer extends React.Component {
                 className="worksheet-section info-wrapper"
                 id="info-tabpanel"
                 role="tabpanel"
-                aria-expanded={ this.state.visible === 'info' }
                 tabIndex="0"
                 ref={ this.infoPanel }
             >
@@ -115,7 +114,6 @@ class WorksheetContainer extends React.Component {
                 }
                 id="worksheet-tabpanel"
                 role="tabpanel"
-                aria-expanded={ this.state.visible === 'worksheet' }
                 tabIndex="0"
                 ref={ this.worksheetPanel }
             >
@@ -128,7 +126,6 @@ class WorksheetContainer extends React.Component {
                 className="worksheet-section gist-wrapper"
                 id="gist-tabpanel"
                 role="tabpanel"
-                aria-expanded={ this.state.visible === 'gist' }
                 tabIndex="0"
                 ref={ this.gistPanel }
             >

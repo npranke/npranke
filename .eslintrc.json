@@ -16,6 +16,18 @@
             "rules": {
                 "react/no-unused-prop-types": ["off"]
             }
+        },
+        {
+            "files": ["static/js/__mocks__/**"],
+            "rules": {
+                "import/no-import-module-exports": ["off"]
+            }
+        },
+        {
+            "files": ["static/js/__tests__/**"],
+            "rules": {
+                "no-import-assign": ["off"]
+            }
         }
     ],
     "rules": {
@@ -36,6 +48,10 @@
         "jsx-a11y/label-has-associated-control": [
             "error",
             { "assert": "either" }
+        ],
+        "jsx-a11y/no-noninteractive-element-interactions": [
+            "error",
+            { "label": ["onKeyUp"] }
         ],
         "jsx-a11y/no-noninteractive-element-to-interactive-role": [
             "error",
