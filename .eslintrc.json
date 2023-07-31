@@ -16,6 +16,18 @@
             "rules": {
                 "react/no-unused-prop-types": ["off"]
             }
+        },
+        {
+            "files": ["static/js/__mocks__/**"],
+            "rules": {
+                "import/no-import-module-exports": ["off"]
+            }
+        },
+        {
+            "files": ["static/js/__tests__/**"],
+            "rules": {
+                "no-import-assign": ["off"]
+            }
         }
     ],
     "rules": {
