@@ -37,6 +37,10 @@
             "error",
             { "assert": "either" }
         ],
+        "jsx-a11y/no-noninteractive-element-interactions": [
+            "error",
+            { "label": ["onKeyUp"] }
+        ],
         "jsx-a11y/no-noninteractive-element-to-interactive-role": [
             "error",
             {
