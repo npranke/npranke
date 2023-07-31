@@ -34,7 +34,7 @@ const prodConfig = {
         new WebpackManifestPlugin({
             fileName: 'webpack-manifest.json',
             map: (file) => {
-                if (RegExp('bundle').test(file.path)) {
+                if (/bundle/.test(file.path)) {
                     const [
                         manifestValue,
                         manifestKey,

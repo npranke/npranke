@@ -54,7 +54,6 @@ describe('utils', () => {
             ).toBeInstanceOf(Function)
         })
 
-
         test('sendEvent calls gtag() with value arg', () => {
             sendEvent('category', 'action', 'label', 0)
 

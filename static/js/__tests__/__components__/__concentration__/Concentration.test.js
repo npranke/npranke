@@ -532,7 +532,6 @@ describe('Concentration', () => {
             ).toEqual({ id: null, pictureid: null })
         })
 
-
         test('clears pictureTimeout when new picture', () => {
             const concentration = shallow(<Concentration />)
 

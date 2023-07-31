@@ -118,7 +118,6 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
     </span>
   </div>
   <div
-    aria-expanded={true}
     className="worksheet-section gist-wrapper"
     id="gist-tabpanel"
     role="tabpanel"
@@ -256,7 +255,6 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
     </span>
   </div>
   <div
-    aria-expanded={true}
     className="worksheet-section info-wrapper"
     id="info-tabpanel"
     role="tabpanel"
@@ -396,7 +394,6 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
     </span>
   </div>
   <div
-    aria-expanded={true}
     className="worksheet-section worksheet-wrapper component-wrapper"
     id="worksheet-tabpanel"
     role="tabpanel"
