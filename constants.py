@@ -1,5 +1,9 @@
-from collections import namedtuple
+from typing import NamedTuple
 
-ContentEncoding = namedtuple("ContentEncoding", ["code", "ext"])
+
+class ContentEncoding(NamedTuple):
+    code: str
+    ext: str
+
 
 BROTLI = ContentEncoding("br", "br")
