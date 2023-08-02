@@ -63,23 +63,23 @@ else
     echo "${ALRIGHT_MSG}"
 fi
 
-echo -n "Linting python... "
-PY_LINT_RESULT=$(pipenv run ruff check . 2>&1)
+echo -n "Linting python with ruff... "
+RUFF_RESULT=$(pipenv run ruff check . 2>&1)
 if [[ $? != 0 ]]
 then
     echo "${NOT_ALRIGHT_MSG}"
-    echo -e "Errors while linting, see: \n${MAGENTA}${PY_LINT_RESULT}${NORMAL}\nDeploy aborted.\n"
+    echo -e "Errors while linting, see: \n${MAGENTA}${RUFF_RESULT}${NORMAL}\nDeploy aborted.\n"
     exit 1
 else
     echo "${ALRIGHT_MSG}"
 fi
 
-echo -n "Linting javascript with warnings allowed... "
-JS_LINT_RESULT=$(yarn lint 2>&1)
+echo -n "Linting js, warnings allowed... "
+ESLINT_RESULT=$(yarn lint 2>&1)
 if [[ $? != 0 ]]
 then
     echo "${NOT_ALRIGHT_MSG}"
-    echo -e "Errors while linting, see: \n${MAGENTA}${JS_LINT_RESULT}${NORMAL}\nDeploy aborted.\n"
+    echo -e "Errors while linting, see: \n${MAGENTA}${ESLINT_RESULT}${NORMAL}\nDeploy aborted.\n"
     exit 1
 else
     echo "${ALRIGHT_MSG}"
