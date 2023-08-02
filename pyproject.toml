@@ -1,0 +1,39 @@
+[tool.ruff]
+select = [
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "COM",  # flake8-commas
+    "D",    # pydocstyle
+    "E",    # pycodestyle, error
+    "F",    # Pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "PL",   # Pylint
+    "Q",    # flake8-quotes
+    "RUF",  # Ruff-specific rules
+    "SIM",  # flake8-simplify
+    "W",    # pycodestyle, warning
+]
+
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
+
+fixable = []
+unfixable = ["ALL"]
+
+include = ["*.py"]
+extend-exclude = ["static"]
+respect-gitignore = true
+
+format = "grouped"
+show-source = true
+
+line-length = 79
+tab-size = 4
+
+target-version = "py311"
+
+[tool.ruff.pep8-naming]
+ignore-names = ["Gist"]
+
+[tool.ruff.pydocstyle]
+convention = "pep257"
