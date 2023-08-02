@@ -74,7 +74,18 @@ else
     echo "${ALRIGHT_MSG}"
 fi
 
-echo -n "Linting js, warnings allowed... "
+echo -n "Type checking python with pyright... "
+PYRIGHT_RESULT=$(pipenv run yarn run pyright 2>&1)
+if [[ $? != 0 ]]
+then
+    echo "${NOT_ALRIGHT_MSG}"
+    echo -e "Errors while type checking, see: \n${MAGENTA}${PYRIGHT_RESULT}${NORMAL}\nDeploy aborted.\n"
+    exit 1
+else
+    echo "${ALRIGHT_MSG}"
+fi
+
+echo -n "Linting javascript, warnings allowed... "
 ESLINT_RESULT=$(yarn lint 2>&1)
 if [[ $? != 0 ]]
 then

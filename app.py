@@ -1,3 +1,5 @@
+# pyright: basic
+
 import os
 
 import flask
@@ -68,8 +70,8 @@ def gist(name="worksheet"):
     gist_name = (
         gistdb.get(Gist.name == name)
         or gistdb.get(Gist.name == "worksheet")
-    ).get("name")
-    gist_id = gistdb.get(Gist.name == gist_name).get("id")
+    ).get("name")  # pyright: ignore
+    gist_id = gistdb.get(Gist.name == gist_name).get("id")  # pyright: ignore
 
     return flask.render_template(
         "gist.html",
@@ -92,7 +94,7 @@ def bundle(asset=None):
 
     asset_to_serve = asset
     asset_encoding = None
-    accepted_encodings = flask.request.headers.get("Accept-Encoding")
+    accepted_encodings = flask.request.headers.get("Accept-Encoding", "")
 
     if BROTLI.code in accepted_encodings:
         compressed_asset = "{0}.{1}".format(asset, BROTLI.ext)

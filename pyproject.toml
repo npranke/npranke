@@ -1,3 +1,14 @@
+[tool.pyright]
+exclude = [".*", "__pycache__", "node_modules", "typings"]
+
+typeCheckingMode = "strict"
+
+reportMissingTypeStubs = true
+reportUnnecessaryTypeIgnoreComment = true
+
+pythonVersion = "3.11"
+
+
 [tool.ruff]
 select = [
     "B",    # flake8-bugbear
@@ -14,6 +25,7 @@ select = [
     "SIM",  # flake8-simplify
     "W",    # pycodestyle, warning
 ]
+extend-select = ["E261"]
 
 ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
 
