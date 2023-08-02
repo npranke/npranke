@@ -26,16 +26,16 @@ talisman = Talisman(
         "style-src": (
             "'self' 'sha256-Xb6VsMsUW5jBy8HAXlMcrIeEC0qAgR5OuKvwp+fJWi0=' "
             "'unsafe-hashes' fonts.googleapis.com github.githubassets.com"
-        )
+        ),
     },
     content_security_policy_nonce_in=["script-src", "style-src"],
-    force_https_permanent=True
+    force_https_permanent=True,
 )
 
 
 gistdb = TinyDB(
     "db/gistdb.json",
-    storage=ReadOnlyMiddleware(CachingMiddleware(JSONStorage))
+    storage=ReadOnlyMiddleware(CachingMiddleware(JSONStorage)),
 )
 gistdb.default_table_name = "gist"
 
@@ -43,12 +43,13 @@ gistdb.default_table_name = "gist"
 @app.context_processor
 def url_for_webpack_asset_processor():
     def url_for_webpack_asset(asset_name):
+        """Open webpack manifest and return url to webpack asset."""
         with app.open_resource(
-            "static/dist/webpack-manifest.json"
+            "static/dist/webpack-manifest.json",
         ) as file:
             manifest = flask.json.load(file)
         return "/bundles/{0}".format(manifest.get(asset_name))
-    return dict(url_for_webpack_asset=url_for_webpack_asset)
+    return {"url_for_webpack_asset": url_for_webpack_asset}
 
 
 @app.route("/")
@@ -73,7 +74,7 @@ def gist(name="worksheet"):
     return flask.render_template(
         "gist.html",
         gist_name=gist_name,
-        gist_id=gist_id
+        gist_id=gist_id,
     )
 
 
@@ -96,7 +97,7 @@ def bundle(asset=None):
     if BROTLI.code in accepted_encodings:
         compressed_asset = "{0}.{1}".format(asset, BROTLI.ext)
         with app.open_resource(
-            "static/dist/webpack-manifest.json"
+            "static/dist/webpack-manifest.json",
         ) as file:
             manifest = flask.json.load(file)
             if compressed_asset in manifest.values():
@@ -120,7 +121,7 @@ def appletouchicon():
         os.path.join(app.root_path, "static"),
         "apple-touch-icon.png",
         mimetype="image/png",
-        max_age=3600
+        max_age=3600,
     )
 
 
@@ -130,7 +131,7 @@ def maskicon():
         os.path.join(app.root_path, "static"),
         "mask-icon.svg",
         mimetype="image/svg+xml",
-        max_age=3600
+        max_age=3600,
     )
 
 
@@ -140,7 +141,7 @@ def favicon():
         os.path.join(app.root_path, "static"),
         "favicon.ico",
         mimetype="image/x-icon",
-        max_age=3600
+        max_age=3600,
     )
 
 
