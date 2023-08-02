@@ -1,7 +1,7 @@
 .DS_Store
 .env*
 .python-version
-*.pyc
+.ruff_cache
 __pycache__
 coverage
 node_modules

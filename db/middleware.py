@@ -7,4 +7,4 @@ class ReadOnlyMiddleware(Middleware):
         super(ReadOnlyMiddleware, self).__init__(storage_cls)
 
     def write(self, data):
-        raise RuntimeError('ReadOnlyMiddleware write not allowed')
+        raise RuntimeError("ReadOnlyMiddleware write not allowed")
