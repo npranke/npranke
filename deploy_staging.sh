@@ -64,7 +64,7 @@ else
 fi
 
 echo -n "Linting python with ruff... "
-RUFF_RESULT=$(pipenv run ruff check . 2>&1)
+RUFF_RESULT=$(pipenv run ruff check --show-files . 2>&1)
 if [[ $? != 0 ]]
 then
     echo "${NOT_ALRIGHT_MSG}"
