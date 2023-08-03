@@ -26,6 +26,8 @@
         "@babel/core": "7.22.9",
         "@babel/preset-env": "7.22.9",
         "@babel/preset-react": "7.22.5",
+        "@testing-library/jest-dom": "5.17.0",
+        "@testing-library/react": "12.1.5",
         "babel-jest": "24.9.0",
         "babel-loader": "8.3.0",
         "clean-webpack-plugin": "4.0.0",
@@ -80,11 +82,8 @@
             "^@constants(.*)$": "<rootDir>/static/js/constants/$1",
             "^@utils": "<rootDir>/static/js/utils.js"
         },
-        "setupFiles": [
-            "dotenv/config",
-            "jest-date-mock",
-            "<rootDir>/jest.setup.js"
-        ],
+        "setupFiles": ["dotenv/config", "jest-date-mock"],
+        "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
         ]
