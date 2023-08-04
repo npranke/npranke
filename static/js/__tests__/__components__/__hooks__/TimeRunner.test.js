@@ -2,6 +2,7 @@ import { act } from 'react-dom/test-utils'
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import ComponentUseTimeRunnerMock from '@__mocks__/ComponentUseTimeRunnerMock'
 
@@ -236,12 +237,12 @@ describe('TimeRunner', () => {
 
 describe('TimeRunner snapshot', () => {
     test('matches snapshot', () => {
-        const component = mount(
+        const component = renderer.create(
             <ComponentUseTimeRunnerMock
                 isRunning={ false }
                 shouldReset={ false }
             />,
-        )
+        ).toJSON()
 
         expect(component).toMatchSnapshot()
     })
