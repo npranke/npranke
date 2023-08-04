@@ -12,5 +12,6 @@
     "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
     "snapshotSerializers": [
         "enzyme-to-json/serializer"
-    ]
+    ],
+    "testEnvironment": "jest-environment-jsdom"
 }
