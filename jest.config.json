@@ -1,0 +1,16 @@
+{
+    "moduleNameMapper": {
+        "\\.(jp(e)?g|png|gif)$": "<rootDir>/static/js/__mocks__/ImageMock.js",
+        "^react-dnd$": "<rootDir>/static/js/__mocks__/DragAndDropMock.js",
+        "^react-dnd-multi-backend$": "<rootDir>/static/js/__mocks__/DragAndDropBackendMock.js",
+        "^@__mocks__(.*)$": "<rootDir>/static/js/__mocks__/$1",
+        "^@components(.*)$": "<rootDir>/static/js/components/$1",
+        "^@constants(.*)$": "<rootDir>/static/js/constants/$1",
+        "^@utils": "<rootDir>/static/js/utils.js"
+    },
+    "setupFiles": ["dotenv/config", "jest-date-mock"],
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+    "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+    ]
+}
