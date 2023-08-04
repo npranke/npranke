@@ -1,6 +1,5 @@
 import { act } from 'react-dom/test-utils'
 import Adapter from 'enzyme-adapter-react-16'
-import { advanceBy, advanceTo, clear } from 'jest-date-mock'
 import Enzyme, { mount } from 'enzyme'
 import React from 'react'
 
@@ -13,7 +12,6 @@ describe('TimeRunner', () => {
 
     beforeEach(() => {
         jest.useFakeTimers()
-        advanceTo(0)
         component = mount(
             <ComponentUseTimeRunnerMock
                 isRunning={ false }
@@ -24,7 +22,6 @@ describe('TimeRunner', () => {
 
     afterEach(() => {
         component.unmount()
-        clear()
         jest.clearAllTimers()
     })
 
@@ -34,7 +31,6 @@ describe('TimeRunner', () => {
 
             for (let i = 0; i < 10; i++) {
                 jest.advanceTimersByTime(10)
-                advanceBy(10)
             }
         })
 
@@ -57,7 +53,6 @@ describe('TimeRunner', () => {
 
             for (let i = 0; i < 10; i++) {
                 jest.advanceTimersByTime(10)
-                advanceBy(10)
             }
         })
 
@@ -78,7 +73,6 @@ describe('TimeRunner', () => {
 
             for (let i = 0; i < 6; i++) {
                 jest.advanceTimersByTime(10)
-                advanceBy(10)
             }
         })
 
@@ -93,7 +87,6 @@ describe('TimeRunner', () => {
 
             for (let i = 0; i < 820; i++) {
                 jest.advanceTimersByTime(10)
-                advanceBy(10)
             }
         })
 
@@ -108,7 +101,6 @@ describe('TimeRunner', () => {
 
             for (let i = 0; i < 12400; i++) {
                 jest.advanceTimersByTime(10)
-                advanceBy(10)
             }
         })
 
@@ -123,7 +115,6 @@ describe('TimeRunner', () => {
 
             for (let i = 0; i < 105; i++) {
                 jest.advanceTimersByTime(10)
-                advanceBy(10)
             }
         })
 
@@ -141,7 +132,6 @@ describe('TimeRunner', () => {
 
             for (let i = 0; i < 6300; i++) {
                 jest.advanceTimersByTime(10)
-                advanceBy(10)
             }
         })
 

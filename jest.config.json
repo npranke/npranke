@@ -8,7 +8,7 @@
         "^@constants(.*)$": "<rootDir>/static/js/constants/$1",
         "^@utils": "<rootDir>/static/js/utils.js"
     },
-    "setupFiles": ["dotenv/config", "jest-date-mock"],
+    "setupFiles": ["dotenv/config"],
     "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
     "snapshotSerializers": [
         "enzyme-to-json/serializer"
