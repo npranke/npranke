@@ -48,6 +48,7 @@
         "image-webpack-loader": "8.1.0",
         "jest": "24.9.0",
         "jest-date-mock": "1.0.8",
+        "jest-environment-jsdom-fifteen": "1.0.2",
         "jest-haste-map": "24.9.0",
         "jest-resolve": "24.9.0",
         "mini-css-extract-plugin": "1.6.2",
@@ -86,6 +87,7 @@
         "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
-        ]
+        ],
+        "testEnvironment": "jest-environment-jsdom-fifteen"
     }
 }
