@@ -10,8 +10,5 @@
     },
     "setupFiles": ["dotenv/config"],
     "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
-    "snapshotSerializers": [
-        "enzyme-to-json/serializer"
-    ],
     "testEnvironment": "jsdom"
 }
