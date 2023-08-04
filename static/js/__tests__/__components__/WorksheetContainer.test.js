@@ -129,13 +129,16 @@ describe('WorksheetContainer', () => {
     })
 
     describe('headerKeyUpHandler', () => {
+        beforeEach(() => {
+            document.body.innerHTML = '<div id="fastener"></div>'
+        })
         test('enter key up event on info section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#info-tab NavLink').simulate(
@@ -154,7 +157,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '#info' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab NavLink').simulate(
@@ -173,7 +176,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#gist-tab NavLink').simulate(
@@ -192,7 +195,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#info-tab NavLink').simulate(
@@ -211,7 +214,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '#info' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab NavLink').simulate(
@@ -230,7 +233,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#gist-tab NavLink').simulate(
@@ -249,7 +252,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#info-tab NavLink').simulate(
@@ -268,7 +271,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab NavLink').simulate(
@@ -287,7 +290,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab NavLink').simulate(
@@ -306,7 +309,7 @@ describe('WorksheetContainer', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />,
-                { wrappingComponent: MemoryRouter },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#gist-tab NavLink').simulate(

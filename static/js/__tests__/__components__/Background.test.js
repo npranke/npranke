@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import {render, screen} from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import Background from '@components/Background'
 

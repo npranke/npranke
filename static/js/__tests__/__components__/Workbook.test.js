@@ -14,6 +14,10 @@ describe('Workbook', () => {
         window.alert = jest.fn()
     })
 
+    beforeEach(() => {
+        document.body.innerHTML = '<div id="fastener"></div>'
+    })
+
     afterEach(() => {
         window.alert.mockReset()
     })
@@ -83,7 +87,7 @@ describe('Workbook', () => {
     test('arrow right key up event on worksheet when not isPortrait', () => {
         const workbook = mount(
             <Workbook />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -99,7 +103,7 @@ describe('Workbook', () => {
     test('arrow left key up event on worksheet when not isPortrait', () => {
         const workbook = mount(
             <Workbook />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -115,7 +119,7 @@ describe('Workbook', () => {
     test('arrow up key up event on worksheet when not isPortrait', () => {
         const workbook = mount(
             <Workbook />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -131,7 +135,7 @@ describe('Workbook', () => {
     test('arrow down key up event on worksheet when not isPortrait', () => {
         const workbook = mount(
             <Workbook />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -147,7 +151,7 @@ describe('Workbook', () => {
     test('home key up event on worksheet when not isPortrait', () => {
         const workbook = mount(
             <Workbook />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -163,7 +167,7 @@ describe('Workbook', () => {
     test('end key up event on worksheet when not isPortrait', () => {
         const workbook = mount(
             <Workbook />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -179,7 +183,7 @@ describe('Workbook', () => {
     test('arrow right key up event on worksheet when isPortrait', () => {
         const workbook = mount(
             <Workbook isPortrait />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -195,7 +199,7 @@ describe('Workbook', () => {
     test('arrow left key up event on worksheet when isPortrait', () => {
         const workbook = mount(
             <Workbook isPortrait />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -211,7 +215,7 @@ describe('Workbook', () => {
     test('arrow up key up event on worksheet when isPortrait', () => {
         const workbook = mount(
             <Workbook isPortrait />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -227,7 +231,7 @@ describe('Workbook', () => {
     test('arrow down key up event on worksheet when isPortrait', () => {
         const workbook = mount(
             <Workbook isPortrait />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -243,7 +247,7 @@ describe('Workbook', () => {
     test('home key up event on worksheet when isPortrait', () => {
         const workbook = mount(
             <Workbook isPortrait />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
@@ -259,7 +263,7 @@ describe('Workbook', () => {
     test('end key up event on worksheet when isPortrait', () => {
         const workbook = mount(
             <Workbook isPortrait />,
-            { wrappingComponent: MemoryRouter },
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
         )
 
         workbook.find('#workbook-worksheet-concentration').simulate(
