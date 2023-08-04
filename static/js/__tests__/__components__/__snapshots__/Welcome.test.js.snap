@@ -14,11 +14,11 @@ exports[`Welcome snapshot matches snapshot 1`] = `
   <div
     className="button-workbook"
   >
-    <Link
+    <a
+      href="/workbook"
       onClick={[Function]}
       rel="noreferrer"
       target="_self"
-      to="/workbook"
     >
       <img
         alt="Workbook icon"
@@ -30,7 +30,7 @@ exports[`Welcome snapshot matches snapshot 1`] = `
       >
         Workbook
       </span>
-    </Link>
+    </a>
   </div>
 </main>
 `;
