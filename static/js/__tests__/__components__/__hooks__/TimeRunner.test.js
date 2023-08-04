@@ -7,11 +7,13 @@ import ComponentUseTimeRunnerMock from '@__mocks__/ComponentUseTimeRunnerMock'
 
 Enzyme.configure({ adapter: new Adapter() })
 
+jest.useFakeTimers()
+
 describe('TimeRunner', () => {
     let component
 
     beforeEach(() => {
-        jest.useFakeTimers()
+        jest.setSystemTime(0)
         component = mount(
             <ComponentUseTimeRunnerMock
                 isRunning={ false }
@@ -22,12 +24,12 @@ describe('TimeRunner', () => {
 
     afterEach(() => {
         component.unmount()
-        jest.clearAllTimers()
     })
 
     test('return time 00 when isRunning false', () => {
         act(() => {
             component.setProps({ isRunning: false })
+            jest.runOnlyPendingTimers()
 
             for (let i = 0; i < 10; i++) {
                 jest.advanceTimersByTime(10)
@@ -50,6 +52,7 @@ describe('TimeRunner', () => {
             component.setProps(
                 { isRunning: true, shouldReset: true },
             )
+            jest.runOnlyPendingTimers()
 
             for (let i = 0; i < 10; i++) {
                 jest.advanceTimersByTime(10)
@@ -70,6 +73,7 @@ describe('TimeRunner', () => {
     test('formats centiseconds when less than 10', () => {
         act(() => {
             component.setProps({ isRunning: true })
+            jest.runOnlyPendingTimers()
 
             for (let i = 0; i < 6; i++) {
                 jest.advanceTimersByTime(10)
@@ -84,6 +88,7 @@ describe('TimeRunner', () => {
     test('formats seconds when less than 10', () => {
         act(() => {
             component.setProps({ isRunning: true })
+            jest.runOnlyPendingTimers()
 
             for (let i = 0; i < 820; i++) {
                 jest.advanceTimersByTime(10)
@@ -98,6 +103,7 @@ describe('TimeRunner', () => {
     test('formats minutes when less than 10', () => {
         act(() => {
             component.setProps({ isRunning: true })
+            jest.runOnlyPendingTimers()
 
             for (let i = 0; i < 12400; i++) {
                 jest.advanceTimersByTime(10)
@@ -112,6 +118,7 @@ describe('TimeRunner', () => {
     test('formats centiseconds when over 100', () => {
         act(() => {
             component.setProps({ isRunning: true })
+            jest.runOnlyPendingTimers()
 
             for (let i = 0; i < 105; i++) {
                 jest.advanceTimersByTime(10)
@@ -129,6 +136,7 @@ describe('TimeRunner', () => {
     test('formats seconds when over 60', () => {
         act(() => {
             component.setProps({ isRunning: true })
+            jest.runOnlyPendingTimers()
 
             for (let i = 0; i < 6300; i++) {
                 jest.advanceTimersByTime(10)
