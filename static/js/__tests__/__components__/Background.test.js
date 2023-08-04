@@ -1,11 +1,8 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import renderer from 'react-test-renderer'
 
 import Background from '@components/Background'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('Background', () => {
     test('has img with nonempty alt text', () => {
@@ -21,7 +18,7 @@ describe('Background', () => {
 
 describe('Background snapshot', () => {
     test('matches snapshot', () => {
-        const background = shallow(<Background />)
+        const background = renderer.create(<Background />).toJSON()
 
         expect(background).toMatchSnapshot()
     })
