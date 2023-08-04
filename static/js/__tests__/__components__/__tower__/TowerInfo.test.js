@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import TowerInfo from '@components/tower/TowerInfo'
 
@@ -46,7 +47,7 @@ describe('TowerInfo', () => {
 
 describe('TowerInfo snapshot', () => {
     test('matches snapshot', () => {
-        const towerInfo = shallow(<TowerInfo />)
+        const towerInfo = renderer.create(<TowerInfo />).toJSON()
 
         expect(towerInfo).toMatchSnapshot()
     })
