@@ -2,6 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import ComponentMock from '@__mocks__/ComponentMock'
 import ImageMock from '@__mocks__/ImageMock'
@@ -326,36 +327,39 @@ describe('WorksheetContainer', () => {
 
 describe('WorksheetContainer snapshot', () => {
     test('matches snapshot when location hash is empty', () => {
-        const worksheetContainer = shallow(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ worksheet }
-            />,
-            { wrappingComponent: MemoryRouter },
+        const worksheetContainer = renderer.create(
+            <MemoryRouter>
+                <WorksheetContainer
+                    location={ { hash: '' } }
+                    worksheet={ worksheet }
+                />
+            </MemoryRouter>
         )
 
         expect(worksheetContainer).toMatchSnapshot()
     })
 
     test('matches snapshot when location hash is #info', () => {
-        const worksheetContainer = shallow(
-            <WorksheetContainer
-                location={ { hash: '#info' } }
-                worksheet={ worksheet }
-            />,
-            { wrappingComponent: MemoryRouter },
-        )
+        const worksheetContainer = renderer.create(
+            <MemoryRouter>
+                <WorksheetContainer
+                    location={ { hash: '#info' } }
+                    worksheet={ worksheet }
+                />
+            </MemoryRouter>
+        ).toJSON()
 
         expect(worksheetContainer).toMatchSnapshot()
     })
 
     test('matches snapshot when location hash is #gist', () => {
-        const worksheetContainer = shallow(
-            <WorksheetContainer
-                location={ { hash: '#gist' } }
-                worksheet={ worksheet }
-            />,
-            { wrappingComponent: MemoryRouter },
+        const worksheetContainer = renderer.create(
+            <MemoryRouter>
+                <WorksheetContainer
+                    location={ { hash: '#gist' } }
+                    worksheet={ worksheet }
+                />
+            </MemoryRouter>
         )
 
         expect(worksheetContainer).toMatchSnapshot()

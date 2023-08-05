@@ -15,22 +15,16 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
       id="info-tab"
       role="tab"
     >
-      <NavLink
-        aria-current="true"
+      <a
+        aria-current={null}
         className="local-navlink local-navlink-info"
         data-section="info"
+        href="/#info"
         id="info-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
         target="_self"
-        to="#info"
       >
         <img
           alt="Info icon"
@@ -42,7 +36,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         >
           info
         </span>
-      </NavLink>
+      </a>
     </span>
     <span
       aria-controls="worksheet-tabpanel"
@@ -51,22 +45,17 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
       id="worksheet-tab"
       role="tab"
     >
-      <NavLink
+      <a
         aria-current="true"
-        className="local-navlink local-navlink-worksheet"
+        className="local-navlink local-navlink-worksheet active"
         data-section="worksheet"
+        href="/"
         id="worksheet-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
+        style={{}}
         target="_self"
-        to="#"
       >
         <img
           alt="Component icon"
@@ -78,7 +67,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         >
           component
         </span>
-      </NavLink>
+      </a>
     </span>
     <span
       aria-controls="gist-tabpanel"
@@ -87,22 +76,16 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
       id="gist-tab"
       role="tab"
     >
-      <NavLink
-        aria-current="true"
+      <a
+        aria-current={null}
         className="local-navlink local-navlink-gist"
         data-section="gist"
+        href="/#gist"
         id="gist-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
         target="_self"
-        to="#gist"
       >
         <img
           alt="Code icon"
@@ -114,7 +97,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         >
           gist
         </span>
-      </NavLink>
+      </a>
     </span>
   </div>
   <div
@@ -152,22 +135,16 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
       id="info-tab"
       role="tab"
     >
-      <NavLink
-        aria-current="true"
+      <a
+        aria-current={null}
         className="local-navlink local-navlink-info"
         data-section="info"
+        href="/#info"
         id="info-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
         target="_self"
-        to="#info"
       >
         <img
           alt="Info icon"
@@ -179,7 +156,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         >
           info
         </span>
-      </NavLink>
+      </a>
     </span>
     <span
       aria-controls="worksheet-tabpanel"
@@ -188,22 +165,17 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
       id="worksheet-tab"
       role="tab"
     >
-      <NavLink
+      <a
         aria-current="true"
-        className="local-navlink local-navlink-worksheet"
+        className="local-navlink local-navlink-worksheet active"
         data-section="worksheet"
+        href="/"
         id="worksheet-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
+        style={{}}
         target="_self"
-        to="#"
       >
         <img
           alt="Component icon"
@@ -215,7 +187,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         >
           component
         </span>
-      </NavLink>
+      </a>
     </span>
     <span
       aria-controls="gist-tabpanel"
@@ -224,22 +196,16 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
       id="gist-tab"
       role="tab"
     >
-      <NavLink
-        aria-current="true"
+      <a
+        aria-current={null}
         className="local-navlink local-navlink-gist"
         data-section="gist"
+        href="/#gist"
         id="gist-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
         target="_self"
-        to="#gist"
       >
         <img
           alt="Code icon"
@@ -251,7 +217,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         >
           gist
         </span>
-      </NavLink>
+      </a>
     </span>
   </div>
   <div
@@ -266,7 +232,11 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
       <div
         className="worksheet-info-inner"
       >
-        <ComponentMock />
+        <div
+          className="component-mock"
+        >
+          mock
+        </div>
       </div>
     </div>
   </div>
@@ -291,22 +261,16 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
       id="info-tab"
       role="tab"
     >
-      <NavLink
-        aria-current="true"
+      <a
+        aria-current={null}
         className="local-navlink local-navlink-info"
         data-section="info"
+        href="/#info"
         id="info-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
         target="_self"
-        to="#info"
       >
         <img
           alt="Info icon"
@@ -318,7 +282,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         >
           info
         </span>
-      </NavLink>
+      </a>
     </span>
     <span
       aria-controls="worksheet-tabpanel"
@@ -327,22 +291,17 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
       id="worksheet-tab"
       role="tab"
     >
-      <NavLink
+      <a
         aria-current="true"
-        className="local-navlink local-navlink-worksheet"
+        className="local-navlink local-navlink-worksheet active"
         data-section="worksheet"
+        href="/"
         id="worksheet-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
+        style={{}}
         target="_self"
-        to="#"
       >
         <img
           alt="Component icon"
@@ -354,7 +313,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         >
           component
         </span>
-      </NavLink>
+      </a>
     </span>
     <span
       aria-controls="gist-tabpanel"
@@ -363,22 +322,16 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
       id="gist-tab"
       role="tab"
     >
-      <NavLink
-        aria-current="true"
+      <a
+        aria-current={null}
         className="local-navlink local-navlink-gist"
         data-section="gist"
+        href="/#gist"
         id="gist-tab-navlink"
-        innerRef={
-          Object {
-            "current": null,
-          }
-        }
-        isActive={[Function]}
         onClick={[Function]}
         onKeyUp={[Function]}
         rel="noreferrer"
         target="_self"
-        to="#gist"
       >
         <img
           alt="Code icon"
@@ -390,7 +343,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         >
           gist
         </span>
-      </NavLink>
+      </a>
     </span>
   </div>
   <div
@@ -399,7 +352,11 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
     role="tabpanel"
     tabIndex="0"
   >
-    <ComponentMock />
+    <div
+      className="component-mock"
+    >
+      mock
+    </div>
   </div>
   <div
     className="worksheet-footer"
