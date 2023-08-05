@@ -10,22 +10,22 @@ exports[`Header snapshot matches snapshot when not pagenotfound 1`] = `
     <div
       className="icon-container icon-container-home"
     >
-      <NavLink
+      <a
+        aria-current={null}
         aria-label="Home"
         className="navlink navlink-home"
-        exact={true}
+        href="/home"
         onClick={[Function]}
         rel="noreferrer"
         target="_self"
         title="Home"
-        to="/home"
       >
         <img
           alt="Home icon"
           className="icon icon-home"
           src="image-mock"
         />
-      </NavLink>
+      </a>
     </div>
   </div>
   <div
@@ -34,21 +34,22 @@ exports[`Header snapshot matches snapshot when not pagenotfound 1`] = `
     <div
       className="icon-container icon-container-workbook"
     >
-      <NavLink
+      <a
+        aria-current={null}
         aria-label="Workbook"
         className="navlink navlink-workbook"
+        href="/workbook"
         onClick={[Function]}
         rel="noreferrer"
         target="_self"
         title="Workbook"
-        to="/workbook"
       >
         <img
           alt="Workbook icon"
           className="icon icon-workbook"
           src="image-mock"
         />
-      </NavLink>
+      </a>
     </div>
     <div
       className="icon-container icon-container-github"

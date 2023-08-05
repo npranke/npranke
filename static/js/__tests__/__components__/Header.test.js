@@ -1,6 +1,8 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
+import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import Header from '@components/Header'
 
@@ -90,13 +92,17 @@ describe('Header', () => {
 
 describe('Header snapshot', () => {
     test('matches snapshot when pagenotfound', () => {
-        const header = shallow(<Header isPageNotFound />)
+        const header = renderer.create(<Header isPageNotFound />).toJSON()
 
         expect(header).toMatchSnapshot()
     })
 
     test('matches snapshot when not pagenotfound', () => {
-        const header = shallow(<Header />)
+        const header = renderer.create(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        ).toJSON()
 
         expect(header).toMatchSnapshot()
     })
