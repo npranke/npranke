@@ -1,12 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TowerDisk snapshot matches snapshot with isDragging false 1`] = `
-<Fragment
-  key="1"
->
-  <DragPreviewImage
-    src="image-mock"
-  />
+[
+  <div>
+    image-mock
+  </div>,
   <div
     className="disk"
   >
@@ -15,17 +13,15 @@ exports[`TowerDisk snapshot matches snapshot with isDragging false 1`] = `
       className="disk-image"
       src=""
     />
-  </div>
-</Fragment>
+  </div>,
+]
 `;
 
 exports[`TowerDisk snapshot matches snapshot with isDragging true 1`] = `
-<Fragment
-  key="1"
->
-  <DragPreviewImage
-    src="image-mock"
-  />
+[
+  <div>
+    image-mock
+  </div>,
   <div
     className="disk dragging"
   >
@@ -34,18 +30,35 @@ exports[`TowerDisk snapshot matches snapshot with isDragging true 1`] = `
       className="disk-image"
       src=""
     />
-  </div>
-  <TowerDiskDragLayer
-    height={0}
-    image={
+  </div>,
+  <div
+    className="disk-drag-layer"
+    style={
+      {
+        "height": "100%",
+        "left": 0,
+        "pointerEvents": "none",
+        "position": "fixed",
+        "top": 0,
+        "width": "100%",
+        "zIndex": 10,
+      }
+    }
+  >
+    <div
+      className="disk dragging-preview"
+      style={
+        {
+          "display": "none",
+        }
+      }
+    >
       <img
         alt="alt-text"
         className="disk-image"
         src=""
       />
-    }
-    sourceClientOffset={null}
-    width={0}
-  />
-</Fragment>
+    </div>
+  </div>,
+]
 `;
