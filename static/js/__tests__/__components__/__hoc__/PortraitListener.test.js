@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import ComponentMock from '@__mocks__/ComponentMock'
 
@@ -32,7 +33,7 @@ describe('PortraitListener snapshot', () => {
     test('matches snapshot', () => {
         const WrappedComponent = withPortraitListener(ComponentMock)
 
-        const wrappedComponent = mount(<WrappedComponent />)
+        const wrappedComponent = renderer.create(<WrappedComponent />).toJSON()
 
         expect(wrappedComponent).toMatchSnapshot()
     })
