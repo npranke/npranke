@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import ConcentrationBoard from '@components/concentration/ConcentrationBoard'
 
@@ -110,24 +111,24 @@ describe('ConcentrationBoard', () => {
 
 describe('ConcentrationBoard snapshot', () => {
     test('matches snapshot when not isPortrait', () => {
-        const concentrationBoard = shallow(
+        const concentrationBoard = renderer.create(
             <ConcentrationBoard
                 pictures={ pictures }
                 boardOrder={ boardOrder }
             />,
-        )
+        ).toJSON()
 
         expect(concentrationBoard).toMatchSnapshot()
     })
 
     test('matches snapshot when isPortrait', () => {
-        const concentrationBoard = shallow(
+        const concentrationBoard = renderer.create(
             <ConcentrationBoard
                 isPortrait
                 pictures={ pictures }
                 boardOrder={ boardOrder }
             />,
-        )
+        ).toJSON()
 
         expect(concentrationBoard).toMatchSnapshot()
     })
