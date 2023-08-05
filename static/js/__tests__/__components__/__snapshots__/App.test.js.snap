@@ -4,60 +4,148 @@ exports[`App snapshot matches snapshot 1`] = `
 <div
   className="app"
 >
-  <Background />
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path={
-        Array [
-          "/",
-          "/home",
-          "/workbook",
-          "/workbook/concentration",
-          "/workbook/tower",
-        ]
-      }
-      strict={true}
+  <picture>
+    <source
+      media="(orientation: portrait)"
+      srcSet="image-mock"
     />
-    <Route
-      render={[Function]}
+    <img
+      alt="Conifer in Colorado landscape"
+      className="background"
+      src="image-mock"
     />
-  </Switch>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path={
-        Array [
-          "/",
-          "/home",
-        ]
-      }
-      strict={true}
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/workbook"
-      strict={true}
-    />
-    <Route
-      exact={true}
-      path="/workbook/concentration"
-      render={[Function]}
-      strict={true}
-    />
-    <Route
-      exact={true}
-      path="/workbook/tower"
-      render={[Function]}
-      strict={true}
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
-  <Footer />
+  </picture>
+  <nav
+    className="header"
+  >
+    <div
+      className="left-header"
+    >
+      <div
+        className="icon-container icon-container-home"
+      >
+        <a
+          aria-current={null}
+          aria-label="Home"
+          className="navlink navlink-home"
+          href="/home"
+          onClick={[Function]}
+          rel="noreferrer"
+          target="_self"
+          title="Home"
+        >
+          <img
+            alt="Home icon"
+            className="icon icon-home"
+            src="image-mock"
+          />
+        </a>
+      </div>
+    </div>
+    <div
+      className="right-header"
+    >
+      <div
+        className="icon-container icon-container-workbook"
+      >
+        <a
+          aria-current={null}
+          aria-label="Workbook"
+          className="navlink navlink-workbook"
+          href="/workbook"
+          onClick={[Function]}
+          rel="noreferrer"
+          target="_self"
+          title="Workbook"
+        >
+          <img
+            alt="Workbook icon"
+            className="icon icon-workbook"
+            src="image-mock"
+          />
+        </a>
+      </div>
+      <div
+        className="icon-container icon-container-github"
+      >
+        <a
+          aria-label="GitHub"
+          href="https://github.com/npranke"
+          onClick={[Function]}
+          rel="noreferrer noopener external"
+          target="_blank"
+          title="GitHub"
+        >
+          <img
+            alt="GitHub icon"
+            className="icon icon-github"
+            src="image-mock"
+          />
+        </a>
+      </div>
+      <div
+        className="icon-container icon-container-linkedin"
+      >
+        <a
+          aria-label="LinkedIn"
+          href="https://www.linkedin.com/in/npranke"
+          onClick={[Function]}
+          rel="noreferrer noopener external"
+          target="_blank"
+          title="LinkedIn"
+        >
+          <img
+            alt="LinkedIn icon"
+            className="icon icon-linkedin"
+            src="image-mock"
+          />
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main
+    className="welcome"
+  >
+    <div
+      className="intro"
+    >
+      Welcome! 
+      <br />
+      My name is Nicole; I’m a software engineer.
+    </div>
+    <div
+      className="button-workbook"
+    >
+      <a
+        href="/workbook"
+        onClick={[Function]}
+        rel="noreferrer"
+        target="_self"
+      >
+        <img
+          alt="Workbook icon"
+          className="icon icon-workbook"
+          src="image-mock"
+        />
+        <span
+          className="text-workbook"
+        >
+          Workbook
+        </span>
+      </a>
+    </div>
+  </main>
+  <footer
+    className="footer"
+    role="contentinfo"
+  >
+    <div
+      className="copyright"
+    >
+      © 2017-
+      2023
+       Nicole Pranke
+    </div>
+  </footer>
 </div>
 `;

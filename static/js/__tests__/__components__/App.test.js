@@ -2,6 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import App from '@components/App'
 import Background from '@components/Background'
@@ -245,7 +246,11 @@ describe('App', () => {
 
 describe('App snapshot', () => {
     test('matches snapshot', () => {
-        const app = shallow(<App />)
+        const app = renderer.create(
+            <MemoryRouter>
+                <App />
+            </MemoryRouter>
+        ).toJSON()
 
         expect(app).toMatchSnapshot()
     })
