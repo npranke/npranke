@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import { Concentration } from '@components/concentration/Concentration'
 
@@ -619,9 +620,9 @@ describe('Concentration', () => {
 
 describe('Concentration snapshot', () => {
     test('matches snapshot', () => {
-        const concentration = shallow(<Concentration />)
+        const concentration = renderer.create(<Concentration />)
 
-        concentration.instance().boardOrder = [
+        concentration.getInstance().boardOrder = [
             'picture0-a',
             'picture0-b',
             'picture1-a',
@@ -648,6 +649,8 @@ describe('Concentration snapshot', () => {
             'picture11-b',
         ]
 
-        expect(concentration.instance().render()).toMatchSnapshot()
+        concentration.update(<Concentration />)
+
+        expect(concentration.toJSON()).toMatchSnapshot()
     })
 })

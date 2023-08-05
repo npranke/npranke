@@ -7,859 +7,391 @@ exports[`Concentration snapshot matches snapshot 1`] = `
   <div
     className="matches-wrapper"
   >
-    <ConcentrationMatches
-      isTimeRunning={false}
-      matches={Array []}
-      pictures={
-        Object {
-          "picture0": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22332"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+    <div
+      className="matches"
+    >
+      <div
+        className="matches-header"
+      >
+        <div
+          className="left-text"
+        >
+          <span
+            className="matches-text"
+          >
+            <span
+              className="matches-portion"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA22332"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA22332"
-              />
-            </a>,
-          },
-          "picture1": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22512"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+              matches: 
+            </span>
+            <span
+              className="matches-portion number"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA22512"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA22512"
-              />
-            </a>,
-          },
-          "picture10": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23233"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+              00
+            </span>
+          </span>
+          <span
+            className="turns-text"
+          >
+            <span
+              className="turns-portion"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23233"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23233"
-              />
-            </a>,
-          },
-          "picture11": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23239"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+              turns: 
+            </span>
+            <span
+              className="turns-portion number"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23239"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23239"
-              />
-            </a>,
-          },
-          "picture2": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22585"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+              00
+            </span>
+          </span>
+        </div>
+        <div
+          className="right-text"
+        >
+          <span
+            className="time-text"
+          >
+            <span
+              className="time-portion"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA22585"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA22585"
-              />
-            </a>,
-          },
-          "picture3": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22594"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+              time: 
+            </span>
+            <span
+              className="time-portion number"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA22594"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA22594"
-              />
-            </a>,
-          },
-          "picture4": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23056"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+              00
+            </span>
+            <span
+              className="time-portion"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23056"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23056"
-              />
-            </a>,
-          },
-          "picture5": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23080"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+               : 
+            </span>
+            <span
+              className="time-portion number"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23080"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23080"
-              />
-            </a>,
-          },
-          "picture6": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23103"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+              00
+            </span>
+            <span
+              className="time-portion"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23103"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23103"
-              />
-            </a>,
-          },
-          "picture7": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23183"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
+               : 
+            </span>
+            <span
+              className="time-portion number"
             >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23183"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23183"
-              />
-            </a>,
-          },
-          "picture8": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23184"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
-            >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23184"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23184"
-              />
-            </a>,
-          },
-          "picture9": Object {
-            "image": <a
-              aria-label="NASA/JPL Space Images"
-              href="https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA23231"
-              onClick={[Function]}
-              rel="noreferrer noopener external"
-              target="_blank"
-            >
-              <img
-                alt="NASA/JPL Mars Reconnaissance Orbiter PIA23231"
-                className="picture"
-                src="image-mock"
-                title="NASA/JPL Mars Reconnaissance Orbiter PIA23231"
-              />
-            </a>,
-          },
-        }
-      }
-      turns={0}
-    />
+              00
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="matches-pictures"
+      />
+    </div>
   </div>
   <div
     className="board-wrapper"
   >
-    <ConcentrationBoard
-      boardOrder={
-        Array [
-          "picture0-a",
-          "picture0-b",
-          "picture1-a",
-          "picture1-b",
-          "picture2-a",
-          "picture2-b",
-          "picture3-a",
-          "picture3-b",
-          "picture4-a",
-          "picture4-b",
-          "picture5-a",
-          "picture5-b",
-          "picture6-a",
-          "picture6-b",
-          "picture7-a",
-          "picture7-b",
-          "picture8-a",
-          "picture8-b",
-          "picture9-a",
-          "picture9-b",
-          "picture10-a",
-          "picture10-b",
-          "picture11-a",
-          "picture11-b",
-        ]
-      }
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      isPortrait={false}
-      matches={Array []}
-      pictures={
-        Object {
-          "picture0-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="0-a"
-              data-pictureid="0"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22332"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "0-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22332"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "0",
-          },
-          "picture0-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="0-b"
-              data-pictureid="0"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22332"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "0-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22332"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "0",
-          },
-          "picture1-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="1-a"
-              data-pictureid="1"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22512"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "1-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22512"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "1",
-          },
-          "picture1-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="1-b"
-              data-pictureid="1"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22512"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "1-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22512"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "1",
-          },
-          "picture10-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="10-a"
-              data-pictureid="10"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23233"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "10-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23233"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "10",
-          },
-          "picture10-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="10-b"
-              data-pictureid="10"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23233"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "10-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23233"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "10",
-          },
-          "picture11-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="11-a"
-              data-pictureid="11"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23239"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "11-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23239"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "11",
-          },
-          "picture11-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="11-b"
-              data-pictureid="11"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23239"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "11-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23239"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "11",
-          },
-          "picture2-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="2-a"
-              data-pictureid="2"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22585"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "2-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22585"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "2",
-          },
-          "picture2-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="2-b"
-              data-pictureid="2"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22585"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "2-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22585"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "2",
-          },
-          "picture3-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="3-a"
-              data-pictureid="3"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22594"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "3-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22594"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "3",
-          },
-          "picture3-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="3-b"
-              data-pictureid="3"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22594"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "3-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA22594"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "3",
-          },
-          "picture4-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="4-a"
-              data-pictureid="4"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23056"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "4-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23056"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "4",
-          },
-          "picture4-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="4-b"
-              data-pictureid="4"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23056"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "4-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23056"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "4",
-          },
-          "picture5-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="5-a"
-              data-pictureid="5"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23080"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "5-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23080"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "5",
-          },
-          "picture5-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="5-b"
-              data-pictureid="5"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23080"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "5-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23080"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "5",
-          },
-          "picture6-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="6-a"
-              data-pictureid="6"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23103"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "6-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23103"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "6",
-          },
-          "picture6-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="6-b"
-              data-pictureid="6"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23103"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "6-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23103"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "6",
-          },
-          "picture7-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="7-a"
-              data-pictureid="7"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23183"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "7-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23183"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "7",
-          },
-          "picture7-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="7-b"
-              data-pictureid="7"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23183"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "7-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23183"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "7",
-          },
-          "picture8-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="8-a"
-              data-pictureid="8"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23184"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "8-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23184"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "8",
-          },
-          "picture8-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="8-b"
-              data-pictureid="8"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23184"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "8-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23184"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "8",
-          },
-          "picture9-a": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="9-a"
-              data-pictureid="9"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23231"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "9-a",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23231"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "9",
-          },
-          "picture9-b": Object {
-            "back": <img
-              alt="NASA/JPL Mars Exploration Rover PIA20285"
-              className="picture picture-back"
-              data-id="9-b"
-              data-pictureid="9"
-              onClick={[Function]}
-              onKeyUp={[Function]}
-              role="button"
-              src="image-mock"
-              tabIndex="0"
-            />,
-            "front": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23231"
-              className="picture picture-front"
-              src="image-mock"
-            />,
-            "id": "9-b",
-            "matched": <img
-              alt="NASA/JPL Mars Reconnaissance Orbiter PIA23231"
-              className="picture picture-matched"
-              src="image-mock"
-            />,
-            "pictureid": "9",
-          },
-        }
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
+    <div
+      className="board"
+    >
+      <div
+        className="board-row-wrapper"
+      >
+        <div
+          className="board-row"
+        >
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="0-a"
+            data-pictureid="0"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="0-b"
+            data-pictureid="0"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="1-a"
+            data-pictureid="1"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="1-b"
+            data-pictureid="1"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="2-a"
+            data-pictureid="2"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="2-b"
+            data-pictureid="2"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+        </div>
+      </div>
+      <div
+        className="board-row-wrapper"
+      >
+        <div
+          className="board-row"
+        >
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="3-a"
+            data-pictureid="3"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="3-b"
+            data-pictureid="3"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="4-a"
+            data-pictureid="4"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="4-b"
+            data-pictureid="4"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="5-a"
+            data-pictureid="5"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="5-b"
+            data-pictureid="5"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+        </div>
+      </div>
+      <div
+        className="board-row-wrapper"
+      >
+        <div
+          className="board-row"
+        >
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="6-a"
+            data-pictureid="6"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="6-b"
+            data-pictureid="6"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="7-a"
+            data-pictureid="7"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="7-b"
+            data-pictureid="7"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="8-a"
+            data-pictureid="8"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="8-b"
+            data-pictureid="8"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+        </div>
+      </div>
+      <div
+        className="board-row-wrapper"
+      >
+        <div
+          className="board-row"
+        >
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="9-a"
+            data-pictureid="9"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="9-b"
+            data-pictureid="9"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="10-a"
+            data-pictureid="10"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="10-b"
+            data-pictureid="10"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="11-a"
+            data-pictureid="11"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+          <img
+            alt="NASA/JPL Mars Exploration Rover PIA20285"
+            className="picture picture-back"
+            data-id="11-b"
+            data-pictureid="11"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            src="image-mock"
+            tabIndex="0"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
