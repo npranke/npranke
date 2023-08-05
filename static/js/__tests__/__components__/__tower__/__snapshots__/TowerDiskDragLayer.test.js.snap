@@ -4,7 +4,7 @@ exports[`TowerDiskDragLayer snapshot matches snapshot with sourceClientOffset 1`
 <div
   className="disk-drag-layer"
   style={
-    Object {
+    {
       "height": "100%",
       "left": 0,
       "pointerEvents": "none",
@@ -18,7 +18,7 @@ exports[`TowerDiskDragLayer snapshot matches snapshot with sourceClientOffset 1`
   <div
     className="disk dragging-preview"
     style={
-      Object {
+      {
         "height": 150,
         "transform": "translate(25px, 75px)",
         "width": 300,
@@ -38,7 +38,7 @@ exports[`TowerDiskDragLayer snapshot matches snapshot without sourceClientOffset
 <div
   className="disk-drag-layer"
   style={
-    Object {
+    {
       "height": "100%",
       "left": 0,
       "pointerEvents": "none",
@@ -52,7 +52,7 @@ exports[`TowerDiskDragLayer snapshot matches snapshot without sourceClientOffset
   <div
     className="disk dragging-preview"
     style={
-      Object {
+      {
         "display": "none",
       }
     }
