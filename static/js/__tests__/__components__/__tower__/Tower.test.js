@@ -1,12 +1,17 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import { Tower } from '@components/tower/Tower'
 
 import * as utils from '@utils'
 
 Enzyme.configure({ adapter: new Adapter() })
+
+jest.mock('@components/tower/TowerLocation', () => {
+    return 'TowerLocation'
+})
 
 describe('Tower', () => {
     test('has settings section', () => {
@@ -360,7 +365,7 @@ describe('Tower', () => {
 
 describe('Tower snapshot', () => {
     test('matches snapshot', () => {
-        const tower = shallow(<Tower />)
+        const tower = renderer.create(<Tower />).toJSON()
 
         expect(tower).toMatchSnapshot()
     })
