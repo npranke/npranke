@@ -101,7 +101,7 @@ describe('Header snapshot', () => {
         const header = renderer.create(
             <MemoryRouter>
                 <Header />
-            </MemoryRouter>
+            </MemoryRouter>,
         ).toJSON()
 
         expect(header).toMatchSnapshot()

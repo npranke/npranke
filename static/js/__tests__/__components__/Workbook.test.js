@@ -283,7 +283,7 @@ describe('Workbook snapshot', () => {
         const workbook = renderer.create(
             <MemoryRouter>
                 <Workbook isPortrait />
-            </MemoryRouter>
+            </MemoryRouter>,
         ).toJSON()
 
         expect(workbook).toMatchSnapshot()
@@ -293,7 +293,7 @@ describe('Workbook snapshot', () => {
         const workbook = renderer.create(
             <MemoryRouter>
                 <Workbook />
-            </MemoryRouter>
+            </MemoryRouter>,
         ).toJSON()
 
         expect(workbook).toMatchSnapshot()

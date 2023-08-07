@@ -333,7 +333,7 @@ describe('WorksheetContainer snapshot', () => {
                     location={ { hash: '' } }
                     worksheet={ worksheet }
                 />
-            </MemoryRouter>
+            </MemoryRouter>,
         )
 
         expect(worksheetContainer).toMatchSnapshot()
@@ -346,7 +346,7 @@ describe('WorksheetContainer snapshot', () => {
                     location={ { hash: '#info' } }
                     worksheet={ worksheet }
                 />
-            </MemoryRouter>
+            </MemoryRouter>,
         ).toJSON()
 
         expect(worksheetContainer).toMatchSnapshot()
@@ -359,7 +359,7 @@ describe('WorksheetContainer snapshot', () => {
                     location={ { hash: '#gist' } }
                     worksheet={ worksheet }
                 />
-            </MemoryRouter>
+            </MemoryRouter>,
         )
 
         expect(worksheetContainer).toMatchSnapshot()

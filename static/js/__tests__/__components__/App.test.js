@@ -249,7 +249,7 @@ describe('App snapshot', () => {
         const app = renderer.create(
             <MemoryRouter>
                 <App />
-            </MemoryRouter>
+            </MemoryRouter>,
         ).toJSON()
 
         expect(app).toMatchSnapshot()

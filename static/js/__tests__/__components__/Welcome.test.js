@@ -55,7 +55,7 @@ describe('Welcome snapshot', () => {
         const welcome = renderer.create(
             <MemoryRouter>
                 <Welcome />
-            </MemoryRouter>
+            </MemoryRouter>,
         ).toJSON()
 
         expect(welcome).toMatchSnapshot()
