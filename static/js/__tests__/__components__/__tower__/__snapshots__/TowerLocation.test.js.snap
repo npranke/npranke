@@ -38,17 +38,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="4"
         diskids={
-          Array [
+          [
             "4",
             "3",
             "2",
@@ -64,7 +63,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           />
         }
         isComplete={false}
-        isDragging={false}
         location="origin"
         moveDisk={[MockFunction]}
         width={0}
@@ -73,17 +71,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="3"
         diskids={
-          Array [
+          [
             "4",
             "3",
             "2",
@@ -99,7 +96,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           />
         }
         isComplete={false}
-        isDragging={false}
         location="origin"
         moveDisk={[MockFunction]}
         width={0}
@@ -108,17 +104,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="2"
         diskids={
-          Array [
+          [
             "4",
             "3",
             "2",
@@ -134,7 +129,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           />
         }
         isComplete={false}
-        isDragging={false}
         location="origin"
         moveDisk={[MockFunction]}
         width={0}
@@ -143,17 +137,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="1"
         diskids={
-          Array [
+          [
             "4",
             "3",
             "2",
@@ -169,7 +162,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
           />
         }
         isComplete={false}
-        isDragging={false}
         location="origin"
         moveDisk={[MockFunction]}
         width={0}
@@ -206,17 +198,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
       <div
         className="disk-wrapper"
         style={
-          Object {
+          {
             "height": 0,
             "width": 0,
           }
         }
       >
         <TowerDisk
-          canDrag={false}
           diskid="4"
           diskids={
-            Array [
+            [
               "4",
               "3",
               "2",
@@ -232,7 +223,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
             />
           }
           isComplete={true}
-          isDragging={false}
           location="target"
           moveDisk={[MockFunction]}
           width={0}
@@ -241,17 +231,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
       <div
         className="disk-wrapper"
         style={
-          Object {
+          {
             "height": 0,
             "width": 0,
           }
         }
       >
         <TowerDisk
-          canDrag={false}
           diskid="3"
           diskids={
-            Array [
+            [
               "4",
               "3",
               "2",
@@ -267,7 +256,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
             />
           }
           isComplete={true}
-          isDragging={false}
           location="target"
           moveDisk={[MockFunction]}
           width={0}
@@ -276,17 +264,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
       <div
         className="disk-wrapper"
         style={
-          Object {
+          {
             "height": 0,
             "width": 0,
           }
         }
       >
         <TowerDisk
-          canDrag={false}
           diskid="2"
           diskids={
-            Array [
+            [
               "4",
               "3",
               "2",
@@ -302,7 +289,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
             />
           }
           isComplete={true}
-          isDragging={false}
           location="target"
           moveDisk={[MockFunction]}
           width={0}
@@ -311,17 +297,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
       <div
         className="disk-wrapper"
         style={
-          Object {
+          {
             "height": 0,
             "width": 0,
           }
         }
       >
         <TowerDisk
-          canDrag={false}
           diskid="1"
           diskids={
-            Array [
+            [
               "4",
               "3",
               "2",
@@ -337,7 +322,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with all disks 
             />
           }
           isComplete={true}
-          isDragging={false}
           location="target"
           moveDisk={[MockFunction]}
           width={0}
@@ -367,17 +351,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="3"
         diskids={
-          Array [
+          [
             "3",
             "2",
           ]
@@ -391,7 +374,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks
           />
         }
         isComplete={false}
-        isDragging={false}
         location="buffer"
         moveDisk={[MockFunction]}
         width={0}
@@ -400,17 +382,16 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="2"
         diskids={
-          Array [
+          [
             "3",
             "2",
           ]
@@ -424,7 +405,6 @@ exports[`TowerLocation snapshot when isPortrait matches snapshot with some disks
           />
         }
         isComplete={false}
-        isDragging={false}
         location="buffer"
         moveDisk={[MockFunction]}
         width={0}
@@ -463,17 +443,16 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="1"
         diskids={
-          Array [
+          [
             "2",
             "1",
           ]
@@ -487,7 +466,6 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
           />
         }
         isComplete={false}
-        isDragging={false}
         location="origin"
         moveDisk={[MockFunction]}
         width={0}
@@ -496,17 +474,16 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="2"
         diskids={
-          Array [
+          [
             "2",
             "1",
           ]
@@ -520,7 +497,6 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
           />
         }
         isComplete={false}
-        isDragging={false}
         location="origin"
         moveDisk={[MockFunction]}
         width={0}
@@ -557,17 +533,16 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
       <div
         className="disk-wrapper"
         style={
-          Object {
+          {
             "height": 0,
             "width": 0,
           }
         }
       >
         <TowerDisk
-          canDrag={false}
           diskid="1"
           diskids={
-            Array [
+            [
               "2",
               "1",
             ]
@@ -581,7 +556,6 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
             />
           }
           isComplete={true}
-          isDragging={false}
           location="target"
           moveDisk={[MockFunction]}
           width={0}
@@ -590,17 +564,16 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
       <div
         className="disk-wrapper"
         style={
-          Object {
+          {
             "height": 0,
             "width": 0,
           }
         }
       >
         <TowerDisk
-          canDrag={false}
           diskid="2"
           diskids={
-            Array [
+            [
               "2",
               "1",
             ]
@@ -614,7 +587,6 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with all di
             />
           }
           isComplete={true}
-          isDragging={false}
           location="target"
           moveDisk={[MockFunction]}
           width={0}
@@ -644,17 +616,16 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with some d
     <div
       className="disk-wrapper"
       style={
-        Object {
+        {
           "height": 0,
           "width": 0,
         }
       }
     >
       <TowerDisk
-        canDrag={false}
         diskid="1"
         diskids={
-          Array [
+          [
             "1",
           ]
         }
@@ -667,7 +638,6 @@ exports[`TowerLocation snapshot when not isPortrait matches snapshot with some d
           />
         }
         isComplete={false}
-        isDragging={false}
         location="buffer"
         moveDisk={[MockFunction]}
         width={0}

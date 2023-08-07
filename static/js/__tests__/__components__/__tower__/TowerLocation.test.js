@@ -1,12 +1,17 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
 
 import { collect, spec, TowerLocation } from '@components/tower/TowerLocation'
 
 import * as OffsetListener from '@components/hooks/OffsetListener'
 
 Enzyme.configure({ adapter: new Adapter() })
+
+jest.mock('@components/tower/TowerDisk', () => {
+    return 'TowerDisk'
+})
 
 const towerLayouts = ['landscape', 'portrait']
 const towers = Array.from(
@@ -648,7 +653,7 @@ describe('TowerLocation', () => {
 describe('TowerLocation snapshot', () => {
     describe('when not isPortrait', () => {
         test('matches snapshot when empty', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -659,13 +664,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
 
         test('matches snapshot with some disks', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -676,13 +681,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and not target', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -694,13 +699,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and target', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -712,7 +717,7 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
@@ -720,7 +725,7 @@ describe('TowerLocation snapshot', () => {
 
     describe('when isPortrait', () => {
         test('matches snapshot when empty', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -732,13 +737,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
 
         test('matches snapshot with some disks', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -750,13 +755,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and not target', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -769,13 +774,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and target', () => {
-            const towerLocation = shallow(
+            const towerLocation = renderer.create(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -788,7 +793,7 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            )
+            ).toJSON()
 
             expect(towerLocation).toMatchSnapshot()
         })
