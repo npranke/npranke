@@ -1,151 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App snapshot matches snapshot 1`] = `
-<div
-  className="app"
->
-  <picture>
-    <source
-      media="(orientation: portrait)"
-      srcSet="image-mock"
-    />
-    <img
-      alt="Conifer in Colorado landscape"
-      className="background"
-      src="image-mock"
-    />
-  </picture>
-  <nav
-    className="header"
+<DocumentFragment>
+  <div
+    class="app"
   >
-    <div
-      className="left-header"
+    <picture>
+      <source
+        media="(orientation: portrait)"
+        srcset="image-mock"
+      />
+      <img
+        alt="Conifer in Colorado landscape"
+        class="background"
+        src="image-mock"
+      />
+    </picture>
+    <nav
+      class="header"
     >
       <div
-        className="icon-container icon-container-home"
+        class="left-header"
       >
-        <a
-          aria-current={null}
-          aria-label="Home"
-          className="navlink navlink-home"
-          href="/home"
-          onClick={[Function]}
-          rel="noreferrer"
-          target="_self"
-          title="Home"
+        <div
+          class="icon-container icon-container-home"
         >
-          <img
-            alt="Home icon"
-            className="icon icon-home"
-            src="image-mock"
-          />
-        </a>
+          <a
+            aria-label="Home"
+            class="navlink navlink-home"
+            href="/home"
+            rel="noreferrer"
+            target="_self"
+            title="Home"
+          >
+            <img
+              alt="Home icon"
+              class="icon icon-home"
+              src="image-mock"
+            />
+          </a>
+        </div>
       </div>
-    </div>
-    <div
-      className="right-header"
+      <div
+        class="right-header"
+      >
+        <div
+          class="icon-container icon-container-workbook"
+        >
+          <a
+            aria-label="Workbook"
+            class="navlink navlink-workbook"
+            href="/workbook"
+            rel="noreferrer"
+            target="_self"
+            title="Workbook"
+          >
+            <img
+              alt="Workbook icon"
+              class="icon icon-workbook"
+              src="image-mock"
+            />
+          </a>
+        </div>
+        <div
+          class="icon-container icon-container-github"
+        >
+          <a
+            aria-label="GitHub"
+            href="https://github.com/npranke"
+            rel="noreferrer noopener external"
+            target="_blank"
+            title="GitHub"
+          >
+            <img
+              alt="GitHub icon"
+              class="icon icon-github"
+              src="image-mock"
+            />
+          </a>
+        </div>
+        <div
+          class="icon-container icon-container-linkedin"
+        >
+          <a
+            aria-label="LinkedIn"
+            href="https://www.linkedin.com/in/npranke"
+            rel="noreferrer noopener external"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <img
+              alt="LinkedIn icon"
+              class="icon icon-linkedin"
+              src="image-mock"
+            />
+          </a>
+        </div>
+      </div>
+    </nav>
+    <main
+      class="welcome"
     >
       <div
-        className="icon-container icon-container-workbook"
+        class="intro"
+      >
+        Welcome! 
+        <br />
+        My name is Nicole; I’m a software engineer.
+      </div>
+      <div
+        class="button-workbook"
       >
         <a
-          aria-current={null}
-          aria-label="Workbook"
-          className="navlink navlink-workbook"
           href="/workbook"
-          onClick={[Function]}
           rel="noreferrer"
           target="_self"
-          title="Workbook"
         >
           <img
             alt="Workbook icon"
-            className="icon icon-workbook"
+            class="icon icon-workbook"
             src="image-mock"
           />
+          <span
+            class="text-workbook"
+          >
+            Workbook
+          </span>
         </a>
       </div>
+    </main>
+    <footer
+      class="footer"
+      role="contentinfo"
+    >
       <div
-        className="icon-container icon-container-github"
+        class="copyright"
       >
-        <a
-          aria-label="GitHub"
-          href="https://github.com/npranke"
-          onClick={[Function]}
-          rel="noreferrer noopener external"
-          target="_blank"
-          title="GitHub"
-        >
-          <img
-            alt="GitHub icon"
-            className="icon icon-github"
-            src="image-mock"
-          />
-        </a>
+        © 2017-2023 Nicole Pranke
       </div>
-      <div
-        className="icon-container icon-container-linkedin"
-      >
-        <a
-          aria-label="LinkedIn"
-          href="https://www.linkedin.com/in/npranke"
-          onClick={[Function]}
-          rel="noreferrer noopener external"
-          target="_blank"
-          title="LinkedIn"
-        >
-          <img
-            alt="LinkedIn icon"
-            className="icon icon-linkedin"
-            src="image-mock"
-          />
-        </a>
-      </div>
-    </div>
-  </nav>
-  <main
-    className="welcome"
-  >
-    <div
-      className="intro"
-    >
-      Welcome! 
-      <br />
-      My name is Nicole; I’m a software engineer.
-    </div>
-    <div
-      className="button-workbook"
-    >
-      <a
-        href="/workbook"
-        onClick={[Function]}
-        rel="noreferrer"
-        target="_self"
-      >
-        <img
-          alt="Workbook icon"
-          className="icon icon-workbook"
-          src="image-mock"
-        />
-        <span
-          className="text-workbook"
-        >
-          Workbook
-        </span>
-      </a>
-    </div>
-  </main>
-  <footer
-    className="footer"
-    role="contentinfo"
-  >
-    <div
-      className="copyright"
-    >
-      © 2017-
-      2023
-       Nicole Pranke
-    </div>
-  </footer>
-</div>
+    </footer>
+  </div>
+</DocumentFragment>
 `;

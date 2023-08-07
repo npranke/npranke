@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import renderer from 'react-test-renderer'
 
 import Background from '@components/Background'
 
@@ -18,8 +17,8 @@ describe('Background', () => {
 
 describe('Background snapshot', () => {
     test('matches snapshot', () => {
-        const background = renderer.create(<Background />).toJSON()
+        const { asFragment } = render(<Background />)
 
-        expect(background).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

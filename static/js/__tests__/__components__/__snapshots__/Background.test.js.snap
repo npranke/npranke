@@ -1,15 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Background snapshot matches snapshot 1`] = `
-<picture>
-  <source
-    media="(orientation: portrait)"
-    srcSet="image-mock"
-  />
-  <img
-    alt="Conifer in Colorado landscape"
-    className="background"
-    src="image-mock"
-  />
-</picture>
+<DocumentFragment>
+  <picture>
+    <source
+      media="(orientation: portrait)"
+      srcset="image-mock"
+    />
+    <img
+      alt="Conifer in Colorado landscape"
+      class="background"
+      src="image-mock"
+    />
+  </picture>
+</DocumentFragment>
 `;
