@@ -2,7 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import ComponentMock from '@__mocks__/ComponentMock'
 import ImageMock from '@__mocks__/ImageMock'
@@ -327,7 +327,7 @@ describe('WorksheetContainer', () => {
 
 describe('WorksheetContainer snapshot', () => {
     test('matches snapshot when location hash is empty', () => {
-        const worksheetContainer = renderer.create(
+        const { asFragment } = render(
             <MemoryRouter>
                 <WorksheetContainer
                     location={ { hash: '' } }
@@ -336,24 +336,24 @@ describe('WorksheetContainer snapshot', () => {
             </MemoryRouter>,
         )
 
-        expect(worksheetContainer).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot when location hash is #info', () => {
-        const worksheetContainer = renderer.create(
+        const { asFragment } = render(
             <MemoryRouter>
                 <WorksheetContainer
                     location={ { hash: '#info' } }
                     worksheet={ worksheet }
                 />
             </MemoryRouter>,
-        ).toJSON()
+        )
 
-        expect(worksheetContainer).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot when location hash is #gist', () => {
-        const worksheetContainer = renderer.create(
+        const { asFragment } = render(
             <MemoryRouter>
                 <WorksheetContainer
                     location={ { hash: '#gist' } }
@@ -362,6 +362,6 @@ describe('WorksheetContainer snapshot', () => {
             </MemoryRouter>,
         )
 
-        expect(worksheetContainer).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

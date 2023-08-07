@@ -2,7 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import { Workbook } from '@components/Workbook'
 
@@ -280,22 +280,22 @@ describe('Workbook', () => {
 
 describe('Workbook snapshot', () => {
     test('matches snapshot when isPortrait', () => {
-        const workbook = renderer.create(
+        const { asFragment } = render(
             <MemoryRouter>
                 <Workbook isPortrait />
             </MemoryRouter>,
-        ).toJSON()
+        )
 
-        expect(workbook).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot when not isPortrait', () => {
-        const workbook = renderer.create(
+        const { asFragment } = render(
             <MemoryRouter>
                 <Workbook />
             </MemoryRouter>,
-        ).toJSON()
+        )
 
-        expect(workbook).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

@@ -1,365 +1,344 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WorksheetContainer snapshot matches snapshot when location hash is #gist 1`] = `
-<main
-  className="workbook worksheet-container"
->
-  <div
-    className="worksheet-header"
-    role="tablist"
+<DocumentFragment>
+  <main
+    class="workbook worksheet-container"
   >
-    <span
-      aria-controls="info-tabpanel"
-      aria-selected={false}
-      className="section-button"
-      id="info-tab"
-      role="tab"
+    <div
+      class="worksheet-header"
+      role="tablist"
     >
-      <a
-        aria-current={null}
-        className="local-navlink local-navlink-info"
-        data-section="info"
-        href="/#info"
-        id="info-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        target="_self"
+      <span
+        aria-controls="info-tabpanel"
+        aria-selected="false"
+        class="section-button"
+        id="info-tab"
+        role="tab"
       >
-        <img
-          alt="Info icon"
-          className="icon icon-info"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
+        <a
+          class="local-navlink local-navlink-info"
+          data-section="info"
+          href="/#info"
+          id="info-tab-navlink"
+          rel="noreferrer"
+          target="_self"
         >
-          info
-        </span>
-      </a>
-    </span>
-    <span
-      aria-controls="worksheet-tabpanel"
-      aria-selected={false}
-      className="section-button"
-      id="worksheet-tab"
-      role="tab"
+          <img
+            alt="Info icon"
+            class="icon icon-info"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            info
+          </span>
+        </a>
+      </span>
+      <span
+        aria-controls="worksheet-tabpanel"
+        aria-selected="false"
+        class="section-button"
+        id="worksheet-tab"
+        role="tab"
+      >
+        <a
+          aria-current="true"
+          class="local-navlink local-navlink-worksheet active"
+          data-section="worksheet"
+          href="/"
+          id="worksheet-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Component icon"
+            class="icon icon-component"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            component
+          </span>
+        </a>
+      </span>
+      <span
+        aria-controls="gist-tabpanel"
+        aria-selected="true"
+        class="section-button"
+        id="gist-tab"
+        role="tab"
+      >
+        <a
+          class="local-navlink local-navlink-gist"
+          data-section="gist"
+          href="/#gist"
+          id="gist-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Code icon"
+            class="icon icon-code"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            gist
+          </span>
+        </a>
+      </span>
+    </div>
+    <div
+      class="worksheet-section gist-wrapper"
+      id="gist-tabpanel"
+      role="tabpanel"
+      tabindex="0"
     >
-      <a
-        aria-current="true"
-        className="local-navlink local-navlink-worksheet active"
-        data-section="worksheet"
-        href="/"
-        id="worksheet-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        style={{}}
-        target="_self"
-      >
-        <img
-          alt="Component icon"
-          className="icon icon-component"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          component
-        </span>
-      </a>
-    </span>
-    <span
-      aria-controls="gist-tabpanel"
-      aria-selected={true}
-      className="section-button"
-      id="gist-tab"
-      role="tab"
-    >
-      <a
-        aria-current={null}
-        className="local-navlink local-navlink-gist"
-        data-section="gist"
-        href="/#gist"
-        id="gist-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        target="_self"
-      >
-        <img
-          alt="Code icon"
-          className="icon icon-code"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          gist
-        </span>
-      </a>
-    </span>
-  </div>
-  <div
-    className="worksheet-section gist-wrapper"
-    id="gist-tabpanel"
-    role="tabpanel"
-    tabIndex="0"
-  >
-    <iframe
-      id="worksheet-gist"
-      referrerPolicy="no-referrer"
-      sandbox="allow-scripts allow-top-navigation"
-      src="/gists/component"
-      title="Component gist"
+      <iframe
+        id="worksheet-gist"
+        referrerpolicy="no-referrer"
+        sandbox="allow-scripts allow-top-navigation"
+        src="/gists/component"
+        title="Component gist"
+      />
+    </div>
+    <div
+      class="worksheet-footer"
     />
-  </div>
-  <div
-    className="worksheet-footer"
-  />
-</main>
+  </main>
+</DocumentFragment>
 `;
 
 exports[`WorksheetContainer snapshot matches snapshot when location hash is #info 1`] = `
-<main
-  className="workbook worksheet-container"
->
-  <div
-    className="worksheet-header"
-    role="tablist"
-  >
-    <span
-      aria-controls="info-tabpanel"
-      aria-selected={true}
-      className="section-button"
-      id="info-tab"
-      role="tab"
-    >
-      <a
-        aria-current={null}
-        className="local-navlink local-navlink-info"
-        data-section="info"
-        href="/#info"
-        id="info-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        target="_self"
-      >
-        <img
-          alt="Info icon"
-          className="icon icon-info"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          info
-        </span>
-      </a>
-    </span>
-    <span
-      aria-controls="worksheet-tabpanel"
-      aria-selected={false}
-      className="section-button"
-      id="worksheet-tab"
-      role="tab"
-    >
-      <a
-        aria-current="true"
-        className="local-navlink local-navlink-worksheet active"
-        data-section="worksheet"
-        href="/"
-        id="worksheet-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        style={{}}
-        target="_self"
-      >
-        <img
-          alt="Component icon"
-          className="icon icon-component"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          component
-        </span>
-      </a>
-    </span>
-    <span
-      aria-controls="gist-tabpanel"
-      aria-selected={false}
-      className="section-button"
-      id="gist-tab"
-      role="tab"
-    >
-      <a
-        aria-current={null}
-        className="local-navlink local-navlink-gist"
-        data-section="gist"
-        href="/#gist"
-        id="gist-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        target="_self"
-      >
-        <img
-          alt="Code icon"
-          className="icon icon-code"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          gist
-        </span>
-      </a>
-    </span>
-  </div>
-  <div
-    className="worksheet-section info-wrapper"
-    id="info-tabpanel"
-    role="tabpanel"
-    tabIndex="0"
+<DocumentFragment>
+  <main
+    class="workbook worksheet-container"
   >
     <div
-      className="worksheet-info"
+      class="worksheet-header"
+      role="tablist"
+    >
+      <span
+        aria-controls="info-tabpanel"
+        aria-selected="true"
+        class="section-button"
+        id="info-tab"
+        role="tab"
+      >
+        <a
+          class="local-navlink local-navlink-info"
+          data-section="info"
+          href="/#info"
+          id="info-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Info icon"
+            class="icon icon-info"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            info
+          </span>
+        </a>
+      </span>
+      <span
+        aria-controls="worksheet-tabpanel"
+        aria-selected="false"
+        class="section-button"
+        id="worksheet-tab"
+        role="tab"
+      >
+        <a
+          aria-current="true"
+          class="local-navlink local-navlink-worksheet active"
+          data-section="worksheet"
+          href="/"
+          id="worksheet-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Component icon"
+            class="icon icon-component"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            component
+          </span>
+        </a>
+      </span>
+      <span
+        aria-controls="gist-tabpanel"
+        aria-selected="false"
+        class="section-button"
+        id="gist-tab"
+        role="tab"
+      >
+        <a
+          class="local-navlink local-navlink-gist"
+          data-section="gist"
+          href="/#gist"
+          id="gist-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Code icon"
+            class="icon icon-code"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            gist
+          </span>
+        </a>
+      </span>
+    </div>
+    <div
+      class="worksheet-section info-wrapper"
+      id="info-tabpanel"
+      role="tabpanel"
+      tabindex="0"
     >
       <div
-        className="worksheet-info-inner"
+        class="worksheet-info"
       >
         <div
-          className="component-mock"
+          class="worksheet-info-inner"
         >
-          mock
+          <div
+            class="component-mock"
+          >
+            mock
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    className="worksheet-footer"
-  />
-</main>
+    <div
+      class="worksheet-footer"
+    />
+  </main>
+</DocumentFragment>
 `;
 
 exports[`WorksheetContainer snapshot matches snapshot when location hash is empty 1`] = `
-<main
-  className="workbook worksheet-container"
->
-  <div
-    className="worksheet-header"
-    role="tablist"
-  >
-    <span
-      aria-controls="info-tabpanel"
-      aria-selected={false}
-      className="section-button"
-      id="info-tab"
-      role="tab"
-    >
-      <a
-        aria-current={null}
-        className="local-navlink local-navlink-info"
-        data-section="info"
-        href="/#info"
-        id="info-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        target="_self"
-      >
-        <img
-          alt="Info icon"
-          className="icon icon-info"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          info
-        </span>
-      </a>
-    </span>
-    <span
-      aria-controls="worksheet-tabpanel"
-      aria-selected={true}
-      className="section-button"
-      id="worksheet-tab"
-      role="tab"
-    >
-      <a
-        aria-current="true"
-        className="local-navlink local-navlink-worksheet active"
-        data-section="worksheet"
-        href="/"
-        id="worksheet-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        style={{}}
-        target="_self"
-      >
-        <img
-          alt="Component icon"
-          className="icon icon-component"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          component
-        </span>
-      </a>
-    </span>
-    <span
-      aria-controls="gist-tabpanel"
-      aria-selected={false}
-      className="section-button"
-      id="gist-tab"
-      role="tab"
-    >
-      <a
-        aria-current={null}
-        className="local-navlink local-navlink-gist"
-        data-section="gist"
-        href="/#gist"
-        id="gist-tab-navlink"
-        onClick={[Function]}
-        onKeyUp={[Function]}
-        rel="noreferrer"
-        target="_self"
-      >
-        <img
-          alt="Code icon"
-          className="icon icon-code"
-          src="image-mock"
-        />
-        <span
-          className="text-section-button"
-        >
-          gist
-        </span>
-      </a>
-    </span>
-  </div>
-  <div
-    className="worksheet-section worksheet-wrapper component-wrapper"
-    id="worksheet-tabpanel"
-    role="tabpanel"
-    tabIndex="0"
+<DocumentFragment>
+  <main
+    class="workbook worksheet-container"
   >
     <div
-      className="component-mock"
+      class="worksheet-header"
+      role="tablist"
     >
-      mock
+      <span
+        aria-controls="info-tabpanel"
+        aria-selected="false"
+        class="section-button"
+        id="info-tab"
+        role="tab"
+      >
+        <a
+          class="local-navlink local-navlink-info"
+          data-section="info"
+          href="/#info"
+          id="info-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Info icon"
+            class="icon icon-info"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            info
+          </span>
+        </a>
+      </span>
+      <span
+        aria-controls="worksheet-tabpanel"
+        aria-selected="true"
+        class="section-button"
+        id="worksheet-tab"
+        role="tab"
+      >
+        <a
+          aria-current="true"
+          class="local-navlink local-navlink-worksheet active"
+          data-section="worksheet"
+          href="/"
+          id="worksheet-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Component icon"
+            class="icon icon-component"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            component
+          </span>
+        </a>
+      </span>
+      <span
+        aria-controls="gist-tabpanel"
+        aria-selected="false"
+        class="section-button"
+        id="gist-tab"
+        role="tab"
+      >
+        <a
+          class="local-navlink local-navlink-gist"
+          data-section="gist"
+          href="/#gist"
+          id="gist-tab-navlink"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Code icon"
+            class="icon icon-code"
+            src="image-mock"
+          />
+          <span
+            class="text-section-button"
+          >
+            gist
+          </span>
+        </a>
+      </span>
     </div>
-  </div>
-  <div
-    className="worksheet-footer"
-  />
-</main>
+    <div
+      class="worksheet-section worksheet-wrapper component-wrapper"
+      id="worksheet-tabpanel"
+      role="tabpanel"
+      tabindex="0"
+    >
+      <div
+        class="component-mock"
+      >
+        mock
+      </div>
+    </div>
+    <div
+      class="worksheet-footer"
+    />
+  </main>
+</DocumentFragment>
 `;
