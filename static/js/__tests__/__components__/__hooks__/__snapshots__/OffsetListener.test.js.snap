@@ -1,35 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OffsetListener snapshot matches snapshot with elementRef.current 1`] = `
-<div
-  className="component-use-offset-listener-mock"
->
+<DocumentFragment>
   <div
-    className="height"
+    class="component-use-offset-listener-mock"
   >
-    25
+    <div
+      class="height"
+    >
+      25
+    </div>
+    <div
+      class="width"
+    >
+      100
+    </div>
   </div>
-  <div
-    className="width"
-  >
-    100
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`OffsetListener snapshot matches snapshot without elementRef.current 1`] = `
-<div
-  className="component-use-offset-listener-mock"
->
+<DocumentFragment>
   <div
-    className="height"
+    class="component-use-offset-listener-mock"
   >
-    0
+    <div
+      class="height"
+    >
+      0
+    </div>
+    <div
+      class="width"
+    >
+      0
+    </div>
   </div>
-  <div
-    className="width"
-  >
-    0
-  </div>
-</div>
+</DocumentFragment>
 `;
