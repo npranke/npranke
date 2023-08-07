@@ -1,179 +1,173 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header snapshot matches snapshot when not pagenotfound 1`] = `
-<nav
-  className="header"
->
-  <div
-    className="left-header"
+<DocumentFragment>
+  <nav
+    class="header"
   >
     <div
-      className="icon-container icon-container-home"
+      class="left-header"
     >
-      <a
-        aria-current={null}
-        aria-label="Home"
-        className="navlink navlink-home"
-        href="/home"
-        onClick={[Function]}
-        rel="noreferrer"
-        target="_self"
-        title="Home"
+      <div
+        class="icon-container icon-container-home"
       >
-        <img
-          alt="Home icon"
-          className="icon icon-home"
-          src="image-mock"
-        />
-      </a>
-    </div>
-  </div>
-  <div
-    className="right-header"
-  >
-    <div
-      className="icon-container icon-container-workbook"
-    >
-      <a
-        aria-current={null}
-        aria-label="Workbook"
-        className="navlink navlink-workbook"
-        href="/workbook"
-        onClick={[Function]}
-        rel="noreferrer"
-        target="_self"
-        title="Workbook"
-      >
-        <img
-          alt="Workbook icon"
-          className="icon icon-workbook"
-          src="image-mock"
-        />
-      </a>
+        <a
+          aria-label="Home"
+          class="navlink navlink-home"
+          href="/home"
+          rel="noreferrer"
+          target="_self"
+          title="Home"
+        >
+          <img
+            alt="Home icon"
+            class="icon icon-home"
+            src="image-mock"
+          />
+        </a>
+      </div>
     </div>
     <div
-      className="icon-container icon-container-github"
+      class="right-header"
     >
-      <a
-        aria-label="GitHub"
-        href="https://github.com/npranke"
-        onClick={[Function]}
-        rel="noreferrer noopener external"
-        target="_blank"
-        title="GitHub"
+      <div
+        class="icon-container icon-container-workbook"
       >
-        <img
-          alt="GitHub icon"
-          className="icon icon-github"
-          src="image-mock"
-        />
-      </a>
-    </div>
-    <div
-      className="icon-container icon-container-linkedin"
-    >
-      <a
-        aria-label="LinkedIn"
-        href="https://www.linkedin.com/in/npranke"
-        onClick={[Function]}
-        rel="noreferrer noopener external"
-        target="_blank"
-        title="LinkedIn"
+        <a
+          aria-label="Workbook"
+          class="navlink navlink-workbook"
+          href="/workbook"
+          rel="noreferrer"
+          target="_self"
+          title="Workbook"
+        >
+          <img
+            alt="Workbook icon"
+            class="icon icon-workbook"
+            src="image-mock"
+          />
+        </a>
+      </div>
+      <div
+        class="icon-container icon-container-github"
       >
-        <img
-          alt="LinkedIn icon"
-          className="icon icon-linkedin"
-          src="image-mock"
-        />
-      </a>
+        <a
+          aria-label="GitHub"
+          href="https://github.com/npranke"
+          rel="noreferrer noopener external"
+          target="_blank"
+          title="GitHub"
+        >
+          <img
+            alt="GitHub icon"
+            class="icon icon-github"
+            src="image-mock"
+          />
+        </a>
+      </div>
+      <div
+        class="icon-container icon-container-linkedin"
+      >
+        <a
+          aria-label="LinkedIn"
+          href="https://www.linkedin.com/in/npranke"
+          rel="noreferrer noopener external"
+          target="_blank"
+          title="LinkedIn"
+        >
+          <img
+            alt="LinkedIn icon"
+            class="icon icon-linkedin"
+            src="image-mock"
+          />
+        </a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</DocumentFragment>
 `;
 
 exports[`Header snapshot matches snapshot when pagenotfound 1`] = `
-<nav
-  className="header"
->
-  <div
-    className="left-header"
+<DocumentFragment>
+  <nav
+    class="header"
   >
     <div
-      className="icon-container icon-container-home"
+      class="left-header"
     >
-      <a
-        aria-label="Home"
-        href="/home"
-        onClick={[Function]}
-        rel="noreferrer"
-        target="_self"
-        title="Home"
+      <div
+        class="icon-container icon-container-home"
       >
-        <img
-          alt="Home icon"
-          className="icon icon-home"
-          src="image-mock"
-        />
-      </a>
-    </div>
-  </div>
-  <div
-    className="right-header"
-  >
-    <div
-      className="icon-container icon-container-workbook"
-    >
-      <a
-        aria-label="Workbook"
-        href="/workbook"
-        onClick={[Function]}
-        rel="noreferrer"
-        target="_self"
-        title="Workbook"
-      >
-        <img
-          alt="Workbook icon"
-          className="icon icon-workbook"
-          src="image-mock"
-        />
-      </a>
+        <a
+          aria-label="Home"
+          href="/home"
+          rel="noreferrer"
+          target="_self"
+          title="Home"
+        >
+          <img
+            alt="Home icon"
+            class="icon icon-home"
+            src="image-mock"
+          />
+        </a>
+      </div>
     </div>
     <div
-      className="icon-container icon-container-github"
+      class="right-header"
     >
-      <a
-        aria-label="GitHub"
-        href="https://github.com/npranke"
-        onClick={[Function]}
-        rel="noreferrer noopener external"
-        target="_blank"
-        title="GitHub"
+      <div
+        class="icon-container icon-container-workbook"
       >
-        <img
-          alt="GitHub icon"
-          className="icon icon-github"
-          src="image-mock"
-        />
-      </a>
-    </div>
-    <div
-      className="icon-container icon-container-linkedin"
-    >
-      <a
-        aria-label="LinkedIn"
-        href="https://www.linkedin.com/in/npranke"
-        onClick={[Function]}
-        rel="noreferrer noopener external"
-        target="_blank"
-        title="LinkedIn"
+        <a
+          aria-label="Workbook"
+          href="/workbook"
+          rel="noreferrer"
+          target="_self"
+          title="Workbook"
+        >
+          <img
+            alt="Workbook icon"
+            class="icon icon-workbook"
+            src="image-mock"
+          />
+        </a>
+      </div>
+      <div
+        class="icon-container icon-container-github"
       >
-        <img
-          alt="LinkedIn icon"
-          className="icon icon-linkedin"
-          src="image-mock"
-        />
-      </a>
+        <a
+          aria-label="GitHub"
+          href="https://github.com/npranke"
+          rel="noreferrer noopener external"
+          target="_blank"
+          title="GitHub"
+        >
+          <img
+            alt="GitHub icon"
+            class="icon icon-github"
+            src="image-mock"
+          />
+        </a>
+      </div>
+      <div
+        class="icon-container icon-container-linkedin"
+      >
+        <a
+          aria-label="LinkedIn"
+          href="https://www.linkedin.com/in/npranke"
+          rel="noreferrer noopener external"
+          target="_blank"
+          title="LinkedIn"
+        >
+          <img
+            alt="LinkedIn icon"
+            class="icon icon-linkedin"
+            src="image-mock"
+          />
+        </a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</DocumentFragment>
 `;

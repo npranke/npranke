@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import Footer from '@components/Footer'
 
@@ -27,8 +27,8 @@ describe('Footer', () => {
 
 describe('Footer snapshot', () => {
     test('matches snapshot', () => {
-        const footer = renderer.create(<Footer />).toJSON()
+        const { asFragment } = render(<Footer />)
 
-        expect(footer).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })
