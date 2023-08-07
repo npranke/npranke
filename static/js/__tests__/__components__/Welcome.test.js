@@ -2,7 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import Welcome from '@components/Welcome'
 
@@ -52,12 +52,12 @@ describe('Welcome', () => {
 
 describe('Welcome snapshot', () => {
     test('matches snapshot', () => {
-        const welcome = renderer.create(
+        const { asFragment } = render(
             <MemoryRouter>
                 <Welcome />
             </MemoryRouter>,
-        ).toJSON()
+        )
 
-        expect(welcome).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

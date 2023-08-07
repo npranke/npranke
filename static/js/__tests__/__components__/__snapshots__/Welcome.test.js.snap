@@ -1,36 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Welcome snapshot matches snapshot 1`] = `
-<main
-  className="welcome"
->
-  <div
-    className="intro"
+<DocumentFragment>
+  <main
+    class="welcome"
   >
-    Welcome! 
-    <br />
-    My name is Nicole; I’m a software engineer.
-  </div>
-  <div
-    className="button-workbook"
-  >
-    <a
-      href="/workbook"
-      onClick={[Function]}
-      rel="noreferrer"
-      target="_self"
+    <div
+      class="intro"
     >
-      <img
-        alt="Workbook icon"
-        className="icon icon-workbook"
-        src="image-mock"
-      />
-      <span
-        className="text-workbook"
+      Welcome! 
+      <br />
+      My name is Nicole; I’m a software engineer.
+    </div>
+    <div
+      class="button-workbook"
+    >
+      <a
+        href="/workbook"
+        rel="noreferrer"
+        target="_self"
       >
-        Workbook
-      </span>
-    </a>
-  </div>
-</main>
+        <img
+          alt="Workbook icon"
+          class="icon icon-workbook"
+          src="image-mock"
+        />
+        <span
+          class="text-workbook"
+        >
+          Workbook
+        </span>
+      </a>
+    </div>
+  </main>
+</DocumentFragment>
 `;
