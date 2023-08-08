@@ -1,16 +1,20 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import { collect, spec, TowerLocation } from '@components/tower/TowerLocation'
+import * as diskModule from '@components/tower/TowerDisk'
 
 import * as OffsetListener from '@components/hooks/OffsetListener'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 jest.mock('@components/tower/TowerDisk', () => {
-    return 'TowerDisk'
+    return {
+        __esModule: true,
+        default: jest.requireActual('@components/tower/TowerDisk').default,
+    }
 })
 
 const towerLayouts = ['landscape', 'portrait']
@@ -651,9 +655,13 @@ describe('TowerLocation', () => {
 })
 
 describe('TowerLocation snapshot', () => {
+    beforeAll(() => {
+        diskModule.default = () => { return (<div className="disk"></div>) }
+    })
+
     describe('when not isPortrait', () => {
         test('matches snapshot when empty', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -664,13 +672,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
 
         test('matches snapshot with some disks', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -681,13 +689,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and not target', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -699,13 +707,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and target', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -717,15 +725,15 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[2] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
     })
 
     describe('when isPortrait', () => {
         test('matches snapshot when empty', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -737,13 +745,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
 
         test('matches snapshot with some disks', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -755,13 +763,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and not target', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -774,13 +782,13 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
 
         test('matches snapshot with all disks and target', () => {
-            const towerLocation = renderer.create(
+            const { asFragment } = render(
                 <TowerLocation
                     connectDropTarget={
                         jest.fn((locationNode) => { return locationNode })
@@ -793,9 +801,9 @@ describe('TowerLocation snapshot', () => {
                     moveDisk={ jest.fn() }
                     tower={ towers[4] }
                 />,
-            ).toJSON()
+            )
 
-            expect(towerLocation).toMatchSnapshot()
+            expect(asFragment()).toMatchSnapshot()
         })
     })
 })
