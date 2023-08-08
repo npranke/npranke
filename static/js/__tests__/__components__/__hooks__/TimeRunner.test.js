@@ -1,19 +1,19 @@
-import { act } from 'react-dom/test-utils'
 import Adapter from 'enzyme-adapter-react-16'
-import { advanceBy, advanceTo, clear } from 'jest-date-mock'
 import Enzyme, { mount } from 'enzyme'
 import React from 'react'
+import { act, render } from '@testing-library/react'
 
 import ComponentUseTimeRunnerMock from '@__mocks__/ComponentUseTimeRunnerMock'
 
 Enzyme.configure({ adapter: new Adapter() })
 
+jest.useFakeTimers()
+
 describe('TimeRunner', () => {
     let component
 
     beforeEach(() => {
-        jest.useFakeTimers()
-        advanceTo(0)
+        jest.setSystemTime(0)
         component = mount(
             <ComponentUseTimeRunnerMock
                 isRunning={ false }
@@ -24,18 +24,14 @@ describe('TimeRunner', () => {
 
     afterEach(() => {
         component.unmount()
-        clear()
-        jest.clearAllTimers()
     })
 
     test('return time 00 when isRunning false', () => {
         act(() => {
             component.setProps({ isRunning: false })
 
-            for (let i = 0; i < 10; i++) {
-                jest.advanceTimersByTime(10)
-                advanceBy(10)
-            }
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(100)
         })
 
         expect(
@@ -55,10 +51,8 @@ describe('TimeRunner', () => {
                 { isRunning: true, shouldReset: true },
             )
 
-            for (let i = 0; i < 10; i++) {
-                jest.advanceTimersByTime(10)
-                advanceBy(10)
-            }
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(100)
         })
 
         expect(
@@ -76,10 +70,8 @@ describe('TimeRunner', () => {
         act(() => {
             component.setProps({ isRunning: true })
 
-            for (let i = 0; i < 6; i++) {
-                jest.advanceTimersByTime(10)
-                advanceBy(10)
-            }
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(60)
         })
 
         expect(
@@ -91,10 +83,8 @@ describe('TimeRunner', () => {
         act(() => {
             component.setProps({ isRunning: true })
 
-            for (let i = 0; i < 820; i++) {
-                jest.advanceTimersByTime(10)
-                advanceBy(10)
-            }
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(8200)
         })
 
         expect(
@@ -106,10 +96,8 @@ describe('TimeRunner', () => {
         act(() => {
             component.setProps({ isRunning: true })
 
-            for (let i = 0; i < 12400; i++) {
-                jest.advanceTimersByTime(10)
-                advanceBy(10)
-            }
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(124000)
         })
 
         expect(
@@ -121,10 +109,8 @@ describe('TimeRunner', () => {
         act(() => {
             component.setProps({ isRunning: true })
 
-            for (let i = 0; i < 105; i++) {
-                jest.advanceTimersByTime(10)
-                advanceBy(10)
-            }
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(1050)
         })
 
         expect(
@@ -139,10 +125,8 @@ describe('TimeRunner', () => {
         act(() => {
             component.setProps({ isRunning: true })
 
-            for (let i = 0; i < 6300; i++) {
-                jest.advanceTimersByTime(10)
-                advanceBy(10)
-            }
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(63000)
         })
 
         expect(
@@ -154,9 +138,19 @@ describe('TimeRunner', () => {
     })
 
     describe('useEffect dependency changes', () => {
-        test('setInterval called with isRunning change', () => {
-            window.setInterval = jest.fn()
+        beforeAll(() => {
+            jest.spyOn(window, 'setInterval')
+        })
 
+        beforeEach(() => {
+            jest.clearAllMocks()
+        })
+
+        afterAll(() => {
+            jest.restoreAllMocks()
+        })
+
+        test('setInterval called with isRunning change', () => {
             act(() => {
                 component.setProps({ isRunning: true })
             })
@@ -175,8 +169,6 @@ describe('TimeRunner', () => {
         })
 
         test('setInterval not called without isRunning change', () => {
-            window.setInterval = jest.fn()
-
             act(() => {
                 component.setProps({ isRunning: false })
             })
@@ -195,8 +187,6 @@ describe('TimeRunner', () => {
         })
 
         test('setInterval called with shouldReset change', () => {
-            window.setInterval = jest.fn()
-
             act(() => {
                 component.setProps({ shouldReset: true })
             })
@@ -215,8 +205,6 @@ describe('TimeRunner', () => {
         })
 
         test('setInterval not called without shouldReset change', () => {
-            window.setInterval = jest.fn()
-
             act(() => {
                 component.setProps({ shouldReset: false })
             })
@@ -237,14 +225,33 @@ describe('TimeRunner', () => {
 })
 
 describe('TimeRunner snapshot', () => {
-    test('matches snapshot', () => {
-        const component = mount(
+    test('matches snapshot without time runing', () => {
+        const { asFragment } = render(
             <ComponentUseTimeRunnerMock
                 isRunning={ false }
                 shouldReset={ false }
             />,
         )
 
-        expect(component).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
+    })
+
+    test('matches snapshot with time run to 02:36:19', () => {
+        const { asFragment, rerender } = render(
+            <ComponentUseTimeRunnerMock
+                isRunning
+                shouldReset={ false }
+            />,
+        )
+
+        act(() => {
+            jest.setSystemTime(0)
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(156200)
+
+            rerender(<ComponentUseTimeRunnerMock />)
+        })
+
+        expect(asFragment()).toMatchSnapshot()
     })
 })

@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
+import { render } from '@testing-library/react'
 
 import {
     collect,
@@ -141,7 +142,7 @@ describe('TowerDiskDragLayer', () => {
 
 describe('TowerDiskDragLayer snapshot', () => {
     test('matches snapshot with sourceClientOffset', () => {
-        const towerDiskDragLayer = shallow(
+        const { asFragment } = render(
             <TowerDiskDragLayer
                 image={ diskImage }
                 height={ 150 }
@@ -150,11 +151,11 @@ describe('TowerDiskDragLayer snapshot', () => {
             />,
         )
 
-        expect(towerDiskDragLayer).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot without sourceClientOffset', () => {
-        const towerDiskDragLayer = shallow(
+        const { asFragment } = render(
             <TowerDiskDragLayer
                 image={ diskImage }
                 height={ 150 }
@@ -162,6 +163,6 @@ describe('TowerDiskDragLayer snapshot', () => {
             />,
         )
 
-        expect(towerDiskDragLayer).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

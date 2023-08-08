@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
+import { render } from '@testing-library/react'
 
 import ConcentrationBoardRow from
     '@components/concentration/ConcentrationBoardRow'
@@ -187,10 +188,10 @@ describe('ConcentrationBoardRow', () => {
 
 describe('ConcentrationBoardRow snapshot', () => {
     test('matches snapshot', () => {
-        const concentrationBoardRow = shallow(
+        const { asFragment } = render(
             <ConcentrationBoardRow pictures={ pictures } />,
         )
 
-        expect(concentrationBoardRow).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
+import { render } from '@testing-library/react'
 
 import TowerSettings from '@components/tower/TowerSettings'
 
@@ -133,6 +134,10 @@ describe('TowerSettings', () => {
         })
 
         describe('disksLabelKeyUpHandler()', () => {
+            beforeEach(() => {
+                document.body.innerHTML = '<div id="fastener"></div>'
+            })
+
             test('calls updateDisks prop on enter', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
@@ -166,6 +171,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow right on two', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#two-disks-label').simulate(
@@ -181,6 +187,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow right on three', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#three-disks-label').simulate(
@@ -196,6 +203,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow right on four', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#four-disks-label').simulate(
@@ -211,6 +219,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow right on five', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#five-disks-label').simulate(
@@ -226,6 +235,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow left on two', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#two-disks-label').simulate(
@@ -241,6 +251,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow left on three', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#three-disks-label').simulate(
@@ -256,6 +267,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow left on four', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#four-disks-label').simulate(
@@ -271,6 +283,7 @@ describe('TowerSettings', () => {
             test('updates active element for arrow left on five', () => {
                 const towerSettings = mount(
                     <TowerSettings updateDisks={ jest.fn() } />,
+                    { attachTo: fastener },
                 )
 
                 towerSettings.find('#five-disks-label').simulate(
@@ -344,10 +357,10 @@ describe('TowerSettings', () => {
 
 describe('TowerSettings snapshot', () => {
     test('matches snapshot', () => {
-        const towerSettings = shallow(
+        const { asFragment } = render(
             <TowerSettings updateDisks={ jest.fn() } />,
         )
 
-        expect(towerSettings).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

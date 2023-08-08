@@ -1,58 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TowerInfo snapshot matches snapshot 1`] = `
-<div
-  className="tower-info"
->
-  <p>
-    Tower is an implementation of the Tower of Hanoi puzzle.
-  </p>
-  <p>
-    Drag and drop disks to move the tower from origin to target. Larger disks can’t be placed on top of smaller disks. Try to move the tower in the fewest moves possible. The minimum number of moves is 
-    <span
-      className="math"
-    >
-      2
-      <sup>
+<DocumentFragment>
+  <div
+    class="tower-info"
+  >
+    <p>
+      Tower is an implementation of the Tower of Hanoi puzzle.
+    </p>
+    <p>
+      Drag and drop disks to move the tower from origin to target. Larger disks can’t be placed on top of smaller disks. Try to move the tower in the fewest moves possible. The minimum number of moves is 
+      <span
+        class="math"
+      >
+        2
+        <sup>
+          <i>
+            n
+          </i>
+        </sup>
+         - 1
+      </span>
+      , where 
+      <span
+        class="math"
+      >
         <i>
           n
         </i>
-      </sup>
-       - 1
-    </span>
-    , where 
-    <span
-      className="math"
-    >
-      <i>
-        n
-      </i>
-    </span>
-     is the number of disks in the tower.
-  </p>
-  <p>
-    Tower is built with images of Jupiter from NASA’s Solar System Exploration Program. Each tower picture was taken with the JunoCam on the Juno spacecraft. Learn more about Jupiter, Juno, and other solar system missions by visiting 
-    <a
-      href="https://solarsystem.nasa.gov/planets/jupiter/overview/"
-      onClick={[Function]}
-      rel="noreferrer noopener external"
-      target="_blank"
-    >
-      NASA’s Solar System Exploration Program
-    </a>
-    .
-  </p>
-  <p>
-    The images used in Tower are courtesy of NASA/JPL-Caltech. Discover more images by visiting the 
-    <a
-      href="https://www.jpl.nasa.gov/images"
-      onClick={[Function]}
-      rel="noreferrer noopener external"
-      target="_blank"
-    >
-      JPL Image Gallery
-    </a>
-    .
-  </p>
-</div>
+      </span>
+       is the number of disks in the tower.
+    </p>
+    <p>
+      Tower is built with images of Jupiter from NASA’s Solar System Exploration Program. Each tower picture was taken with the JunoCam on the Juno spacecraft. Learn more about Jupiter, Juno, and other solar system missions by visiting 
+      <a
+        href="https://solarsystem.nasa.gov/planets/jupiter/overview/"
+        rel="noreferrer noopener external"
+        target="_blank"
+      >
+        NASA’s Solar System Exploration Program
+      </a>
+      .
+    </p>
+    <p>
+      The images used in Tower are courtesy of NASA/JPL-Caltech. Discover more images by visiting the 
+      <a
+        href="https://www.jpl.nasa.gov/images"
+        rel="noreferrer noopener external"
+        target="_blank"
+      >
+        JPL Image Gallery
+      </a>
+      .
+    </p>
+  </div>
+</DocumentFragment>
 `;

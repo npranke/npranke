@@ -1,28 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TimeRunner snapshot matches snapshot 1`] = `
-<ComponentUseTimeRunnerMock
-  isRunning={false}
-  shouldReset={false}
->
+exports[`TimeRunner snapshot matches snapshot with time run to 02:36:19 1`] = `
+<DocumentFragment>
   <div
-    className="component-use-time-runner-mock"
+    class="component-use-time-runner-mock"
   >
     <div
-      className="centiseconds"
+      class="centiseconds"
+    >
+      19
+    </div>
+    <div
+      class="seconds"
+    >
+      36
+    </div>
+    <div
+      class="minutes"
+    >
+      02
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TimeRunner snapshot matches snapshot without time runing 1`] = `
+<DocumentFragment>
+  <div
+    class="component-use-time-runner-mock"
+  >
+    <div
+      class="centiseconds"
     >
       00
     </div>
     <div
-      className="seconds"
+      class="seconds"
     >
       00
     </div>
     <div
-      className="minutes"
+      class="minutes"
     >
       00
     </div>
   </div>
-</ComponentUseTimeRunnerMock>
+</DocumentFragment>
 `;
