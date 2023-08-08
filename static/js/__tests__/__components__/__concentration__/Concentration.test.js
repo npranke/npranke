@@ -1,13 +1,23 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import { Concentration } from '@components/concentration/Concentration'
+import * as rowModule from '@components/concentration/ConcentrationBoardRow'
 
 import * as utils from '@utils'
 
 Enzyme.configure({ adapter: new Adapter() })
+
+jest.mock('@components/concentration/ConcentrationBoardRow', () => {
+    return {
+        __esModule: true,
+        default: jest.requireActual(
+            '@components/concentration/ConcentrationBoardRow',
+        ).default,
+    }
+})
 
 describe('Concentration', () => {
     test('has matches section', () => {
@@ -619,38 +629,15 @@ describe('Concentration', () => {
 })
 
 describe('Concentration snapshot', () => {
+    beforeAll(() => {
+        rowModule.default = () => {
+            return (<div className="board-row"></div>)
+        }
+    })
+
     test('matches snapshot', () => {
-        const concentration = renderer.create(<Concentration />)
+        const { asFragment } = render(<Concentration />)
 
-        concentration.getInstance().boardOrder = [
-            'picture0-a',
-            'picture0-b',
-            'picture1-a',
-            'picture1-b',
-            'picture2-a',
-            'picture2-b',
-            'picture3-a',
-            'picture3-b',
-            'picture4-a',
-            'picture4-b',
-            'picture5-a',
-            'picture5-b',
-            'picture6-a',
-            'picture6-b',
-            'picture7-a',
-            'picture7-b',
-            'picture8-a',
-            'picture8-b',
-            'picture9-a',
-            'picture9-b',
-            'picture10-a',
-            'picture10-b',
-            'picture11-a',
-            'picture11-b',
-        ]
-
-        concentration.update(<Concentration />)
-
-        expect(concentration.toJSON()).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

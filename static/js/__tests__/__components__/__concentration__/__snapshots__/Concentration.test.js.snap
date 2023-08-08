@@ -1,397 +1,131 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Concentration snapshot matches snapshot 1`] = `
-<div
-  className="concentration"
->
+<DocumentFragment>
   <div
-    className="matches-wrapper"
+    class="concentration"
   >
     <div
-      className="matches"
+      class="matches-wrapper"
     >
       <div
-        className="matches-header"
+        class="matches"
       >
         <div
-          className="left-text"
+          class="matches-header"
         >
-          <span
-            className="matches-text"
+          <div
+            class="left-text"
           >
             <span
-              className="matches-portion"
+              class="matches-text"
             >
-              matches: 
+              <span
+                class="matches-portion"
+              >
+                matches: 
+              </span>
+              <span
+                class="matches-portion number"
+              >
+                00
+              </span>
             </span>
             <span
-              className="matches-portion number"
+              class="turns-text"
             >
-              00
+              <span
+                class="turns-portion"
+              >
+                turns: 
+              </span>
+              <span
+                class="turns-portion number"
+              >
+                00
+              </span>
             </span>
-          </span>
-          <span
-            className="turns-text"
+          </div>
+          <div
+            class="right-text"
           >
             <span
-              className="turns-portion"
+              class="time-text"
             >
-              turns: 
+              <span
+                class="time-portion"
+              >
+                time: 
+              </span>
+              <span
+                class="time-portion number"
+              >
+                00
+              </span>
+              <span
+                class="time-portion"
+              >
+                 : 
+              </span>
+              <span
+                class="time-portion number"
+              >
+                00
+              </span>
+              <span
+                class="time-portion"
+              >
+                 : 
+              </span>
+              <span
+                class="time-portion number"
+              >
+                00
+              </span>
             </span>
-            <span
-              className="turns-portion number"
-            >
-              00
-            </span>
-          </span>
+          </div>
         </div>
         <div
-          className="right-text"
-        >
-          <span
-            className="time-text"
-          >
-            <span
-              className="time-portion"
-            >
-              time: 
-            </span>
-            <span
-              className="time-portion number"
-            >
-              00
-            </span>
-            <span
-              className="time-portion"
-            >
-               : 
-            </span>
-            <span
-              className="time-portion number"
-            >
-              00
-            </span>
-            <span
-              className="time-portion"
-            >
-               : 
-            </span>
-            <span
-              className="time-portion number"
-            >
-              00
-            </span>
-          </span>
-        </div>
+          class="matches-pictures"
+        />
       </div>
-      <div
-        className="matches-pictures"
-      />
     </div>
-  </div>
-  <div
-    className="board-wrapper"
-  >
     <div
-      className="board"
+      class="board-wrapper"
     >
       <div
-        className="board-row-wrapper"
+        class="board"
       >
         <div
-          className="board-row"
+          class="board-row-wrapper"
         >
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="0-a"
-            data-pictureid="0"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="0-b"
-            data-pictureid="0"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="1-a"
-            data-pictureid="1"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="1-b"
-            data-pictureid="1"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="2-a"
-            data-pictureid="2"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="2-b"
-            data-pictureid="2"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
+          <div
+            class="board-row"
           />
         </div>
-      </div>
-      <div
-        className="board-row-wrapper"
-      >
         <div
-          className="board-row"
+          class="board-row-wrapper"
         >
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="3-a"
-            data-pictureid="3"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="3-b"
-            data-pictureid="3"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="4-a"
-            data-pictureid="4"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="4-b"
-            data-pictureid="4"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="5-a"
-            data-pictureid="5"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="5-b"
-            data-pictureid="5"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
+          <div
+            class="board-row"
           />
         </div>
-      </div>
-      <div
-        className="board-row-wrapper"
-      >
         <div
-          className="board-row"
+          class="board-row-wrapper"
         >
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="6-a"
-            data-pictureid="6"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="6-b"
-            data-pictureid="6"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="7-a"
-            data-pictureid="7"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="7-b"
-            data-pictureid="7"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="8-a"
-            data-pictureid="8"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="8-b"
-            data-pictureid="8"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
+          <div
+            class="board-row"
           />
         </div>
-      </div>
-      <div
-        className="board-row-wrapper"
-      >
         <div
-          className="board-row"
+          class="board-row-wrapper"
         >
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="9-a"
-            data-pictureid="9"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="9-b"
-            data-pictureid="9"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="10-a"
-            data-pictureid="10"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="10-b"
-            data-pictureid="10"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="11-a"
-            data-pictureid="11"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
-          />
-          <img
-            alt="NASA/JPL Mars Exploration Rover PIA20285"
-            className="picture picture-back"
-            data-id="11-b"
-            data-pictureid="11"
-            onClick={[Function]}
-            onKeyUp={[Function]}
-            role="button"
-            src="image-mock"
-            tabIndex="0"
+          <div
+            class="board-row"
           />
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
