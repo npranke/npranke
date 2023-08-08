@@ -1,16 +1,20 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import { Tower } from '@components/tower/Tower'
+import * as locationModule from '@components/tower/TowerLocation'
 
 import * as utils from '@utils'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 jest.mock('@components/tower/TowerLocation', () => {
-    return 'TowerLocation'
+    return {
+        __esModule: true,
+        default: jest.requireActual('@components/tower/TowerLocation').default,
+    }
 })
 
 describe('Tower', () => {
@@ -364,9 +368,15 @@ describe('Tower', () => {
 })
 
 describe('Tower snapshot', () => {
-    test('matches snapshot', () => {
-        const tower = renderer.create(<Tower />).toJSON()
+    beforeAll(() => {
+        locationModule.default = () => {
+            return (<div className="location"></div>)
+        }
+    })
 
-        expect(tower).toMatchSnapshot()
+    test('matches snapshot', () => {
+        const { asFragment } = render(<Tower />)
+
+        expect(asFragment()).toMatchSnapshot()
     })
 })

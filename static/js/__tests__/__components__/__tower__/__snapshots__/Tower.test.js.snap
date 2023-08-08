@@ -1,405 +1,189 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tower snapshot matches snapshot 1`] = `
-<div
-  className="tower"
->
+<DocumentFragment>
   <div
-    className="settings-wrapper"
+    class="tower"
   >
     <div
-      className="settings"
+      class="settings-wrapper"
     >
       <div
-        className="settings-inner"
+        class="settings"
       >
         <div
-          className="left-text"
+          class="settings-inner"
         >
-          <span
-            className="disks-text"
+          <div
+            class="left-text"
           >
             <span
-              className="disks-portion"
-              id="disks-label"
+              class="disks-text"
             >
-              disks: 
+              <span
+                class="disks-portion"
+                id="disks-label"
+              >
+                disks: 
+              </span>
+              <span
+                aria-labelledby="disks-label"
+                class="disks-portion"
+                id="disks-radiogroup"
+                role="radiogroup"
+              >
+                <input
+                  aria-checked="false"
+                  id="two-disks"
+                  name="disks"
+                  type="radio"
+                  value="2"
+                />
+                <label
+                  class="disks-portion number"
+                  data-value="2"
+                  for="two-disks"
+                  id="two-disks-label"
+                  tabindex="-1"
+                >
+                  2
+                </label>
+                <input
+                  aria-checked="true"
+                  checked=""
+                  id="three-disks"
+                  name="disks"
+                  type="radio"
+                  value="3"
+                />
+                <label
+                  class="disks-portion number"
+                  data-value="3"
+                  for="three-disks"
+                  id="three-disks-label"
+                  tabindex="0"
+                >
+                  3
+                </label>
+                <input
+                  aria-checked="false"
+                  id="four-disks"
+                  name="disks"
+                  type="radio"
+                  value="4"
+                />
+                <label
+                  class="disks-portion number"
+                  data-value="4"
+                  for="four-disks"
+                  id="four-disks-label"
+                  tabindex="-1"
+                >
+                  4
+                </label>
+                <input
+                  aria-checked="false"
+                  id="five-disks"
+                  name="disks"
+                  type="radio"
+                  value="5"
+                />
+                <label
+                  class="disks-portion number"
+                  data-value="5"
+                  for="five-disks"
+                  id="five-disks-label"
+                  tabindex="-1"
+                >
+                  5
+                </label>
+              </span>
+            </span>
+          </div>
+          <div
+            class="right-text"
+          >
+            <span
+              class="moves-text"
+            >
+              <span
+                class="moves-portion"
+              >
+                moves: 
+              </span>
+              <span
+                class="moves-portion number"
+              >
+                00
+              </span>
             </span>
             <span
-              aria-labelledby="disks-label"
-              className="disks-portion"
-              id="disks-radiogroup"
-              role="radiogroup"
+              class="time-text"
             >
-              <input
-                aria-checked={false}
-                checked={false}
-                id="two-disks"
-                name="disks"
-                onChange={[Function]}
-                type="radio"
-                value="2"
-              />
-              <label
-                className="disks-portion number"
-                data-value="2"
-                htmlFor="two-disks"
-                id="two-disks-label"
-                onKeyUp={[Function]}
-                tabIndex="-1"
+              <span
+                class="time-portion"
               >
-                2
-              </label>
-              <input
-                aria-checked={true}
-                checked={true}
-                id="three-disks"
-                name="disks"
-                onChange={[Function]}
-                type="radio"
-                value="3"
-              />
-              <label
-                className="disks-portion number"
-                data-value="3"
-                htmlFor="three-disks"
-                id="three-disks-label"
-                onKeyUp={[Function]}
-                tabIndex="0"
+                time: 
+              </span>
+              <span
+                class="time-portion number"
               >
-                3
-              </label>
-              <input
-                aria-checked={false}
-                checked={false}
-                id="four-disks"
-                name="disks"
-                onChange={[Function]}
-                type="radio"
-                value="4"
-              />
-              <label
-                className="disks-portion number"
-                data-value="4"
-                htmlFor="four-disks"
-                id="four-disks-label"
-                onKeyUp={[Function]}
-                tabIndex="-1"
+                00
+              </span>
+              <span
+                class="time-portion"
               >
-                4
-              </label>
-              <input
-                aria-checked={false}
-                checked={false}
-                id="five-disks"
-                name="disks"
-                onChange={[Function]}
-                type="radio"
-                value="5"
-              />
-              <label
-                className="disks-portion number"
-                data-value="5"
-                htmlFor="five-disks"
-                id="five-disks-label"
-                onKeyUp={[Function]}
-                tabIndex="-1"
+                 : 
+              </span>
+              <span
+                class="time-portion number"
               >
-                5
-              </label>
+                00
+              </span>
+              <span
+                class="time-portion"
+              >
+                 : 
+              </span>
+              <span
+                class="time-portion number"
+              >
+                00
+              </span>
             </span>
-          </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="locations-wrapper"
+    >
+      <div
+        class="locations-container"
+      >
+        <div
+          class="location-wrapper"
+        >
+          <div
+            class="location"
+          />
         </div>
         <div
-          className="right-text"
+          class="location-wrapper"
         >
-          <span
-            className="moves-text"
-          >
-            <span
-              className="moves-portion"
-            >
-              moves: 
-            </span>
-            <span
-              className="moves-portion number"
-            >
-              00
-            </span>
-          </span>
-          <span
-            className="time-text"
-          >
-            <span
-              className="time-portion"
-            >
-              time: 
-            </span>
-            <span
-              className="time-portion number"
-            >
-              00
-            </span>
-            <span
-              className="time-portion"
-            >
-               : 
-            </span>
-            <span
-              className="time-portion number"
-            >
-              00
-            </span>
-            <span
-              className="time-portion"
-            >
-               : 
-            </span>
-            <span
-              className="time-portion number"
-            >
-              00
-            </span>
-          </span>
+          <div
+            class="location"
+          />
+        </div>
+        <div
+          class="location-wrapper"
+        >
+          <div
+            class="location"
+          />
         </div>
       </div>
     </div>
   </div>
-  <div
-    className="locations-wrapper"
-  >
-    <div
-      className="locations-container"
-    >
-      <div
-        className="location-wrapper"
-      >
-        <TowerLocation
-          diskids={[]}
-          disks={3}
-          isComplete={false}
-          isPortrait={false}
-          location="origin"
-          moveDisk={[Function]}
-          tower={
-            {
-              "clickHandler": [Function],
-              "landscape": [
-                {
-                  "diskid": "1",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
-                  />,
-                },
-                {
-                  "diskid": "2",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
-                  />,
-                },
-                {
-                  "diskid": "3",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
-                  />,
-                },
-              ],
-              "link": "https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22938",
-              "portrait": [
-                {
-                  "diskid": "1",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
-                  />,
-                },
-                {
-                  "diskid": "2",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
-                  />,
-                },
-                {
-                  "diskid": "3",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
-                  />,
-                },
-              ],
-            }
-          }
-        />
-      </div>
-      <div
-        className="location-wrapper"
-      >
-        <TowerLocation
-          diskids={[]}
-          disks={3}
-          isComplete={false}
-          isPortrait={false}
-          location="buffer"
-          moveDisk={[Function]}
-          tower={
-            {
-              "clickHandler": [Function],
-              "landscape": [
-                {
-                  "diskid": "1",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
-                  />,
-                },
-                {
-                  "diskid": "2",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
-                  />,
-                },
-                {
-                  "diskid": "3",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
-                  />,
-                },
-              ],
-              "link": "https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22938",
-              "portrait": [
-                {
-                  "diskid": "1",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
-                  />,
-                },
-                {
-                  "diskid": "2",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
-                  />,
-                },
-                {
-                  "diskid": "3",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
-                  />,
-                },
-              ],
-            }
-          }
-        />
-      </div>
-      <div
-        className="location-wrapper"
-      >
-        <TowerLocation
-          diskids={[]}
-          disks={3}
-          isComplete={false}
-          isPortrait={false}
-          location="target"
-          moveDisk={[Function]}
-          tower={
-            {
-              "clickHandler": [Function],
-              "landscape": [
-                {
-                  "diskid": "1",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
-                  />,
-                },
-                {
-                  "diskid": "2",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
-                  />,
-                },
-                {
-                  "diskid": "3",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
-                  />,
-                },
-              ],
-              "link": "https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA22938",
-              "portrait": [
-                {
-                  "diskid": "1",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 1 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 1 of 3"
-                  />,
-                },
-                {
-                  "diskid": "2",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 2 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 2 of 3"
-                  />,
-                },
-                {
-                  "diskid": "3",
-                  "image": <img
-                    alt="NASA/JPL Juno PIA22938, disk 3 of 3"
-                    className="disk-image"
-                    src="image-mock"
-                    title="NASA/JPL Juno PIA22938, disk 3 of 3"
-                  />,
-                },
-              ],
-            }
-          }
-        />
-      </div>
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;
