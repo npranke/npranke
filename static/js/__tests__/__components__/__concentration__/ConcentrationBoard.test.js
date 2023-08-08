@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import ConcentrationBoard from '@components/concentration/ConcentrationBoard'
 
@@ -111,25 +111,25 @@ describe('ConcentrationBoard', () => {
 
 describe('ConcentrationBoard snapshot', () => {
     test('matches snapshot when not isPortrait', () => {
-        const concentrationBoard = renderer.create(
+        const { asFragment } = render(
             <ConcentrationBoard
                 pictures={ pictures }
                 boardOrder={ boardOrder }
             />,
-        ).toJSON()
+        )
 
-        expect(concentrationBoard).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot when isPortrait', () => {
-        const concentrationBoard = renderer.create(
+        const { asFragment } = render(
             <ConcentrationBoard
                 isPortrait
                 pictures={ pictures }
                 boardOrder={ boardOrder }
             />,
-        ).toJSON()
+        )
 
-        expect(concentrationBoard).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

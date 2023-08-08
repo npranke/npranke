@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import ConcentrationMatches from
     '@components/concentration/ConcentrationMatches'
@@ -191,26 +191,26 @@ describe('ConcentrationMatches', () => {
 
 describe('ConcentrationMatches snapshot', () => {
     test('matches snapshot without matches', () => {
-        const concentrationMatches = renderer.create(
+        const { asFragment } = render(
             <ConcentrationMatches pictures={ pictures } />,
-        ).toJSON()
+        )
 
-        expect(concentrationMatches).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot with some matches', () => {
-        const concentrationMatches = renderer.create(
+        const { asFragment } = render(
             <ConcentrationMatches
                 pictures={ pictures }
                 matches={ ['0', '4', '7', '10'] }
             />,
-        ).toJSON()
+        )
 
-        expect(concentrationMatches).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot with all matches', () => {
-        const concentrationMatches = renderer.create(
+        const { asFragment } = render(
             <ConcentrationMatches
                 pictures={ pictures }
                 matches={
@@ -220,8 +220,8 @@ describe('ConcentrationMatches snapshot', () => {
                     )
                 }
             />,
-        ).toJSON()
+        )
 
-        expect(concentrationMatches).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

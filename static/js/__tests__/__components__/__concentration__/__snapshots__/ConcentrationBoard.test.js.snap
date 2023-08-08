@@ -1,287 +1,291 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConcentrationBoard snapshot matches snapshot when isPortrait 1`] = `
-<div
-  className="board"
->
+<DocumentFragment>
   <div
-    className="board-row-wrapper"
+    class="board"
   >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`ConcentrationBoard snapshot matches snapshot when not isPortrait 1`] = `
-<div
-  className="board"
->
+<DocumentFragment>
   <div
-    className="board-row-wrapper"
+    class="board"
   >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
     <div
-      className="board-row"
+      class="board-row-wrapper"
     >
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
-      <img
-        alt=""
-        src=""
-      />
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

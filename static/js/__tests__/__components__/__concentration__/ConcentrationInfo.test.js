@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import ConcentrationInfo from '@components/concentration/ConcentrationInfo'
 
@@ -47,10 +47,10 @@ describe('ConcentrationInfo', () => {
 
 describe('ConcentrationInfo snapshot', () => {
     test('matches snapshot', () => {
-        const concentrationInfo = renderer.create(
+        const { asFragment } = render(
             <ConcentrationInfo />,
-        ).toJSON()
+        )
 
-        expect(concentrationInfo).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })
