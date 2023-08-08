@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import { collect, spec, TowerDisk } from '@components/tower/TowerDisk'
 
@@ -396,7 +396,7 @@ describe('TowerDisk', () => {
 
 describe('TowerDisk snapshot', () => {
     test('matches snapshot with isDragging false', () => {
-        const towerDisk = renderer.create(
+        const { asFragment } = render(
             <TowerDisk
                 connectDragSource={
                     jest.fn((diskNode) => { return diskNode })
@@ -407,13 +407,13 @@ describe('TowerDisk snapshot', () => {
                 location="buffer"
                 moveDisk={ jest.fn() }
             />,
-        ).toJSON()
+        )
 
-        expect(towerDisk).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot with isDragging true', () => {
-        const towerDisk = renderer.create(
+        const { asFragment } = render(
             <TowerDisk
                 connectDragSource={
                     jest.fn((diskNode) => { return diskNode })
@@ -424,8 +424,8 @@ describe('TowerDisk snapshot', () => {
                 location="buffer"
                 moveDisk={ jest.fn() }
             />,
-        ).toJSON()
+        )
 
-        expect(towerDisk).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

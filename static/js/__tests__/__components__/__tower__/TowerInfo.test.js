@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import TowerInfo from '@components/tower/TowerInfo'
 
@@ -47,8 +47,8 @@ describe('TowerInfo', () => {
 
 describe('TowerInfo snapshot', () => {
     test('matches snapshot', () => {
-        const towerInfo = renderer.create(<TowerInfo />).toJSON()
+        const { asFragment } = render(<TowerInfo />)
 
-        expect(towerInfo).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

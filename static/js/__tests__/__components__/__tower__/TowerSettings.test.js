@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import TowerSettings from '@components/tower/TowerSettings'
 
@@ -357,10 +357,10 @@ describe('TowerSettings', () => {
 
 describe('TowerSettings snapshot', () => {
     test('matches snapshot', () => {
-        const towerSettings = renderer.create(
+        const { asFragment } = render(
             <TowerSettings updateDisks={ jest.fn() } />,
-        ).toJSON()
+        )
 
-        expect(towerSettings).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })
