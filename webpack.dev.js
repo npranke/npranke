@@ -15,26 +15,9 @@ const paths = {
 const devConfig = {
     devtool: 'inline-source-map',
     mode: 'development',
-    module: {
-        rules: [
-            {
-                test: /\.(gif|png|jp(e)?g|svg)$/,
-                include: paths.IMG,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name]-[contenthash].[ext]',
-                            publicPath: '/static/dist/',
-                        },
-                    },
-                    'image-webpack-loader',
-                ],
-            },
-        ],
-    },
     output: {
         filename: '[name]-[contenthash].bundle.js',
+        assetModuleFilename: '[name]-[contenthash][ext]',
         path: paths.DIST,
         clean: true,
     },

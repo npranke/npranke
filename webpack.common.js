@@ -38,6 +38,11 @@ const commonConfig = {
                     'css-loader',
                 ],
             },
+            {
+                test: /\.(gif|png|jp(e)?g|svg)$/,
+                include: paths.IMG,
+                type: 'asset/resource',
+            },
         ],
     },
     node: {

@@ -17,30 +17,13 @@ const paths = {
 
 const prodConfig = {
     mode: 'production',
-    module: {
-        rules: [
-            {
-                test: /\.(gif|png|jp(e)?g|svg)$/,
-                include: paths.IMG,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[contenthash].[ext]',
-                            publicPath: '/static/dist/',
-                        },
-                    },
-                    'image-webpack-loader',
-                ],
-            },
-        ],
-    },
     optimization: {
         minimize: true,
         minimizer: [new TerserPlugin({ extractComments: false })],
     },
     output: {
         filename: '[contenthash].bundle.js?name=[name].js',
+        assetModuleFilename: '[contenthash][ext]',
         path: paths.DIST,
         clean: true,
     },
