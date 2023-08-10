@@ -42,6 +42,7 @@ const prodConfig = {
     output: {
         filename: '[contenthash].bundle.js?name=[name].js',
         path: paths.DIST,
+        clean: true,
     },
     plugins: [
         new webpack.EnvironmentPlugin({ GA: null }),

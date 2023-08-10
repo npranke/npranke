@@ -1,6 +1,5 @@
 const path = require('path')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const paths = {
@@ -54,12 +53,6 @@ const commonConfig = {
             name: true,
         },
     },
-    plugins: [
-        new CleanWebpackPlugin({
-            cleanStaleWebpackAssets: false,
-            verbose: true,
-        }),
-    ],
     resolve: {
         alias: {
             '@__mocks__': paths.__MOCKS__,

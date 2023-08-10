@@ -36,6 +36,7 @@ const devConfig = {
     output: {
         filename: '[name]-[contenthash].bundle.js',
         path: paths.DIST,
+        clean: true,
     },
     plugins: [
         new Dotenv(),
