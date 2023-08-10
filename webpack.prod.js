@@ -10,15 +10,38 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
 const commonConfig = require('./webpack.common.js')
 
+const paths = {
+    DIST: path.resolve(__dirname, 'static/dist'),
+    IMG: path.resolve(__dirname, 'static/img'),
+}
+
 const prodConfig = {
     mode: 'production',
+    module: {
+        rules: [
+            {
+                test: /\.(gif|png|jp(e)?g|svg)$/,
+                include: paths.IMG,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[contenthash].[ext]',
+                            publicPath: '/static/dist/',
+                        },
+                    },
+                    'image-webpack-loader',
+                ],
+            },
+        ],
+    },
     optimization: {
         minimize: true,
         minimizer: [new TerserPlugin({ extractComments: false })],
     },
     output: {
         filename: '[contenthash].bundle.js?name=[name].js',
-        path: path.resolve(__dirname, 'static/dist'),
+        path: paths.DIST,
     },
     plugins: [
         new webpack.EnvironmentPlugin({ GA: null }),

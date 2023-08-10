@@ -24,8 +24,12 @@ const commonConfig = {
             {
                 test: /\.js(x)?$/,
                 include: paths.JS,
-                loader: 'babel-loader',
-                options: { cacheDirectory: true },
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: { cacheDirectory: true },
+                    },
+                ],
             },
             {
                 test: /\.css$/,
@@ -33,20 +37,6 @@ const commonConfig = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                ],
-            },
-            {
-                test: /\.(gif|png|jp(e)?g|svg)$/,
-                include: paths.IMG,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[contenthash].[ext]',
-                            publicPath: '/static/dist/',
-                        },
-                    },
-                    'image-webpack-loader',
                 ],
             },
         ],
