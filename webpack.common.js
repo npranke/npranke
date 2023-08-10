@@ -54,9 +54,14 @@ const commonConfig = {
             name: (entrypoint) => { return `runtime-${entrypoint.name}` },
         },
         splitChunks: {
-            automaticNameDelimiter: '-',
             chunks: 'all',
-            name: true,
+            name: false,
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'venders-app',
+                },
+            },
         },
         minimize: true,
         minimizer: [
