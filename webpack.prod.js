@@ -18,7 +18,6 @@ const paths = {
 const prodConfig = {
     mode: 'production',
     optimization: {
-        minimize: true,
         minimizer: [new TerserPlugin({ extractComments: false })],
     },
     output: {

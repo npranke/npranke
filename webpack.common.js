@@ -1,5 +1,6 @@
 const path = require('path')
 
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const paths = {
@@ -57,6 +58,20 @@ const commonConfig = {
             chunks: 'all',
             name: true,
         },
+        minimize: true,
+        minimizer: [
+            new ImageMinimizerPlugin({
+                minimizer: {
+                    implementation: ImageMinimizerPlugin.sharpMinify,
+                    options: {
+                        encodeOptions: {
+                            jpeg: { quality: 100 },
+                            png: { quality: 100 },
+                        },
+                    },
+                }
+            }),
+        ],
     },
     resolve: {
         alias: {
