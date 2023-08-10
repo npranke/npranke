@@ -1,9 +1,9 @@
 const path = require('path')
 
 const CompressionPlugin = require('compression-webpack-plugin')
+const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
@@ -18,7 +18,10 @@ const paths = {
 const prodConfig = {
     mode: 'production',
     optimization: {
-        minimizer: [new TerserPlugin({ extractComments: false })],
+         minimizer: [
+            new TerserPlugin({ extractComments: false }),
+            new CSSMinimizerPlugin(),
+        ],
     },
     output: {
         filename: '[contenthash].bundle.js?name=[name].js',
@@ -31,7 +34,6 @@ const prodConfig = {
         new MiniCssExtractPlugin({
             filename: '[contenthash].bundle.css?name=[name].css',
         }),
-        new OptimizeCSSAssetsPlugin(),
         new CompressionPlugin({
             test: /\.(css|js)$/,
             algorithm: 'brotliCompress',
