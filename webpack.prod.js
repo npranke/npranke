@@ -1,7 +1,7 @@
 const path = require('path')
 
 const CompressionPlugin = require('compression-webpack-plugin')
-const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
@@ -20,13 +20,14 @@ const prodConfig = {
     optimization: {
          minimizer: [
             new TerserPlugin({ extractComments: false }),
-            new CSSMinimizerPlugin(),
+            new CssMinimizerPlugin(),
         ],
     },
     output: {
         filename: '[contenthash].bundle.js?name=[name].js',
         assetModuleFilename: '[contenthash][ext]',
         path: paths.DIST,
+        publicPath: '/static/dist/',
         clean: true,
     },
     plugins: [

@@ -19,6 +19,7 @@ const devConfig = {
         filename: '[name]-[contenthash].bundle.js',
         assetModuleFilename: '[name]-[contenthash][ext]',
         path: paths.DIST,
+        publicPath: '/static/dist/',
         clean: true,
     },
     plugins: [
