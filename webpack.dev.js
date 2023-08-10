@@ -1,7 +1,7 @@
 const path = require('path')
 
 const Dotenv = require('dotenv-webpack')
-const { mergeWithRules } = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
@@ -32,17 +32,4 @@ const devConfig = {
     ],
 }
 
-const rules = {
-    module: {
-        rules: {
-            test: 'match',
-            include: 'match',
-            use: {
-                loader: 'match',
-                options: 'replace',
-            },
-        },
-    },
-}
-
-module.exports = mergeWithRules(rules)(commonConfig, devConfig)
+module.exports = merge(commonConfig, devConfig)
