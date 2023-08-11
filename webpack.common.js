@@ -81,8 +81,20 @@ const commonConfig = {
                     implementation: ImageMinimizerPlugin.sharpMinify,
                     options: {
                         encodeOptions: {
-                            jpeg: { quality: 100 },
-                            png: { quality: 100 },
+                            gif: {
+                                progressive: true,
+                                reuse: false,
+                            },
+                            jpeg: {
+                                compressionLevel: 9,
+                                mozjpeg: true,
+                                quality: 90,
+                            },
+                            png: {
+                                compressionLevel: 9,
+                                progressive: true,
+                                quality: 95,
+                            },
                         },
                     },
                 },
