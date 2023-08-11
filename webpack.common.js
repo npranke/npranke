@@ -62,9 +62,15 @@ const commonConfig = {
             chunks: 'all',
             name: false,
             cacheGroups: {
+                react: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    name: 'react-app',
+                    enforce: true,
+                },
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
-                    name: 'venders-app',
+                    name: 'vendors-app',
+                    enforce: true,
                 },
             },
         },
