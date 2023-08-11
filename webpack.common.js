@@ -49,6 +49,11 @@ const commonConfig = {
     node: {
         global: false,
     },
+    output: {
+        path: paths.DIST,
+        publicPath: '',
+        clean: true,
+    },
     optimization: {
         runtimeChunk: {
             name: (entrypoint) => { return `runtime-${entrypoint.name}` },
@@ -74,7 +79,7 @@ const commonConfig = {
                             png: { quality: 100 },
                         },
                     },
-                }
+                },
             }),
         ],
     },

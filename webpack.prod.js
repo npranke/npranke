@@ -1,5 +1,3 @@
-const path = require('path')
-
 const CompressionPlugin = require('compression-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const { merge } = require('webpack-merge')
@@ -8,17 +6,12 @@ const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
-const commonConfig = require('./webpack.common.js')
-
-const paths = {
-    DIST: path.resolve(__dirname, 'static/dist'),
-    IMG: path.resolve(__dirname, 'static/img'),
-}
+const commonConfig = require('./webpack.common')
 
 const prodConfig = {
     mode: 'production',
     optimization: {
-         minimizer: [
+        minimizer: [
             new TerserPlugin({ extractComments: false }),
             new CssMinimizerPlugin(),
         ],
@@ -26,9 +19,6 @@ const prodConfig = {
     output: {
         filename: '[contenthash].bundle.js?name=[name].js',
         assetModuleFilename: '[contenthash][ext]',
-        path: paths.DIST,
-        publicPath: '/static/dist/',
-        clean: true,
     },
     plugins: [
         new webpack.EnvironmentPlugin({ GA: null }),
