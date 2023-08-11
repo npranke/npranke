@@ -100,7 +100,14 @@ const commonConfig = {
         },
         extensions: ['.js', '.jsx'],
     },
-    stats: { children: false },
+    stats: {
+        assets: true,
+        assetsSort: '!size',
+        assetsSpace: 1000,
+        cachedAssets: true,
+        entrypoints: true,
+        modules: false,
+    },
 }
 
 module.exports = commonConfig
