@@ -43,6 +43,9 @@ const commonConfig = {
                 test: /\.(gif|png|jp(e)?g|svg)$/,
                 include: paths.IMG,
                 type: 'asset/resource',
+                generator: {
+                    publicPath: '/static/dist/',
+                },
             },
         ],
     },
@@ -60,7 +63,6 @@ const commonConfig = {
         },
         splitChunks: {
             chunks: 'all',
-            name: false,
             cacheGroups: {
                 react: {
                     test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
