@@ -1,38 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConcentrationInfo snapshot matches snapshot 1`] = `
-<div
-  className="concetration-info"
->
-  <p>
-    Concentration is a picture matching memory game.
-  </p>
-  <p>
-    Click on the tiles to reveal matching pictures. Find all 12 matches as quickly as you can.
-  </p>
-  <p>
-    Concentration is built with images from NASA’s Mars Exploration Program. The picture on the back of each tile was taken with the hazard avoidance camera on the Mars Rover Opportunity. The matching pictures on the tiles were taken with various instruments on the Mars Reconnaissance Orbiter. Learn more about Opportunity, the MRO, and other Mars missions by visiting 
-    <a
-      href="https://mars.nasa.gov"
-      onClick={[Function]}
-      rel="noreferrer noopener external"
-      target="_blank"
-    >
-      NASA’s Mars Exploration Program
-    </a>
-    .
-  </p>
-  <p>
-    The images used in Concentration are courtesy of NASA/JPL-Caltech. Discover more images by visiting the 
-    <a
-      href="https://www.jpl.nasa.gov/images"
-      onClick={[Function]}
-      rel="noreferrer noopener external"
-      target="_blank"
-    >
-      JPL Image Gallery
-    </a>
-    .
-  </p>
-</div>
+<DocumentFragment>
+  <div
+    class="concetration-info"
+  >
+    <p>
+      Concentration is a picture matching memory game.
+    </p>
+    <p>
+      Click on the tiles to reveal matching pictures. Find all 12 matches as quickly as you can.
+    </p>
+    <p>
+      Concentration is built with images from NASA’s Mars Exploration Program. The picture on the back of each tile was taken with the hazard avoidance camera on the Mars Rover Opportunity. The matching pictures on the tiles were taken with various instruments on the Mars Reconnaissance Orbiter. Learn more about Opportunity, the MRO, and other Mars missions by visiting 
+      <a
+        href="https://mars.nasa.gov"
+        rel="noreferrer noopener external"
+        target="_blank"
+      >
+        NASA’s Mars Exploration Program
+      </a>
+      .
+    </p>
+    <p>
+      The images used in Concentration are courtesy of NASA/JPL-Caltech. Discover more images by visiting the 
+      <a
+        href="https://www.jpl.nasa.gov/images"
+        rel="noreferrer noopener external"
+        target="_blank"
+      >
+        JPL Image Gallery
+      </a>
+      .
+    </p>
+  </div>
+</DocumentFragment>
 `;

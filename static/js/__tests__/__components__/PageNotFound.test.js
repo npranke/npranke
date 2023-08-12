@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
 import React from 'react'
+import { render } from '@testing-library/react'
 
 import PageNotFound from '@components/PageNotFound'
 
@@ -50,8 +51,8 @@ describe('PageNotFound', () => {
 
 describe('PageNotFound snapshot', () => {
     test('matches snapshot', () => {
-        const pageNotFound = shallow(<PageNotFound />)
+        const { asFragment } = render(<PageNotFound />)
 
-        expect(pageNotFound).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

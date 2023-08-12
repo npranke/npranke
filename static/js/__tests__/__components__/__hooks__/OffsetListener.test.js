@@ -1,7 +1,7 @@
-import { act } from 'react-dom/test-utils'
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount } from 'enzyme'
 import React from 'react'
+import { act, render } from '@testing-library/react'
 
 import ComponentUseOffsetListenerMock from
     '@__mocks__/ComponentUseOffsetListenerMock'
@@ -141,17 +141,17 @@ describe('OffsetListener', () => {
 
 describe('OffsetListener snapshot', () => {
     test('matches snapshot without elementRef.current', () => {
-        const component = mount(
+        const { asFragment } = render(
             <ComponentUseOffsetListenerMock
                 elementRef={ {} }
             />,
         )
 
-        expect(component).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 
     test('matches snapshot with elementRef.current', () => {
-        const component = mount(
+        const { asFragment } = render(
             <ComponentUseOffsetListenerMock
                 elementRef={ {
                     current: {
@@ -162,6 +162,6 @@ describe('OffsetListener snapshot', () => {
             />,
         )
 
-        expect(component).toMatchSnapshot()
+        expect(asFragment()).toMatchSnapshot()
     })
 })

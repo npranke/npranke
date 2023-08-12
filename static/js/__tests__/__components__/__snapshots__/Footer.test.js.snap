@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer snapshot matches snapshot 1`] = `
-<footer
-  className="footer"
-  role="contentinfo"
->
-  <div
-    className="copyright"
+<DocumentFragment>
+  <footer
+    class="footer"
+    role="contentinfo"
   >
-    © 2017-
-    2023
-     Nicole Pranke
-  </div>
-</footer>
+    <div
+      class="copyright"
+    >
+      © 2017-2023 Nicole Pranke
+    </div>
+  </footer>
+</DocumentFragment>
 `;

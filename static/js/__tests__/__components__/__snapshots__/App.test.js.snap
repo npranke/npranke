@@ -1,63 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App snapshot matches snapshot 1`] = `
-<div
-  className="app"
->
-  <Background />
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path={
-        Array [
-          "/",
-          "/home",
-          "/workbook",
-          "/workbook/concentration",
-          "/workbook/tower",
-        ]
-      }
-      strict={true}
-    />
-    <Route
-      render={[Function]}
-    />
-  </Switch>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path={
-        Array [
-          "/",
-          "/home",
-        ]
-      }
-      strict={true}
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/workbook"
-      strict={true}
-    />
-    <Route
-      exact={true}
-      path="/workbook/concentration"
-      render={[Function]}
-      strict={true}
-    />
-    <Route
-      exact={true}
-      path="/workbook/tower"
-      render={[Function]}
-      strict={true}
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
-  <Footer />
-</div>
+<DocumentFragment>
+  <div
+    class="app"
+  >
+    <picture>
+      <source
+        media="(orientation: portrait)"
+        srcset="image-mock"
+      />
+      <img
+        alt="Conifer in Colorado landscape"
+        class="background"
+        src="image-mock"
+      />
+    </picture>
+    <nav
+      class="header"
+    >
+      <div
+        class="left-header"
+      >
+        <div
+          class="icon-container icon-container-home"
+        >
+          <a
+            aria-label="Home"
+            class="navlink navlink-home"
+            href="/home"
+            rel="noreferrer"
+            target="_self"
+            title="Home"
+          >
+            <img
+              alt="Home icon"
+              class="icon icon-home"
+              src="image-mock"
+            />
+          </a>
+        </div>
+      </div>
+      <div
+        class="right-header"
+      >
+        <div
+          class="icon-container icon-container-workbook"
+        >
+          <a
+            aria-label="Workbook"
+            class="navlink navlink-workbook"
+            href="/workbook"
+            rel="noreferrer"
+            target="_self"
+            title="Workbook"
+          >
+            <img
+              alt="Workbook icon"
+              class="icon icon-workbook"
+              src="image-mock"
+            />
+          </a>
+        </div>
+        <div
+          class="icon-container icon-container-github"
+        >
+          <a
+            aria-label="GitHub"
+            href="https://github.com/npranke"
+            rel="noreferrer noopener external"
+            target="_blank"
+            title="GitHub"
+          >
+            <img
+              alt="GitHub icon"
+              class="icon icon-github"
+              src="image-mock"
+            />
+          </a>
+        </div>
+        <div
+          class="icon-container icon-container-linkedin"
+        >
+          <a
+            aria-label="LinkedIn"
+            href="https://www.linkedin.com/in/npranke"
+            rel="noreferrer noopener external"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <img
+              alt="LinkedIn icon"
+              class="icon icon-linkedin"
+              src="image-mock"
+            />
+          </a>
+        </div>
+      </div>
+    </nav>
+    <main
+      class="welcome"
+    >
+      <div
+        class="intro"
+      >
+        Welcome! 
+        <br />
+        My name is Nicole; I’m a software engineer.
+      </div>
+      <div
+        class="button-workbook"
+      >
+        <a
+          href="/workbook"
+          rel="noreferrer"
+          target="_self"
+        >
+          <img
+            alt="Workbook icon"
+            class="icon icon-workbook"
+            src="image-mock"
+          />
+          <span
+            class="text-workbook"
+          >
+            Workbook
+          </span>
+        </a>
+      </div>
+    </main>
+    <footer
+      class="footer"
+      role="contentinfo"
+    >
+      <div
+        class="copyright"
+      >
+        © 2017-2023 Nicole Pranke
+      </div>
+    </footer>
+  </div>
+</DocumentFragment>
 `;

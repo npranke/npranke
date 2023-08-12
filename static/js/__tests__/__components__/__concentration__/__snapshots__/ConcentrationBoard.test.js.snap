@@ -1,1109 +1,291 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConcentrationBoard snapshot matches snapshot when isPortrait 1`] = `
-<div
-  className="board"
->
+<DocumentFragment>
   <div
-    className="board-row-wrapper"
+    class="board"
   >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture0-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "0-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "0",
-            },
-          },
-          Object {
-            "picture1-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "1-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "1",
-            },
-          },
-          Object {
-            "picture2-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "2-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "2",
-            },
-          },
-          Object {
-            "picture3-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "3-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "3",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
   </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture4-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "4-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "4",
-            },
-          },
-          Object {
-            "picture5-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "5-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "5",
-            },
-          },
-          Object {
-            "picture6-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "6-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "6",
-            },
-          },
-          Object {
-            "picture7-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "7-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "7",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture8-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "8-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "8",
-            },
-          },
-          Object {
-            "picture9-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "9-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "9",
-            },
-          },
-          Object {
-            "picture10-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "10-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "10",
-            },
-          },
-          Object {
-            "picture11-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "11-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "11",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture0-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "0-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "0",
-            },
-          },
-          Object {
-            "picture1-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "1-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "1",
-            },
-          },
-          Object {
-            "picture2-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "2-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "2",
-            },
-          },
-          Object {
-            "picture3-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "3-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "3",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture4-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "4-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "4",
-            },
-          },
-          Object {
-            "picture5-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "5-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "5",
-            },
-          },
-          Object {
-            "picture6-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "6-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "6",
-            },
-          },
-          Object {
-            "picture7-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "7-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "7",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture8-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "8-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "8",
-            },
-          },
-          Object {
-            "picture9-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "9-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "9",
-            },
-          },
-          Object {
-            "picture10-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "10-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "10",
-            },
-          },
-          Object {
-            "picture11-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "11-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "11",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`ConcentrationBoard snapshot matches snapshot when not isPortrait 1`] = `
-<div
-  className="board"
->
+<DocumentFragment>
   <div
-    className="board-row-wrapper"
+    class="board"
   >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture0-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "0-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "0",
-            },
-          },
-          Object {
-            "picture1-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "1-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "1",
-            },
-          },
-          Object {
-            "picture2-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "2-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "2",
-            },
-          },
-          Object {
-            "picture3-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "3-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "3",
-            },
-          },
-          Object {
-            "picture4-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "4-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "4",
-            },
-          },
-          Object {
-            "picture5-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "5-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "5",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
+    <div
+      class="board-row-wrapper"
+    >
+      <div
+        class="board-row"
+      >
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+    </div>
   </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture6-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "6-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "6",
-            },
-          },
-          Object {
-            "picture7-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "7-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "7",
-            },
-          },
-          Object {
-            "picture8-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "8-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "8",
-            },
-          },
-          Object {
-            "picture9-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "9-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "9",
-            },
-          },
-          Object {
-            "picture10-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "10-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "10",
-            },
-          },
-          Object {
-            "picture11-a": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "11-a",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "11",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture0-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "0-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "0",
-            },
-          },
-          Object {
-            "picture1-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "1-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "1",
-            },
-          },
-          Object {
-            "picture2-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "2-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "2",
-            },
-          },
-          Object {
-            "picture3-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "3-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "3",
-            },
-          },
-          Object {
-            "picture4-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "4-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "4",
-            },
-          },
-          Object {
-            "picture5-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "5-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "5",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-  <div
-    className="board-row-wrapper"
-  >
-    <ConcentrationBoardRow
-      first={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-      matches={Array []}
-      pictures={
-        Array [
-          Object {
-            "picture6-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "6-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "6",
-            },
-          },
-          Object {
-            "picture7-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "7-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "7",
-            },
-          },
-          Object {
-            "picture8-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "8-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "8",
-            },
-          },
-          Object {
-            "picture9-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "9-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "9",
-            },
-          },
-          Object {
-            "picture10-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "10-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "10",
-            },
-          },
-          Object {
-            "picture11-b": Object {
-              "back": <img
-                alt=""
-                src=""
-              />,
-              "front": <img
-                alt=""
-                src=""
-              />,
-              "id": "11-b",
-              "matched": <img
-                alt=""
-                src=""
-              />,
-              "pictureid": "11",
-            },
-          },
-        ]
-      }
-      second={
-        Object {
-          "id": null,
-          "pictureid": null,
-        }
-      }
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;

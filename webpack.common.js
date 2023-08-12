@@ -1,7 +1,9 @@
 const path = require('path')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
 const paths = {
     __MOCKS__: path.resolve(__dirname, 'static/js/__mocks__'),
@@ -24,8 +26,12 @@ const commonConfig = {
             {
                 test: /\.js(x)?$/,
                 include: paths.JS,
-                loader: 'babel-loader',
-                options: { cacheDirectory: true },
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: { cacheDirectory: true },
+                    },
+                ],
             },
             {
                 test: /\.css$/,
@@ -38,36 +44,79 @@ const commonConfig = {
             {
                 test: /\.(gif|png|jp(e)?g|svg)$/,
                 include: paths.IMG,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[contenthash].[ext]',
-                            publicPath: '/static/dist/',
-                        },
-                    },
-                    'image-webpack-loader',
-                ],
+                type: 'asset/resource',
+                generator: {
+                    publicPath: '/static/dist/',
+                },
             },
         ],
     },
     node: {
         global: false,
     },
+    output: {
+        path: paths.DIST,
+        publicPath: '',
+        clean: true,
+    },
     optimization: {
         runtimeChunk: {
             name: (entrypoint) => { return `runtime-${entrypoint.name}` },
         },
         splitChunks: {
-            automaticNameDelimiter: '-',
             chunks: 'all',
-            name: true,
+            name: false,
+            cacheGroups: {
+                react: {
+                    test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                    name: 'react-app',
+                    enforce: true,
+                    priority: 2,
+                },
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors-app',
+                    enforce: true,
+                    priority: 1,
+                },
+            },
         },
+        minimize: true,
+        minimizer: [
+            new ImageMinimizerPlugin({
+                minimizer: {
+                    implementation: ImageMinimizerPlugin.sharpMinify,
+                    options: {
+                        encodeOptions: {
+                            gif: {
+                                progressive: true,
+                                reuse: false,
+                            },
+                            jpeg: {
+                                compressionLevel: 9,
+                                mozjpeg: true,
+                                quality: 90,
+                            },
+                            png: {
+                                compressionLevel: 9,
+                                progressive: true,
+                                quality: 95,
+                            },
+                        },
+                    },
+                },
+            }),
+        ],
     },
     plugins: [
-        new CleanWebpackPlugin({
-            cleanStaleWebpackAssets: false,
-            verbose: true,
+        new CompressionPlugin({
+            test: /\.(css|js)$/,
+            algorithm: 'brotliCompress',
+            filename: '[base].br',
+            deleteOriginalAssets: false,
+        }),
+        new WebpackManifestPlugin({
+            fileName: 'webpack-manifest.json',
         }),
     ],
     resolve: {
@@ -81,7 +130,15 @@ const commonConfig = {
         },
         extensions: ['.js', '.jsx'],
     },
-    stats: { children: false },
+    stats: {
+        assets: true,
+        assetsSort: '!size',
+        assetsSpace: 1000,
+        cachedAssets: true,
+        entrypoints: true,
+        modules: false,
+        relatedAssets: true,
+    },
 }
 
 module.exports = commonConfig

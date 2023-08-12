@@ -1,319 +1,281 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
-<main
-  className="workbook"
->
-  <table
-    className="table-workbook"
-    role="grid"
+<DocumentFragment>
+  <main
+    class="workbook"
   >
-    <tbody
-      className="table-body-workbook"
+    <table
+      class="table-workbook"
+      role="grid"
     >
-      <tr
-        className="table-row-workbook"
+      <tbody
+        class="table-body-workbook"
       >
-        <td
-          className="table-cell-workbook"
-          id="workbook-worksheet-concentration"
-          onKeyUp={[Function]}
-          role="gridcell"
+        <tr
+          class="table-row-workbook"
         >
-          <Link
-            innerRef={
-              Object {
-                "current": null,
-              }
-            }
-            onClick={[Function]}
-            rel="noreferrer"
-            target="_self"
-            to="/workbook/concentration"
+          <td
+            class="table-cell-workbook"
+            id="workbook-worksheet-concentration"
+            role="gridcell"
           >
-            <div
-              className="button-worksheet-container"
+            <a
+              href="/workbook/concentration"
+              rel="noreferrer"
+              target="_self"
             >
-              <span
-                className="button-worksheet-wrapper"
+              <div
+                class="button-worksheet-container"
               >
                 <span
-                  className="button-worksheet"
+                  class="button-worksheet-wrapper"
                 >
                   <span
-                    className="button-worksheet-inner"
+                    class="button-worksheet"
                   >
-                    <img
-                      alt="Concentration icon"
-                      className="icon icon-concentration"
-                      src="image-mock"
-                    />
                     <span
-                      className="text-worksheet"
+                      class="button-worksheet-inner"
                     >
-                      Concentration
+                      <img
+                        alt="Concentration icon"
+                        class="icon icon-concentration"
+                        src="image-mock"
+                      />
+                      <span
+                        class="text-worksheet"
+                      >
+                        Concentration
+                      </span>
                     </span>
                   </span>
                 </span>
-              </span>
-            </div>
-          </Link>
-        </td>
-      </tr>
-      <tr
-        className="table-row-workbook"
-      >
-        <td
-          className="table-cell-workbook"
-          id="workbook-worksheet-tower"
-          onKeyUp={[Function]}
-          role="gridcell"
+              </div>
+            </a>
+          </td>
+        </tr>
+        <tr
+          class="table-row-workbook"
         >
-          <Link
-            innerRef={
-              Object {
-                "current": null,
-              }
-            }
-            onClick={[Function]}
-            rel="noreferrer"
-            target="_self"
-            to="/workbook/tower"
+          <td
+            class="table-cell-workbook"
+            id="workbook-worksheet-tower"
+            role="gridcell"
           >
-            <div
-              className="button-worksheet-container"
+            <a
+              href="/workbook/tower"
+              rel="noreferrer"
+              target="_self"
             >
-              <span
-                className="button-worksheet-wrapper"
+              <div
+                class="button-worksheet-container"
               >
                 <span
-                  className="button-worksheet"
+                  class="button-worksheet-wrapper"
                 >
                   <span
-                    className="button-worksheet-inner"
+                    class="button-worksheet"
                   >
-                    <img
-                      alt="Tower icon"
-                      className="icon icon-tower"
-                      src="image-mock"
-                    />
                     <span
-                      className="text-worksheet"
+                      class="button-worksheet-inner"
                     >
-                      Tower
+                      <img
+                        alt="Tower icon"
+                        class="icon icon-tower"
+                        src="image-mock"
+                      />
+                      <span
+                        class="text-worksheet"
+                      >
+                        Tower
+                      </span>
                     </span>
                   </span>
                 </span>
-              </span>
-            </div>
-          </Link>
-        </td>
-      </tr>
-      <tr
-        className="table-row-workbook"
-      >
-        <td
-          className="table-cell-workbook"
-          id="workbook-worksheet"
-          onKeyUp={[Function]}
-          role="gridcell"
+              </div>
+            </a>
+          </td>
+        </tr>
+        <tr
+          class="table-row-workbook"
         >
-          <Link
-            innerRef={
-              Object {
-                "current": null,
-              }
-            }
-            onClick={[Function]}
-            rel="noreferrer"
-            target="_self"
-            to="/workbook"
+          <td
+            class="table-cell-workbook"
+            id="workbook-worksheet"
+            role="gridcell"
           >
-            <div
-              className="button-worksheet-container"
+            <a
+              href="/workbook"
+              rel="noreferrer"
+              target="_self"
             >
-              <span
-                className="button-worksheet-wrapper"
+              <div
+                class="button-worksheet-container"
               >
                 <span
-                  className="button-worksheet"
+                  class="button-worksheet-wrapper"
                 >
                   <span
-                    className="button-worksheet-inner"
+                    class="button-worksheet"
                   >
-                    <img
-                      alt="Worksheet icon"
-                      className="icon icon-worksheet"
-                      src="image-mock"
-                    />
                     <span
-                      className="text-worksheet"
+                      class="button-worksheet-inner"
                     >
-                      Worksheet
+                      <img
+                        alt="Worksheet icon"
+                        class="icon icon-worksheet"
+                        src="image-mock"
+                      />
+                      <span
+                        class="text-worksheet"
+                      >
+                        Worksheet
+                      </span>
                     </span>
                   </span>
                 </span>
-              </span>
-            </div>
-          </Link>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</main>
+              </div>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</DocumentFragment>
 `;
 
 exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
-<main
-  className="workbook"
->
-  <table
-    className="table-workbook"
-    role="grid"
+<DocumentFragment>
+  <main
+    class="workbook"
   >
-    <tbody
-      className="table-body-workbook"
+    <table
+      class="table-workbook"
+      role="grid"
     >
-      <tr
-        className="table-row-workbook"
+      <tbody
+        class="table-body-workbook"
       >
-        <td
-          className="table-cell-workbook"
-          id="workbook-worksheet-concentration"
-          onKeyUp={[Function]}
-          role="gridcell"
+        <tr
+          class="table-row-workbook"
         >
-          <Link
-            innerRef={
-              Object {
-                "current": null,
-              }
-            }
-            onClick={[Function]}
-            rel="noreferrer"
-            target="_self"
-            to="/workbook/concentration"
+          <td
+            class="table-cell-workbook"
+            id="workbook-worksheet-concentration"
+            role="gridcell"
           >
-            <div
-              className="button-worksheet-container"
+            <a
+              href="/workbook/concentration"
+              rel="noreferrer"
+              target="_self"
             >
-              <span
-                className="button-worksheet-wrapper"
+              <div
+                class="button-worksheet-container"
               >
                 <span
-                  className="button-worksheet"
+                  class="button-worksheet-wrapper"
                 >
                   <span
-                    className="button-worksheet-inner"
+                    class="button-worksheet"
                   >
-                    <img
-                      alt="Concentration icon"
-                      className="icon icon-concentration"
-                      src="image-mock"
-                    />
                     <span
-                      className="text-worksheet"
+                      class="button-worksheet-inner"
                     >
-                      Concentration
+                      <img
+                        alt="Concentration icon"
+                        class="icon icon-concentration"
+                        src="image-mock"
+                      />
+                      <span
+                        class="text-worksheet"
+                      >
+                        Concentration
+                      </span>
                     </span>
                   </span>
                 </span>
-              </span>
-            </div>
-          </Link>
-        </td>
-        <td
-          className="table-cell-workbook"
-          id="workbook-worksheet-tower"
-          onKeyUp={[Function]}
-          role="gridcell"
-        >
-          <Link
-            innerRef={
-              Object {
-                "current": null,
-              }
-            }
-            onClick={[Function]}
-            rel="noreferrer"
-            target="_self"
-            to="/workbook/tower"
+              </div>
+            </a>
+          </td>
+          <td
+            class="table-cell-workbook"
+            id="workbook-worksheet-tower"
+            role="gridcell"
           >
-            <div
-              className="button-worksheet-container"
+            <a
+              href="/workbook/tower"
+              rel="noreferrer"
+              target="_self"
             >
-              <span
-                className="button-worksheet-wrapper"
+              <div
+                class="button-worksheet-container"
               >
                 <span
-                  className="button-worksheet"
+                  class="button-worksheet-wrapper"
                 >
                   <span
-                    className="button-worksheet-inner"
+                    class="button-worksheet"
                   >
-                    <img
-                      alt="Tower icon"
-                      className="icon icon-tower"
-                      src="image-mock"
-                    />
                     <span
-                      className="text-worksheet"
+                      class="button-worksheet-inner"
                     >
-                      Tower
+                      <img
+                        alt="Tower icon"
+                        class="icon icon-tower"
+                        src="image-mock"
+                      />
+                      <span
+                        class="text-worksheet"
+                      >
+                        Tower
+                      </span>
                     </span>
                   </span>
                 </span>
-              </span>
-            </div>
-          </Link>
-        </td>
-        <td
-          className="table-cell-workbook"
-          id="workbook-worksheet"
-          onKeyUp={[Function]}
-          role="gridcell"
-        >
-          <Link
-            innerRef={
-              Object {
-                "current": null,
-              }
-            }
-            onClick={[Function]}
-            rel="noreferrer"
-            target="_self"
-            to="/workbook"
+              </div>
+            </a>
+          </td>
+          <td
+            class="table-cell-workbook"
+            id="workbook-worksheet"
+            role="gridcell"
           >
-            <div
-              className="button-worksheet-container"
+            <a
+              href="/workbook"
+              rel="noreferrer"
+              target="_self"
             >
-              <span
-                className="button-worksheet-wrapper"
+              <div
+                class="button-worksheet-container"
               >
                 <span
-                  className="button-worksheet"
+                  class="button-worksheet-wrapper"
                 >
                   <span
-                    className="button-worksheet-inner"
+                    class="button-worksheet"
                   >
-                    <img
-                      alt="Worksheet icon"
-                      className="icon icon-worksheet"
-                      src="image-mock"
-                    />
                     <span
-                      className="text-worksheet"
+                      class="button-worksheet-inner"
                     >
-                      Worksheet
+                      <img
+                        alt="Worksheet icon"
+                        class="icon icon-worksheet"
+                        src="image-mock"
+                      />
+                      <span
+                        class="text-worksheet"
+                      >
+                        Worksheet
+                      </span>
                     </span>
                   </span>
                 </span>
-              </span>
-            </div>
-          </Link>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</main>
+              </div>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</DocumentFragment>
 `;

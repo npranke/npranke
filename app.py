@@ -97,14 +97,16 @@ def bundle(asset=None):
     accepted_encodings = flask.request.headers.get("Accept-Encoding", "")
 
     if BROTLI.code in accepted_encodings:
-        compressed_asset = "{0}.{1}".format(asset, BROTLI.ext)
-        with app.open_resource(
-            "static/dist/webpack-manifest.json",
-        ) as file:
-            manifest = flask.json.load(file)
-            if compressed_asset in manifest.values():
-                asset_to_serve = compressed_asset
-                asset_encoding = BROTLI.code
+        brotli_asset = "{0}.{1}".format(asset, BROTLI.ext)
+        brotli_asset_path = os.path.join(
+            app.root_path,
+            "static",
+            "dist",
+            brotli_asset,
+        )
+        if os.path.exists(brotli_asset_path):
+            asset_to_serve = brotli_asset
+            asset_encoding = BROTLI.code
 
     resp = flask.send_from_directory(
         os.path.join(app.root_path, "static", "dist"),
