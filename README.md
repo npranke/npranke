@@ -1,7 +1,7 @@
 <details>
 <summary>
 
-#### ![npranke](static/readme-icon.svg) readme
+#### &hairsp; ![npranke](static/readme-icon.svg)&hairsp; README
 </summary>
 
 # npranke
