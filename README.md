@@ -1,8 +1,7 @@
 <details>
 <summary>
 
-![npranke](static/mask-icon.svg) readme
-
+![npranke](static/readme-icon.svg) readme
 </summary>
 
 # npranke
