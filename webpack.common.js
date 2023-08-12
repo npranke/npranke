@@ -65,16 +65,19 @@ const commonConfig = {
         },
         splitChunks: {
             chunks: 'all',
+            name: false,
             cacheGroups: {
                 react: {
                     test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
                     name: 'react-app',
                     enforce: true,
+                    priority: 2,
                 },
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendors-app',
                     enforce: true,
+                    priority: 1,
                 },
             },
         },
