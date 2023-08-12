@@ -1,7 +1,6 @@
 const Dotenv = require('dotenv-webpack')
 const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
 const commonConfig = require('./webpack.common')
 
@@ -16,9 +15,6 @@ const devConfig = {
         new Dotenv(),
         new MiniCssExtractPlugin({
             filename: '[name]-[contenthash].bundle.css',
-        }),
-        new WebpackManifestPlugin({
-            fileName: 'webpack-manifest.json',
         }),
     ],
 }

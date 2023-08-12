@@ -1,7 +1,9 @@
 const path = require('path')
 
+const CompressionPlugin = require('compression-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
 const paths = {
     __MOCKS__: path.resolve(__dirname, 'static/js/__mocks__'),
@@ -103,6 +105,17 @@ const commonConfig = {
             }),
         ],
     },
+    plugins: [
+        new CompressionPlugin({
+            test: /\.(css|js)$/,
+            algorithm: 'brotliCompress',
+            filename: '[base].br',
+            deleteOriginalAssets: false,
+        }),
+        new WebpackManifestPlugin({
+            fileName: 'webpack-manifest.json',
+        }),
+    ],
     resolve: {
         alias: {
             '@__mocks__': paths.__MOCKS__,
