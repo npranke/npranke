@@ -1,10 +1,8 @@
-Welcome!
-
 <details>
-    <summary>project space details</summary>
+    <summary>npranke readme</summary>
 
 # npranke
-My name is Nicole; I'm a software engineer.
+Welcome! My name is Nicole; I'm a software engineer.
 
 ## workbook
 ### concentration
