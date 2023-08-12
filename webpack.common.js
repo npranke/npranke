@@ -119,6 +119,7 @@ const commonConfig = {
         cachedAssets: true,
         entrypoints: true,
         modules: false,
+        relatedAssets: true,
     },
 }
 
