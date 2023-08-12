@@ -1,5 +1,5 @@
 <details>
-    <summary>npranke readme</summary>
+    <summary>![npranke](static/mask-icon.svg) readme</summary>
 
 # npranke
 Welcome! My name is Nicole; I'm a software engineer.
