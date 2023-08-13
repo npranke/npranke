@@ -1,3 +1,9 @@
+<details>
+<summary>
+
+### &hairsp; ![npranke](static/readme-icon.svg) &hairsp; <ins>README</ins>
+</summary>
+
 # npranke
 Welcome! My name is Nicole; I'm a software engineer.
 
@@ -6,3 +12,4 @@ Welcome! My name is Nicole; I'm a software engineer.
 Concentration is a picture matching memory game.
 ### tower
 Tower is an implementation of the Tower of Hanoi puzzle.
+</details>
