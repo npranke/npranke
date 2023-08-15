@@ -1,11 +1,11 @@
 <details>
 <summary>
 
-### &hairsp; ![npranke](static/readme-icon.svg) &hairsp; <ins>README</ins>
+##### &hairsp; <ins>README</ins>
 </summary>
 
 # npranke
-Welcome! My name is Nicole; I'm a software engineer.
+Welcome, I'm Nicole. `npranke` is my project space.
 
 ## workbook
 ### concentration
