@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
+import { CompatRouter } from 'react-router-dom-v5-compat'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -8,7 +9,9 @@ import '@css/app.css'
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <CompatRouter>
+            <App />
+        </CompatRouter>
     </BrowserRouter>,
     document.getElementById('app'),
 )
