@@ -16,7 +16,7 @@ tinydb = "~=4.8"
 
 [dev-packages]
 
-ruff = "~=0.0.282"
+ruff = "~=0.0.285"
 
 
 [requires]
