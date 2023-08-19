@@ -24,7 +24,10 @@ describe('Workbook', () => {
     })
 
     test('sets document title', () => {
-        shallow(<Workbook />)
+        mount(
+            <Workbook />,
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        )
 
         expect(document.title).toContain('workbook')
     })
@@ -32,7 +35,10 @@ describe('Workbook', () => {
     test('sends pageview', () => {
         utils.sendPageview = jest.fn()
 
-        shallow(<Workbook />)
+        mount(
+            <Workbook />,
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        )
 
         expect(utils.sendPageview).toHaveBeenCalledTimes(1)
     })
