@@ -1,4 +1,5 @@
 import Adapter from 'enzyme-adapter-react-16'
+import { CompatRouter } from 'react-router-dom-v5-compat'
 import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
@@ -43,15 +44,47 @@ describe('App', () => {
         const app = shallow(<App />)
 
         expect(
-            app.find('Route'),
-        ).toHaveLength(7)
+            app.find('CompatRoute'),
+        ).toHaveLength(12)
     })
 
-    test('contains route with header component', () => {
+    test('contains route with header at /', () => {
         const app = shallow(<App />)
 
         expect(
-            app.find('Route').at(0).props().component,
+            app.find('CompatRoute').at(0).props().component,
+        ).toEqual(Header)
+    })
+
+    test('contains route with header at /home', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('CompatRoute').at(1).props().component,
+        ).toEqual(Header)
+    })
+
+    test('contains route with header at /workbook', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('CompatRoute').at(2).props().component,
+        ).toEqual(Header)
+    })
+
+    test('contains route with header at /workbook/concentration ', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('CompatRoute').at(3).props().component,
+        ).toEqual(Header)
+    })
+
+    test('contains route with header at /workbook/tower ', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('CompatRoute').at(4).props().component,
         ).toEqual(Header)
     })
 
@@ -59,7 +92,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const header = mount(
-            app.find('Route').at(1).props().render(),
+            app.find('CompatRoute').at(5).props().render(),
             { wrappingComponent: MemoryRouter },
         )
 
@@ -73,11 +106,19 @@ describe('App', () => {
         ).toEqual(expected.html())
     })
 
-    test('contains route with welcome component', () => {
+    test('contains route with welcome component at /', () => {
         const app = shallow(<App />)
 
         expect(
-            app.find('Route').at(2).props().component,
+            app.find('CompatRoute').at(6).props().component,
+        ).toEqual(Welcome)
+    })
+
+    test('contains route with welcome component at /home', () => {
+        const app = shallow(<App />)
+
+        expect(
+            app.find('CompatRoute').at(7).props().component,
         ).toEqual(Welcome)
     })
 
@@ -85,7 +126,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         expect(
-            app.find('Route').at(3).props().component,
+            app.find('CompatRoute').at(8).props().component,
         ).toEqual(Workbook)
     })
 
@@ -93,7 +134,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('Route').at(4).props().render(
+            app.find('CompatRoute').at(9).props().render(
                 { location: { hash: '' } },
             ),
             { wrappingComponent: MemoryRouter },
@@ -116,7 +157,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('Route').at(4).props().render(
+            app.find('CompatRoute').at(9).props().render(
                 { location: { hash: '#info' } },
             ),
             { wrappingComponent: MemoryRouter },
@@ -139,7 +180,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('Route').at(4).props().render(
+            app.find('CompatRoute').at(9).props().render(
                 { location: { hash: '#gist' } },
             ),
             { wrappingComponent: MemoryRouter },
@@ -162,7 +203,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('Route').at(5).props().render(
+            app.find('CompatRoute').at(10).props().render(
                 { location: { hash: '' } },
             ),
             { wrappingComponent: MemoryRouter },
@@ -185,7 +226,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('Route').at(5).props().render(
+            app.find('CompatRoute').at(10).props().render(
                 { location: { hash: '#info' } },
             ),
             { wrappingComponent: MemoryRouter },
@@ -208,7 +249,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('Route').at(5).props().render(
+            app.find('CompatRoute').at(10).props().render(
                 { location: { hash: '#gist' } },
             ),
             { wrappingComponent: MemoryRouter },
@@ -231,7 +272,7 @@ describe('App', () => {
         const app = shallow(<App />)
 
         expect(
-            app.find('Route').at(6).props().component,
+            app.find('CompatRoute').at(11).props().component,
         ).toEqual(PageNotFound)
     })
 
@@ -248,7 +289,9 @@ describe('App snapshot', () => {
     test('matches snapshot', () => {
         const { asFragment } = render(
             <MemoryRouter>
-                <App />
+                <CompatRouter>
+                    <App />
+                </CompatRouter>
             </MemoryRouter>,
         )
 

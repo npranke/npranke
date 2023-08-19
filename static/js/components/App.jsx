@@ -1,5 +1,6 @@
+import { CompatRoute } from 'react-router-dom-v5-compat'
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
 import Background from '@components/Background'
 import Footer from '@components/Footer'
@@ -18,38 +19,64 @@ function App() {
         <div className="app">
             <Background />
             <Switch>
-                <Route
+                <CompatRoute
                     exact
                     strict
-                    path={ [
-                        '/',
-                        '/home',
-                        '/workbook',
-                        '/workbook/concentration',
-                        '/workbook/tower',
-                    ] }
+                    path="/"
                     component={ Header }
                 />
-                <Route
+                <CompatRoute
+                    exact
+                    strict
+                    path="/home"
+                    component={ Header }
+                />
+                <CompatRoute
+                    exact
+                    strict
+                    path="/workbook"
+                    component={ Header }
+                />
+                <CompatRoute
+                    exact
+                    strict
+                    path="/workbook/concentration"
+                    component={ Header }
+                />
+                <CompatRoute
+                    exact
+                    strict
+                    path="/workbook/tower"
+                    component={ Header }
+                />
+                <CompatRoute
+                    exact
+                    path="*"
                     render={ (props) => {
                         return <Header { ...props } isPageNotFound />
                     } }
                 />
             </Switch>
             <Switch>
-                <Route
+                <CompatRoute
                     exact
                     strict
-                    path={ ['/', '/home'] }
+                    path="/"
                     component={ Welcome }
                 />
-                <Route
+                <CompatRoute
+                    exact
+                    strict
+                    path="/home"
+                    component={ Welcome }
+                />
+                <CompatRoute
                     exact
                     strict
                     path="/workbook"
                     component={ Workbook }
                 />
-                <Route
+                <CompatRoute
                     exact
                     strict
                     path="/workbook/concentration"
@@ -62,7 +89,7 @@ function App() {
                         )
                     } }
                 />
-                <Route
+                <CompatRoute
                     exact
                     strict
                     path="/workbook/tower"
@@ -75,7 +102,7 @@ function App() {
                         )
                     } }
                 />
-                <Route component={ PageNotFound } />
+                <CompatRoute exact path="*" component={ PageNotFound } />
             </Switch>
             <Footer />
         </div>
