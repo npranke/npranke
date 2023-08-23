@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom-v5-compat'
 
 import Code from '@img/icon-code.png'
 import Info from '@img/icon-info.png'
@@ -11,6 +12,8 @@ function WorksheetContainer(props) {
     const [visible, setVisible] = useState('worksheet')
     const [, setFocus] = useState()
 
+    const location = useLocation()
+
     useEffect(() => {
         document.title = getLocationPageTitle(props.worksheet.title)
     }, [])
@@ -18,14 +21,14 @@ function WorksheetContainer(props) {
     useEffect(() => {
         sendPageview()
 
-        if (props.location.hash === '#info') {
+        if (location.hash === '#info') {
             setVisible('info')
-        } else if (props.location.hash === '#gist') {
+        } else if (location.hash === '#gist') {
             setVisible('gist')
         } else {
             setVisible('worksheet')
         }
-    }, [props.location.hash])
+    }, [location.hash])
 
     const infoPanel = useRef(null)
     const worksheetPanel = useRef(null)
@@ -240,9 +243,6 @@ function WorksheetContainer(props) {
 }
 
 WorksheetContainer.propTypes = {
-    location: PropTypes.shape({
-        hash: PropTypes.string,
-    }).isRequired,
     worksheet: PropTypes.shape({
         component: PropTypes.element.isRequired,
         icon: PropTypes.node.isRequired,
