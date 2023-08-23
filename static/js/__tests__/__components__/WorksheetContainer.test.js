@@ -24,7 +24,7 @@ const worksheet = {
 
 describe('WorksheetContainer', () => {
     test('sets document title', () => {
-        shallow(
+        mount(
             <WorksheetContainer
                 location={ { hash: '' } }
                 worksheet={ worksheet }
@@ -83,7 +83,7 @@ describe('WorksheetContainer', () => {
         })
 
         test('sends pageview when component mounts', () => {
-            shallow(
+            mount(
                 <WorksheetContainer
                     location={ { hash: '' } }
                     worksheet={ worksheet }
@@ -95,7 +95,7 @@ describe('WorksheetContainer', () => {
         })
 
         test('sends pageview when location hash changes', () => {
-            const worksheetContainer = shallow(
+            const worksheetContainer = mount(
                 <WorksheetContainer
                     location={ { hash: '' } }
                     worksheet={ worksheet }
@@ -112,7 +112,7 @@ describe('WorksheetContainer', () => {
     })
 
     describe('headerClickHandler', () => {
-        test('updates visible state', () => {
+        test('updates aria-selected on with click on info', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer
                     location={ { hash: '' } }
@@ -124,8 +124,40 @@ describe('WorksheetContainer', () => {
             worksheetContainer.find('#info-tab NavLink').simulate('click')
 
             expect(
-                worksheetContainer.state().visible,
-            ).toEqual('info')
+                worksheetContainer.find('#info-tab').props()['aria-selected'],
+            ).toBe(true)
+            expect(
+                worksheetContainer.find(
+                    '#worksheet-tab',
+                ).props()['aria-selected'],
+            ).toBe(false)
+            expect(
+                worksheetContainer.find('#gist-tab').props()['aria-selected'],
+            ).toBe(false)
+        })
+
+        test('updates aria-selected on with click on gist', () => {
+            const worksheetContainer = mount(
+                <WorksheetContainer
+                    location={ { hash: '' } }
+                    worksheet={ worksheet }
+                />,
+                { wrappingComponent: MemoryRouter },
+            )
+
+            worksheetContainer.find('#gist-tab NavLink').simulate('click')
+
+            expect(
+                worksheetContainer.find('#info-tab').props()['aria-selected'],
+            ).toBe(false)
+            expect(
+                worksheetContainer.find(
+                    '#worksheet-tab',
+                ).props()['aria-selected'],
+            ).toBe(false)
+            expect(
+                worksheetContainer.find('#gist-tab').props()['aria-selected'],
+            ).toBe(true)
         })
     })
 
