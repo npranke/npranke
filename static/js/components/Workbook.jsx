@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom-v5-compat'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 
@@ -62,7 +62,7 @@ export function Workbook(props) {
             to="/workbook/concentration"
             target="_self"
             rel="noreferrer"
-            innerRef={ concentrationRef }
+            ref={ concentrationRef }
         >
             <div className="button-worksheet-container">
                 <span className="button-worksheet-wrapper">
@@ -93,7 +93,7 @@ export function Workbook(props) {
             to="/workbook/tower"
             target="_self"
             rel="noreferrer"
-            innerRef={ towerRef }
+            ref={ towerRef }
         >
             <div className="button-worksheet-container">
                 <span className="button-worksheet-wrapper">
@@ -120,7 +120,7 @@ export function Workbook(props) {
             to="/workbook"
             target="_self"
             rel="noreferrer"
-            innerRef={ worksheetRef }
+            ref={ worksheetRef }
         >
             <div className="button-worksheet-container">
                 <span className="button-worksheet-wrapper">
