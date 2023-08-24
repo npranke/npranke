@@ -18,45 +18,7 @@ function App() {
     return (
         <div className="app">
             <Background />
-            <Switch>
-                <CompatRoute
-                    exact
-                    strict
-                    path="/"
-                    component={ Header }
-                />
-                <CompatRoute
-                    exact
-                    strict
-                    path="/home"
-                    component={ Header }
-                />
-                <CompatRoute
-                    exact
-                    strict
-                    path="/workbook"
-                    component={ Header }
-                />
-                <CompatRoute
-                    exact
-                    strict
-                    path="/workbook/concentration"
-                    component={ Header }
-                />
-                <CompatRoute
-                    exact
-                    strict
-                    path="/workbook/tower"
-                    component={ Header }
-                />
-                <CompatRoute
-                    exact
-                    path="*"
-                    render={ (props) => {
-                        return <Header { ...props } isPageNotFound />
-                    } }
-                />
-            </Switch>
+            <Header />
             <Switch>
                 <CompatRoute
                     exact

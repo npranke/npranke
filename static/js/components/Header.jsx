@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom-v5-compat'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 import GitHub from '@img/icon-github.png'
@@ -9,83 +8,47 @@ import Workbook from '@img/icon-workbook.png'
 
 import { getSendEventHandler } from '@utils'
 
-function Header(props) {
-    const homeLink = props.isPageNotFound
-        ? (
-            <a
-                onClick={ getSendEventHandler(
-                    'header',
-                    'navigate',
-                    'home',
-                ) }
-                href="/home"
-                target="_self"
-                rel="noreferrer"
-                title="Home"
-                aria-label="Home"
-            >
-                <img src={ Home } className="icon icon-home" alt="Home icon" />
-            </a>
-        ) : (
-            <NavLink
-                end
-                onClick={ getSendEventHandler(
-                    'header',
-                    'navigate',
-                    'home',
-                ) }
-                to="/home"
-                target="_self"
-                rel="noreferrer"
-                className="navlink navlink-home"
-                title="Home"
-                aria-label="Home"
-            >
-                <img src={ Home } className="icon icon-home" alt="Home icon" />
-            </NavLink>
-        )
+function Header() {
+    const homeLink = (
+        <NavLink
+            end
+            onClick={ getSendEventHandler(
+                'header',
+                'navigate',
+                'home',
+            ) }
+            to="/home"
+            target="_self"
+            rel="noreferrer"
+            className="navlink navlink-home"
+            title="Home"
+            aria-label="Home"
+        >
+            <img src={ Home } className="icon icon-home" alt="Home icon" />
+        </NavLink>
+    )
 
-    const workbookLink = props.isPageNotFound
-        ? (
-            <a
-                onClick={ getSendEventHandler(
-                    'header',
-                    'navigate',
-                    'workbook',
-                ) }
-                href="/workbook"
-                target="_self"
-                rel="noreferrer"
-                title="Workbook"
-                aria-label="Workbook"
-            >
-                <img
-                    src={ Workbook }
-                    className="icon icon-workbook"
-                    alt="Workbook icon"
-                />
-            </a>
-        ) : (
-            <NavLink
-                onClick={ getSendEventHandler(
-                    'header',
-                    'navigate',
-                    'workbook',
-                ) }
-                to="/workbook"
-                target="_self"
-                rel="noreferrer"
-                className="navlink navlink-workbook"
-                title="Workbook"
-                aria-label="Workbook"
-            >
-                <img
-                    src={ Workbook }
-                    className="icon icon-workbook"
-                    alt="Workbook icon"
-                />
-            </NavLink>
-        )
+    const workbookLink = (
+        <NavLink
+            onClick={ getSendEventHandler(
+                'header',
+                'navigate',
+                'workbook',
+            ) }
+            to="/workbook"
+            target="_self"
+            rel="noreferrer"
+            className="navlink navlink-workbook"
+            title="Workbook"
+            aria-label="Workbook"
+        >
+            <img
+                src={ Workbook }
+                className="icon icon-workbook"
+                alt="Workbook icon"
+            />
+        </NavLink>
+    )
 
     return (
         <nav className="header">
@@ -141,14 +104,6 @@ function Header(props) {
             </div>
         </nav>
     )
-}
-
-Header.defaultProps = {
-    isPageNotFound: false,
-}
-
-Header.propTypes = {
-    isPageNotFound: PropTypes.bool,
 }
 
 export default Header

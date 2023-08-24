@@ -10,23 +10,7 @@ import Header from '@components/Header'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('Header', () => {
-    test('has link to home when pagenotfound', () => {
-        const header = shallow(<Header isPageNotFound />)
-
-        expect(
-            header.find('.icon-container-home a').props().href,
-        ).toEqual('/home')
-    })
-
-    test('has link to workbook when pagenotfound', () => {
-        const header = shallow(<Header isPageNotFound />)
-
-        expect(
-            header.find('.icon-container-workbook a').props().href,
-        ).toEqual('/workbook')
-    })
-
-    test('has link to home when not pagenotfound', () => {
+    test('has navlink to home', () => {
         const header = shallow(<Header />)
 
         expect(
@@ -34,7 +18,7 @@ describe('Header', () => {
         ).toEqual('/home')
     })
 
-    test('has link to workbook when not pagenotfound', () => {
+    test('has navlink to workbook', () => {
         const header = shallow(<Header />)
 
         expect(
@@ -92,13 +76,7 @@ describe('Header', () => {
 })
 
 describe('Header snapshot', () => {
-    test('matches snapshot when pagenotfound', () => {
-        const { asFragment } = render(<Header isPageNotFound />)
-
-        expect(asFragment()).toMatchSnapshot()
-    })
-
-    test('matches snapshot when not pagenotfound', () => {
+    test('matches snapshot', () => {
         const { asFragment } = render(
             <MemoryRouter>
                 <CompatRouter>
