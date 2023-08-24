@@ -1,4 +1,5 @@
 import Adapter from 'enzyme-adapter-react-16'
+import { CompatRouter } from 'react-router-dom-v5-compat'
 import Enzyme, { shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import React from 'react'
@@ -54,7 +55,9 @@ describe('Welcome snapshot', () => {
     test('matches snapshot', () => {
         const { asFragment } = render(
             <MemoryRouter>
-                <Welcome />
+                <CompatRouter>
+                    <Welcome />
+                </CompatRouter>
             </MemoryRouter>,
         )
 
