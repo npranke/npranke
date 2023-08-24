@@ -16,14 +16,26 @@ import WorksheetContainer from '@components/WorksheetContainer'
 
 import worksheets from '@constants/worksheets'
 
+Enzyme.configure({ adapter: new Adapter() })
+
+const mockLocation = { hash: '' }
+
+jest.mock('react-router-dom-v5-compat', () => {
+    return {
+        ...jest.requireActual('react-router-dom-v5-compat'),
+        useLocation: jest.fn(() => { return mockLocation }),
+    }
+})
 jest.mock('@components/concentration/Concentration')
 jest.mock('@components/tower/Tower')
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const { CONCENTRATION, TOWER } = worksheets
 
 describe('App', () => {
+    beforeEach(() => {
+        mockLocation.hash = ''
+    })
+
     test('contains background', () => {
         const app = shallow(<App />)
 
@@ -134,17 +146,12 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('CompatRoute').at(9).props().render(
-                { location: { hash: '' } },
-            ),
+            app.find('CompatRoute').at(9).props().render(),
             { wrappingComponent: MemoryRouter },
         )
 
         const expected = mount(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ CONCENTRATION }
-            />,
+            <WorksheetContainer worksheet={ CONCENTRATION } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -154,20 +161,17 @@ describe('App', () => {
     })
 
     test('contains route with render for concentration worksheet info', () => {
+        mockLocation.hash = '#info'
+
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('CompatRoute').at(9).props().render(
-                { location: { hash: '#info' } },
-            ),
+            app.find('CompatRoute').at(9).props().render(),
             { wrappingComponent: MemoryRouter },
         )
 
         const expected = mount(
-            <WorksheetContainer
-                location={ { hash: '#info' } }
-                worksheet={ CONCENTRATION }
-            />,
+            <WorksheetContainer worksheet={ CONCENTRATION } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -177,20 +181,17 @@ describe('App', () => {
     })
 
     test('contains route with render for concentration worksheet gist', () => {
+        mockLocation.hash = '#gist'
+
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('CompatRoute').at(9).props().render(
-                { location: { hash: '#gist' } },
-            ),
+            app.find('CompatRoute').at(9).props().render(),
             { wrappingComponent: MemoryRouter },
         )
 
         const expected = mount(
-            <WorksheetContainer
-                location={ { hash: '#gist' } }
-                worksheet={ CONCENTRATION }
-            />,
+            <WorksheetContainer worksheet={ CONCENTRATION } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -203,17 +204,12 @@ describe('App', () => {
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('CompatRoute').at(10).props().render(
-                { location: { hash: '' } },
-            ),
+            app.find('CompatRoute').at(10).props().render(),
             { wrappingComponent: MemoryRouter },
         )
 
         const expected = mount(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ TOWER }
-            />,
+            <WorksheetContainer worksheet={ TOWER } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -223,20 +219,17 @@ describe('App', () => {
     })
 
     test('contains route with render for tower worksheet info', () => {
+        mockLocation.hash = '#info'
+
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('CompatRoute').at(10).props().render(
-                { location: { hash: '#info' } },
-            ),
+            app.find('CompatRoute').at(10).props().render(),
             { wrappingComponent: MemoryRouter },
         )
 
         const expected = mount(
-            <WorksheetContainer
-                location={ { hash: '#info' } }
-                worksheet={ TOWER }
-            />,
+            <WorksheetContainer worksheet={ TOWER } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -246,20 +239,17 @@ describe('App', () => {
     })
 
     test('contains route with render for tower worksheet gist', () => {
+        mockLocation.hash = '#gist'
+
         const app = shallow(<App />)
 
         const worksheetContainer = mount(
-            app.find('CompatRoute').at(10).props().render(
-                { location: { hash: '#gist' } },
-            ),
+            app.find('CompatRoute').at(10).props().render(),
             { wrappingComponent: MemoryRouter },
         )
 
         const expected = mount(
-            <WorksheetContainer
-                location={ { hash: '#gist' } }
-                worksheet={ TOWER }
-            />,
+            <WorksheetContainer worksheet={ TOWER } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -286,6 +276,10 @@ describe('App', () => {
 })
 
 describe('App snapshot', () => {
+    beforeAll(() => {
+        mockLocation.hash = ''
+    })
+
     test('matches snapshot', () => {
         const { asFragment } = render(
             <MemoryRouter>
