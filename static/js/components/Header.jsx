@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom-v5-compat'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -28,7 +28,7 @@ function Header(props) {
             </a>
         ) : (
             <NavLink
-                exact
+                end
                 onClick={ getSendEventHandler(
                     'header',
                     'navigate',
