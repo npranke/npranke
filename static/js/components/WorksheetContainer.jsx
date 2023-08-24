@@ -1,7 +1,6 @@
-import { NavLink } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom-v5-compat'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom-v5-compat'
 
 import Code from '@img/icon-code.png'
 import Info from '@img/icon-info.png'
@@ -141,20 +140,19 @@ function WorksheetContainer(props) {
                     aria-controls="info-tabpanel"
                     aria-selected={ visible === 'info' }
                 >
-                    <NavLink
-                        to="#info"
+                    <Link
+                        to={ `/workbook/${props.worksheet.pathTitle}#info` }
                         target="_self"
                         rel="noreferrer"
-                        isActive={ (match, loc) => {
-                            return loc.hash === '#info'
-                        } }
-                        className="local-navlink local-navlink-info"
+                        className={
+                            'local-navlink local-navlink-info'
+                            + `${visible === 'info' ? ' active' : ''}`
+                        }
                         id="info-tab-navlink"
                         onClick={ headerClickHandler }
                         onKeyUp={ headerKeyUpHandler }
                         data-section="info"
-                        aria-current="true"
-                        innerRef={ infoTab }
+                        ref={ infoTab }
                     >
                         <img
                             src={ Info }
@@ -164,7 +162,7 @@ function WorksheetContainer(props) {
                         <span className="text-section-button">
                             info
                         </span>
-                    </NavLink>
+                    </Link>
                 </span>
                 <span
                     className="section-button"
@@ -173,20 +171,19 @@ function WorksheetContainer(props) {
                     aria-controls="worksheet-tabpanel"
                     aria-selected={ visible === 'worksheet' }
                 >
-                    <NavLink
-                        to="#"
+                    <Link
+                        to={ `/workbook/${props.worksheet.pathTitle}` }
                         target="_self"
                         rel="noreferrer"
-                        isActive={ (match, loc) => {
-                            return loc.hash === ''
-                        } }
-                        className="local-navlink local-navlink-worksheet"
+                        className={
+                            'local-navlink local-navlink-worksheet'
+                            + `${visible === 'worksheet' ? ' active' : ''}`
+                        }
                         id="worksheet-tab-navlink"
                         onClick={ headerClickHandler }
                         onKeyUp={ headerKeyUpHandler }
                         data-section="worksheet"
-                        aria-current="true"
-                        innerRef={ worksheetTab }
+                        ref={ worksheetTab }
                     >
                         <img
                             src={ props.worksheet.icon }
@@ -201,7 +198,7 @@ function WorksheetContainer(props) {
                         <span className="text-section-button">
                             { props.worksheet.title }
                         </span>
-                    </NavLink>
+                    </Link>
                 </span>
                 <span
                     className="section-button"
@@ -210,20 +207,19 @@ function WorksheetContainer(props) {
                     aria-controls="gist-tabpanel"
                     aria-selected={ visible === 'gist' }
                 >
-                    <NavLink
-                        to="#gist"
+                    <Link
+                        to={ `/workbook/${props.worksheet.pathTitle}#gist` }
                         target="_self"
                         rel="noreferrer"
-                        isActive={ (match, loc) => {
-                            return loc.hash === '#gist'
-                        } }
-                        className="local-navlink local-navlink-gist"
+                        className={
+                            'local-navlink local-navlink-gist'
+                            + `${visible === 'gist' ? ' active' : ''}`
+                        }
                         id="gist-tab-navlink"
                         onClick={ headerClickHandler }
                         onKeyUp={ headerKeyUpHandler }
                         data-section="gist"
-                        aria-current="true"
-                        innerRef={ gistTab }
+                        ref={ gistTab }
                     >
                         <img
                             src={ Code }
@@ -233,7 +229,7 @@ function WorksheetContainer(props) {
                         <span className="text-section-button">
                             gist
                         </span>
-                    </NavLink>
+                    </Link>
                 </span>
             </div>
             { sections[visible] }

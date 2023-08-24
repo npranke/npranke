@@ -2,6 +2,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import { CompatRouter } from 'react-router-dom-v5-compat'
 import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { render } from '@testing-library/react'
 
@@ -30,6 +31,19 @@ jest.mock('@components/concentration/Concentration')
 jest.mock('@components/tower/Tower')
 
 const { CONCENTRATION, TOWER } = worksheets
+
+function MemoryRouterWithCompatRouter(props) {
+    return (
+        <MemoryRouter>
+            <CompatRouter>
+                { props.children }
+            </CompatRouter>
+        </MemoryRouter>
+    )
+}
+MemoryRouterWithCompatRouter.propTypes = {
+    children: PropTypes.node.isRequired,
+}
 
 describe('App', () => {
     beforeEach(() => {
@@ -97,12 +111,12 @@ describe('App', () => {
 
         const worksheetContainer = mount(
             app.find('CompatRoute').at(3).props().render(),
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         const expected = mount(
             <WorksheetContainer worksheet={ CONCENTRATION } />,
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         expect(
@@ -117,12 +131,12 @@ describe('App', () => {
 
         const worksheetContainer = mount(
             app.find('CompatRoute').at(3).props().render(),
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         const expected = mount(
             <WorksheetContainer worksheet={ CONCENTRATION } />,
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         expect(
@@ -137,12 +151,12 @@ describe('App', () => {
 
         const worksheetContainer = mount(
             app.find('CompatRoute').at(3).props().render(),
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         const expected = mount(
             <WorksheetContainer worksheet={ CONCENTRATION } />,
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         expect(
@@ -155,12 +169,12 @@ describe('App', () => {
 
         const worksheetContainer = mount(
             app.find('CompatRoute').at(4).props().render(),
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         const expected = mount(
             <WorksheetContainer worksheet={ TOWER } />,
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         expect(
@@ -175,12 +189,12 @@ describe('App', () => {
 
         const worksheetContainer = mount(
             app.find('CompatRoute').at(4).props().render(),
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         const expected = mount(
             <WorksheetContainer worksheet={ TOWER } />,
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         expect(
@@ -195,12 +209,12 @@ describe('App', () => {
 
         const worksheetContainer = mount(
             app.find('CompatRoute').at(4).props().render(),
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         const expected = mount(
             <WorksheetContainer worksheet={ TOWER } />,
-            { wrappingComponent: MemoryRouter },
+            { wrappingComponent: MemoryRouterWithCompatRouter },
         )
 
         expect(
