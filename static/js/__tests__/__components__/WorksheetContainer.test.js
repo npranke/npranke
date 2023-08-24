@@ -13,6 +13,15 @@ import * as utils from '@utils'
 
 Enzyme.configure({ adapter: new Adapter() })
 
+const mockLocation = { hash: '' }
+
+jest.mock('react-router-dom-v5-compat', () => {
+    return {
+        ...jest.requireActual('react-router-dom-v5-compat'),
+        useLocation: jest.fn(() => { return mockLocation }),
+    }
+})
+
 const worksheet = {
     component: <ComponentMock />,
     icon: ImageMock,
@@ -23,12 +32,13 @@ const worksheet = {
 }
 
 describe('WorksheetContainer', () => {
+    beforeEach(() => {
+        mockLocation.hash = ''
+    })
+
     test('sets document title', () => {
         mount(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ worksheet }
-            />,
+            <WorksheetContainer worksheet={ worksheet } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -37,11 +47,7 @@ describe('WorksheetContainer', () => {
 
     test('has three tabs', () => {
         const worksheetContainer = shallow(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ worksheet }
-            />,
-            { wrappingComponent: MemoryRouter },
+            <WorksheetContainer worksheet={ worksheet } />,
         )
 
         expect(
@@ -57,11 +63,7 @@ describe('WorksheetContainer', () => {
 
     test('has one tabpanel', () => {
         const worksheetContainer = shallow(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ worksheet }
-            />,
-            { wrappingComponent: MemoryRouter },
+            <WorksheetContainer worksheet={ worksheet } />,
         )
 
         expect(
@@ -84,10 +86,7 @@ describe('WorksheetContainer', () => {
 
         test('sends pageview when component mounts', () => {
             mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { wrappingComponent: MemoryRouter },
             )
 
@@ -96,16 +95,14 @@ describe('WorksheetContainer', () => {
 
         test('sends pageview when location hash changes', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { wrappingComponent: MemoryRouter },
             )
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(1)
 
-            worksheetContainer.setProps({ location: { hash: '#gist' } })
+            mockLocation.hash = '#gist'
+            worksheetContainer.setProps({})
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(2)
         })
@@ -114,10 +111,7 @@ describe('WorksheetContainer', () => {
     describe('headerClickHandler', () => {
         test('updates aria-selected on with click on info', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { wrappingComponent: MemoryRouter },
             )
 
@@ -138,10 +132,7 @@ describe('WorksheetContainer', () => {
 
         test('updates aria-selected on with click on gist', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { wrappingComponent: MemoryRouter },
             )
 
@@ -165,12 +156,10 @@ describe('WorksheetContainer', () => {
         beforeEach(() => {
             document.body.innerHTML = '<div id="fastener"></div>'
         })
+
         test('enter key up event on info section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -185,11 +174,10 @@ describe('WorksheetContainer', () => {
         })
 
         test('enter key up event on worksheet section button', () => {
+            mockLocation.hash = '#info'
+
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '#info' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -205,10 +193,7 @@ describe('WorksheetContainer', () => {
 
         test('enter key up event on gist section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -224,10 +209,7 @@ describe('WorksheetContainer', () => {
 
         test('spacebar key up event on info section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -242,11 +224,10 @@ describe('WorksheetContainer', () => {
         })
 
         test('spacebar key up event on worksheet section button', () => {
+            mockLocation.hash = '#info'
+
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '#info' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -262,10 +243,7 @@ describe('WorksheetContainer', () => {
 
         test('spacebar key up event on gist section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -281,10 +259,7 @@ describe('WorksheetContainer', () => {
 
         test('arrow right key up event on info section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -300,10 +275,7 @@ describe('WorksheetContainer', () => {
 
         test('arrow right key up event on worksheet section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -319,10 +291,7 @@ describe('WorksheetContainer', () => {
 
         test('arrow left key up event on worksheet section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -338,10 +307,7 @@ describe('WorksheetContainer', () => {
 
         test('arrow left key up event on gist section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
@@ -358,13 +324,14 @@ describe('WorksheetContainer', () => {
 })
 
 describe('WorksheetContainer snapshot', () => {
+    beforeEach(() => {
+        mockLocation.hash = ''
+    })
+
     test('matches snapshot when location hash is empty', () => {
         const { asFragment } = render(
             <MemoryRouter>
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
@@ -372,12 +339,11 @@ describe('WorksheetContainer snapshot', () => {
     })
 
     test('matches snapshot when location hash is #info', () => {
+        mockLocation.hash = '#info'
+
         const { asFragment } = render(
             <MemoryRouter>
-                <WorksheetContainer
-                    location={ { hash: '#info' } }
-                    worksheet={ worksheet }
-                />
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
@@ -385,12 +351,11 @@ describe('WorksheetContainer snapshot', () => {
     })
 
     test('matches snapshot when location hash is #gist', () => {
+        mockLocation.hash = '#gist'
+
         const { asFragment } = render(
             <MemoryRouter>
-                <WorksheetContainer
-                    location={ { hash: '#gist' } }
-                    worksheet={ worksheet }
-                />
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
