@@ -1,6 +1,6 @@
 import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
+import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
 import { render } from '@testing-library/react'
 
@@ -13,6 +13,15 @@ import * as utils from '@utils'
 
 Enzyme.configure({ adapter: new Adapter() })
 
+const mockLocation = { hash: '' }
+
+jest.mock('react-router-dom', () => {
+    return {
+        ...jest.requireActual('react-router-dom'),
+        useLocation: jest.fn(() => { return mockLocation }),
+    }
+})
+
 const worksheet = {
     component: <ComponentMock />,
     icon: ImageMock,
@@ -23,12 +32,13 @@ const worksheet = {
 }
 
 describe('WorksheetContainer', () => {
+    beforeEach(() => {
+        mockLocation.hash = ''
+    })
+
     test('sets document title', () => {
-        shallow(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ worksheet }
-            />,
+        mount(
+            <WorksheetContainer worksheet={ worksheet } />,
             { wrappingComponent: MemoryRouter },
         )
 
@@ -37,11 +47,7 @@ describe('WorksheetContainer', () => {
 
     test('has three tabs', () => {
         const worksheetContainer = shallow(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ worksheet }
-            />,
-            { wrappingComponent: MemoryRouter },
+            <WorksheetContainer worksheet={ worksheet } />,
         )
 
         expect(
@@ -57,11 +63,7 @@ describe('WorksheetContainer', () => {
 
     test('has one tabpanel', () => {
         const worksheetContainer = shallow(
-            <WorksheetContainer
-                location={ { hash: '' } }
-                worksheet={ worksheet }
-            />,
-            { wrappingComponent: MemoryRouter },
+            <WorksheetContainer worksheet={ worksheet } />,
         )
 
         expect(
@@ -83,11 +85,8 @@ describe('WorksheetContainer', () => {
         })
 
         test('sends pageview when component mounts', () => {
-            shallow(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+            mount(
+                <WorksheetContainer worksheet={ worksheet } />,
                 { wrappingComponent: MemoryRouter },
             )
 
@@ -95,37 +94,61 @@ describe('WorksheetContainer', () => {
         })
 
         test('sends pageview when location hash changes', () => {
-            const worksheetContainer = shallow(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+            const worksheetContainer = mount(
+                <WorksheetContainer worksheet={ worksheet } />,
                 { wrappingComponent: MemoryRouter },
             )
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(1)
 
-            worksheetContainer.setProps({ location: { hash: '#gist' } })
+            mockLocation.hash = '#gist'
+            worksheetContainer.setProps({})
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(2)
         })
     })
 
     describe('headerClickHandler', () => {
-        test('updates visible state', () => {
+        test('updates aria-selected on with click on info', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#info-tab NavLink').simulate('click')
+            worksheetContainer.find('#info-tab Link').simulate('click')
 
             expect(
-                worksheetContainer.state().visible,
-            ).toEqual('info')
+                worksheetContainer.find('#info-tab').props()['aria-selected'],
+            ).toBe(true)
+            expect(
+                worksheetContainer.find(
+                    '#worksheet-tab',
+                ).props()['aria-selected'],
+            ).toBe(false)
+            expect(
+                worksheetContainer.find('#gist-tab').props()['aria-selected'],
+            ).toBe(false)
+        })
+
+        test('updates aria-selected on with click on gist', () => {
+            const worksheetContainer = mount(
+                <WorksheetContainer worksheet={ worksheet } />,
+                { wrappingComponent: MemoryRouter },
+            )
+
+            worksheetContainer.find('#gist-tab Link').simulate('click')
+
+            expect(
+                worksheetContainer.find('#info-tab').props()['aria-selected'],
+            ).toBe(false)
+            expect(
+                worksheetContainer.find(
+                    '#worksheet-tab',
+                ).props()['aria-selected'],
+            ).toBe(false)
+            expect(
+                worksheetContainer.find('#gist-tab').props()['aria-selected'],
+            ).toBe(true)
         })
     })
 
@@ -133,16 +156,14 @@ describe('WorksheetContainer', () => {
         beforeEach(() => {
             document.body.innerHTML = '<div id="fastener"></div>'
         })
+
         test('enter key up event on info section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#info-tab NavLink').simulate(
+            worksheetContainer.find('#info-tab Link').simulate(
                 'keyup',
                 { key: 'Enter' },
             )
@@ -153,15 +174,14 @@ describe('WorksheetContainer', () => {
         })
 
         test('enter key up event on worksheet section button', () => {
+            mockLocation.hash = '#info'
+
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '#info' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#worksheet-tab NavLink').simulate(
+            worksheetContainer.find('#worksheet-tab Link').simulate(
                 'keyup',
                 { key: 'Enter' },
             )
@@ -173,14 +193,11 @@ describe('WorksheetContainer', () => {
 
         test('enter key up event on gist section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#gist-tab NavLink').simulate(
+            worksheetContainer.find('#gist-tab Link').simulate(
                 'keyup',
                 { key: 'Enter' },
             )
@@ -192,14 +209,11 @@ describe('WorksheetContainer', () => {
 
         test('spacebar key up event on info section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#info-tab NavLink').simulate(
+            worksheetContainer.find('#info-tab Link').simulate(
                 'keyup',
                 { key: ' ' },
             )
@@ -210,15 +224,14 @@ describe('WorksheetContainer', () => {
         })
 
         test('spacebar key up event on worksheet section button', () => {
+            mockLocation.hash = '#info'
+
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '#info' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#worksheet-tab NavLink').simulate(
+            worksheetContainer.find('#worksheet-tab Link').simulate(
                 'keyup',
                 { key: ' ' },
             )
@@ -230,14 +243,11 @@ describe('WorksheetContainer', () => {
 
         test('spacebar key up event on gist section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#gist-tab NavLink').simulate(
+            worksheetContainer.find('#gist-tab Link').simulate(
                 'keyup',
                 { key: ' ' },
             )
@@ -249,14 +259,11 @@ describe('WorksheetContainer', () => {
 
         test('arrow right key up event on info section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#info-tab NavLink').simulate(
+            worksheetContainer.find('#info-tab Link').simulate(
                 'keyup',
                 { key: 'ArrowRight' },
             )
@@ -268,14 +275,11 @@ describe('WorksheetContainer', () => {
 
         test('arrow right key up event on worksheet section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#worksheet-tab NavLink').simulate(
+            worksheetContainer.find('#worksheet-tab Link').simulate(
                 'keyup',
                 { key: 'ArrowRight' },
             )
@@ -287,14 +291,11 @@ describe('WorksheetContainer', () => {
 
         test('arrow left key up event on worksheet section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#worksheet-tab NavLink').simulate(
+            worksheetContainer.find('#worksheet-tab Link').simulate(
                 'keyup',
                 { key: 'ArrowLeft' },
             )
@@ -306,14 +307,11 @@ describe('WorksheetContainer', () => {
 
         test('arrow left key up event on gist section button', () => {
             const worksheetContainer = mount(
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />,
+                <WorksheetContainer worksheet={ worksheet } />,
                 { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
-            worksheetContainer.find('#gist-tab NavLink').simulate(
+            worksheetContainer.find('#gist-tab Link').simulate(
                 'keyup',
                 { key: 'ArrowLeft' },
             )
@@ -326,13 +324,14 @@ describe('WorksheetContainer', () => {
 })
 
 describe('WorksheetContainer snapshot', () => {
+    beforeEach(() => {
+        mockLocation.hash = ''
+    })
+
     test('matches snapshot when location hash is empty', () => {
         const { asFragment } = render(
             <MemoryRouter>
-                <WorksheetContainer
-                    location={ { hash: '' } }
-                    worksheet={ worksheet }
-                />
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
@@ -340,12 +339,11 @@ describe('WorksheetContainer snapshot', () => {
     })
 
     test('matches snapshot when location hash is #info', () => {
+        mockLocation.hash = '#info'
+
         const { asFragment } = render(
             <MemoryRouter>
-                <WorksheetContainer
-                    location={ { hash: '#info' } }
-                    worksheet={ worksheet }
-                />
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
@@ -353,12 +351,11 @@ describe('WorksheetContainer snapshot', () => {
     })
 
     test('matches snapshot when location hash is #gist', () => {
+        mockLocation.hash = '#gist'
+
         const { asFragment } = render(
             <MemoryRouter>
-                <WorksheetContainer
-                    location={ { hash: '#gist' } }
-                    worksheet={ worksheet }
-                />
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 

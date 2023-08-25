@@ -19,7 +19,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         <a
           class="local-navlink local-navlink-info"
           data-section="info"
-          href="/#info"
+          href="/workbook/component#info"
           id="info-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -44,10 +44,9 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         role="tab"
       >
         <a
-          aria-current="true"
-          class="local-navlink local-navlink-worksheet active"
+          class="local-navlink local-navlink-worksheet"
           data-section="worksheet"
-          href="/"
+          href="/workbook/component"
           id="worksheet-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -72,9 +71,9 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         role="tab"
       >
         <a
-          class="local-navlink local-navlink-gist"
+          class="local-navlink local-navlink-gist active"
           data-section="gist"
-          href="/#gist"
+          href="/workbook/component#gist"
           id="gist-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -130,9 +129,9 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         role="tab"
       >
         <a
-          class="local-navlink local-navlink-info"
+          class="local-navlink local-navlink-info active"
           data-section="info"
-          href="/#info"
+          href="/workbook/component#info"
           id="info-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -157,10 +156,9 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         role="tab"
       >
         <a
-          aria-current="true"
-          class="local-navlink local-navlink-worksheet active"
+          class="local-navlink local-navlink-worksheet"
           data-section="worksheet"
-          href="/"
+          href="/workbook/component"
           id="worksheet-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -187,7 +185,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         <a
           class="local-navlink local-navlink-gist"
           data-section="gist"
-          href="/#gist"
+          href="/workbook/component#gist"
           id="gist-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -251,7 +249,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         <a
           class="local-navlink local-navlink-info"
           data-section="info"
-          href="/#info"
+          href="/workbook/component#info"
           id="info-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -276,10 +274,9 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         role="tab"
       >
         <a
-          aria-current="true"
           class="local-navlink local-navlink-worksheet active"
           data-section="worksheet"
-          href="/"
+          href="/workbook/component"
           id="worksheet-tab-navlink"
           rel="noreferrer"
           target="_self"
@@ -306,7 +303,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         <a
           class="local-navlink local-navlink-gist"
           data-section="gist"
-          href="/#gist"
+          href="/workbook/component#gist"
           id="gist-tab-navlink"
           rel="noreferrer"
           target="_self"

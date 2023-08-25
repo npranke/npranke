@@ -1,6 +1,6 @@
 import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { mount, shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
+import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
 import { render } from '@testing-library/react'
 
@@ -24,7 +24,10 @@ describe('Workbook', () => {
     })
 
     test('sets document title', () => {
-        shallow(<Workbook />)
+        mount(
+            <Workbook />,
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        )
 
         expect(document.title).toContain('workbook')
     })
@@ -32,7 +35,10 @@ describe('Workbook', () => {
     test('sends pageview', () => {
         utils.sendPageview = jest.fn()
 
-        shallow(<Workbook />)
+        mount(
+            <Workbook />,
+            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        )
 
         expect(utils.sendPageview).toHaveBeenCalledTimes(1)
     })
