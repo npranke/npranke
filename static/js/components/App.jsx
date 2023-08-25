@@ -1,6 +1,5 @@
-import { CompatRoute } from 'react-router-dom-v5-compat'
+import { Route, Routes } from 'react-router-dom-v5-compat'
 import React from 'react'
-import { Switch } from 'react-router-dom'
 
 import Background from '@components/Background'
 import Footer from '@components/Footer'
@@ -19,53 +18,22 @@ function App() {
         <div className="app">
             <Background />
             <Header />
-            <Switch>
-                <CompatRoute
-                    exact
-                    strict
-                    path="/"
-                    component={ Welcome }
-                />
-                <CompatRoute
-                    exact
-                    strict
-                    path="/home"
-                    component={ Welcome }
-                />
-                <CompatRoute
-                    exact
-                    strict
-                    path="/workbook"
-                    component={ Workbook }
-                />
-                <CompatRoute
-                    exact
-                    strict
+            <Routes>
+                <Route path="/" element={ <Welcome /> } />
+                <Route path="/home" element={ <Welcome /> } />
+                <Route path="/workbook" element={ <Workbook /> } />
+                <Route
                     path="/workbook/concentration"
-                    render={ (props) => {
-                        return (
-                            <WorksheetContainer
-                                { ...props }
-                                worksheet={ CONCENTRATION }
-                            />
-                        )
-                    } }
+                    element={
+                        <WorksheetContainer worksheet={ CONCENTRATION } />
+                    }
                 />
-                <CompatRoute
-                    exact
-                    strict
+                <Route
                     path="/workbook/tower"
-                    render={ (props) => {
-                        return (
-                            <WorksheetContainer
-                                { ...props }
-                                worksheet={ TOWER }
-                            />
-                        )
-                    } }
+                    element={ <WorksheetContainer worksheet={ TOWER } /> }
                 />
-                <CompatRoute exact path="*" component={ PageNotFound } />
-            </Switch>
+                <Route path="*" element={ <PageNotFound /> } />
+            </Routes>
             <Footer />
         </div>
     )
