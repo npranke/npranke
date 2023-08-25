@@ -19,17 +19,17 @@ function App() {
             <Background />
             <Header />
             <Routes>
-                <Route path="/" element={ <Welcome /> } />
-                <Route path="/home" element={ <Welcome /> } />
-                <Route path="/workbook" element={ <Workbook /> } />
+                <Route path="" element={ <Welcome /> } />
+                <Route path="home" element={ <Welcome /> } />
+                <Route path="workbook" element={ <Workbook /> } />
                 <Route
-                    path="/workbook/concentration"
+                    path="workbook/concentration"
                     element={
                         <WorksheetContainer worksheet={ CONCENTRATION } />
                     }
                 />
                 <Route
-                    path="/workbook/tower"
+                    path="workbook/tower"
                     element={ <WorksheetContainer worksheet={ TOWER } /> }
                 />
                 <Route path="*" element={ <PageNotFound /> } />
