@@ -1,5 +1,5 @@
 import Adapter from 'enzyme-adapter-react-16'
-import { MemoryRouter } from 'react-router-dom-v5-compat'
+import { MemoryRouter } from 'react-router-dom'
 import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
 import { render } from '@testing-library/react'

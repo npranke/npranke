@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom-v5-compat'
+import { NavLink } from 'react-router-dom'
 import React from 'react'
 
 import GitHub from '@img/icon-github.png'

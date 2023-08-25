@@ -1,5 +1,5 @@
 import Adapter from 'enzyme-adapter-react-16'
-import { MemoryRouter } from 'react-router-dom-v5-compat'
+import { MemoryRouter } from 'react-router-dom'
 import Enzyme, { mount, shallow } from 'enzyme'
 import React from 'react'
 import { render } from '@testing-library/react'
@@ -19,9 +19,9 @@ Enzyme.configure({ adapter: new Adapter() })
 
 const mockLocation = { hash: '' }
 
-jest.mock('react-router-dom-v5-compat', () => {
+jest.mock('react-router-dom', () => {
     return {
-        ...jest.requireActual('react-router-dom-v5-compat'),
+        ...jest.requireActual('react-router-dom'),
         useLocation: jest.fn(() => { return mockLocation }),
     }
 })
