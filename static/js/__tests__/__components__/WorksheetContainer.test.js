@@ -1,8 +1,6 @@
 import Adapter from 'enzyme-adapter-react-16'
-import { CompatRouter } from 'react-router-dom-v5-compat'
+import { MemoryRouter } from 'react-router-dom-v5-compat'
 import Enzyme, { mount, shallow } from 'enzyme'
-import { MemoryRouter } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { render } from '@testing-library/react'
 
@@ -33,19 +31,6 @@ const worksheet = {
     title: 'component',
 }
 
-function MemoryRouterWithCompatRouter(props) {
-    return (
-        <MemoryRouter>
-            <CompatRouter>
-                { props.children }
-            </CompatRouter>
-        </MemoryRouter>
-    )
-}
-MemoryRouterWithCompatRouter.propTypes = {
-    children: PropTypes.node.isRequired,
-}
-
 describe('WorksheetContainer', () => {
     beforeEach(() => {
         mockLocation.hash = ''
@@ -54,7 +39,7 @@ describe('WorksheetContainer', () => {
     test('sets document title', () => {
         mount(
             <WorksheetContainer worksheet={ worksheet } />,
-            { wrappingComponent: MemoryRouterWithCompatRouter },
+            { wrappingComponent: MemoryRouter },
         )
 
         expect(document.title).toContain('component')
@@ -102,7 +87,7 @@ describe('WorksheetContainer', () => {
         test('sends pageview when component mounts', () => {
             mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouterWithCompatRouter },
+                { wrappingComponent: MemoryRouter },
             )
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(1)
@@ -111,7 +96,7 @@ describe('WorksheetContainer', () => {
         test('sends pageview when location hash changes', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouterWithCompatRouter },
+                { wrappingComponent: MemoryRouter },
             )
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(1)
@@ -127,7 +112,7 @@ describe('WorksheetContainer', () => {
         test('updates aria-selected on with click on info', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouterWithCompatRouter },
+                { wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#info-tab Link').simulate('click')
@@ -148,7 +133,7 @@ describe('WorksheetContainer', () => {
         test('updates aria-selected on with click on gist', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouterWithCompatRouter },
+                { wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#gist-tab Link').simulate('click')
@@ -175,10 +160,7 @@ describe('WorksheetContainer', () => {
         test('enter key up event on info section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#info-tab Link').simulate(
@@ -196,10 +178,7 @@ describe('WorksheetContainer', () => {
 
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab Link').simulate(
@@ -215,10 +194,7 @@ describe('WorksheetContainer', () => {
         test('enter key up event on gist section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#gist-tab Link').simulate(
@@ -234,10 +210,7 @@ describe('WorksheetContainer', () => {
         test('spacebar key up event on info section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#info-tab Link').simulate(
@@ -255,10 +228,7 @@ describe('WorksheetContainer', () => {
 
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab Link').simulate(
@@ -274,10 +244,7 @@ describe('WorksheetContainer', () => {
         test('spacebar key up event on gist section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#gist-tab Link').simulate(
@@ -293,10 +260,7 @@ describe('WorksheetContainer', () => {
         test('arrow right key up event on info section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#info-tab Link').simulate(
@@ -312,10 +276,7 @@ describe('WorksheetContainer', () => {
         test('arrow right key up event on worksheet section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab Link').simulate(
@@ -331,10 +292,7 @@ describe('WorksheetContainer', () => {
         test('arrow left key up event on worksheet section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#worksheet-tab Link').simulate(
@@ -350,10 +308,7 @@ describe('WorksheetContainer', () => {
         test('arrow left key up event on gist section button', () => {
             const worksheetContainer = mount(
                 <WorksheetContainer worksheet={ worksheet } />,
-                {
-                    attachTo: fastener,
-                    wrappingComponent: MemoryRouterWithCompatRouter,
-                },
+                { attachTo: fastener, wrappingComponent: MemoryRouter },
             )
 
             worksheetContainer.find('#gist-tab Link').simulate(
@@ -376,9 +331,7 @@ describe('WorksheetContainer snapshot', () => {
     test('matches snapshot when location hash is empty', () => {
         const { asFragment } = render(
             <MemoryRouter>
-                <CompatRouter>
-                    <WorksheetContainer worksheet={ worksheet } />
-                </CompatRouter>
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
@@ -390,9 +343,7 @@ describe('WorksheetContainer snapshot', () => {
 
         const { asFragment } = render(
             <MemoryRouter>
-                <CompatRouter>
-                    <WorksheetContainer worksheet={ worksheet } />
-                </CompatRouter>
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
@@ -404,9 +355,7 @@ describe('WorksheetContainer snapshot', () => {
 
         const { asFragment } = render(
             <MemoryRouter>
-                <CompatRouter>
-                    <WorksheetContainer worksheet={ worksheet } />
-                </CompatRouter>
+                <WorksheetContainer worksheet={ worksheet } />
             </MemoryRouter>,
         )
 
