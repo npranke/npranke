@@ -1,6 +1,5 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount } from 'enzyme'
-import React from 'react'
 import { render } from '@testing-library/react'
 
 import ComponentMock from '@__mocks__/ComponentMock'

@@ -1,6 +1,5 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { shallow } from 'enzyme'
-import React from 'react'
 import { render } from '@testing-library/react'
 
 import { collect, spec, TowerLocation } from '@components/tower/TowerLocation'

@@ -1,6 +1,5 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount } from 'enzyme'
-import React from 'react'
 import { act, render } from '@testing-library/react'
 
 import ComponentUseOffsetListenerMock from

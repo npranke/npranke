@@ -1,7 +1,6 @@
 import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
 import Enzyme, { shallow } from 'enzyme'
-import React from 'react'
 import { render } from '@testing-library/react'
 
 import Header from '@components/Header'
