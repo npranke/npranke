@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import React from 'react'
 
 import GitHub from '@img/icon-github.png'
 import Home from '@img/icon-home.png'

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import { useRef } from 'react'
 
 import useTimeRunner from '@components/hooks/TimeRunner'
 
@@ -9,10 +9,10 @@ function TowerSettings(props) {
         props.shouldTimeReset,
     )
 
-    const twoDisks = React.useRef(null)
-    const threeDisks = React.useRef(null)
-    const fourDisks = React.useRef(null)
-    const fiveDisks = React.useRef(null)
+    const twoDisks = useRef(null)
+    const threeDisks = useRef(null)
+    const fourDisks = useRef(null)
+    const fiveDisks = useRef(null)
 
     function disksInputChangeHandler(event) {
         props.updateDisks(event.target.value)

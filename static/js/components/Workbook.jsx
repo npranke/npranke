@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import withPortraitListener from '@components/hoc/PortraitListener'
 

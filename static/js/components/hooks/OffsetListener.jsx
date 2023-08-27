@@ -1,4 +1,4 @@
-import React from 'react'
+import { useLayoutEffect, useReducer } from 'react'
 
 function useOffsetListener(elementRef) {
     function reducer() {
@@ -15,7 +15,7 @@ function useOffsetListener(elementRef) {
         }
     }
 
-    const [state, dispatch] = React.useReducer(
+    const [state, dispatch] = useReducer(
         reducer,
         {
             height: 0,
@@ -23,7 +23,7 @@ function useOffsetListener(elementRef) {
         },
     )
 
-    React.useLayoutEffect(() => {
+    useLayoutEffect(() => {
         function updateOffset() { dispatch() }
 
         updateOffset()

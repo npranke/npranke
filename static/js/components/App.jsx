@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom'
-import React from 'react'
 
 import Background from '@components/Background'
 import Footer from '@components/Footer'

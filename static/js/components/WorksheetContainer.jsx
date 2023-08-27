@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Code from '@img/icon-code.png'
 import Info from '@img/icon-info.png'

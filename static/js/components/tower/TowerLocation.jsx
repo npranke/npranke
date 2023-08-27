@@ -1,6 +1,6 @@
 import { DropTarget } from 'react-dnd'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useRef } from 'react'
 
 import TowerDisk from '@components/tower/TowerDisk'
 
@@ -28,7 +28,7 @@ export function collect(connect) {
 }
 
 export function TowerLocation(props) {
-    const locationRef = React.useRef(null)
+    const locationRef = useRef(null)
     const { height, width } = useOffsetListener(locationRef)
 
     let diskHeight, diskWidth, scaleFactor

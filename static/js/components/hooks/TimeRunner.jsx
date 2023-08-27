@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useReducer } from 'react'
 
 function useTimeRunner(isRunning, shouldReset) {
     function reducer(state) {
@@ -39,7 +39,7 @@ function useTimeRunner(isRunning, shouldReset) {
         }
     }
 
-    const [state, dispatch] = React.useReducer(
+    const [state, dispatch] = useReducer(
         reducer,
         {
             start: null,
@@ -49,7 +49,7 @@ function useTimeRunner(isRunning, shouldReset) {
         },
     )
 
-    React.useEffect(() => {
+    useEffect(() => {
         function updateTime() {
             if (isRunning || shouldReset) { dispatch() }
         }
