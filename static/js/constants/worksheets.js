@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Concentration from '@components/concentration/Concentration'
 import ConcentrationInfo from '@components/concentration/ConcentrationInfo'
 import Tower from '@components/tower/Tower'
