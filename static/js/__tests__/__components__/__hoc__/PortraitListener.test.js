@@ -8,15 +8,13 @@ import withPortraitListener from '@components/hoc/PortraitListener'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe('PortraitListener', () => {
-    beforeEach(() => {
-        window.matchMedia = jest.fn().mockReturnValue({
-            matches: false,
-            addListener: jest.fn(),
-            removeListener: jest.fn(),
-        })
-    })
+window.matchMedia = jest.fn().mockReturnValue({
+    matches: false,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+})
 
+describe('PortraitListener', () => {
     test('wrapped component has isPortrait prop', () => {
         const WrappedComponent = withPortraitListener(ComponentMock)
 
