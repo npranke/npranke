@@ -217,8 +217,9 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         >
           <div
             class="component-mock"
+            role="document"
           >
-            mock
+             
           </div>
         </div>
       </div>
@@ -329,8 +330,9 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
     >
       <div
         class="component-mock"
+        role="document"
       >
-        mock
+         
       </div>
     </div>
     <div
