@@ -1,12 +1,8 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { mount } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import ComponentMock from '@__mocks__/ComponentMock'
 
 import withPortraitListener from '@components/hoc/PortraitListener'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 window.matchMedia = jest.fn().mockReturnValue({
     matches: false,
@@ -15,14 +11,14 @@ window.matchMedia = jest.fn().mockReturnValue({
 })
 
 describe('PortraitListener', () => {
-    test('wrapped component has isPortrait prop', () => {
+    test('wrapped component can access isPortrait prop', () => {
         const WrappedComponent = withPortraitListener(ComponentMock)
 
-        const wrappedComponent = mount(<WrappedComponent />)
+        render(<WrappedComponent />)
 
-        expect(
-            wrappedComponent.find('ComponentMock').props().isPortrait,
-        ).toBeDefined()
+        const wrappedComponent = screen.getByRole('document')
+
+        expect(wrappedComponent).toHaveTextContent('isPortrait false')
     })
 })
 
