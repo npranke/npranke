@@ -22,9 +22,43 @@ describe('PortraitListener', () => {
 
         render(<WrappedComponent />)
 
-        const wrappedComponent = screen.getByRole('document')
+        expect(
+            screen.getByRole('document'),
+        ).toHaveTextContent('isPortrait false')
+    })
 
-        expect(wrappedComponent).toHaveTextContent('isPortrait false')
+    test('isPortrait prop true when orientation matches', () => {
+        window.matchMedia().matches = true
+
+        const WrappedComponent = withPortraitListener(ComponentMock)
+
+        render(<WrappedComponent />)
+
+        expect(
+            screen.getByRole('document'),
+        ).toHaveTextContent('isPortrait true')
+    })
+
+    test('adds listener on mounting', () => {
+        const WrappedComponent = withPortraitListener(ComponentMock)
+
+        render(<WrappedComponent />)
+
+        expect(
+            window.matchMedia().addEventListener,
+        ).toHaveBeenCalledTimes(1)
+    })
+
+    test('removes listener on unmounting', () => {
+        const WrappedComponent = withPortraitListener(ComponentMock)
+
+        const { unmount } = render(<WrappedComponent />)
+
+        unmount()
+
+        expect(
+            window.matchMedia().removeEventListener,
+        ).toHaveBeenCalledTimes(1)
     })
 })
 
