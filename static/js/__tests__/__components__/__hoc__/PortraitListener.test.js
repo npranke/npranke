@@ -6,11 +6,17 @@ import withPortraitListener from '@components/hoc/PortraitListener'
 
 window.matchMedia = jest.fn().mockReturnValue({
     matches: false,
-    addListener: jest.fn(),
-    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
 })
 
 describe('PortraitListener', () => {
+    beforeEach(() => {
+        window.matchMedia().matches = false
+        window.matchMedia().addEventListener.mockReset()
+        window.matchMedia().removeEventListener.mockReset()
+    })
+
     test('wrapped component can access isPortrait prop', () => {
         const WrappedComponent = withPortraitListener(ComponentMock)
 

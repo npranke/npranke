@@ -16,11 +16,17 @@ function withPortraitListener(Component) {
         }
 
         componentDidMount() {
-            this.mediaQueryList.addListener(this.updateIsPortrait)
+            this.mediaQueryList.addEventListener(
+                'change',
+                this.updateIsPortrait,
+            )
         }
 
         componentWillUnmount() {
-            this.mediaQueryList.removeListener(this.updateIsPortrait)
+            this.mediaQueryList.removeEventListener(
+                'change',
+                this.updateIsPortrait,
+            )
         }
 
         updateIsPortrait() {
