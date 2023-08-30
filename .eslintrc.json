@@ -1,5 +1,9 @@
 {
-    "extends": ["airbnb", "plugin:jest-dom/recommended"],
+    "extends": [
+        "airbnb",
+        "plugin:jest-dom/recommended",
+        "plugin:react/jsx-runtime"
+    ],
     "env": {
         "browser": true,
         "jest": true
