@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 
-import ComponentMock from '@__mocks__/ComponentMock'
+import ComponentPortraitListenerHOCMock from
+    '@__mocks__/ComponentPortraitListenerHOCMock'
 
 import withPortraitListener from '@components/hoc/PortraitListener'
 
@@ -18,29 +19,23 @@ describe('PortraitListener', () => {
     })
 
     test('wrapped component can access isPortrait prop', () => {
-        const WrappedComponent = withPortraitListener(ComponentMock)
-
-        render(<WrappedComponent />)
-
-        expect(
-            screen.getByRole('document'),
-        ).toHaveTextContent('isPortrait false')
-    })
-
-    test('isPortrait prop true when orientation matches', () => {
         window.matchMedia().matches = true
 
-        const WrappedComponent = withPortraitListener(ComponentMock)
+        const WrappedComponent = withPortraitListener(
+            ComponentPortraitListenerHOCMock,
+        )
 
         render(<WrappedComponent />)
 
         expect(
             screen.getByRole('document'),
-        ).toHaveTextContent('isPortrait true')
+        ).toHaveTextContent('true')
     })
 
     test('adds listener on mounting', () => {
-        const WrappedComponent = withPortraitListener(ComponentMock)
+        const WrappedComponent = withPortraitListener(
+            ComponentPortraitListenerHOCMock,
+        )
 
         render(<WrappedComponent />)
 
@@ -50,7 +45,9 @@ describe('PortraitListener', () => {
     })
 
     test('removes listener on unmounting', () => {
-        const WrappedComponent = withPortraitListener(ComponentMock)
+        const WrappedComponent = withPortraitListener(
+            ComponentPortraitListenerHOCMock,
+        )
 
         const { unmount } = render(<WrappedComponent />)
 
@@ -64,7 +61,9 @@ describe('PortraitListener', () => {
 
 describe('PortraitListener snapshot', () => {
     test('matches snapshot', () => {
-        const WrappedComponent = withPortraitListener(ComponentMock)
+        const WrappedComponent = withPortraitListener(
+            ComponentPortraitListenerHOCMock,
+        )
 
         const { asFragment } = render(<WrappedComponent />)
 

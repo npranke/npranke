@@ -3,10 +3,14 @@
 exports[`PortraitListener snapshot matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="component-mock"
+    class="component-portrait-listener-hoc-mock"
     role="document"
   >
-    isPortrait false
+    <div
+      class="is-portrait"
+    >
+      false
+    </div>
   </div>
 </DocumentFragment>
 `;
