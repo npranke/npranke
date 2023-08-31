@@ -52,7 +52,7 @@
         "jest-haste-map": "^29.6.4",
         "jest-resolve": "^29.6.4",
         "mini-css-extract-plugin": "^2.7.6",
-        "pyright": "^1.1.324",
+        "pyright": "^1.1.325",
         "sharp": "^0.32.5",
         "terser-webpack-plugin": "^5.3.9",
         "webpack": "^5.88.2",
