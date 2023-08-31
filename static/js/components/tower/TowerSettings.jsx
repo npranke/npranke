@@ -21,27 +21,37 @@ function TowerSettings(props) {
     function disksLabelKeyUpHandler(event) {
         const { value } = event.currentTarget.dataset
 
-        if (event.key === 'Enter' || event.key === ' ') {
-            props.updateDisks(value)
-        } else if (event.key === 'ArrowRight') {
-            if (value === '2') {
-                threeDisks.current.focus()
-            } else if (value === '3') {
-                fourDisks.current.focus()
-            } else if (value === '4') {
-                fiveDisks.current.focus()
-            } else if (value === '5') {
-                twoDisks.current.focus()
+        if (event.key === ' ') {
+            if (value !== props.disks.toString()) {
+                props.updateDisks(value)
             }
-        } else if (event.key === 'ArrowLeft') {
+        } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+            if (value === '2') {
+                threeDisks.current.focus()
+                props.updateDisks('3')
+            } else if (value === '3') {
+                fourDisks.current.focus()
+                props.updateDisks('4')
+            } else if (value === '4') {
+                fiveDisks.current.focus()
+                props.updateDisks('5')
+            } else if (value === '5') {
+                twoDisks.current.focus()
+                props.updateDisks('2')
+            }
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
             if (value === '2') {
                 fiveDisks.current.focus()
+                props.updateDisks('5')
             } else if (value === '3') {
                 twoDisks.current.focus()
+                props.updateDisks('2')
             } else if (value === '4') {
                 threeDisks.current.focus()
+                props.updateDisks('3')
             } else if (value === '5') {
                 fourDisks.current.focus()
+                props.updateDisks('4')
             }
         }
     }
