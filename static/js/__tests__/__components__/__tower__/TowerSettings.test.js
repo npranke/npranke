@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
 import Enzyme, { mount, shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import TowerSettings from '@components/tower/TowerSettings'
 
@@ -120,16 +121,17 @@ describe('TowerSettings', () => {
             )
         })
 
-        test('disksInputChangeHandler() calls updateDisks prop', () => {
-            const towerSettings = mount(
-                <TowerSettings updateDisks={ jest.fn() } />,
-            )
+        test('disksInputChangeHandler() calls updateDisks prop', async () => {
+            const mockUpdateDisks = jest.fn()
 
-            towerSettings.find('#four-disks').simulate('change')
+            render(<TowerSettings updateDisks={ mockUpdateDisks } />)
 
-            expect(
-                towerSettings.props().updateDisks,
-            ).toHaveBeenCalledWith('4')
+            const fourDisks = screen.getByLabelText('4')
+
+            const user = userEvent.setup()
+            await user.click(fourDisks)
+
+            expect(mockUpdateDisks).toHaveBeenCalledWith('4')
         })
 
         describe('disksLabelKeyUpHandler()', () => {
