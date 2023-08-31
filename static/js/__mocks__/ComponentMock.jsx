@@ -1,10 +1,7 @@
-function ComponentMock(props) {
+function ComponentMock() {
     return (
-        <div className="component-mock" role="document">
-            {
-                `${Object.keys(props).toString()} `
-                + `${Object.values(props).toString()}`
-            }
+        <div className="component-mock">
+            mock
         </div>
     )
 }
