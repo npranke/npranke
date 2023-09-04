@@ -1,6 +1,6 @@
 import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { mount, shallow } from 'enzyme'
-import { render, screen } from '@testing-library/react'
+import Enzyme, { shallow } from 'enzyme'
+import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import TowerSettings from '@components/tower/TowerSettings'
@@ -170,167 +170,358 @@ describe('TowerSettings', () => {
             expect(mockUpdateDisks).toHaveBeenLastCalledWith('5')
         })
 
-        describe('disksLabelKeyUpHandler()', () => {
-            beforeEach(() => {
-                document.body.innerHTML = '<div id="fastener"></div>'
-            })
-
-            test('calls updateDisks prop on enter', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
+        describe('disksLabelKeyDownHandler()', () => {
+            test('updates on spacebar and new value', () => {
+                render(
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#five-disks-label').simulate(
-                    'keyup',
-                    { key: 'Enter' },
-                )
-
-                expect(
-                    towerSettings.props().updateDisks,
-                ).toHaveBeenCalledWith('5')
-            })
-
-            test('calls updateDisks prop on spacebar', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                )
-
-                towerSettings.find('#three-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('four-disks-label-elem'),
                     { key: ' ' },
                 )
 
-                expect(
-                    towerSettings.props().updateDisks,
-                ).toHaveBeenCalledWith('3')
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('4')
             })
 
-            test('updates active element for arrow right on two', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('does not update on spacebar and same value', () => {
+                render(
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#two-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('three-disks-label-elem'),
+                    { key: ' ' },
+                )
+
+                expect(mockUpdateDisks).not.toHaveBeenCalled()
+            })
+
+            test('updates for right arrow from two', () => {
+                render(
+                    <TowerSettings
+                        disks={ 2 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('two-disks-label-elem'),
                     { key: 'ArrowRight' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('three-disks-label')
+                    screen.getByTestId('three-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('3')
             })
 
-            test('updates active element for arrow right on three', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('updates for right arrow from three', () => {
+                render(
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#three-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('three-disks-label-elem'),
                     { key: 'ArrowRight' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('four-disks-label')
+                    screen.getByTestId('four-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('4')
             })
 
-            test('updates active element for arrow right on four', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('updates for right arrow from four', () => {
+                render(
+                    <TowerSettings
+                        disks={ 4 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#four-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('four-disks-label-elem'),
                     { key: 'ArrowRight' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('five-disks-label')
+                    screen.getByTestId('five-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('5')
             })
 
-            test('updates active element for arrow right on five', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('updates for right arrow from five', () => {
+                render(
+                    <TowerSettings
+                        disks={ 5 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#five-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('five-disks-label-elem'),
                     { key: 'ArrowRight' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('two-disks-label')
+                    screen.getByTestId('two-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('2')
             })
 
-            test('updates active element for arrow left on two', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('updates for down arrow from two', () => {
+                render(
+                    <TowerSettings
+                        disks={ 2 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#two-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('two-disks-label-elem'),
+                    { key: 'ArrowDown' },
+                )
+
+                expect(
+                    screen.getByTestId('three-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('3')
+            })
+
+            test('updates for down arrow from three', () => {
+                render(
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('three-disks-label-elem'),
+                    { key: 'ArrowDown' },
+                )
+
+                expect(
+                    screen.getByTestId('four-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('4')
+            })
+
+            test('updates for down arrow from four', () => {
+                render(
+                    <TowerSettings
+                        disks={ 4 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('four-disks-label-elem'),
+                    { key: 'ArrowDown' },
+                )
+
+                expect(
+                    screen.getByTestId('five-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('5')
+            })
+
+            test('updates for down arrow from five', () => {
+                render(
+                    <TowerSettings
+                        disks={ 5 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('five-disks-label-elem'),
+                    { key: 'ArrowDown' },
+                )
+
+                expect(
+                    screen.getByTestId('two-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('2')
+            })
+
+            test('updates for left arrow from two', () => {
+                render(
+                    <TowerSettings
+                        disks={ 2 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('two-disks-label-elem'),
                     { key: 'ArrowLeft' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('five-disks-label')
+                    screen.getByTestId('five-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('5')
             })
 
-            test('updates active element for arrow left on three', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('updates for left arrow from three', () => {
+                render(
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#three-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('three-disks-label-elem'),
                     { key: 'ArrowLeft' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('two-disks-label')
+                    screen.getByTestId('two-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('2')
             })
 
-            test('updates active element for arrow left on four', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('updates for left arrow from four', () => {
+                render(
+                    <TowerSettings
+                        disks={ 4 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#four-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('four-disks-label-elem'),
                     { key: 'ArrowLeft' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('three-disks-label')
+                    screen.getByTestId('three-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('3')
             })
 
-            test('updates active element for arrow left on five', () => {
-                const towerSettings = mount(
-                    <TowerSettings updateDisks={ jest.fn() } />,
-                    { attachTo: fastener },
+            test('updates for left arrow from five', () => {
+                render(
+                    <TowerSettings
+                        disks={ 5 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
-                towerSettings.find('#five-disks-label').simulate(
-                    'keyup',
+                fireEvent.keyDown(
+                    screen.getByTestId('five-disks-label-elem'),
                     { key: 'ArrowLeft' },
                 )
 
                 expect(
-                    document.activeElement.id,
-                ).toEqual('four-disks-label')
+                    screen.getByTestId('four-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('4')
+            })
+
+            test('updates for up arrow from two', () => {
+                render(
+                    <TowerSettings
+                        disks={ 2 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('two-disks-label-elem'),
+                    { key: 'ArrowUp' },
+                )
+
+                expect(
+                    screen.getByTestId('five-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('5')
+            })
+
+            test('updates for up arrow from three', () => {
+                render(
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('three-disks-label-elem'),
+                    { key: 'ArrowUp' },
+                )
+
+                expect(
+                    screen.getByTestId('two-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('2')
+            })
+
+            test('updates for up arrow from four', () => {
+                render(
+                    <TowerSettings
+                        disks={ 4 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('four-disks-label-elem'),
+                    { key: 'ArrowUp' },
+                )
+
+                expect(
+                    screen.getByTestId('three-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('3')
+            })
+
+            test('updates for up arrow from five', () => {
+                render(
+                    <TowerSettings
+                        disks={ 5 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
+                )
+
+                fireEvent.keyDown(
+                    screen.getByTestId('five-disks-label-elem'),
+                    { key: 'ArrowUp' },
+                )
+
+                expect(
+                    screen.getByTestId('four-disks-label-elem'),
+                ).toHaveFocus()
+                expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+                expect(mockUpdateDisks).toHaveBeenLastCalledWith('4')
             })
         })
 
