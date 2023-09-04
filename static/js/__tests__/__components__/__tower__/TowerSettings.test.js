@@ -8,6 +8,16 @@ import TowerSettings from '@components/tower/TowerSettings'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('TowerSettings', () => {
+    let mockUpdateDisks
+
+    beforeAll(() => {
+        mockUpdateDisks = jest.fn()
+    })
+
+    afterEach(() => {
+        mockUpdateDisks.mockReset()
+    })
+
     test('has disks-portion sections', () => {
         const towerSettings = shallow(
             <TowerSettings updateDisks={ jest.fn() } />,
@@ -121,17 +131,43 @@ describe('TowerSettings', () => {
             )
         })
 
-        test('disksInputChangeHandler() calls updateDisks prop', async () => {
-            const mockUpdateDisks = jest.fn()
-
-            render(<TowerSettings updateDisks={ mockUpdateDisks } />)
-
-            const fourDisks = screen.getByLabelText('4')
-
+        test('disksInputChangeHandler() calls updateDisks', async () => {
             const user = userEvent.setup()
-            await user.click(fourDisks)
 
-            expect(mockUpdateDisks).toHaveBeenCalledWith('4')
+            const { rerender } = render(
+                <TowerSettings
+                    disks={ 3 }
+                    updateDisks={ mockUpdateDisks }
+                />,
+            )
+            await user.click(screen.getByRole('radio', { name: '2' }))
+
+            expect(mockUpdateDisks).toHaveBeenCalledTimes(1)
+            expect(mockUpdateDisks).toHaveBeenLastCalledWith('2')
+
+            rerender(
+                <TowerSettings disks={ 2 } updateDisks={ mockUpdateDisks } />,
+            )
+            await user.click(screen.getByRole('radio', { name: '3' }))
+
+            expect(mockUpdateDisks).toHaveBeenCalledTimes(2)
+            expect(mockUpdateDisks).toHaveBeenLastCalledWith('3')
+
+            rerender(
+                <TowerSettings disks={ 3 } updateDisks={ mockUpdateDisks } />,
+            )
+            await user.click(screen.getByRole('radio', { name: '4' }))
+
+            expect(mockUpdateDisks).toHaveBeenCalledTimes(3)
+            expect(mockUpdateDisks).toHaveBeenLastCalledWith('4')
+
+            rerender(
+                <TowerSettings disks={ 4 } updateDisks={ mockUpdateDisks } />,
+            )
+            await user.click(screen.getByRole('radio', { name: '5' }))
+
+            expect(mockUpdateDisks).toHaveBeenCalledTimes(4)
+            expect(mockUpdateDisks).toHaveBeenLastCalledWith('5')
         })
 
         describe('disksLabelKeyUpHandler()', () => {
