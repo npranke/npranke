@@ -20,7 +20,7 @@ describe('TowerSettings', () => {
 
     test('has disks-portion sections', () => {
         const towerSettings = shallow(
-            <TowerSettings updateDisks={ jest.fn() } />,
+            <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
@@ -30,7 +30,7 @@ describe('TowerSettings', () => {
 
     test('has disks-portion number sections', () => {
         const towerSettings = shallow(
-            <TowerSettings updateDisks={ jest.fn() } />,
+            <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
@@ -40,7 +40,7 @@ describe('TowerSettings', () => {
 
     test('shows moves number when less than 10', () => {
         const towerSettings = shallow(
-            <TowerSettings moves={ 1 } updateDisks={ jest.fn() } />,
+            <TowerSettings moves={ 1 } updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
@@ -50,7 +50,7 @@ describe('TowerSettings', () => {
 
     test('shows moves number when 10', () => {
         const towerSettings = shallow(
-            <TowerSettings moves={ 10 } updateDisks={ jest.fn() } />,
+            <TowerSettings moves={ 10 } updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
@@ -60,7 +60,7 @@ describe('TowerSettings', () => {
 
     test('shows moves number when more than 10', () => {
         const towerSettings = shallow(
-            <TowerSettings moves={ 15 } updateDisks={ jest.fn() } />,
+            <TowerSettings moves={ 15 } updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
@@ -70,7 +70,7 @@ describe('TowerSettings', () => {
 
     test('has time-portion sections', () => {
         const towerSettings = shallow(
-            <TowerSettings updateDisks={ jest.fn() } />,
+            <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
@@ -80,7 +80,7 @@ describe('TowerSettings', () => {
 
     test('has time-portion number sections', () => {
         const towerSettings = shallow(
-            <TowerSettings updateDisks={ jest.fn() } />,
+            <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
@@ -91,7 +91,7 @@ describe('TowerSettings', () => {
     describe('disks selection radiogroup', () => {
         test('has one radiogroup', () => {
             const towerSettings = shallow(
-                <TowerSettings updateDisks={ jest.fn() } />,
+                <TowerSettings updateDisks={ mockUpdateDisks } />,
             )
 
             expect(
@@ -101,7 +101,7 @@ describe('TowerSettings', () => {
 
         test('has four radio inputs', () => {
             const towerSettings = shallow(
-                <TowerSettings updateDisks={ jest.fn() } />,
+                <TowerSettings updateDisks={ mockUpdateDisks } />,
             )
 
             expect(
@@ -117,7 +117,7 @@ describe('TowerSettings', () => {
 
         test('has four input labels', () => {
             const towerSettings = shallow(
-                <TowerSettings updateDisks={ jest.fn() } />,
+                <TowerSettings updateDisks={ mockUpdateDisks } />,
             )
 
             expect(
@@ -337,7 +337,10 @@ describe('TowerSettings', () => {
         describe('input checked', () => {
             test('selected disks input has checked true', () => {
                 const towerSettings = shallow(
-                    <TowerSettings disks={ 2 } updateDisks={ jest.fn() } />,
+                    <TowerSettings
+                        disks={ 2 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
                 expect(
@@ -347,7 +350,10 @@ describe('TowerSettings', () => {
 
             test('unselected disks inputs have checked false', () => {
                 const towerSettings = shallow(
-                    <TowerSettings disks={ 2 } updateDisks={ jest.fn() } />,
+                    <TowerSettings
+                        disks={ 2 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
                 expect(
@@ -365,7 +371,10 @@ describe('TowerSettings', () => {
         describe('label tabindex', () => {
             test('selected disks label has tabindex 0', () => {
                 const towerSettings = shallow(
-                    <TowerSettings disks={ 3 } updateDisks={ jest.fn() } />,
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
                 expect(
@@ -375,7 +384,10 @@ describe('TowerSettings', () => {
 
             test('unselected disks labels have tabindex -1', () => {
                 const towerSettings = shallow(
-                    <TowerSettings disks={ 3 } updateDisks={ jest.fn() } />,
+                    <TowerSettings
+                        disks={ 3 }
+                        updateDisks={ mockUpdateDisks }
+                    />,
                 )
 
                 expect(
