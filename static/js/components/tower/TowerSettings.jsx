@@ -84,6 +84,7 @@ function TowerSettings(props) {
                                 id="two-disks-label"
                                 htmlFor="two-disks"
                                 data-value="2"
+                                data-testid="two-disks-label-elem"
                                 ref={ twoDisks }
                                 onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 2 ? '0' : '-1' }
@@ -104,6 +105,7 @@ function TowerSettings(props) {
                                 id="three-disks-label"
                                 htmlFor="three-disks"
                                 data-value="3"
+                                data-testid="three-disks-label-elem"
                                 ref={ threeDisks }
                                 onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 3 ? '0' : '-1' }
@@ -124,6 +126,7 @@ function TowerSettings(props) {
                                 id="four-disks-label"
                                 htmlFor="four-disks"
                                 data-value="4"
+                                data-testid="four-disks-label-elem"
                                 ref={ fourDisks }
                                 onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 4 ? '0' : '-1' }
@@ -144,6 +147,7 @@ function TowerSettings(props) {
                                 id="five-disks-label"
                                 htmlFor="five-disks"
                                 data-value="5"
+                                data-testid="five-disks-label-elem"
                                 ref={ fiveDisks }
                                 onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 5 ? '0' : '-1' }
