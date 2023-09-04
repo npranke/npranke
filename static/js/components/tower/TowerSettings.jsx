@@ -18,7 +18,7 @@ function TowerSettings(props) {
         props.updateDisks(event.target.value)
     }
 
-    function disksLabelKeyUpHandler(event) {
+    function disksLabelKeyDownHandler(event) {
         const { value } = event.currentTarget.dataset
 
         if (event.key === ' ') {
@@ -85,7 +85,7 @@ function TowerSettings(props) {
                                 htmlFor="two-disks"
                                 data-value="2"
                                 ref={ twoDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 2 ? '0' : '-1' }
                             >
                                 2
@@ -105,7 +105,7 @@ function TowerSettings(props) {
                                 htmlFor="three-disks"
                                 data-value="3"
                                 ref={ threeDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 3 ? '0' : '-1' }
                             >
                                 3
@@ -125,7 +125,7 @@ function TowerSettings(props) {
                                 htmlFor="four-disks"
                                 data-value="4"
                                 ref={ fourDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 4 ? '0' : '-1' }
                             >
                                 4
@@ -145,7 +145,7 @@ function TowerSettings(props) {
                                 htmlFor="five-disks"
                                 data-value="5"
                                 ref={ fiveDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 5 ? '0' : '-1' }
                             >
                                 5

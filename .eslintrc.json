@@ -57,7 +57,7 @@
         ],
         "jsx-a11y/no-noninteractive-element-interactions": [
             "error",
-            { "label": ["onKeyUp"] }
+            { "label": ["onKeyDown"] }
         ],
         "jsx-a11y/no-noninteractive-element-to-interactive-role": [
             "error",
