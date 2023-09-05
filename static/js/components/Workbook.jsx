@@ -34,8 +34,8 @@ export function Workbook(props) {
         }
     }
 
-    const getItemKeyUpHandler = (right, left, up, down, home, end) => {
-        return function itemKeyUpHandler(event) {
+    const getItemKeyDownHandler = (right, left, up, down, home, end) => {
+        return function itemKeyDownHandler(event) {
             if (event.key === 'ArrowRight') {
                 right.current.focus()
             } else if (event.key === 'ArrowLeft') {
@@ -158,7 +158,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-concentration"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     concentrationRef,
                     concentrationRef,
                     concentrationRef,
@@ -174,7 +174,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-concentration"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     towerRef,
                     concentrationRef,
                     concentrationRef,
@@ -193,7 +193,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-tower"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     towerRef,
                     towerRef,
                     concentrationRef,
@@ -209,7 +209,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-tower"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     worksheetRef,
                     concentrationRef,
                     towerRef,
@@ -228,7 +228,7 @@ export function Workbook(props) {
                 id="workbook-worksheet"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     worksheetRef,
                     worksheetRef,
                     towerRef,
@@ -244,7 +244,7 @@ export function Workbook(props) {
                 id="workbook-worksheet"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     worksheetRef,
                     towerRef,
                     worksheetRef,
