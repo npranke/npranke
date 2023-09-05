@@ -85,6 +85,26 @@ describe('Workbook', () => {
         ).toHaveLength(1)
     })
 
+    test('opens worksheet alert with spacebar', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
+        )
+
+        await user.tab()
+        await user.tab()
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard(' ')
+
+        expect(window.alert).toHaveBeenCalled()
+    })
+
     test('moves focus with right arrow when not isPortrait', async () => {
         const user = userEvent.setup()
 

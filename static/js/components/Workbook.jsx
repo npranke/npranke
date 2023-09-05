@@ -52,6 +52,14 @@ export function Workbook(props) {
         }
     }
 
+    const getLinkKeyDownHandler = (link) => {
+        return function linkKeyDownHandler(event) {
+            if (event.key === ' ') {
+                link.current.click()
+            }
+        }
+    }
+
     const worksheetConcentration = (
         <Link
             onClick={ getSendEventHandler(
@@ -59,6 +67,7 @@ export function Workbook(props) {
                 'navigate',
                 'concentration',
             ) }
+            onKeyDown={ getLinkKeyDownHandler(concentrationRef) }
             to="/workbook/concentration"
             target="_self"
             rel="noreferrer"
@@ -90,6 +99,7 @@ export function Workbook(props) {
                 'navigate',
                 'tower',
             ) }
+            onKeyDown={ getLinkKeyDownHandler(towerRef) }
             to="/workbook/tower"
             target="_self"
             rel="noreferrer"
@@ -117,6 +127,7 @@ export function Workbook(props) {
     const worksheet = (
         <Link
             onClick={ getItemClickHandler('worksheet') }
+            onKeyDown={ getLinkKeyDownHandler(worksheetRef) }
             to="/workbook"
             target="_self"
             rel="noreferrer"
