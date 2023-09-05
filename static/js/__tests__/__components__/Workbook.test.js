@@ -24,9 +24,8 @@ describe('Workbook', () => {
     })
 
     test('sets document title', () => {
-        mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
         expect(document.title).toContain('workbook')
