@@ -1,6 +1,6 @@
 import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { mount, shallow } from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -13,10 +13,6 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('Workbook', () => {
     beforeAll(() => {
         window.alert = jest.fn()
-    })
-
-    beforeEach(() => {
-        document.body.innerHTML = '<div id="fastener"></div>'
     })
 
     afterEach(() => {
@@ -34,9 +30,8 @@ describe('Workbook', () => {
     test('sends pageview', () => {
         utils.sendPageview = jest.fn()
 
-        mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
         expect(utils.sendPageview).toHaveBeenCalledTimes(1)
