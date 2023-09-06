@@ -85,24 +85,30 @@ describe('WorksheetContainer', () => {
         })
 
         test('sends pageview when component mounts', () => {
-            mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouter },
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(1)
         })
 
         test('sends pageview when location hash changes', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouter },
+            const { rerender } = render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(1)
 
             mockLocation.hash = '#gist'
-            worksheetContainer.setProps({})
+            rerender(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
+            )
 
             expect(utils.sendPageview).toHaveBeenCalledTimes(2)
         })
