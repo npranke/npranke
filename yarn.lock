@@ -5535,7 +5535,7 @@ pure-rand@^6.0.0:
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-6.0.3.tgz#3c9e6b53c09e52ac3cedffc85ab7c1c7094b38cb"
   integrity sha512-KddyFewCsO0j3+np81IQ+SweXLDnDQTs5s67BOnrYmYe/yNmUhttQyGsYzy8yUnoljGAQ9sl38YB4vH8ur7Y+w==
 
-pyright@^1.1.325:
+pyright@^1.1.326:
   version "1.1.326"
   resolved "https://registry.yarnpkg.com/pyright/-/pyright-1.1.326.tgz#272bf2f6c18c0d1b12ac37151a81ef253d215a0c"
   integrity sha512-pWcJsLOtgCWb2taSXpLEAcGxhe8IwZfXJLasNmmj05xjH4Ma4XT8RkN+fWFRjdJF/InOVn+Hcg6mBbqayQAhGw==
