@@ -40,13 +40,7 @@
         "arrow-body-style": ["error", "always"],
         "class-methods-use-this": [
             "error",
-            {
-                "exceptMethods": [
-                    "componentDidMount",
-                    "getItemClickHandler",
-                    "getItemKeyUpHandler"
-                ]
-            }
+            { "enforceForClassFields": true }
         ],
         "function-paren-newline": ["off"],
         "import/no-named-as-default": ["off"],
