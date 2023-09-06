@@ -45,7 +45,7 @@ function WorksheetContainer(props) {
         setVisible(section)
     }
 
-    const headerKeyUpHandler = (event) => {
+    const headerKeyDownHandler = (event) => {
         const { section } = event.currentTarget.dataset
 
         if (event.key === 'Enter' || event.key === ' ') {
@@ -154,7 +154,7 @@ function WorksheetContainer(props) {
                         }
                         id="info-tab-navlink"
                         onClick={ headerClickHandler }
-                        onKeyUp={ headerKeyUpHandler }
+                        onKeyDown={ headerKeyDownHandler }
                         data-section="info"
                         ref={ infoTab }
                         aria-label="Info"
@@ -186,7 +186,7 @@ function WorksheetContainer(props) {
                         }
                         id="worksheet-tab-navlink"
                         onClick={ headerClickHandler }
-                        onKeyUp={ headerKeyUpHandler }
+                        onKeyDown={ headerKeyDownHandler }
                         data-section="worksheet"
                         ref={ worksheetTab }
                         aria-label="Worksheet"
@@ -223,7 +223,7 @@ function WorksheetContainer(props) {
                         }
                         id="gist-tab-navlink"
                         onClick={ headerClickHandler }
-                        onKeyUp={ headerKeyUpHandler }
+                        onKeyDown={ headerKeyDownHandler }
                         data-section="gist"
                         ref={ gistTab }
                         aria-label="Gist"
