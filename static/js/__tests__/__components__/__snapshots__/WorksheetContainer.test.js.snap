@@ -17,6 +17,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         role="tab"
       >
         <a
+          aria-label="Info"
           class="local-navlink local-navlink-info"
           data-section="info"
           href="/workbook/component#info"
@@ -44,6 +45,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         role="tab"
       >
         <a
+          aria-label="Worksheet"
           class="local-navlink local-navlink-worksheet"
           data-section="worksheet"
           href="/workbook/component"
@@ -71,6 +73,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #gis
         role="tab"
       >
         <a
+          aria-label="Gist"
           class="local-navlink local-navlink-gist active"
           data-section="gist"
           href="/workbook/component#gist"
@@ -129,6 +132,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         role="tab"
       >
         <a
+          aria-label="Info"
           class="local-navlink local-navlink-info active"
           data-section="info"
           href="/workbook/component#info"
@@ -156,6 +160,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         role="tab"
       >
         <a
+          aria-label="Worksheet"
           class="local-navlink local-navlink-worksheet"
           data-section="worksheet"
           href="/workbook/component"
@@ -183,6 +188,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is #inf
         role="tab"
       >
         <a
+          aria-label="Gist"
           class="local-navlink local-navlink-gist"
           data-section="gist"
           href="/workbook/component#gist"
@@ -247,6 +253,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         role="tab"
       >
         <a
+          aria-label="Info"
           class="local-navlink local-navlink-info"
           data-section="info"
           href="/workbook/component#info"
@@ -274,6 +281,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         role="tab"
       >
         <a
+          aria-label="Worksheet"
           class="local-navlink local-navlink-worksheet active"
           data-section="worksheet"
           href="/workbook/component"
@@ -301,6 +309,7 @@ exports[`WorksheetContainer snapshot matches snapshot when location hash is empt
         role="tab"
       >
         <a
+          aria-label="Gist"
           class="local-navlink local-navlink-gist"
           data-section="gist"
           href="/workbook/component#gist"

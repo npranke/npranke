@@ -153,6 +153,7 @@ function WorksheetContainer(props) {
                         onKeyUp={ headerKeyUpHandler }
                         data-section="info"
                         ref={ infoTab }
+                        aria-label="Info"
                     >
                         <img
                             src={ Info }
@@ -184,6 +185,7 @@ function WorksheetContainer(props) {
                         onKeyUp={ headerKeyUpHandler }
                         data-section="worksheet"
                         ref={ worksheetTab }
+                        aria-label="Worksheet"
                     >
                         <img
                             src={ props.worksheet.icon }
@@ -220,6 +222,7 @@ function WorksheetContainer(props) {
                         onKeyUp={ headerKeyUpHandler }
                         data-section="gist"
                         ref={ gistTab }
+                        aria-label="Gist"
                     >
                         <img
                             src={ Code }
