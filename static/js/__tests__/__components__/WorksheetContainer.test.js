@@ -36,9 +36,10 @@ describe('WorksheetContainer', () => {
     })
 
     test('sets document title', () => {
-        mount(
-            <WorksheetContainer worksheet={ worksheet } />,
-            { wrappingComponent: MemoryRouter },
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ worksheet } />
+            </MemoryRouter>,
         )
 
         expect(document.title).toContain('component')
