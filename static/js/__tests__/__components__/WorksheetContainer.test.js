@@ -161,173 +161,257 @@ describe('WorksheetContainer', () => {
         })
     })
 
-    describe('headerKeyUpHandler', () => {
-        beforeEach(() => {
-            document.body.innerHTML = '<div id="fastener"></div>'
-        })
+    describe('keyboard navigation on header tabs', () => {
+        test('enter on info section header tab', async () => {
+            const user = userEvent.setup()
 
-        test('enter key up event on info section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#info-tab Link').simulate(
-                'keyup',
-                { key: 'Enter' },
-            )
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('info-tabpanel')
+                screen.getByRole('link', { name: 'Info' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{Enter}')
+
+            expect(document.activeElement.id).toEqual('info-tabpanel')
         })
 
-        test('enter key up event on worksheet section button', () => {
-            mockLocation.hash = '#info'
+        test('enter on worksheet section header tab', async () => {
+            const user = userEvent.setup()
 
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#worksheet-tab Link').simulate(
-                'keyup',
-                { key: 'Enter' },
-            )
+            await user.tab()
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('worksheet-tabpanel')
+                screen.getByRole('link', { name: 'Worksheet' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{Enter}')
+
+            expect(document.activeElement.id).toEqual('worksheet-tabpanel')
         })
 
-        test('enter key up event on gist section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+        test('enter on gist section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#gist-tab Link').simulate(
-                'keyup',
-                { key: 'Enter' },
-            )
+            await user.tab()
+            await user.tab()
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('gist-tabpanel')
+                screen.getByRole('link', { name: 'Gist' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{Enter}')
+
+            expect(document.activeElement.id).toEqual('gist-tabpanel')
         })
 
-        test('spacebar key up event on info section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+        test('spacebar on info section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#info-tab Link').simulate(
-                'keyup',
-                { key: ' ' },
-            )
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('info-tabpanel')
+                screen.getByRole('link', { name: 'Info' }),
+            ).toHaveFocus()
+
+            await user.keyboard(' ')
+
+            expect(document.activeElement.id).toEqual('info-tabpanel')
         })
 
-        test('spacebar key up event on worksheet section button', () => {
-            mockLocation.hash = '#info'
+        test('spacebar on worksheet section header tab', async () => {
+            const user = userEvent.setup()
 
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#worksheet-tab Link').simulate(
-                'keyup',
-                { key: ' ' },
-            )
+            await user.tab()
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('worksheet-tabpanel')
+                screen.getByRole('link', { name: 'Worksheet' }),
+            ).toHaveFocus()
+
+            await user.keyboard(' ')
+
+            expect(document.activeElement.id).toEqual('worksheet-tabpanel')
         })
 
-        test('spacebar key up event on gist section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+        test('spacebar on gist section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#gist-tab Link').simulate(
-                'keyup',
-                { key: ' ' },
-            )
+            await user.tab()
+            await user.tab()
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('gist-tabpanel')
+                screen.getByRole('link', { name: 'Gist' }),
+            ).toHaveFocus()
+
+            await user.keyboard(' ')
+
+            expect(document.activeElement.id).toEqual('gist-tabpanel')
         })
 
-        test('arrow right key up event on info section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+        test('right arrow on info section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#info-tab Link').simulate(
-                'keyup',
-                { key: 'ArrowRight' },
-            )
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('worksheet-tab-navlink')
+                screen.getByRole('link', { name: 'Info' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{ArrowRight}')
+
+            expect(document.activeElement.id).toEqual('worksheet-tab-navlink')
         })
 
-        test('arrow right key up event on worksheet section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+        test('right arrow on worksheet section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#worksheet-tab Link').simulate(
-                'keyup',
-                { key: 'ArrowRight' },
-            )
+            await user.tab()
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('gist-tab-navlink')
+                screen.getByRole('link', { name: 'Worksheet' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{ArrowRight}')
+
+            expect(document.activeElement.id).toEqual('gist-tab-navlink')
         })
 
-        test('arrow left key up event on worksheet section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+        test('right arrow on gist section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#worksheet-tab Link').simulate(
-                'keyup',
-                { key: 'ArrowLeft' },
-            )
+            await user.tab()
+            await user.tab()
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('info-tab-navlink')
+                screen.getByRole('link', { name: 'Gist' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{ArrowRight}')
+
+            expect(document.activeElement.id).toEqual('info-tab-navlink')
         })
 
-        test('arrow left key up event on gist section button', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { attachTo: fastener, wrappingComponent: MemoryRouter },
+        test('left arrow on info section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#gist-tab Link').simulate(
-                'keyup',
-                { key: 'ArrowLeft' },
-            )
+            await user.tab()
 
             expect(
-                document.activeElement.id,
-            ).toEqual('worksheet-tab-navlink')
+                screen.getByRole('link', { name: 'Info' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{ArrowLeft}')
+
+            expect(document.activeElement.id).toEqual('gist-tab-navlink')
+        })
+
+        test('left arrow on worksheet section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
+            )
+
+            await user.tab()
+            await user.tab()
+
+            expect(
+                screen.getByRole('link', { name: 'Worksheet' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{ArrowLeft}')
+
+            expect(document.activeElement.id).toEqual('info-tab-navlink')
+        })
+
+        test('left arrow on gist section header tab', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
+            )
+
+            await user.tab()
+            await user.tab()
+            await user.tab()
+
+            expect(
+                screen.getByRole('link', { name: 'Gist' }),
+            ).toHaveFocus()
+
+            await user.keyboard('{ArrowLeft}')
+
+            expect(document.activeElement.id).toEqual('worksheet-tab-navlink')
         })
     })
 })
