@@ -1,7 +1,8 @@
 import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { mount, shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import Enzyme, { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import ComponentMock from '@__mocks__/ComponentMock'
 import ImageMock from '@__mocks__/ImageMock'
@@ -115,46 +116,48 @@ describe('WorksheetContainer', () => {
     })
 
     describe('headerClickHandler', () => {
-        test('updates aria-selected on with click on info', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouter },
+        test('updates aria-selected on with click on info', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#info-tab Link').simulate('click')
+            await user.click(screen.getByRole('link', { name: 'Info' }))
 
             expect(
-                worksheetContainer.find('#info-tab').props()['aria-selected'],
-            ).toBe(true)
+                screen.getByRole('tab', { name: 'Info' }),
+            ).toHaveAttribute('aria-selected', 'true')
             expect(
-                worksheetContainer.find(
-                    '#worksheet-tab',
-                ).props()['aria-selected'],
-            ).toBe(false)
+                screen.getByRole('tab', { name: 'Worksheet' }),
+            ).toHaveAttribute('aria-selected', 'false')
             expect(
-                worksheetContainer.find('#gist-tab').props()['aria-selected'],
-            ).toBe(false)
+                screen.getByRole('tab', { name: 'Gist' }),
+            ).toHaveAttribute('aria-selected', 'false')
         })
 
-        test('updates aria-selected on with click on gist', () => {
-            const worksheetContainer = mount(
-                <WorksheetContainer worksheet={ worksheet } />,
-                { wrappingComponent: MemoryRouter },
+        test('updates aria-selected on with click on gist', async () => {
+            const user = userEvent.setup()
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
             )
 
-            worksheetContainer.find('#gist-tab Link').simulate('click')
+            await user.click(screen.getByRole('link', { name: 'Gist' }))
 
             expect(
-                worksheetContainer.find('#info-tab').props()['aria-selected'],
-            ).toBe(false)
+                screen.getByRole('tab', { name: 'Info' }),
+            ).toHaveAttribute('aria-selected', 'false')
             expect(
-                worksheetContainer.find(
-                    '#worksheet-tab',
-                ).props()['aria-selected'],
-            ).toBe(false)
+                screen.getByRole('tab', { name: 'Worksheet' }),
+            ).toHaveAttribute('aria-selected', 'false')
             expect(
-                worksheetContainer.find('#gist-tab').props()['aria-selected'],
-            ).toBe(true)
+                screen.getByRole('tab', { name: 'Gist' }),
+            ).toHaveAttribute('aria-selected', 'true')
         })
     })
 
