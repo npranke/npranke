@@ -1,7 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
+import Enzyme, { shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { mount, shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import App from '@components/App'
 import Background from '@components/Background'
@@ -90,120 +90,132 @@ describe('App', () => {
         ).toEqual(<Workbook />)
     })
 
-    test('contains route with render for concentration worksheet', () => {
-        const app = shallow(<App />)
-
-        const worksheetContainer = mount(
-            app.find('Route').at(3).props().element,
-            { wrappingComponent: MemoryRouter },
+    test('contains route for concentration worksheet', () => {
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/workbook/concentration'] }>
+                <App />
+            </MemoryRouter>,
         )
+        const worksheetHTML = screen.getByRole('main').outerHTML
 
-        const expected = mount(
-            <WorksheetContainer worksheet={ CONCENTRATION } />,
-            { wrappingComponent: MemoryRouter },
+        unmount()
+
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ CONCENTRATION } />
+            </MemoryRouter>,
         )
+        const expectedHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            worksheetContainer.html(),
-        ).toEqual(expected.html())
+        expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route with render for concentration worksheet info', () => {
+    test('contains route for concentration worksheet info', () => {
         mockLocation.hash = '#info'
 
-        const app = shallow(<App />)
-
-        const worksheetContainer = mount(
-            app.find('Route').at(3).props().element,
-            { wrappingComponent: MemoryRouter },
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/workbook/concentration'] }>
+                <App />
+            </MemoryRouter>,
         )
+        const worksheetHTML = screen.getByRole('main').outerHTML
 
-        const expected = mount(
-            <WorksheetContainer worksheet={ CONCENTRATION } />,
-            { wrappingComponent: MemoryRouter },
+        unmount()
+
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ CONCENTRATION } />
+            </MemoryRouter>,
         )
+        const expectedHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            worksheetContainer.html(),
-        ).toEqual(expected.html())
+        expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route with render for concentration worksheet gist', () => {
+    test('contains route for concentration worksheet gist', () => {
         mockLocation.hash = '#gist'
 
-        const app = shallow(<App />)
-
-        const worksheetContainer = mount(
-            app.find('Route').at(3).props().element,
-            { wrappingComponent: MemoryRouter },
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/workbook/concentration'] }>
+                <App />
+            </MemoryRouter>,
         )
+        const worksheetHTML = screen.getByRole('main').outerHTML
 
-        const expected = mount(
-            <WorksheetContainer worksheet={ CONCENTRATION } />,
-            { wrappingComponent: MemoryRouter },
+        unmount()
+
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ CONCENTRATION } />
+            </MemoryRouter>,
         )
+        const expectedHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            worksheetContainer.html(),
-        ).toEqual(expected.html())
+        expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route with render for tower worksheet', () => {
-        const app = shallow(<App />)
-
-        const worksheetContainer = mount(
-            app.find('Route').at(4).props().element,
-            { wrappingComponent: MemoryRouter },
+    test('contains route for tower worksheet', () => {
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/workbook/tower'] }>
+                <App />
+            </MemoryRouter>,
         )
+        const worksheetHTML = screen.getByRole('main').outerHTML
 
-        const expected = mount(
-            <WorksheetContainer worksheet={ TOWER } />,
-            { wrappingComponent: MemoryRouter },
+        unmount()
+
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ TOWER } />
+            </MemoryRouter>,
         )
+        const expectedHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            worksheetContainer.html(),
-        ).toEqual(expected.html())
+        expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route with render for tower worksheet info', () => {
+    test('contains route for tower worksheet info', () => {
         mockLocation.hash = '#info'
 
-        const app = shallow(<App />)
-
-        const worksheetContainer = mount(
-            app.find('Route').at(4).props().element,
-            { wrappingComponent: MemoryRouter },
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/workbook/tower'] }>
+                <App />
+            </MemoryRouter>,
         )
+        const worksheetHTML = screen.getByRole('main').outerHTML
 
-        const expected = mount(
-            <WorksheetContainer worksheet={ TOWER } />,
-            { wrappingComponent: MemoryRouter },
+        unmount()
+
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ TOWER } />
+            </MemoryRouter>,
         )
+        const expectedHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            worksheetContainer.html(),
-        ).toEqual(expected.html())
+        expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route with render for tower worksheet gist', () => {
+    test('contains route for tower worksheet gist', () => {
         mockLocation.hash = '#gist'
 
-        const app = shallow(<App />)
-
-        const worksheetContainer = mount(
-            app.find('Route').at(4).props().element,
-            { wrappingComponent: MemoryRouter },
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/workbook/tower'] }>
+                <App />
+            </MemoryRouter>,
         )
+        const worksheetHTML = screen.getByRole('main').outerHTML
 
-        const expected = mount(
-            <WorksheetContainer worksheet={ TOWER } />,
-            { wrappingComponent: MemoryRouter },
+        unmount()
+
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ TOWER } />
+            </MemoryRouter>,
         )
+        const expectedHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            worksheetContainer.html(),
-        ).toEqual(expected.html())
+        expect(worksheetHTML).toEqual(expectedHTML)
     })
 
     test('contains route with pagenotfound component', () => {
