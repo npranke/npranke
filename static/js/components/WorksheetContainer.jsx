@@ -64,12 +64,16 @@ function WorksheetContainer(props) {
                 worksheetTab.current.focus()
             } else if (section === 'worksheet') {
                 gistTab.current.focus()
+            } else if (section === 'gist') {
+                infoTab.current.focus()
             }
         } else if (event.key === 'ArrowLeft') {
             if (section === 'gist') {
                 worksheetTab.current.focus()
             } else if (section === 'worksheet') {
                 infoTab.current.focus()
+            } else if (section === 'info') {
+                gistTab.current.focus()
             }
         }
     }
