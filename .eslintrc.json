@@ -45,6 +45,7 @@
         "function-paren-newline": ["off"],
         "import/no-named-as-default": ["off"],
         "indent": ["error", 4],
+        "jest-dom/prefer-to-have-text-content": ["off"],
         "jsx-a11y/label-has-associated-control": [
             "error",
             { "assert": "either" }
