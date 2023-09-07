@@ -7,11 +7,13 @@ exports[`OffsetListener snapshot matches snapshot with elementRef.current 1`] = 
   >
     <div
       class="height"
+      data-testid="height-div-elem"
     >
       25
     </div>
     <div
       class="width"
+      data-testid="width-div-elem"
     >
       100
     </div>
@@ -26,11 +28,13 @@ exports[`OffsetListener snapshot matches snapshot without elementRef.current 1`]
   >
     <div
       class="height"
+      data-testid="height-div-elem"
     >
       0
     </div>
     <div
       class="width"
+      data-testid="width-div-elem"
     >
       0
     </div>

@@ -7,8 +7,12 @@ function ComponentUseOffsetListenerMock(props) {
 
     return (
         <div className="component-use-offset-listener-mock">
-            <div className="height">{ height }</div>
-            <div className="width">{ width }</div>
+            <div className="height" data-testid="height-div-elem">
+                { height }
+            </div>
+            <div className="width" data-testid="width-div-elem">
+                { width }
+            </div>
         </div>
     )
 }
