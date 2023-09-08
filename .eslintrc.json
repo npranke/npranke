@@ -31,7 +31,8 @@
         {
             "files": ["static/js/__tests__/**"],
             "rules": {
-                "no-import-assign": ["off"]
+                "no-import-assign": ["off"],
+                "no-await-in-loop": ["off"]
             }
         }
     ],
