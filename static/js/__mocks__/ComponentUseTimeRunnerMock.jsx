@@ -10,14 +10,14 @@ function ComponentUseTimeRunnerMock(props) {
 
     return (
         <div className="component-use-time-runner-mock">
-            <div className="centiseconds" data-testid="centiseconds-div-elem">
-                { centiseconds }
+            <div className="minutes" role="timer">
+                { minutes }
             </div>
-            <div className="seconds" data-testid="seconds-div-elem">
+            <div className="seconds" role="timer">
                 { seconds }
             </div>
-            <div className="minutes" data-testid="minutes-div-elem">
-                { minutes }
+            <div className="centiseconds" role="timer">
+                { centiseconds }
             </div>
         </div>
     )
