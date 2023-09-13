@@ -1,6 +1,7 @@
 import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { mount, shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import Enzyme, { shallow } from 'enzyme'
+import { act, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { Concentration } from '@components/concentration/Concentration'
 import * as rowModule from '@components/concentration/ConcentrationBoardRow'
@@ -17,6 +18,8 @@ jest.mock('@components/concentration/ConcentrationBoardRow', () => {
         ).default,
     }
 })
+
+jest.useFakeTimers()
 
 describe('Concentration', () => {
     test('has matches section', () => {
@@ -82,14 +85,35 @@ describe('Concentration', () => {
         ).toBeLessThan(24)
     })
 
-    test('time starts running when a picture is clicked', () => {
-        const concentration = mount(<Concentration />)
+    test('time starts running when a picture is clicked', async () => {
+        const user = userEvent.setup({
+            advanceTimers: jest.advanceTimersByTime,
+        })
 
-        concentration.find('.picture-back').first().simulate('click')
+        render(<Concentration />)
+
+        const times = screen.getAllByRole('timer')
+        const pictures = screen.getAllByRole(
+            'button',
+            { name: 'NASA/JPL Mars Exploration Rover PIA20285' },
+        )
+
+        await user.click(pictures[0])
+
+        act(() => {
+            jest.runOnlyPendingTimers()
+            jest.advanceTimersByTime(50)
+        })
 
         expect(
-            concentration.state('isTimeRunning'),
-        ).toBe(true)
+            times[0].textContent,
+        ).toEqual('00')
+        expect(
+            times[1].textContent,
+        ).toEqual('00')
+        expect(
+            times[2].textContent,
+        ).toEqual('04')
     })
 
     describe('sending concentration events', () => {
@@ -111,11 +135,21 @@ describe('Concentration', () => {
             utils.sendEvent.mockRestore()
         })
 
-        test('when picture is clicked', () => {
-            const concentration = mount(<Concentration />)
+        test('when picture is clicked', async () => {
+            const user = userEvent.setup({
+                advanceTimers: jest.advanceTimersByTime,
+            })
 
-            concentration.find('.picture-back').first().simulate('click')
+            render(<Concentration />)
 
+            const pictures = screen.getAllByRole(
+                'button',
+                { name: 'NASA/JPL Mars Exploration Rover PIA20285' },
+            )
+
+            await user.click(pictures[0])
+
+            expect(utils.sendEvent).toHaveBeenCalledTimes(1)
             expect(
                 utils.sendEvent,
             ).toHaveBeenNthCalledWith(
@@ -126,63 +160,76 @@ describe('Concentration', () => {
             )
         })
 
-        test('when match is clicked', () => {
-            const concentration = mount(<Concentration />)
-
-            const pictureid = concentration.find(
-                '.picture-back',
-            ).first().props()['data-pictureid']
-
-            concentration.setState({
-                first: {
-                    id: `${pictureid}-x`,
-                    pictureid,
-                },
+        test('when match is clicked', async () => {
+            const user = userEvent.setup({
+                advanceTimers: jest.advanceTimersByTime,
             })
 
-            concentration.find('.picture-back').first().simulate('click')
+            render(<Concentration />)
 
+            const pictures = screen.getAllByRole(
+                'button',
+                { name: 'NASA/JPL Mars Exploration Rover PIA20285' },
+            )
+
+            const pair = pictures.filter((picture) => {
+                return picture.getAttribute('data-pictureid') === '4'
+            })
+
+            await user.click(pair[0])
+            await user.click(pair[1])
+
+            expect(utils.sendEvent).toHaveBeenCalledTimes(3)
             expect(
                 utils.sendEvent,
             ).toHaveBeenNthCalledWith(
-                2,
+                3,
                 'concentration',
                 'find',
                 'match',
             )
         })
 
-        test('when last match is clicked', () => {
-            const concentration = mount(<Concentration />)
-
-            const pictureid = concentration.find(
-                '.picture-back',
-            ).first().props()['data-pictureid']
-
-            concentration.setState({
-                first: {
-                    id: `${pictureid}-x`,
-                    pictureid,
-                },
-                internalMatches: Array.from(
-                    { length: 12 },
-                    (value, index) => {
-                        return `${index}`
-                    },
-                ).filter(
-                    (internalMatch) => {
-                        return internalMatch !== pictureid
-                    },
-                ),
-                turns: 11,
+        test('when last match is clicked', async () => {
+            const user = userEvent.setup({
+                advanceTimers: jest.advanceTimersByTime,
             })
 
-            concentration.find('.picture-back').first().simulate('click')
+            render(<Concentration />)
 
+            const pictures = screen.getAllByRole(
+                'button',
+                { name: 'NASA/JPL Mars Exploration Rover PIA20285' },
+            )
+
+            let pair
+
+            for (let i = 0; i < 12; i++) {
+                pair = pictures.filter((picture) => {
+                    return picture.getAttribute(
+                        'data-pictureid',
+                    ) === i.toString()
+                })
+
+                if (i < 11) {
+                    await user.click(pair[0])
+                    await user.click(pair[1])
+                }
+            }
+
+            expect(utils.sendEvent).toHaveBeenCalledTimes(33)
+
+            await user.click(pair[0])
+
+            expect(utils.sendEvent).toHaveBeenCalledTimes(34)
+
+            await user.click(pair[1])
+
+            expect(utils.sendEvent).toHaveBeenCalledTimes(37)
             expect(
                 utils.sendEvent,
             ).toHaveBeenNthCalledWith(
-                3,
+                37,
                 'concentration',
                 'complete',
                 'matches',
@@ -271,8 +318,6 @@ describe('Concentration', () => {
         })
 
         test('pictureTimeout resets first and second when match', () => {
-            jest.useFakeTimers()
-
             const concentration = shallow(<Concentration />)
 
             concentration.setState({
@@ -321,8 +366,6 @@ describe('Concentration', () => {
         })
 
         test('pictureTimeout sets displayedMatches when match', () => {
-            jest.useFakeTimers()
-
             const concentration = shallow(<Concentration />)
 
             concentration.setState({
@@ -442,8 +485,6 @@ describe('Concentration', () => {
         })
 
         test('pictureTimeout resets first and second when not match', () => {
-            jest.useFakeTimers()
-
             const concentration = shallow(<Concentration />)
 
             concentration.setState({
@@ -470,8 +511,6 @@ describe('Concentration', () => {
         })
 
         test('pictureTimeout sets displayedMatches when not match', () => {
-            jest.useFakeTimers()
-
             const concentration = shallow(<Concentration />)
 
             concentration.setState({
@@ -595,34 +634,54 @@ describe('Concentration', () => {
     })
 
     describe('pictureKeyUpHandler()', () => {
-        test('calls pictureClickHandler() on enter', () => {
-            const concentration = mount(<Concentration />)
+        test('calls pictureClickHandler() on enter', async () => {
+            const user = userEvent.setup({
+                advanceTimers: jest.advanceTimersByTime,
+            })
 
-            concentration.instance().pictureClickHandler = jest.fn()
+            render(<Concentration />)
 
-            concentration.find('.picture-back').first().simulate(
-                'keyup',
-                { key: 'Enter' },
-            )
+            const picture = screen.getAllByRole(
+                'button',
+                { name: 'NASA/JPL Mars Exploration Rover PIA20285' },
+            )[0]
+
+            picture.focus()
+            await user.keyboard('{Enter}')
 
             expect(
-                concentration.instance().pictureClickHandler,
-            ).toHaveBeenCalled()
+                picture,
+            ).not.toHaveAttribute(
+                'name',
+                'NASA/JPL Mars Exploration Rover PIA20285',
+            )
+            expect(picture).not.toHaveAttribute('name', '')
+            expect(picture).toHaveClass('picture-front')
         })
 
-        test('calls pictureClickHandler() on spacebar', () => {
-            const concentration = mount(<Concentration />)
+        test('calls pictureClickHandler() on spacebar', async () => {
+            const user = userEvent.setup({
+                advanceTimers: jest.advanceTimersByTime,
+            })
 
-            concentration.instance().pictureClickHandler = jest.fn()
+            render(<Concentration />)
 
-            concentration.find('.picture-back').first().simulate(
-                'keyup',
-                { key: ' ' },
-            )
+            const picture = screen.getAllByRole(
+                'button',
+                { name: 'NASA/JPL Mars Exploration Rover PIA20285' },
+            )[0]
+
+            picture.focus()
+            await user.keyboard(' ')
 
             expect(
-                concentration.instance().pictureClickHandler,
-            ).toHaveBeenCalled()
+                picture,
+            ).not.toHaveAttribute(
+                'name',
+                'NASA/JPL Mars Exploration Rover PIA20285',
+            )
+            expect(picture).not.toHaveAttribute('name', '')
+            expect(picture).toHaveClass('picture-front')
         })
     })
 })
