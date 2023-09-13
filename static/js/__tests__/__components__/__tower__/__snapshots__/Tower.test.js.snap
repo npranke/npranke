@@ -131,6 +131,7 @@ exports[`Tower snapshot matches snapshot 1`] = `
               </span>
               <span
                 class="time-portion number"
+                role="timer"
               >
                 00
               </span>
@@ -141,6 +142,7 @@ exports[`Tower snapshot matches snapshot 1`] = `
               </span>
               <span
                 class="time-portion number"
+                role="timer"
               >
                 00
               </span>
@@ -151,6 +153,7 @@ exports[`Tower snapshot matches snapshot 1`] = `
               </span>
               <span
                 class="time-portion number"
+                role="timer"
               >
                 00
               </span>
