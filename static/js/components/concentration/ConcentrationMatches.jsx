@@ -50,19 +50,19 @@ function ConcentrationMatches(props) {
                         <span className="time-portion">
                             time:&emsp;
                         </span>
-                        <span className="time-portion number">
+                        <span className="time-portion number" role="timer">
                             { minutes }
                         </span>
                         <span className="time-portion">
                             &ensp;:&ensp;
                         </span>
-                        <span className="time-portion number">
+                        <span className="time-portion number" role="timer">
                             { seconds }
                         </span>
                         <span className="time-portion">
                             &ensp;:&ensp;
                         </span>
-                        <span className="time-portion number">
+                        <span className="time-portion number" role="timer">
                             { centiseconds }
                         </span>
                     </span>

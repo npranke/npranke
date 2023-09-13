@@ -53,6 +53,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -63,6 +64,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -73,6 +75,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -236,6 +239,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -246,6 +250,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -256,6 +261,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -355,6 +361,7 @@ exports[`ConcentrationMatches snapshot matches snapshot without matches 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -365,6 +372,7 @@ exports[`ConcentrationMatches snapshot matches snapshot without matches 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -375,6 +383,7 @@ exports[`ConcentrationMatches snapshot matches snapshot without matches 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
