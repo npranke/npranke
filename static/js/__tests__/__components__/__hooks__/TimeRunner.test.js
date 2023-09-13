@@ -17,19 +17,21 @@ describe('TimeRunner', () => {
             />,
         )
 
+        const times = screen.getAllByRole('timer')
+
         act(() => {
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(100)
         })
 
         expect(
-            screen.getByTestId('centiseconds-div-elem').textContent,
+            times[0].textContent,
         ).toEqual('00')
         expect(
-            screen.getByTestId('seconds-div-elem').textContent,
+            times[1].textContent,
         ).toEqual('00')
         expect(
-            screen.getByTestId('minutes-div-elem').textContent,
+            times[2].textContent,
         ).toEqual('00')
     })
 
@@ -41,19 +43,21 @@ describe('TimeRunner', () => {
             />,
         )
 
+        const times = screen.getAllByRole('timer')
+
         act(() => {
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(100)
         })
 
         expect(
-            screen.getByTestId('centiseconds-div-elem').textContent,
+            times[0].textContent,
         ).toEqual('00')
         expect(
-            screen.getByTestId('seconds-div-elem').textContent,
+            times[1].textContent,
         ).toEqual('00')
         expect(
-            screen.getByTestId('minutes-div-elem').textContent,
+            times[2].textContent,
         ).toEqual('00')
     })
 
@@ -65,13 +69,21 @@ describe('TimeRunner', () => {
             />,
         )
 
+        const times = screen.getAllByRole('timer')
+
         act(() => {
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(60)
         })
 
         expect(
-            screen.getByTestId('centiseconds-div-elem').textContent,
+            times[0].textContent,
+        ).toEqual('00')
+        expect(
+            times[1].textContent,
+        ).toEqual('00')
+        expect(
+            times[2].textContent,
         ).toEqual('05')
     })
 
@@ -83,14 +95,22 @@ describe('TimeRunner', () => {
             />,
         )
 
+        const times = screen.getAllByRole('timer')
+
         act(() => {
             jest.runOnlyPendingTimers()
-            jest.advanceTimersByTime(8200)
+            jest.advanceTimersByTime(8020)
         })
 
         expect(
-            screen.getByTestId('seconds-div-elem').textContent,
+            times[0].textContent,
+        ).toEqual('00')
+        expect(
+            times[1].textContent,
         ).toEqual('08')
+        expect(
+            times[2].textContent,
+        ).toEqual('01')
     })
 
     test('formats minutes when less than 10', () => {
@@ -101,13 +121,21 @@ describe('TimeRunner', () => {
             />,
         )
 
+        const times = screen.getAllByRole('timer')
+
         act(() => {
             jest.runOnlyPendingTimers()
-            jest.advanceTimersByTime(124000)
+            jest.advanceTimersByTime(124030)
         })
 
         expect(
-            screen.getByTestId('minutes-div-elem').textContent,
+            times[0].textContent,
+        ).toEqual('02')
+        expect(
+            times[1].textContent,
+        ).toEqual('04')
+        expect(
+            times[2].textContent,
         ).toEqual('02')
     })
 
@@ -119,17 +147,22 @@ describe('TimeRunner', () => {
             />,
         )
 
+        const times = screen.getAllByRole('timer')
+
         act(() => {
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(1050)
         })
 
         expect(
-            screen.getByTestId('centiseconds-div-elem').textContent,
-        ).toEqual('04')
+            times[0].textContent,
+        ).toEqual('00')
         expect(
-            screen.getByTestId('seconds-div-elem').textContent,
+            times[1].textContent,
         ).toEqual('01')
+        expect(
+            times[2].textContent,
+        ).toEqual('04')
     })
 
     test('formats seconds when over 60', () => {
@@ -140,17 +173,22 @@ describe('TimeRunner', () => {
             />,
         )
 
+        const times = screen.getAllByRole('timer')
+
         act(() => {
             jest.runOnlyPendingTimers()
-            jest.advanceTimersByTime(63000)
+            jest.advanceTimersByTime(63070)
         })
 
         expect(
-            screen.getByTestId('seconds-div-elem').textContent,
-        ).toEqual('02')
-        expect(
-            screen.getByTestId('minutes-div-elem').textContent,
+            times[0].textContent,
         ).toEqual('01')
+        expect(
+            times[1].textContent,
+        ).toEqual('03')
+        expect(
+            times[2].textContent,
+        ).toEqual('06')
     })
 
     describe('useEffect dependency changes', () => {
