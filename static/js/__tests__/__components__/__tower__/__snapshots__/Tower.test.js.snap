@@ -149,7 +149,7 @@ exports[`Tower snapshot matches snapshot 1`] = `
               <span
                 class="time-portion"
               >
-                 : 
+                 . 
               </span>
               <span
                 class="time-portion number"

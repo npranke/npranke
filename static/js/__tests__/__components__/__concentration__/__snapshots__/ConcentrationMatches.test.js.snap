@@ -71,7 +71,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with all matches 1`] = `
           <span
             class="time-portion"
           >
-             : 
+             . 
           </span>
           <span
             class="time-portion number"
@@ -257,7 +257,7 @@ exports[`ConcentrationMatches snapshot matches snapshot with some matches 1`] = 
           <span
             class="time-portion"
           >
-             : 
+             . 
           </span>
           <span
             class="time-portion number"
@@ -379,7 +379,7 @@ exports[`ConcentrationMatches snapshot matches snapshot without matches 1`] = `
           <span
             class="time-portion"
           >
-             : 
+             . 
           </span>
           <span
             class="time-portion number"

@@ -184,7 +184,7 @@ function TowerSettings(props) {
                             { seconds }
                         </span>
                         <span className="time-portion">
-                            &ensp;:&ensp;
+                            &ensp;.&ensp;
                         </span>
                         <span className="time-portion number" role="timer">
                             { centiseconds }
