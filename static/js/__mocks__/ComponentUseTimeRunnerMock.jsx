@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 
 import useTimeRunner from '@components/hooks/TimeRunner'
 
@@ -11,9 +10,15 @@ function ComponentUseTimeRunnerMock(props) {
 
     return (
         <div className="component-use-time-runner-mock">
-            <div className="centiseconds">{ centiseconds }</div>
-            <div className="seconds">{ seconds }</div>
-            <div className="minutes">{ minutes }</div>
+            <div className="minutes" role="timer">
+                { minutes }
+            </div>
+            <div className="seconds" role="timer">
+                { seconds }
+            </div>
+            <div className="centiseconds" role="timer">
+                { centiseconds }
+            </div>
         </div>
     )
 }

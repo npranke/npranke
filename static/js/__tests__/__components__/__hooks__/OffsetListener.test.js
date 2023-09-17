@@ -1,81 +1,88 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { mount } from 'enzyme'
-import React from 'react'
-import { act, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import ComponentUseOffsetListenerMock from
     '@__mocks__/ComponentUseOffsetListenerMock'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('OffsetListener', () => {
-    let component
-
-    afterEach(() => {
-        component.unmount()
-    })
-
     describe('without elementRef.current', () => {
-        beforeEach(() => {
-            component = mount(
+        test('sets initial height to 0', () => {
+            render(
                 <ComponentUseOffsetListenerMock elementRef={ {} } />,
             )
-        })
 
-        test('sets initial height to 0', () => {
             expect(
-                component.find('.height').text(),
+                screen.getByTestId('height-div-elem').textContent,
             ).toEqual('0')
         })
 
         test('sets initial width to 0', () => {
+            render(
+                <ComponentUseOffsetListenerMock elementRef={ {} } />,
+            )
+
             expect(
-                component.find('.width').text(),
+                screen.getByTestId('width-div-elem').textContent,
             ).toEqual('0')
         })
 
         test('sets height on resize with offset height value', () => {
-            act(() => {
-                component.setProps({
-                    elementRef: {
+            const { rerender } = render(
+                <ComponentUseOffsetListenerMock elementRef={ {} } />,
+            )
+
+            rerender(
+                <ComponentUseOffsetListenerMock
+                    elementRef={ {
                         current: {
                             offsetHeight: 50,
                             offsetWidth: 75,
                         },
-                    },
-                })
-
-                window.dispatchEvent(new Event('resize'))
-            })
+                    } }
+                />,
+            )
 
             expect(
-                component.find('.height').text(),
+                screen.getByTestId('height-div-elem').textContent,
+            ).toEqual('0')
+
+            fireEvent(window, new Event('resize'))
+
+            expect(
+                screen.getByTestId('height-div-elem').textContent,
             ).toEqual('50')
         })
 
         test('sets width on resize with offset width value', () => {
-            act(() => {
-                component.setProps({
-                    elementRef: {
+            const { rerender } = render(
+                <ComponentUseOffsetListenerMock elementRef={ {} } />,
+            )
+
+            rerender(
+                <ComponentUseOffsetListenerMock
+                    elementRef={ {
                         current: {
                             offsetHeight: 50,
                             offsetWidth: 75,
                         },
-                    },
-                })
-
-                window.dispatchEvent(new Event('resize'))
-            })
+                    } }
+                />,
+            )
 
             expect(
-                component.find('.width').text(),
+                screen.getByTestId('width-div-elem').textContent,
+            ).toEqual('0')
+
+            fireEvent(window, new Event('resize'))
+
+            expect(
+                screen.getByTestId('width-div-elem').textContent,
             ).toEqual('75')
         })
     })
 
     describe('with elementRef.current', () => {
-        beforeEach(() => {
-            component = mount(
+        test('sets initial height to height value', () => {
+            render(
                 <ComponentUseOffsetListenerMock
                     elementRef={ {
                         current: {
@@ -85,55 +92,94 @@ describe('OffsetListener', () => {
                     } }
                 />,
             )
-        })
 
-        test('sets initial height to height value', () => {
             expect(
-                component.find('.height').text(),
+                screen.getByTestId('height-div-elem').textContent,
             ).toEqual('25')
         })
 
         test('sets initial width to width value', () => {
+            render(
+                <ComponentUseOffsetListenerMock
+                    elementRef={ {
+                        current: {
+                            offsetHeight: 25,
+                            offsetWidth: 100,
+                        },
+                    } }
+                />,
+            )
+
             expect(
-                component.find('.width').text(),
+                screen.getByTestId('width-div-elem').textContent,
             ).toEqual('100')
         })
 
         test('sets height on resize with offset height value', () => {
-            act(() => {
-                component.setProps({
-                    elementRef: {
+            const { rerender } = render(
+                <ComponentUseOffsetListenerMock
+                    elementRef={ {
+                        current: {
+                            offsetHeight: 25,
+                            offsetWidth: 100,
+                        },
+                    } }
+                />,
+            )
+
+            rerender(
+                <ComponentUseOffsetListenerMock
+                    elementRef={ {
                         current: {
                             offsetHeight: 50,
                             offsetWidth: 75,
                         },
-                    },
-                })
-
-                window.dispatchEvent(new Event('resize'))
-            })
+                    } }
+                />,
+            )
 
             expect(
-                component.find('.height').text(),
+                screen.getByTestId('height-div-elem').textContent,
+            ).toEqual('25')
+
+            fireEvent(window, new Event('resize'))
+
+            expect(
+                screen.getByTestId('height-div-elem').textContent,
             ).toEqual('50')
         })
 
         test('sets width on resize with offset width value', () => {
-            act(() => {
-                component.setProps({
-                    elementRef: {
+            const { rerender } = render(
+                <ComponentUseOffsetListenerMock
+                    elementRef={ {
+                        current: {
+                            offsetHeight: 25,
+                            offsetWidth: 100,
+                        },
+                    } }
+                />,
+            )
+
+            rerender(
+                <ComponentUseOffsetListenerMock
+                    elementRef={ {
                         current: {
                             offsetHeight: 50,
                             offsetWidth: 75,
                         },
-                    },
-                })
-
-                window.dispatchEvent(new Event('resize'))
-            })
+                    } }
+                />,
+            )
 
             expect(
-                component.find('.width').text(),
+                screen.getByTestId('width-div-elem').textContent,
+            ).toEqual('100')
+
+            fireEvent(window, new Event('resize'))
+
+            expect(
+                screen.getByTestId('width-div-elem').textContent,
             ).toEqual('75')
         })
     })

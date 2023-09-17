@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import withPortraitListener from '@components/hoc/PortraitListener'
 
@@ -34,8 +34,8 @@ export function Workbook(props) {
         }
     }
 
-    const getItemKeyUpHandler = (right, left, up, down, home, end) => {
-        return function itemKeyUpHandler(event) {
+    const getItemKeyDownHandler = (right, left, up, down, home, end) => {
+        return function itemKeyDownHandler(event) {
             if (event.key === 'ArrowRight') {
                 right.current.focus()
             } else if (event.key === 'ArrowLeft') {
@@ -52,6 +52,14 @@ export function Workbook(props) {
         }
     }
 
+    const getLinkKeyDownHandler = (link) => {
+        return function linkKeyDownHandler(event) {
+            if (event.key === ' ') {
+                link.current.click()
+            }
+        }
+    }
+
     const worksheetConcentration = (
         <Link
             onClick={ getSendEventHandler(
@@ -59,6 +67,7 @@ export function Workbook(props) {
                 'navigate',
                 'concentration',
             ) }
+            onKeyDown={ getLinkKeyDownHandler(concentrationRef) }
             to="/workbook/concentration"
             target="_self"
             rel="noreferrer"
@@ -90,6 +99,7 @@ export function Workbook(props) {
                 'navigate',
                 'tower',
             ) }
+            onKeyDown={ getLinkKeyDownHandler(towerRef) }
             to="/workbook/tower"
             target="_self"
             rel="noreferrer"
@@ -117,6 +127,7 @@ export function Workbook(props) {
     const worksheet = (
         <Link
             onClick={ getItemClickHandler('worksheet') }
+            onKeyDown={ getLinkKeyDownHandler(worksheetRef) }
             to="/workbook"
             target="_self"
             rel="noreferrer"
@@ -147,7 +158,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-concentration"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     concentrationRef,
                     concentrationRef,
                     concentrationRef,
@@ -163,7 +174,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-concentration"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     towerRef,
                     concentrationRef,
                     concentrationRef,
@@ -182,7 +193,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-tower"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     towerRef,
                     towerRef,
                     concentrationRef,
@@ -198,7 +209,7 @@ export function Workbook(props) {
                 id="workbook-worksheet-tower"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     worksheetRef,
                     concentrationRef,
                     towerRef,
@@ -217,7 +228,7 @@ export function Workbook(props) {
                 id="workbook-worksheet"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     worksheetRef,
                     worksheetRef,
                     towerRef,
@@ -233,7 +244,7 @@ export function Workbook(props) {
                 id="workbook-worksheet"
                 className="table-cell-workbook"
                 role="gridcell"
-                onKeyUp={ getItemKeyUpHandler(
+                onKeyDown={ getItemKeyDownHandler(
                     worksheetRef,
                     towerRef,
                     worksheetRef,

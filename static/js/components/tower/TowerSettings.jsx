@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import { useRef } from 'react'
 
 import useTimeRunner from '@components/hooks/TimeRunner'
 
@@ -9,39 +9,49 @@ function TowerSettings(props) {
         props.shouldTimeReset,
     )
 
-    const twoDisks = React.useRef(null)
-    const threeDisks = React.useRef(null)
-    const fourDisks = React.useRef(null)
-    const fiveDisks = React.useRef(null)
+    const twoDisks = useRef(null)
+    const threeDisks = useRef(null)
+    const fourDisks = useRef(null)
+    const fiveDisks = useRef(null)
 
     function disksInputChangeHandler(event) {
         props.updateDisks(event.target.value)
     }
 
-    function disksLabelKeyUpHandler(event) {
+    function disksLabelKeyDownHandler(event) {
         const { value } = event.currentTarget.dataset
 
-        if (event.key === 'Enter' || event.key === ' ') {
-            props.updateDisks(value)
-        } else if (event.key === 'ArrowRight') {
-            if (value === '2') {
-                threeDisks.current.focus()
-            } else if (value === '3') {
-                fourDisks.current.focus()
-            } else if (value === '4') {
-                fiveDisks.current.focus()
-            } else if (value === '5') {
-                twoDisks.current.focus()
+        if (event.key === ' ') {
+            if (value !== props.disks.toString()) {
+                props.updateDisks(value)
             }
-        } else if (event.key === 'ArrowLeft') {
+        } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+            if (value === '2') {
+                threeDisks.current.focus()
+                props.updateDisks('3')
+            } else if (value === '3') {
+                fourDisks.current.focus()
+                props.updateDisks('4')
+            } else if (value === '4') {
+                fiveDisks.current.focus()
+                props.updateDisks('5')
+            } else if (value === '5') {
+                twoDisks.current.focus()
+                props.updateDisks('2')
+            }
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
             if (value === '2') {
                 fiveDisks.current.focus()
+                props.updateDisks('5')
             } else if (value === '3') {
                 twoDisks.current.focus()
+                props.updateDisks('2')
             } else if (value === '4') {
                 threeDisks.current.focus()
+                props.updateDisks('3')
             } else if (value === '5') {
                 fourDisks.current.focus()
+                props.updateDisks('4')
             }
         }
     }
@@ -74,8 +84,9 @@ function TowerSettings(props) {
                                 id="two-disks-label"
                                 htmlFor="two-disks"
                                 data-value="2"
+                                data-testid="two-disks-label-elem"
                                 ref={ twoDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 2 ? '0' : '-1' }
                             >
                                 2
@@ -94,8 +105,9 @@ function TowerSettings(props) {
                                 id="three-disks-label"
                                 htmlFor="three-disks"
                                 data-value="3"
+                                data-testid="three-disks-label-elem"
                                 ref={ threeDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 3 ? '0' : '-1' }
                             >
                                 3
@@ -114,8 +126,9 @@ function TowerSettings(props) {
                                 id="four-disks-label"
                                 htmlFor="four-disks"
                                 data-value="4"
+                                data-testid="four-disks-label-elem"
                                 ref={ fourDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 4 ? '0' : '-1' }
                             >
                                 4
@@ -134,8 +147,9 @@ function TowerSettings(props) {
                                 id="five-disks-label"
                                 htmlFor="five-disks"
                                 data-value="5"
+                                data-testid="five-disks-label-elem"
                                 ref={ fiveDisks }
-                                onKeyUp={ disksLabelKeyUpHandler }
+                                onKeyDown={ disksLabelKeyDownHandler }
                                 tabIndex={ props.disks === 5 ? '0' : '-1' }
                             >
                                 5
@@ -160,19 +174,19 @@ function TowerSettings(props) {
                         <span className="time-portion">
                             time:&emsp;
                         </span>
-                        <span className="time-portion number">
+                        <span className="time-portion number" role="timer">
                             { minutes }
                         </span>
                         <span className="time-portion">
                             &ensp;:&ensp;
                         </span>
-                        <span className="time-portion number">
+                        <span className="time-portion number" role="timer">
                             { seconds }
                         </span>
                         <span className="time-portion">
-                            &ensp;:&ensp;
+                            &ensp;.&ensp;
                         </span>
-                        <span className="time-portion number">
+                        <span className="time-portion number" role="timer">
                             { centiseconds }
                         </span>
                     </span>

@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Code from '@img/icon-code.png'
 import Info from '@img/icon-info.png'
@@ -45,7 +45,7 @@ function WorksheetContainer(props) {
         setVisible(section)
     }
 
-    const headerKeyUpHandler = (event) => {
+    const headerKeyDownHandler = (event) => {
         const { section } = event.currentTarget.dataset
 
         if (event.key === 'Enter' || event.key === ' ') {
@@ -64,12 +64,16 @@ function WorksheetContainer(props) {
                 worksheetTab.current.focus()
             } else if (section === 'worksheet') {
                 gistTab.current.focus()
+            } else if (section === 'gist') {
+                infoTab.current.focus()
             }
         } else if (event.key === 'ArrowLeft') {
             if (section === 'gist') {
                 worksheetTab.current.focus()
             } else if (section === 'worksheet') {
                 infoTab.current.focus()
+            } else if (section === 'info') {
+                gistTab.current.focus()
             }
         }
     }
@@ -150,9 +154,10 @@ function WorksheetContainer(props) {
                         }
                         id="info-tab-navlink"
                         onClick={ headerClickHandler }
-                        onKeyUp={ headerKeyUpHandler }
+                        onKeyDown={ headerKeyDownHandler }
                         data-section="info"
                         ref={ infoTab }
+                        aria-label="Info"
                     >
                         <img
                             src={ Info }
@@ -181,9 +186,10 @@ function WorksheetContainer(props) {
                         }
                         id="worksheet-tab-navlink"
                         onClick={ headerClickHandler }
-                        onKeyUp={ headerKeyUpHandler }
+                        onKeyDown={ headerKeyDownHandler }
                         data-section="worksheet"
                         ref={ worksheetTab }
+                        aria-label="Worksheet"
                     >
                         <img
                             src={ props.worksheet.icon }
@@ -217,9 +223,10 @@ function WorksheetContainer(props) {
                         }
                         id="gist-tab-navlink"
                         onClick={ headerClickHandler }
-                        onKeyUp={ headerKeyUpHandler }
+                        onKeyDown={ headerKeyDownHandler }
                         data-section="gist"
                         ref={ gistTab }
+                        aria-label="Gist"
                     >
                         <img
                             src={ Code }

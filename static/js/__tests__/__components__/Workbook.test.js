@@ -1,8 +1,8 @@
 import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { mount, shallow } from 'enzyme'
-import React from 'react'
+import Enzyme, { shallow } from 'enzyme'
 import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { Workbook } from '@components/Workbook'
 
@@ -15,18 +15,13 @@ describe('Workbook', () => {
         window.alert = jest.fn()
     })
 
-    beforeEach(() => {
-        document.body.innerHTML = '<div id="fastener"></div>'
-    })
-
     afterEach(() => {
         window.alert.mockReset()
     })
 
     test('sets document title', () => {
-        mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
         expect(document.title).toContain('workbook')
@@ -35,9 +30,8 @@ describe('Workbook', () => {
     test('sends pageview', () => {
         utils.sendPageview = jest.fn()
 
-        mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
         expect(utils.sendPageview).toHaveBeenCalledTimes(1)
@@ -91,192 +85,328 @@ describe('Workbook', () => {
         ).toHaveLength(1)
     })
 
-    test('arrow right key up event on worksheet when not isPortrait', () => {
-        const workbook = mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+    test('opens worksheet alert with spacebar', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowRight' },
+        await user.tab()
+        await user.tab()
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard(' ')
+
+        expect(window.alert).toHaveBeenCalled()
+    })
+
+    test('moves focus with right arrow when not isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
+
+        await user.tab()
+        await user.keyboard('{ArrowRight}')
 
         expect(
             document.activeElement.href.endsWith('tower'),
         ).toBe(true)
-    })
 
-    test('arrow left key up event on worksheet when not isPortrait', () => {
-        const workbook = mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
-        )
-
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowLeft' },
-        )
+        await user.keyboard('{ArrowRight}')
 
         expect(
-            document.activeElement.href.endsWith('concentration'),
+            document.activeElement.href.endsWith('workbook'),
         ).toBe(true)
-    })
 
-    test('arrow up key up event on worksheet when not isPortrait', () => {
-        const workbook = mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
-        )
-
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowUp' },
-        )
-
-        expect(
-            document.activeElement.href.endsWith('concentration'),
-        ).toBe(true)
-    })
-
-    test('arrow down key up event on worksheet when not isPortrait', () => {
-        const workbook = mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
-        )
-
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowDown' },
-        )
-
-        expect(
-            document.activeElement.href.endsWith('concentration'),
-        ).toBe(true)
-    })
-
-    test('home key up event on worksheet when not isPortrait', () => {
-        const workbook = mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
-        )
-
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'Home' },
-        )
-
-        expect(
-            document.activeElement.href.endsWith('concentration'),
-        ).toBe(true)
-    })
-
-    test('end key up event on worksheet when not isPortrait', () => {
-        const workbook = mount(
-            <Workbook />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
-        )
-
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'End' },
-        )
+        await user.keyboard('{ArrowRight}')
 
         expect(
             document.activeElement.href.endsWith('workbook'),
         ).toBe(true)
     })
 
-    test('arrow right key up event on worksheet when isPortrait', () => {
-        const workbook = mount(
-            <Workbook isPortrait />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+    test('moves focus with left arrow when not isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowRight' },
-        )
+        await user.tab()
+        await user.keyboard('{ArrowLeft}')
 
         expect(
             document.activeElement.href.endsWith('concentration'),
         ).toBe(true)
     })
 
-    test('arrow left key up event on worksheet when isPortrait', () => {
-        const workbook = mount(
-            <Workbook isPortrait />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+    test('moves focus with up arrow when not isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowLeft' },
-        )
+        await user.tab()
+        await user.keyboard('{ArrowUp}')
 
         expect(
             document.activeElement.href.endsWith('concentration'),
         ).toBe(true)
     })
 
-    test('arrow up key up event on worksheet when isPortrait', () => {
-        const workbook = mount(
-            <Workbook isPortrait />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+    test('moves focus with down arrow when not isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowUp' },
-        )
+        await user.tab()
+        await user.keyboard('{ArrowDown}')
 
         expect(
             document.activeElement.href.endsWith('concentration'),
         ).toBe(true)
     })
 
-    test('arrow down key up event on worksheet when isPortrait', () => {
-        const workbook = mount(
-            <Workbook isPortrait />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+    test('moves focus with home key when not isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'ArrowDown' },
-        )
+        await user.tab()
+        await user.keyboard('{Home}')
+
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+
+        await user.tab()
 
         expect(
             document.activeElement.href.endsWith('tower'),
         ).toBe(true)
-    })
 
-    test('home key up event on worksheet when isPortrait', () => {
-        const workbook = mount(
-            <Workbook isPortrait />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
-        )
+        await user.keyboard('{Home}')
 
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'Home' },
-        )
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+
+        await user.tab()
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{Home}')
 
         expect(
             document.activeElement.href.endsWith('concentration'),
         ).toBe(true)
     })
 
-    test('end key up event on worksheet when isPortrait', () => {
-        const workbook = mount(
-            <Workbook isPortrait />,
-            { attachTo: fastener, wrappingComponent: MemoryRouter },
+    test('moves focus with end key when not isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
-        workbook.find('#workbook-worksheet-concentration').simulate(
-            'keyup',
-            { key: 'End' },
+        await user.tab()
+        await user.keyboard('{End}')
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{Home}')
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('tower'),
+        ).toBe(true)
+
+        await user.keyboard('{End}')
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{Home}')
+        await user.tab()
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{End}')
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+    })
+
+    test('moves focus with right arrow when isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
         )
+
+        await user.tab()
+        await user.keyboard('{ArrowRight}')
+
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+    })
+
+    test('moves focus with left arrow when isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
+        )
+
+        await user.tab()
+        await user.keyboard('{ArrowLeft}')
+
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+    })
+
+    test('moves focus with up arrow when isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
+        )
+
+        await user.tab()
+        await user.keyboard('{ArrowUp}')
+
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+    })
+
+    test('moves focus with down arrow when isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
+        )
+
+        await user.tab()
+        await user.keyboard('{ArrowDown}')
+
+        expect(
+            document.activeElement.href.endsWith('tower'),
+        ).toBe(true)
+
+        await user.keyboard('{ArrowDown}')
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{ArrowDown}')
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+    })
+
+    test('moves focus with home key when isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
+        )
+
+        await user.tab()
+        await user.keyboard('{Home}')
+
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('tower'),
+        ).toBe(true)
+
+        await user.keyboard('{Home}')
+
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+
+        await user.tab()
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{Home}')
+
+        expect(
+            document.activeElement.href.endsWith('concentration'),
+        ).toBe(true)
+    })
+
+    test('moves focus with end key when isPortrait', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
+        )
+
+        await user.tab()
+        await user.keyboard('{End}')
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{Home}')
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('tower'),
+        ).toBe(true)
+
+        await user.keyboard('{End}')
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{Home}')
+        await user.tab()
+        await user.tab()
+
+        expect(
+            document.activeElement.href.endsWith('workbook'),
+        ).toBe(true)
+
+        await user.keyboard('{End}')
 
         expect(
             document.activeElement.href.endsWith('workbook'),
