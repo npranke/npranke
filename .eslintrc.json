@@ -1,5 +1,9 @@
 {
-    "extends": ["airbnb", "plugin:jest-dom/recommended"],
+    "extends": [
+        "airbnb",
+        "plugin:jest-dom/recommended",
+        "plugin:react/jsx-runtime"
+    ],
     "env": {
         "browser": true,
         "jest": true
@@ -27,7 +31,8 @@
         {
             "files": ["static/js/__tests__/**"],
             "rules": {
-                "no-import-assign": ["off"]
+                "no-import-assign": ["off"],
+                "no-await-in-loop": ["off"]
             }
         }
     ],
@@ -36,24 +41,19 @@
         "arrow-body-style": ["error", "always"],
         "class-methods-use-this": [
             "error",
-            {
-                "exceptMethods": [
-                    "componentDidMount",
-                    "getItemClickHandler",
-                    "getItemKeyUpHandler"
-                ]
-            }
+            { "enforceForClassFields": true }
         ],
         "function-paren-newline": ["off"],
         "import/no-named-as-default": ["off"],
         "indent": ["error", 4],
+        "jest-dom/prefer-to-have-text-content": ["off"],
         "jsx-a11y/label-has-associated-control": [
             "error",
             { "assert": "either" }
         ],
         "jsx-a11y/no-noninteractive-element-interactions": [
             "error",
-            { "label": ["onKeyUp"] }
+            { "label": ["onKeyDown"] }
         ],
         "jsx-a11y/no-noninteractive-element-to-interactive-role": [
             "error",

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Landscape from '@img/background-landscape.jpg'
 import Portrait from '@img/background-portrait.jpg'
 

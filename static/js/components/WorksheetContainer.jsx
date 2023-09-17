@@ -1,267 +1,251 @@
-import { NavLink } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import React from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Code from '@img/icon-code.png'
 import Info from '@img/icon-info.png'
 
 import { getLocationPageTitle, sendEvent, sendPageview } from '@utils'
 
-class WorksheetContainer extends React.Component {
-    constructor(props) {
-        super(props)
+function WorksheetContainer(props) {
+    const [visible, setVisible] = useState('worksheet')
+    const [, setFocus] = useState()
 
-        this.state = { visible: 'worksheet' }
+    const location = useLocation()
 
-        this.infoPanel = React.createRef()
-        this.worksheetPanel = React.createRef()
-        this.gistPanel = React.createRef()
+    useEffect(() => {
+        document.title = getLocationPageTitle(props.worksheet.title)
+    }, [])
 
-        this.infoTab = React.createRef()
-        this.worksheetTab = React.createRef()
-        this.gistTab = React.createRef()
-
-        this.headerClickHandler = this.headerClickHandler.bind(this)
-        this.headerKeyUpHandler = this.headerKeyUpHandler.bind(this)
-        this.updateVisible = this.updateVisible.bind(this)
-    }
-
-    componentDidMount() {
-        document.title = getLocationPageTitle(this.props.worksheet.title)
-
-        this.updateVisible(this.props.location.hash)
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.location.hash !== prevProps.location.hash) {
-            this.updateVisible(this.props.location.hash)
-        }
-    }
-
-    updateVisible(locationHash) {
+    useEffect(() => {
         sendPageview()
 
-        if (locationHash === '#info') {
-            this.setState({ visible: 'info' })
-        } else if (locationHash === '#gist') {
-            this.setState({ visible: 'gist' })
+        if (location.hash === '#info') {
+            setVisible('info')
+        } else if (location.hash === '#gist') {
+            setVisible('gist')
         } else {
-            this.setState({ visible: 'worksheet' })
+            setVisible('worksheet')
         }
-    }
+    }, [location.hash])
 
-    headerClickHandler(event) {
+    const infoPanel = useRef(null)
+    const worksheetPanel = useRef(null)
+    const gistPanel = useRef(null)
+
+    const infoTab = useRef(null)
+    const worksheetTab = useRef(null)
+    const gistTab = useRef(null)
+
+    const headerClickHandler = (event) => {
         const { section } = event.currentTarget.dataset
 
-        sendEvent(`${this.props.worksheet.title}`, 'navigate', section)
+        sendEvent(`${props.worksheet.title}`, 'navigate', section)
 
-        this.setState({ visible: section })
+        setVisible(section)
     }
 
-    headerKeyUpHandler(event) {
+    const headerKeyDownHandler = (event) => {
         const { section } = event.currentTarget.dataset
 
         if (event.key === 'Enter' || event.key === ' ') {
-            this.setState(
-                { visible: section },
-                () => {
-                    if (section === 'info') {
-                        this.infoPanel.current.focus()
-                    } else if (section === 'gist') {
-                        this.gistPanel.current.focus()
-                    } else {
-                        this.worksheetPanel.current.focus()
-                    }
-                },
-            )
+            setVisible(section)
+            setFocus(() => {
+                if (visible === 'info') {
+                    infoPanel.current.focus()
+                } else if (visible === 'gist') {
+                    gistPanel.current.focus()
+                } else {
+                    worksheetPanel.current.focus()
+                }
+            })
         } else if (event.key === 'ArrowRight') {
             if (section === 'info') {
-                this.worksheetTab.current.focus()
+                worksheetTab.current.focus()
             } else if (section === 'worksheet') {
-                this.gistTab.current.focus()
+                gistTab.current.focus()
+            } else if (section === 'gist') {
+                infoTab.current.focus()
             }
         } else if (event.key === 'ArrowLeft') {
             if (section === 'gist') {
-                this.worksheetTab.current.focus()
+                worksheetTab.current.focus()
             } else if (section === 'worksheet') {
-                this.infoTab.current.focus()
+                infoTab.current.focus()
+            } else if (section === 'info') {
+                gistTab.current.focus()
             }
         }
     }
 
-    render() {
-        const infoSection = (
-            <div
-                className="worksheet-section info-wrapper"
-                id="info-tabpanel"
-                role="tabpanel"
-                tabIndex="0"
-                ref={ this.infoPanel }
-            >
-                <div className="worksheet-info">
-                    <div className="worksheet-info-inner">
-                        { this.props.worksheet.infoComponent }
-                    </div>
+    const infoSection = (
+        <div
+            className="worksheet-section info-wrapper"
+            id="info-tabpanel"
+            role="tabpanel"
+            tabIndex="0"
+            ref={ infoPanel }
+        >
+            <div className="worksheet-info">
+                <div className="worksheet-info-inner">
+                    { props.worksheet.infoComponent }
                 </div>
             </div>
-        )
+        </div>
+    )
 
-        const worksheetSection = (
-            <div
-                className={
-                    'worksheet-section worksheet-wrapper '
-                    + `${this.props.worksheet.pathTitle}-wrapper`
-                }
-                id="worksheet-tabpanel"
-                role="tabpanel"
-                tabIndex="0"
-                ref={ this.worksheetPanel }
+    const worksheetSection = (
+        <div
+            className={
+                'worksheet-section worksheet-wrapper '
+                + `${props.worksheet.pathTitle}-wrapper`
+            }
+            id="worksheet-tabpanel"
+            role="tabpanel"
+            tabIndex="0"
+            ref={ worksheetPanel }
+        >
+            { props.worksheet.component }
+        </div>
+    )
+
+    const gistSection = (
+        <div
+            className="worksheet-section gist-wrapper"
+            id="gist-tabpanel"
+            role="tabpanel"
+            tabIndex="0"
+            ref={ gistPanel }
+        >
+            <iframe
+                id="worksheet-gist"
+                title={ `${props.worksheet.properTitle} gist` }
+                sandbox="allow-scripts allow-top-navigation"
+                referrerPolicy="no-referrer"
+                src={ `/gists/${props.worksheet.pathTitle}` }
             >
-                { this.props.worksheet.component }
-            </div>
-        )
+            </iframe>
+        </div>
+    )
 
-        const gistSection = (
-            <div
-                className="worksheet-section gist-wrapper"
-                id="gist-tabpanel"
-                role="tabpanel"
-                tabIndex="0"
-                ref={ this.gistPanel }
-            >
-                <iframe
-                    id="worksheet-gist"
-                    title={ `${this.props.worksheet.properTitle} gist` }
-                    sandbox="allow-scripts allow-top-navigation"
-                    referrerPolicy="no-referrer"
-                    src={ `/gists/${this.props.worksheet.pathTitle}` }
-                >
-                </iframe>
-            </div>
-        )
-
-        const sections = {
-            info: infoSection,
-            gist: gistSection,
-            worksheet: worksheetSection,
-        }
-
-        return (
-            <main className="workbook worksheet-container">
-                <div className="worksheet-header" role="tablist">
-                    <span
-                        className="section-button"
-                        role="tab"
-                        id="info-tab"
-                        aria-controls="info-tabpanel"
-                        aria-selected={ this.state.visible === 'info' }
-                    >
-                        <NavLink
-                            to="#info"
-                            target="_self"
-                            rel="noreferrer"
-                            isActive={ (match, location) => {
-                                return location.hash === '#info'
-                            } }
-                            className="local-navlink local-navlink-info"
-                            id="info-tab-navlink"
-                            onClick={ this.headerClickHandler }
-                            onKeyUp={ this.headerKeyUpHandler }
-                            data-section="info"
-                            aria-current="true"
-                            innerRef={ this.infoTab }
-                        >
-                            <img
-                                src={ Info }
-                                className="icon icon-info"
-                                alt="Info icon"
-                            />
-                            <span className="text-section-button">
-                                info
-                            </span>
-                        </NavLink>
-                    </span>
-                    <span
-                        className="section-button"
-                        role="tab"
-                        id="worksheet-tab"
-                        aria-controls="worksheet-tabpanel"
-                        aria-selected={ this.state.visible === 'worksheet' }
-                    >
-                        <NavLink
-                            to="#"
-                            target="_self"
-                            rel="noreferrer"
-                            isActive={ (match, location) => {
-                                return location.hash === ''
-                            } }
-                            className="local-navlink local-navlink-worksheet"
-                            id="worksheet-tab-navlink"
-                            onClick={ this.headerClickHandler }
-                            onKeyUp={ this.headerKeyUpHandler }
-                            data-section="worksheet"
-                            aria-current="true"
-                            innerRef={ this.worksheetTab }
-                        >
-                            <img
-                                src={ this.props.worksheet.icon }
-                                className={
-                                    'icon '
-                                    + `icon-${this.props.worksheet.pathTitle}`
-                                }
-                                alt={
-                                    `${this.props.worksheet.properTitle} icon`
-                                }
-                            />
-                            <span className="text-section-button">
-                                { this.props.worksheet.title }
-                            </span>
-                        </NavLink>
-                    </span>
-                    <span
-                        className="section-button"
-                        role="tab"
-                        id="gist-tab"
-                        aria-controls="gist-tabpanel"
-                        aria-selected={ this.state.visible === 'gist' }
-                    >
-                        <NavLink
-                            to="#gist"
-                            target="_self"
-                            rel="noreferrer"
-                            isActive={ (match, location) => {
-                                return location.hash === '#gist'
-                            } }
-                            className="local-navlink local-navlink-gist"
-                            id="gist-tab-navlink"
-                            onClick={ this.headerClickHandler }
-                            onKeyUp={ this.headerKeyUpHandler }
-                            data-section="gist"
-                            aria-current="true"
-                            innerRef={ this.gistTab }
-                        >
-                            <img
-                                src={ Code }
-                                className="icon icon-code"
-                                alt="Code icon"
-                            />
-                            <span className="text-section-button">
-                                gist
-                            </span>
-                        </NavLink>
-                    </span>
-                </div>
-                { sections[this.state.visible] }
-                <div className="worksheet-footer" />
-            </main>
-        )
+    const sections = {
+        info: infoSection,
+        gist: gistSection,
+        worksheet: worksheetSection,
     }
+
+    return (
+        <main className="workbook worksheet-container">
+            <div className="worksheet-header" role="tablist">
+                <span
+                    className="section-button"
+                    role="tab"
+                    id="info-tab"
+                    aria-controls="info-tabpanel"
+                    aria-selected={ visible === 'info' }
+                >
+                    <Link
+                        to={ `/workbook/${props.worksheet.pathTitle}#info` }
+                        target="_self"
+                        rel="noreferrer"
+                        className={
+                            'local-navlink local-navlink-info'
+                            + `${visible === 'info' ? ' active' : ''}`
+                        }
+                        id="info-tab-navlink"
+                        onClick={ headerClickHandler }
+                        onKeyDown={ headerKeyDownHandler }
+                        data-section="info"
+                        ref={ infoTab }
+                        aria-label="Info"
+                    >
+                        <img
+                            src={ Info }
+                            className="icon icon-info"
+                            alt="Info icon"
+                        />
+                        <span className="text-section-button">
+                            info
+                        </span>
+                    </Link>
+                </span>
+                <span
+                    className="section-button"
+                    role="tab"
+                    id="worksheet-tab"
+                    aria-controls="worksheet-tabpanel"
+                    aria-selected={ visible === 'worksheet' }
+                >
+                    <Link
+                        to={ `/workbook/${props.worksheet.pathTitle}` }
+                        target="_self"
+                        rel="noreferrer"
+                        className={
+                            'local-navlink local-navlink-worksheet'
+                            + `${visible === 'worksheet' ? ' active' : ''}`
+                        }
+                        id="worksheet-tab-navlink"
+                        onClick={ headerClickHandler }
+                        onKeyDown={ headerKeyDownHandler }
+                        data-section="worksheet"
+                        ref={ worksheetTab }
+                        aria-label="Worksheet"
+                    >
+                        <img
+                            src={ props.worksheet.icon }
+                            className={
+                                'icon '
+                                + `icon-${props.worksheet.pathTitle}`
+                            }
+                            alt={
+                                `${props.worksheet.properTitle} icon`
+                            }
+                        />
+                        <span className="text-section-button">
+                            { props.worksheet.title }
+                        </span>
+                    </Link>
+                </span>
+                <span
+                    className="section-button"
+                    role="tab"
+                    id="gist-tab"
+                    aria-controls="gist-tabpanel"
+                    aria-selected={ visible === 'gist' }
+                >
+                    <Link
+                        to={ `/workbook/${props.worksheet.pathTitle}#gist` }
+                        target="_self"
+                        rel="noreferrer"
+                        className={
+                            'local-navlink local-navlink-gist'
+                            + `${visible === 'gist' ? ' active' : ''}`
+                        }
+                        id="gist-tab-navlink"
+                        onClick={ headerClickHandler }
+                        onKeyDown={ headerKeyDownHandler }
+                        data-section="gist"
+                        ref={ gistTab }
+                        aria-label="Gist"
+                    >
+                        <img
+                            src={ Code }
+                            className="icon icon-code"
+                            alt="Code icon"
+                        />
+                        <span className="text-section-button">
+                            gist
+                        </span>
+                    </Link>
+                </span>
+            </div>
+            { sections[visible] }
+            <div className="worksheet-footer" />
+        </main>
+    )
 }
 
 WorksheetContainer.propTypes = {
-    location: PropTypes.shape({
-        hash: PropTypes.string,
-    }).isRequired,
     worksheet: PropTypes.shape({
         component: PropTypes.element.isRequired,
         icon: PropTypes.node.isRequired,

@@ -1,140 +1,194 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { mount } from 'enzyme'
-import React from 'react'
-import { act, render } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 
 import ComponentUseTimeRunnerMock from '@__mocks__/ComponentUseTimeRunnerMock'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 jest.useFakeTimers()
 
 describe('TimeRunner', () => {
-    let component
-
     beforeEach(() => {
         jest.setSystemTime(0)
-        component = mount(
+    })
+
+    test('return time 00 when isRunning false', () => {
+        render(
             <ComponentUseTimeRunnerMock
                 isRunning={ false }
                 shouldReset={ false }
             />,
         )
-    })
 
-    afterEach(() => {
-        component.unmount()
-    })
+        const times = screen.getAllByRole('timer')
 
-    test('return time 00 when isRunning false', () => {
         act(() => {
-            component.setProps({ isRunning: false })
-
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(100)
         })
 
         expect(
-            component.find('.centiseconds').text(),
+            times[0].textContent,
         ).toEqual('00')
         expect(
-            component.find('.seconds').text(),
+            times[1].textContent,
         ).toEqual('00')
         expect(
-            component.find('.minutes').text(),
+            times[2].textContent,
         ).toEqual('00')
     })
 
     test('return time 00 when shouldReset true', () => {
-        act(() => {
-            component.setProps(
-                { isRunning: true, shouldReset: true },
-            )
+        render(
+            <ComponentUseTimeRunnerMock
+                isRunning
+                shouldReset
+            />,
+        )
 
+        const times = screen.getAllByRole('timer')
+
+        act(() => {
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(100)
         })
 
         expect(
-            component.find('.centiseconds').text(),
+            times[0].textContent,
         ).toEqual('00')
         expect(
-            component.find('.seconds').text(),
+            times[1].textContent,
         ).toEqual('00')
         expect(
-            component.find('.minutes').text(),
+            times[2].textContent,
         ).toEqual('00')
     })
 
     test('formats centiseconds when less than 10', () => {
-        act(() => {
-            component.setProps({ isRunning: true })
+        render(
+            <ComponentUseTimeRunnerMock
+                isRunning
+                shouldReset={ false }
+            />,
+        )
 
+        const times = screen.getAllByRole('timer')
+
+        act(() => {
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(60)
         })
 
         expect(
-            component.find('.centiseconds').text(),
+            times[0].textContent,
+        ).toEqual('00')
+        expect(
+            times[1].textContent,
+        ).toEqual('00')
+        expect(
+            times[2].textContent,
         ).toEqual('05')
     })
 
     test('formats seconds when less than 10', () => {
-        act(() => {
-            component.setProps({ isRunning: true })
+        render(
+            <ComponentUseTimeRunnerMock
+                isRunning
+                shouldReset={ false }
+            />,
+        )
 
+        const times = screen.getAllByRole('timer')
+
+        act(() => {
             jest.runOnlyPendingTimers()
-            jest.advanceTimersByTime(8200)
+            jest.advanceTimersByTime(8020)
         })
 
         expect(
-            component.find('.seconds').text(),
+            times[0].textContent,
+        ).toEqual('00')
+        expect(
+            times[1].textContent,
         ).toEqual('08')
+        expect(
+            times[2].textContent,
+        ).toEqual('01')
     })
 
     test('formats minutes when less than 10', () => {
-        act(() => {
-            component.setProps({ isRunning: true })
+        render(
+            <ComponentUseTimeRunnerMock
+                isRunning
+                shouldReset={ false }
+            />,
+        )
 
+        const times = screen.getAllByRole('timer')
+
+        act(() => {
             jest.runOnlyPendingTimers()
-            jest.advanceTimersByTime(124000)
+            jest.advanceTimersByTime(124030)
         })
 
         expect(
-            component.find('.minutes').text(),
+            times[0].textContent,
+        ).toEqual('02')
+        expect(
+            times[1].textContent,
+        ).toEqual('04')
+        expect(
+            times[2].textContent,
         ).toEqual('02')
     })
 
     test('formats centiseconds when over 100', () => {
-        act(() => {
-            component.setProps({ isRunning: true })
+        render(
+            <ComponentUseTimeRunnerMock
+                isRunning
+                shouldReset={ false }
+            />,
+        )
 
+        const times = screen.getAllByRole('timer')
+
+        act(() => {
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(1050)
         })
 
         expect(
-            component.find('.centiseconds').text(),
-        ).toEqual('04')
+            times[0].textContent,
+        ).toEqual('00')
         expect(
-            component.find('.seconds').text(),
+            times[1].textContent,
         ).toEqual('01')
+        expect(
+            times[2].textContent,
+        ).toEqual('04')
     })
 
     test('formats seconds when over 60', () => {
-        act(() => {
-            component.setProps({ isRunning: true })
+        render(
+            <ComponentUseTimeRunnerMock
+                isRunning
+                shouldReset={ false }
+            />,
+        )
 
+        const times = screen.getAllByRole('timer')
+
+        act(() => {
             jest.runOnlyPendingTimers()
-            jest.advanceTimersByTime(63000)
+            jest.advanceTimersByTime(63070)
         })
 
         expect(
-            component.find('.seconds').text(),
-        ).toEqual('02')
-        expect(
-            component.find('.minutes').text(),
+            times[0].textContent,
         ).toEqual('01')
+        expect(
+            times[1].textContent,
+        ).toEqual('03')
+        expect(
+            times[2].textContent,
+        ).toEqual('06')
     })
 
     describe('useEffect dependency changes', () => {
@@ -150,76 +204,122 @@ describe('TimeRunner', () => {
             jest.restoreAllMocks()
         })
 
-        test('setInterval called with isRunning change', () => {
-            act(() => {
-                component.setProps({ isRunning: true })
-            })
+        test('setInterval called again with isRunning change', () => {
+            const { rerender } = render(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
 
             expect(
                 window.setInterval,
             ).toHaveBeenCalledTimes(1)
 
-            act(() => {
-                component.setProps({ isRunning: false })
-            })
+            rerender(
+                <ComponentUseTimeRunnerMock
+                    isRunning
+                    shouldReset={ false }
+                />,
+            )
 
             expect(
                 window.setInterval,
             ).toHaveBeenCalledTimes(2)
-        })
 
-        test('setInterval not called without isRunning change', () => {
-            act(() => {
-                component.setProps({ isRunning: false })
-            })
-
-            expect(
-                window.setInterval,
-            ).toHaveBeenCalledTimes(0)
-
-            act(() => {
-                component.setProps({ isRunning: false })
-            })
+            rerender(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
 
             expect(
                 window.setInterval,
-            ).toHaveBeenCalledTimes(0)
+            ).toHaveBeenCalledTimes(3)
         })
 
-        test('setInterval called with shouldReset change', () => {
-            act(() => {
-                component.setProps({ shouldReset: true })
-            })
+        test('setInterval not called again without isRunning change', () => {
+            const { rerender } = render(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
 
             expect(
                 window.setInterval,
             ).toHaveBeenCalledTimes(1)
 
-            act(() => {
-                component.setProps({ shouldReset: false })
-            })
+            rerender(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(1)
+        })
+
+        test('setInterval called again with shouldReset change', () => {
+            const { rerender } = render(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(1)
+
+            rerender(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset
+                />,
+            )
 
             expect(
                 window.setInterval,
             ).toHaveBeenCalledTimes(2)
+
+            rerender(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
+
+            expect(
+                window.setInterval,
+            ).toHaveBeenCalledTimes(3)
         })
 
-        test('setInterval not called without shouldReset change', () => {
-            act(() => {
-                component.setProps({ shouldReset: false })
-            })
+        test('setInterval not called again without shouldReset change', () => {
+            const { rerender } = render(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
 
             expect(
                 window.setInterval,
-            ).toHaveBeenCalledTimes(0)
+            ).toHaveBeenCalledTimes(1)
 
-            act(() => {
-                component.setProps({ shouldReset: false })
-            })
+            rerender(
+                <ComponentUseTimeRunnerMock
+                    isRunning={ false }
+                    shouldReset={ false }
+                />,
+            )
 
             expect(
                 window.setInterval,
-            ).toHaveBeenCalledTimes(0)
+            ).toHaveBeenCalledTimes(1)
         })
     })
 })
@@ -248,9 +348,9 @@ describe('TimeRunner snapshot', () => {
             jest.setSystemTime(0)
             jest.runOnlyPendingTimers()
             jest.advanceTimersByTime(156200)
-
-            rerender(<ComponentUseTimeRunnerMock />)
         })
+
+        rerender(<ComponentUseTimeRunnerMock />)
 
         expect(asFragment()).toMatchSnapshot()
     })

@@ -1,7 +1,6 @@
 import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
-import React from 'react'
+import Enzyme, { shallow } from 'enzyme'
 import { render } from '@testing-library/react'
 
 import Welcome from '@components/Welcome'

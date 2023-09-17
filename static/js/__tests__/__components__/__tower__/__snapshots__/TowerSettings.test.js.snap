@@ -35,6 +35,7 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
             />
             <label
               class="disks-portion number"
+              data-testid="two-disks-label-elem"
               data-value="2"
               for="two-disks"
               id="two-disks-label"
@@ -52,6 +53,7 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
             />
             <label
               class="disks-portion number"
+              data-testid="three-disks-label-elem"
               data-value="3"
               for="three-disks"
               id="three-disks-label"
@@ -68,6 +70,7 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
             />
             <label
               class="disks-portion number"
+              data-testid="four-disks-label-elem"
               data-value="4"
               for="four-disks"
               id="four-disks-label"
@@ -84,6 +87,7 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
             />
             <label
               class="disks-portion number"
+              data-testid="five-disks-label-elem"
               data-value="5"
               for="five-disks"
               id="five-disks-label"
@@ -121,6 +125,7 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
@@ -131,16 +136,18 @@ exports[`TowerSettings snapshot matches snapshot 1`] = `
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>
           <span
             class="time-portion"
           >
-             : 
+             . 
           </span>
           <span
             class="time-portion number"
+            role="timer"
           >
             00
           </span>

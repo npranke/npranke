@@ -6,19 +6,22 @@ exports[`TimeRunner snapshot matches snapshot with time run to 02:36:19 1`] = `
     class="component-use-time-runner-mock"
   >
     <div
-      class="centiseconds"
+      class="minutes"
+      role="timer"
     >
-      19
+      02
     </div>
     <div
       class="seconds"
+      role="timer"
     >
       36
     </div>
     <div
-      class="minutes"
+      class="centiseconds"
+      role="timer"
     >
-      02
+      19
     </div>
   </div>
 </DocumentFragment>
@@ -30,17 +33,20 @@ exports[`TimeRunner snapshot matches snapshot without time runing 1`] = `
     class="component-use-time-runner-mock"
   >
     <div
-      class="centiseconds"
+      class="minutes"
+      role="timer"
     >
       00
     </div>
     <div
       class="seconds"
+      role="timer"
     >
       00
     </div>
     <div
-      class="minutes"
+      class="centiseconds"
+      role="timer"
     >
       00
     </div>

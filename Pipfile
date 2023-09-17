@@ -9,14 +9,14 @@ name = "pypi"
 
 gunicorn = "~=21.2"
 flask = "~=2.3"
-flask-talisman = "~=1.0.0"
+flask-talisman = "~=1.1.0"
 python-decouple = "~=3.8"
 tinydb = "~=4.8"
 
 
 [dev-packages]
 
-ruff = "~=0.0.282"
+ruff = "~=0.0.285"
 
 
 [requires]

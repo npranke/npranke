@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { getSendEventHandler } from '@utils'
 
 function TowerInfo() {

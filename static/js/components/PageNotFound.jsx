@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Home from '@img/icon-home.png'
 
 import {

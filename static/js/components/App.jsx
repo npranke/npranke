@@ -1,5 +1,4 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import Background from '@components/Background'
 import Footer from '@components/Footer'
@@ -17,66 +16,23 @@ function App() {
     return (
         <div className="app">
             <Background />
-            <Switch>
+            <Header />
+            <Routes>
+                <Route path="" element={ <Welcome /> } />
+                <Route path="home" element={ <Welcome /> } />
+                <Route path="workbook" element={ <Workbook /> } />
                 <Route
-                    exact
-                    strict
-                    path={ [
-                        '/',
-                        '/home',
-                        '/workbook',
-                        '/workbook/concentration',
-                        '/workbook/tower',
-                    ] }
-                    component={ Header }
+                    path="workbook/concentration"
+                    element={
+                        <WorksheetContainer worksheet={ CONCENTRATION } />
+                    }
                 />
                 <Route
-                    render={ (props) => {
-                        return <Header { ...props } isPageNotFound />
-                    } }
+                    path="workbook/tower"
+                    element={ <WorksheetContainer worksheet={ TOWER } /> }
                 />
-            </Switch>
-            <Switch>
-                <Route
-                    exact
-                    strict
-                    path={ ['/', '/home'] }
-                    component={ Welcome }
-                />
-                <Route
-                    exact
-                    strict
-                    path="/workbook"
-                    component={ Workbook }
-                />
-                <Route
-                    exact
-                    strict
-                    path="/workbook/concentration"
-                    render={ (props) => {
-                        return (
-                            <WorksheetContainer
-                                { ...props }
-                                worksheet={ CONCENTRATION }
-                            />
-                        )
-                    } }
-                />
-                <Route
-                    exact
-                    strict
-                    path="/workbook/tower"
-                    render={ (props) => {
-                        return (
-                            <WorksheetContainer
-                                { ...props }
-                                worksheet={ TOWER }
-                            />
-                        )
-                    } }
-                />
-                <Route component={ PageNotFound } />
-            </Switch>
+                <Route path="*" element={ <PageNotFound /> } />
+            </Routes>
             <Footer />
         </div>
     )
