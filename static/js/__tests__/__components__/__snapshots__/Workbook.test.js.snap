@@ -21,6 +21,7 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
             role="gridcell"
           >
             <a
+              aria-label="Concentration"
               href="/workbook/concentration"
               rel="noreferrer"
               target="_self"
@@ -63,6 +64,7 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
             role="gridcell"
           >
             <a
+              aria-label="Tower"
               href="/workbook/tower"
               rel="noreferrer"
               target="_self"
@@ -105,6 +107,7 @@ exports[`Workbook snapshot matches snapshot when isPortrait 1`] = `
             role="gridcell"
           >
             <a
+              aria-label="Worksheet"
               href="/workbook"
               rel="noreferrer"
               target="_self"
@@ -165,6 +168,7 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
             role="gridcell"
           >
             <a
+              aria-label="Concentration"
               href="/workbook/concentration"
               rel="noreferrer"
               target="_self"
@@ -203,6 +207,7 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
             role="gridcell"
           >
             <a
+              aria-label="Tower"
               href="/workbook/tower"
               rel="noreferrer"
               target="_self"
@@ -241,6 +246,7 @@ exports[`Workbook snapshot matches snapshot when not isPortrait 1`] = `
             role="gridcell"
           >
             <a
+              aria-label="Worksheet"
               href="/workbook"
               rel="noreferrer"
               target="_self"
