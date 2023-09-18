@@ -1,16 +1,12 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import PageNotFound from '@components/PageNotFound'
 
 import * as utils from '@utils'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('PageNotFound', () => {
     test('sets document title', () => {
-        shallow(<PageNotFound />)
+        render(<PageNotFound />)
 
         expect(document.title).toContain('pagenotfound')
     })
@@ -18,33 +14,33 @@ describe('PageNotFound', () => {
     test('sends pageview', () => {
         utils.sendPageview = jest.fn()
 
-        shallow(<PageNotFound />)
+        render(<PageNotFound />)
 
         expect(utils.sendPageview).toHaveBeenCalledTimes(1)
     })
 
     test('has intro text with oops', () => {
-        const pageNotFound = shallow(<PageNotFound />)
+        render(<PageNotFound />)
 
         expect(
-            pageNotFound.find('.intro').text(),
-        ).toContain('Oops!')
+            screen.getByRole('main'),
+        ).toHaveTextContent('Oops!')
     })
 
     test('has link to home', () => {
-        const pageNotFound = shallow(<PageNotFound />)
+        render(<PageNotFound />)
 
         expect(
-            pageNotFound.find('.button-home a').props().href,
-        ).toEqual('/home')
+            screen.getByRole('link'),
+        ).toHaveAttribute('href', '/home')
     })
 
     test('has alt text for home icon', () => {
-        const pageNotFound = shallow(<PageNotFound />)
+        render(<PageNotFound />)
 
         expect(
-            pageNotFound.find('.button-home img').props().alt,
-        ).toEqual('Home icon')
+            screen.getByRole('img'),
+        ).toHaveAttribute('alt', 'Home icon')
     })
 })
 
