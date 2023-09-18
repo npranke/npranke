@@ -1,17 +1,15 @@
-import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import Welcome from '@components/Welcome'
 
 import * as utils from '@utils'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('Welcome', () => {
     test('sets document title', () => {
-        shallow(<Welcome />)
+        render(
+            <MemoryRouter><Welcome /></MemoryRouter>,
+        )
 
         expect(document.title).toContain('home')
     })
@@ -19,42 +17,48 @@ describe('Welcome', () => {
     test('sends pageview', () => {
         utils.sendPageview = jest.fn()
 
-        shallow(<Welcome />)
+        render(
+            <MemoryRouter><Welcome /></MemoryRouter>,
+        )
 
         expect(utils.sendPageview).toHaveBeenCalledTimes(1)
     })
 
     test('has intro text with welcome', () => {
-        const welcome = shallow(<Welcome />)
+        render(
+            <MemoryRouter><Welcome /></MemoryRouter>,
+        )
 
         expect(
-            welcome.find('.intro').text(),
-        ).toContain('Welcome!')
+            screen.getByRole('main'),
+        ).toHaveTextContent('Welcome!')
     })
 
     test('has link to workbook', () => {
-        const welcome = shallow(<Welcome />)
+        render(
+            <MemoryRouter><Welcome /></MemoryRouter>,
+        )
 
         expect(
-            welcome.find('.button-workbook Link').props().to,
-        ).toEqual('/workbook')
+            screen.getByRole('link'),
+        ).toHaveAttribute('href', '/workbook')
     })
 
     test('has alt text for workbook icon', () => {
-        const welcome = shallow(<Welcome />)
+        render(
+            <MemoryRouter><Welcome /></MemoryRouter>,
+        )
 
         expect(
-            welcome.find('.button-workbook img').props().alt,
-        ).toEqual('Workbook icon')
+            screen.getByRole('img'),
+        ).toHaveAttribute('alt', 'Workbook icon')
     })
 })
 
 describe('Welcome snapshot', () => {
     test('matches snapshot', () => {
         const { asFragment } = render(
-            <MemoryRouter>
-                <Welcome />
-            </MemoryRouter>,
+            <MemoryRouter><Welcome /></MemoryRouter>,
         )
 
         expect(asFragment()).toMatchSnapshot()
