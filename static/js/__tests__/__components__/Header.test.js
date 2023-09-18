@@ -1,84 +1,94 @@
-import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import Header from '@components/Header'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('Header', () => {
     test('has navlink to home', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-container-home NavLink').props().to,
-        ).toEqual('/home')
+            screen.getByRole('link', { name: 'Home' }),
+        ).toHaveAttribute('href', '/home')
     })
 
     test('has navlink to workbook', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-container-workbook NavLink').props().to,
-        ).toEqual('/workbook')
+            screen.getByRole('link', { name: 'Workbook' }),
+        ).toHaveAttribute('href', '/workbook')
     })
 
     test('has link to github profile', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-container-github a').props().href,
-        ).toEqual('https://github.com/npranke')
+            screen.getByRole('link', { name: 'GitHub' }),
+        ).toHaveAttribute('href', 'https://github.com/npranke')
     })
 
     test('has link to linkedin profile', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-container-linkedin a').props().href,
-        ).toEqual('https://www.linkedin.com/in/npranke')
+            screen.getByRole('link', { name: 'LinkedIn' }),
+        ).toHaveAttribute('href', 'https://www.linkedin.com/in/npranke')
     })
 
     test('has alt text for home icon', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-home').props().alt,
-        ).toEqual('Home icon')
+            screen.getByRole('img', { name: 'Home icon' }),
+        ).toHaveAttribute('alt', 'Home icon')
     })
 
     test('has alt text for workbook icon', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-workbook').props().alt,
-        ).toEqual('Workbook icon')
+            screen.getByRole('img', { name: 'Workbook icon' }),
+        ).toHaveAttribute('alt', 'Workbook icon')
     })
 
     test('has alt text for github icon', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-github').props().alt,
-        ).toEqual('GitHub icon')
+            screen.getByRole('img', { name: 'GitHub icon' }),
+        ).toHaveAttribute('alt', 'GitHub icon')
     })
 
     test('has alt text for linkedin icon', () => {
-        const header = shallow(<Header />)
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
 
         expect(
-            header.find('.icon-linkedin').props().alt,
-        ).toEqual('LinkedIn icon')
+            screen.getByRole('img', { name: 'LinkedIn icon' }),
+        ).toHaveAttribute('alt', 'LinkedIn icon')
     })
 })
 
 describe('Header snapshot', () => {
     test('matches snapshot', () => {
         const { asFragment } = render(
-            <MemoryRouter>
-                <Header />
-            </MemoryRouter>,
+            <MemoryRouter><Header /></MemoryRouter>,
         )
 
         expect(asFragment()).toMatchSnapshot()
