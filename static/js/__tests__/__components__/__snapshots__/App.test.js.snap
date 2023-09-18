@@ -131,7 +131,6 @@ exports[`App snapshot matches snapshot 1`] = `
     </main>
     <footer
       class="footer"
-      role="contentinfo"
     >
       <div
         class="copyright"
