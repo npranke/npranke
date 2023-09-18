@@ -26,10 +26,6 @@ exports[`Header snapshot matches snapshot 1`] = `
           />
         </a>
       </div>
-    </div>
-    <div
-      class="right-header"
-    >
       <div
         class="icon-container icon-container-workbook"
       >
@@ -48,6 +44,10 @@ exports[`Header snapshot matches snapshot 1`] = `
           />
         </a>
       </div>
+    </div>
+    <div
+      class="right-header"
+    >
       <div
         class="icon-container icon-container-github"
       >
