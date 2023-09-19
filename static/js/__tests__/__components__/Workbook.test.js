@@ -1,14 +1,10 @@
-import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { Workbook } from '@components/Workbook'
 
 import * as utils from '@utils'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('Workbook', () => {
     beforeAll(() => {
@@ -38,50 +34,62 @@ describe('Workbook', () => {
     })
 
     test('has link to concentration', () => {
-        const workbook = shallow(<Workbook />)
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
+        )
 
         expect(
-            workbook.find('#workbook-worksheet-concentration Link').props().to,
-        ).toEqual('/workbook/concentration')
+            screen.getByRole('link', { name: 'Concentration' }),
+        ).toHaveAttribute('href', '/workbook/concentration')
     })
 
     test('has alt text for concentration icon', () => {
-        const workbook = shallow(<Workbook />)
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
+        )
 
         expect(
-            workbook.find('#workbook-worksheet-concentration img').props().alt,
-        ).toEqual('Concentration icon')
+            screen.getByRole('img', { name: 'Concentration icon' }),
+        ).toHaveAttribute('alt', 'Concentration icon')
     })
 
     test('has link to tower', () => {
-        const workbook = shallow(<Workbook />)
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
+        )
 
         expect(
-            workbook.find('#workbook-worksheet-tower Link').props().to,
-        ).toEqual('/workbook/tower')
+            screen.getByRole('link', { name: 'Tower' }),
+        ).toHaveAttribute('href', '/workbook/tower')
     })
 
     test('has alt text for tower icon', () => {
-        const workbook = shallow(<Workbook />)
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
+        )
 
         expect(
-            workbook.find('#workbook-worksheet-tower img').props().alt,
-        ).toEqual('Tower icon')
+            screen.getByRole('img', { name: 'Tower icon' }),
+        ).toHaveAttribute('alt', 'Tower icon')
     })
 
     test('has multiple rows when portrait', () => {
-        const workbook = shallow(<Workbook isPortrait />)
+        render(
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
+        )
 
         expect(
-            workbook.find('.table-row-workbook').length,
+            screen.getAllByRole('row').length,
         ).toBeGreaterThan(1)
     })
 
     test('has one row when not portrait', () => {
-        const workbook = shallow(<Workbook />)
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
+        )
 
         expect(
-            workbook.find('.table-row-workbook'),
+            screen.getAllByRole('row'),
         ).toHaveLength(1)
     })
 
@@ -417,9 +425,7 @@ describe('Workbook', () => {
 describe('Workbook snapshot', () => {
     test('matches snapshot when isPortrait', () => {
         const { asFragment } = render(
-            <MemoryRouter>
-                <Workbook isPortrait />
-            </MemoryRouter>,
+            <MemoryRouter><Workbook isPortrait /></MemoryRouter>,
         )
 
         expect(asFragment()).toMatchSnapshot()
@@ -427,9 +433,7 @@ describe('Workbook snapshot', () => {
 
     test('matches snapshot when not isPortrait', () => {
         const { asFragment } = render(
-            <MemoryRouter>
-                <Workbook />
-            </MemoryRouter>,
+            <MemoryRouter><Workbook /></MemoryRouter>,
         )
 
         expect(asFragment()).toMatchSnapshot()

@@ -4,7 +4,6 @@ exports[`Footer snapshot matches snapshot 1`] = `
 <DocumentFragment>
   <footer
     class="footer"
-    role="contentinfo"
   >
     <div
       class="copyright"

@@ -1,6 +1,4 @@
-import Adapter from 'enzyme-adapter-react-16'
 import { MemoryRouter } from 'react-router-dom'
-import Enzyme, { shallow } from 'enzyme'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -10,8 +8,6 @@ import ImageMock from '@__mocks__/ImageMock'
 import WorksheetContainer from '@components/WorksheetContainer'
 
 import * as utils from '@utils'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const mockLocation = { hash: '' }
 
@@ -47,33 +43,27 @@ describe('WorksheetContainer', () => {
     })
 
     test('has three tabs', () => {
-        const worksheetContainer = shallow(
-            <WorksheetContainer worksheet={ worksheet } />,
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ worksheet } />
+            </MemoryRouter>,
         )
 
         expect(
-            worksheetContainer.find('.section-button'),
+            screen.getAllByRole('tab'),
         ).toHaveLength(3)
-
-        worksheetContainer.find('.section-button').forEach(
-            (sectionButton) => {
-                expect(sectionButton.props().role).toEqual('tab')
-            },
-        )
     })
 
     test('has one tabpanel', () => {
-        const worksheetContainer = shallow(
-            <WorksheetContainer worksheet={ worksheet } />,
+        render(
+            <MemoryRouter>
+                <WorksheetContainer worksheet={ worksheet } />
+            </MemoryRouter>,
         )
 
         expect(
-            worksheetContainer.find('.worksheet-section'),
+            screen.getAllByRole('tabpanel'),
         ).toHaveLength(1)
-
-        expect(
-            worksheetContainer.find('.worksheet-section').props().role,
-        ).toEqual('tabpanel')
     })
 
     describe('sends pageview', () => {

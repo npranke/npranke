@@ -1,5 +1,3 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom'
 import { render, screen } from '@testing-library/react'
 
@@ -9,12 +7,10 @@ import Footer from '@components/Footer'
 import Header from '@components/Header'
 import PageNotFound from '@components/PageNotFound'
 import Welcome from '@components/Welcome'
-import Workbook from '@components/Workbook'
+import { Workbook } from '@components/Workbook'
 import WorksheetContainer from '@components/WorksheetContainer'
 
 import worksheets from '@constants/worksheets'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const mockLocation = { hash: '' }
 
@@ -22,6 +18,12 @@ jest.mock('react-router-dom', () => {
     return {
         ...jest.requireActual('react-router-dom'),
         useLocation: jest.fn(() => { return mockLocation }),
+    }
+})
+jest.mock('@components/hoc/PortraitListener', () => {
+    return {
+        __esModule: true,
+        default: (component) => { return component },
     }
 })
 jest.mock('@components/concentration/Concentration')
@@ -35,62 +37,90 @@ describe('App', () => {
     })
 
     test('contains background', () => {
-        const app = shallow(<App />)
+        const { unmount } = render(
+            <MemoryRouter><App /></MemoryRouter>,
+        )
+        const backgroundHTML = screen.getAllByRole('img')[0].outerHTML
 
-        expect(
-            app.contains(<Background />),
-        ).toBe(true)
+        unmount()
+
+        render(<Background />)
+        const expectedHTML = screen.getByRole('img').outerHTML
+
+        expect(backgroundHTML).toEqual(expectedHTML)
     })
 
     test('contains header', () => {
-        const app = shallow(<App />)
+        const { unmount } = render(
+            <MemoryRouter><App /></MemoryRouter>,
+        )
+        const headerHTML = screen.getByRole('navigation').outerHTML
 
-        expect(
-            app.contains(<Header />),
-        ).toBe(true)
+        unmount()
+
+        render(
+            <MemoryRouter><Header /></MemoryRouter>,
+        )
+        const expectedHTML = screen.getByRole('navigation').outerHTML
+
+        expect(headerHTML).toEqual(expectedHTML)
     })
 
-    test('contains a routes component', () => {
-        const app = shallow(<App />)
+    test('contains welcome component at /', () => {
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/'] }>
+                <App />
+            </MemoryRouter>,
+        )
+        const welcomeHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            app.find('Routes'),
-        ).toHaveLength(1)
+        unmount()
+
+        render(
+            <MemoryRouter><Welcome /></MemoryRouter>,
+        )
+        const expectedHTML = screen.getByRole('main').outerHTML
+
+        expect(welcomeHTML).toEqual(expectedHTML)
     })
 
-    test('contains route components', () => {
-        const app = shallow(<App />)
+    test('contains welcome component at /home', () => {
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/home'] }>
+                <App />
+            </MemoryRouter>,
+        )
+        const welcomeHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            app.find('Route'),
-        ).toHaveLength(6)
+        unmount()
+
+        render(
+            <MemoryRouter><Welcome /></MemoryRouter>,
+        )
+        const expectedHTML = screen.getByRole('main').outerHTML
+
+        expect(welcomeHTML).toEqual(expectedHTML)
     })
 
-    test('contains route with welcome component at /', () => {
-        const app = shallow(<App />)
+    test('contains workbook component at /workbook', () => {
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/workbook'] }>
+                <App />
+            </MemoryRouter>,
+        )
+        const workbookHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            app.find('Route').at(0).props().element,
-        ).toEqual(<Welcome />)
+        unmount()
+
+        render(
+            <MemoryRouter><Workbook /></MemoryRouter>,
+        )
+        const expectedHTML = screen.getByRole('main').outerHTML
+
+        expect(workbookHTML).toEqual(expectedHTML)
     })
 
-    test('contains route with welcome component at /home', () => {
-        const app = shallow(<App />)
-
-        expect(
-            app.find('Route').at(1).props().element,
-        ).toEqual(<Welcome />)
-    })
-
-    test('contains route with workbook component', () => {
-        const app = shallow(<App />)
-
-        expect(
-            app.find('Route').at(2).props().element,
-        ).toEqual(<Workbook />)
-    })
-
-    test('contains route for concentration worksheet', () => {
+    test('contains concentration worksheet at /workbook/concentration', () => {
         const { unmount } = render(
             <MemoryRouter initialEntries={ ['/workbook/concentration'] }>
                 <App />
@@ -110,7 +140,7 @@ describe('App', () => {
         expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route for concentration worksheet info', () => {
+    test('contains concentration info at /workbook/concentration', () => {
         mockLocation.hash = '#info'
 
         const { unmount } = render(
@@ -132,7 +162,7 @@ describe('App', () => {
         expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route for concentration worksheet gist', () => {
+    test('contains concentration gist at /workbook/concentration', () => {
         mockLocation.hash = '#gist'
 
         const { unmount } = render(
@@ -154,7 +184,7 @@ describe('App', () => {
         expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route for tower worksheet', () => {
+    test('contains tower worksheet at /workbook/tower', () => {
         const { unmount } = render(
             <MemoryRouter initialEntries={ ['/workbook/tower'] }>
                 <App />
@@ -174,7 +204,7 @@ describe('App', () => {
         expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route for tower worksheet info', () => {
+    test('contains tower info at /workbook/tower', () => {
         mockLocation.hash = '#info'
 
         const { unmount } = render(
@@ -196,7 +226,7 @@ describe('App', () => {
         expect(worksheetHTML).toEqual(expectedHTML)
     })
 
-    test('contains route for tower worksheet gist', () => {
+    test('contains tower gist at /workbook/tower', () => {
         mockLocation.hash = '#gist'
 
         const { unmount } = render(
@@ -219,19 +249,33 @@ describe('App', () => {
     })
 
     test('contains route with pagenotfound component', () => {
-        const app = shallow(<App />)
+        const { unmount } = render(
+            <MemoryRouter initialEntries={ ['/pagenotfound'] }>
+                <App />
+            </MemoryRouter>,
+        )
+        const pagenotfoundHTML = screen.getByRole('main').outerHTML
 
-        expect(
-            app.find('Route').at(5).props().element,
-        ).toEqual(<PageNotFound />)
+        unmount()
+
+        render(<PageNotFound />)
+        const expectedHTML = screen.getByRole('main').outerHTML
+
+        expect(pagenotfoundHTML).toEqual(expectedHTML)
     })
 
     test('contains footer', () => {
-        const app = shallow(<App />)
+        const { unmount } = render(
+            <MemoryRouter><App /></MemoryRouter>,
+        )
+        const footerHTML = screen.getByRole('contentinfo').outerHTML
 
-        expect(
-            app.contains(<Footer />),
-        ).toBe(true)
+        unmount()
+
+        render(<Footer />)
+        const expectedHTML = screen.getByRole('contentinfo').outerHTML
+
+        expect(footerHTML).toEqual(expectedHTML)
     })
 })
 
@@ -242,9 +286,7 @@ describe('App snapshot', () => {
 
     test('matches snapshot', () => {
         const { asFragment } = render(
-            <MemoryRouter>
-                <App />
-            </MemoryRouter>,
+            <MemoryRouter><App /></MemoryRouter>,
         )
 
         expect(asFragment()).toMatchSnapshot()

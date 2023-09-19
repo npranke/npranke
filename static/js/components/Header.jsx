@@ -55,11 +55,11 @@ function Header() {
                 <div className="icon-container icon-container-home">
                     { homeLink }
                 </div>
-            </div>
-            <div className="right-header">
                 <div className="icon-container icon-container-workbook">
                     { workbookLink }
                 </div>
+            </div>
+            <div className="right-header">
                 <div className="icon-container icon-container-github">
                     <a
                         onClick={ getSendEventHandler(

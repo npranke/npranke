@@ -72,6 +72,7 @@ export function Workbook(props) {
             target="_self"
             rel="noreferrer"
             ref={ concentrationRef }
+            aria-label="Concentration"
         >
             <div className="button-worksheet-container">
                 <span className="button-worksheet-wrapper">
@@ -104,6 +105,7 @@ export function Workbook(props) {
             target="_self"
             rel="noreferrer"
             ref={ towerRef }
+            aria-label="Tower"
         >
             <div className="button-worksheet-container">
                 <span className="button-worksheet-wrapper">
@@ -132,6 +134,7 @@ export function Workbook(props) {
             target="_self"
             rel="noreferrer"
             ref={ worksheetRef }
+            aria-label="Worksheet"
         >
             <div className="button-worksheet-container">
                 <span className="button-worksheet-wrapper">

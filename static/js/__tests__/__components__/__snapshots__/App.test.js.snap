@@ -40,10 +40,6 @@ exports[`App snapshot matches snapshot 1`] = `
             />
           </a>
         </div>
-      </div>
-      <div
-        class="right-header"
-      >
         <div
           class="icon-container icon-container-workbook"
         >
@@ -62,6 +58,10 @@ exports[`App snapshot matches snapshot 1`] = `
             />
           </a>
         </div>
+      </div>
+      <div
+        class="right-header"
+      >
         <div
           class="icon-container icon-container-github"
         >
@@ -131,7 +131,6 @@ exports[`App snapshot matches snapshot 1`] = `
     </main>
     <footer
       class="footer"
-      role="contentinfo"
     >
       <div
         class="copyright"

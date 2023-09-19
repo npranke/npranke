@@ -6,11 +6,12 @@ describe('Background', () => {
     test('has img with nonempty alt text', () => {
         render(<Background />)
 
-        const backgroundImg = screen.getByRole('img')
-
-        expect(backgroundImg).toBeInTheDocument()
-        expect(backgroundImg).toHaveAttribute('alt')
-        expect(backgroundImg).not.toHaveAttribute('alt', '')
+        expect(
+            screen.getByRole('img'),
+        ).toHaveAttribute('alt')
+        expect(
+            screen.getByRole('img'),
+        ).not.toHaveAttribute('alt', '')
     })
 })
 
