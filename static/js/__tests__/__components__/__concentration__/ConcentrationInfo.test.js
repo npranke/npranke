@@ -1,46 +1,41 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import ConcentrationInfo from '@components/concentration/ConcentrationInfo'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('ConcentrationInfo', () => {
     test('has basic description text', () => {
-        const concentrationInfo = shallow(<ConcentrationInfo />)
+        render(<ConcentrationInfo />)
 
         expect(
-            concentrationInfo.find('.concetration-info').text(),
-        ).toContain('picture matching memory game')
+            screen.getByText(/picture matching memory game/),
+        ).toBeInTheDocument()
     })
 
     test('has image credit text', () => {
-        const concentrationInfo = shallow(<ConcentrationInfo />)
+        render(<ConcentrationInfo />)
 
         expect(
-            concentrationInfo.find('.concetration-info').text(),
-        ).toContain('courtesy of NASA/JPL-Caltech')
+            screen.getByText(/courtesy of NASA\/JPL-Caltech/),
+        ).toBeInTheDocument()
     })
 
     test('has link to nasa mars exploration program', () => {
-        const concentrationInfo = shallow(<ConcentrationInfo />)
+        render(<ConcentrationInfo />)
 
         expect(
-            concentrationInfo.find(
-                '.concetration-info a',
-            ).first().props().href,
-        ).toEqual('https://mars.nasa.gov')
+            screen.getByRole(
+                'link',
+                { name: 'NASA’s Mars Exploration Program' },
+            ),
+        ).toHaveAttribute('href', 'https://mars.nasa.gov')
     })
 
     test('has link to jpl image gallery', () => {
-        const concentrationInfo = shallow(<ConcentrationInfo />)
+        render(<ConcentrationInfo />)
 
         expect(
-            concentrationInfo.find(
-                '.concetration-info a',
-            ).last().props().href,
-        ).toEqual('https://www.jpl.nasa.gov/images')
+            screen.getByRole('link', { name: 'JPL Image Gallery' }),
+        ).toHaveAttribute('href', 'https://www.jpl.nasa.gov/images')
     })
 })
 
