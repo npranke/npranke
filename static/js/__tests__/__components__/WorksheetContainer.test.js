@@ -151,6 +151,66 @@ describe('WorksheetContainer', () => {
         })
     })
 
+    describe('tab link tabindex', () => {
+        test('info tab selected', () => {
+            mockLocation.hash = '#info'
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
+            )
+
+            expect(
+                screen.getByRole('link', { name: 'Info' }),
+            ).toHaveAttribute('tabindex', '0')
+            expect(
+                screen.getByRole('link', { name: 'Worksheet' }),
+            ).toHaveAttribute('tabindex', '-1')
+            expect(
+                screen.getByRole('link', { name: 'Gist' }),
+            ).toHaveAttribute('tabindex', '-1')
+        })
+
+        test('worksheet tab selected', () => {
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
+            )
+
+            expect(
+                screen.getByRole('link', { name: 'Info' }),
+            ).toHaveAttribute('tabindex', '-1')
+            expect(
+                screen.getByRole('link', { name: 'Worksheet' }),
+            ).toHaveAttribute('tabindex', '0')
+            expect(
+                screen.getByRole('link', { name: 'Gist' }),
+            ).toHaveAttribute('tabindex', '-1')
+        })
+
+        test('gist tab selected', () => {
+            mockLocation.hash = '#gist'
+
+            render(
+                <MemoryRouter>
+                    <WorksheetContainer worksheet={ worksheet } />
+                </MemoryRouter>,
+            )
+
+            expect(
+                screen.getByRole('link', { name: 'Info' }),
+            ).toHaveAttribute('tabindex', '-1')
+            expect(
+                screen.getByRole('link', { name: 'Worksheet' }),
+            ).toHaveAttribute('tabindex', '-1')
+            expect(
+                screen.getByRole('link', { name: 'Gist' }),
+            ).toHaveAttribute('tabindex', '0')
+        })
+    })
+
     describe('keyboard navigation on header tabs', () => {
         test('enter on info section header tab', async () => {
             const user = userEvent.setup()
@@ -161,15 +221,13 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Info' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Info' }).focus()
 
             await user.keyboard('{Enter}')
 
-            expect(document.activeElement.id).toEqual('info-tabpanel')
+            expect(
+                screen.getByRole('tabpanel'),
+            ).toHaveAttribute('id', 'info-tabpanel')
         })
 
         test('enter on worksheet section header tab', async () => {
@@ -181,16 +239,13 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Worksheet' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Worksheet' }).focus()
 
             await user.keyboard('{Enter}')
 
-            expect(document.activeElement.id).toEqual('worksheet-tabpanel')
+            expect(
+                screen.getByRole('tabpanel'),
+            ).toHaveAttribute('id', 'worksheet-tabpanel')
         })
 
         test('enter on gist section header tab', async () => {
@@ -202,17 +257,13 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Gist' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Gist' }).focus()
 
             await user.keyboard('{Enter}')
 
-            expect(document.activeElement.id).toEqual('gist-tabpanel')
+            expect(
+                screen.getByRole('tabpanel'),
+            ).toHaveAttribute('id', 'gist-tabpanel')
         })
 
         test('spacebar on info section header tab', async () => {
@@ -224,15 +275,13 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Info' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Info' }).focus()
 
             await user.keyboard(' ')
 
-            expect(document.activeElement.id).toEqual('info-tabpanel')
+            expect(
+                screen.getByRole('tabpanel'),
+            ).toHaveAttribute('id', 'info-tabpanel')
         })
 
         test('spacebar on worksheet section header tab', async () => {
@@ -244,16 +293,13 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Worksheet' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Worksheet' }).focus()
 
             await user.keyboard(' ')
 
-            expect(document.activeElement.id).toEqual('worksheet-tabpanel')
+            expect(
+                screen.getByRole('tabpanel'),
+            ).toHaveAttribute('id', 'worksheet-tabpanel')
         })
 
         test('spacebar on gist section header tab', async () => {
@@ -265,17 +311,13 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Gist' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Gist' }).focus()
 
             await user.keyboard(' ')
 
-            expect(document.activeElement.id).toEqual('gist-tabpanel')
+            expect(
+                screen.getByRole('tabpanel'),
+            ).toHaveAttribute('id', 'gist-tabpanel')
         })
 
         test('right arrow on info section header tab', async () => {
@@ -287,11 +329,7 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Info' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Info' }).focus()
 
             await user.keyboard('{ArrowRight}')
 
@@ -307,12 +345,7 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Worksheet' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Worksheet' }).focus()
 
             await user.keyboard('{ArrowRight}')
 
@@ -328,13 +361,7 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Gist' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Gist' }).focus()
 
             await user.keyboard('{ArrowRight}')
 
@@ -350,11 +377,7 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Info' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Info' }).focus()
 
             await user.keyboard('{ArrowLeft}')
 
@@ -370,12 +393,7 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Worksheet' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Worksheet' }).focus()
 
             await user.keyboard('{ArrowLeft}')
 
@@ -391,13 +409,7 @@ describe('WorksheetContainer', () => {
                 </MemoryRouter>,
             )
 
-            await user.tab()
-            await user.tab()
-            await user.tab()
-
-            expect(
-                screen.getByRole('link', { name: 'Gist' }),
-            ).toHaveFocus()
+            screen.getByRole('link', { name: 'Gist' }).focus()
 
             await user.keyboard('{ArrowLeft}')
 
