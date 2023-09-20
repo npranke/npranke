@@ -1,46 +1,44 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import TowerInfo from '@components/tower/TowerInfo'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('TowerInfo', () => {
     test('has basic description text', () => {
-        const towerInfo = shallow(<TowerInfo />)
+        render(<TowerInfo />)
 
         expect(
-            towerInfo.find('.tower-info').text(),
-        ).toContain('Tower of Hanoi puzzle')
+            screen.getByText(/Tower of Hanoi puzzle/),
+        ).toBeInTheDocument()
     })
 
     test('has image credit text', () => {
-        const towerInfo = shallow(<TowerInfo />)
+        render(<TowerInfo />)
 
         expect(
-            towerInfo.find('.tower-info').text(),
-        ).toContain('courtesy of NASA/JPL-Caltech')
+            screen.getByText(/courtesy of NASA\/JPL-Caltech/),
+        ).toBeInTheDocument()
     })
 
     test('has link to nasa solar system exploration program jupiter', () => {
-        const towerInfo = shallow(<TowerInfo />)
+        render(<TowerInfo />)
 
         expect(
-            towerInfo.find(
-                '.tower-info a',
-            ).first().props().href,
-        ).toEqual('https://solarsystem.nasa.gov/planets/jupiter/overview/')
+            screen.getByRole(
+                'link',
+                { name: 'NASA’s Solar System Exploration Program' },
+            ),
+        ).toHaveAttribute(
+            'href',
+            'https://solarsystem.nasa.gov/planets/jupiter/overview/',
+        )
     })
 
     test('has link to jpl image gallery', () => {
-        const towerInfo = shallow(<TowerInfo />)
+        render(<TowerInfo />)
 
         expect(
-            towerInfo.find(
-                '.tower-info a',
-            ).last().props().href,
-        ).toEqual('https://www.jpl.nasa.gov/images')
+            screen.getByRole('link', { name: 'JPL Image Gallery' }),
+        ).toHaveAttribute('href', 'https://www.jpl.nasa.gov/images')
     })
 })
 
