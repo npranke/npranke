@@ -9,7 +9,6 @@ import { getLocationPageTitle, sendEvent, sendPageview } from '@utils'
 
 function WorksheetContainer(props) {
     const [visible, setVisible] = useState('worksheet')
-    const [, setFocus] = useState()
 
     const location = useLocation()
 
@@ -29,10 +28,6 @@ function WorksheetContainer(props) {
         }
     }, [location.hash])
 
-    const infoPanel = useRef(null)
-    const worksheetPanel = useRef(null)
-    const gistPanel = useRef(null)
-
     const infoTab = useRef(null)
     const worksheetTab = useRef(null)
     const gistTab = useRef(null)
@@ -48,23 +43,20 @@ function WorksheetContainer(props) {
     const headerKeyDownHandler = (event) => {
         const { section } = event.currentTarget.dataset
 
-        if (event.key === 'Enter' || event.key === ' ') {
-            setVisible(section)
-            setFocus(() => {
-                if (visible === 'info') {
-                    infoPanel.current.focus()
-                } else if (visible === 'gist') {
-                    gistPanel.current.focus()
-                } else {
-                    worksheetPanel.current.focus()
-                }
-            })
+        if (event.key === ' ') {
+            if (section === 'info') {
+                infoTab.current.click()
+            } else if (section === 'gist') {
+                gistTab.current.click()
+            } else {
+                worksheetTab.current.click()
+            }
         } else if (event.key === 'ArrowRight') {
             if (section === 'info') {
                 worksheetTab.current.focus()
             } else if (section === 'worksheet') {
                 gistTab.current.focus()
-            } else if (section === 'gist') {
+            } else {
                 infoTab.current.focus()
             }
         } else if (event.key === 'ArrowLeft') {
@@ -72,7 +64,7 @@ function WorksheetContainer(props) {
                 worksheetTab.current.focus()
             } else if (section === 'worksheet') {
                 infoTab.current.focus()
-            } else if (section === 'info') {
+            } else {
                 gistTab.current.focus()
             }
         }
@@ -84,7 +76,6 @@ function WorksheetContainer(props) {
             id="info-tabpanel"
             role="tabpanel"
             tabIndex="0"
-            ref={ infoPanel }
         >
             <div className="worksheet-info">
                 <div className="worksheet-info-inner">
@@ -103,7 +94,6 @@ function WorksheetContainer(props) {
             id="worksheet-tabpanel"
             role="tabpanel"
             tabIndex="0"
-            ref={ worksheetPanel }
         >
             { props.worksheet.component }
         </div>
@@ -115,7 +105,6 @@ function WorksheetContainer(props) {
             id="gist-tabpanel"
             role="tabpanel"
             tabIndex="0"
-            ref={ gistPanel }
         >
             <iframe
                 id="worksheet-gist"
@@ -158,6 +147,7 @@ function WorksheetContainer(props) {
                         data-section="info"
                         ref={ infoTab }
                         aria-label="Info"
+                        tabIndex={ `${visible === 'info' ? '0' : '-1'}` }
                     >
                         <img
                             src={ Info }
@@ -190,6 +180,7 @@ function WorksheetContainer(props) {
                         data-section="worksheet"
                         ref={ worksheetTab }
                         aria-label="Worksheet"
+                        tabIndex={ `${visible === 'worksheet' ? '0' : '-1'}` }
                     >
                         <img
                             src={ props.worksheet.icon }
@@ -227,6 +218,7 @@ function WorksheetContainer(props) {
                         data-section="gist"
                         ref={ gistTab }
                         aria-label="Gist"
+                        tabIndex={ `${visible === 'gist' ? '0' : '-1'}` }
                     >
                         <img
                             src={ Code }
