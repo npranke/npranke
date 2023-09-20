@@ -61,8 +61,8 @@
         "webpack-merge": "^5.9.0"
     },
     "resolutions": {
-        "eslint-import-resolver-webpack/resolve": "^1.22.4",
-        "eslint-plugin-react/resolve": "^1.22.4"
+        "eslint-import-resolver-webpack/resolve": "^1.22.6",
+        "eslint-plugin-react/resolve": "^1.22.6"
     },
     "scripts": {
         "build:dev": "webpack --progress=profile --config webpack.dev.js",
