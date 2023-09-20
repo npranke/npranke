@@ -1,7 +1,6 @@
 <details>
 <summary>
-
-#### &hairsp; <ins>README</ins>
+&hairsp; <ins>README</ins>
 </summary>
 
 # npranke
