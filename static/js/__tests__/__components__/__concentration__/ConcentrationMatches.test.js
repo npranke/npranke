@@ -1,11 +1,7 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import ConcentrationMatches from
     '@components/concentration/ConcentrationMatches'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const pictures = Array.from({ length: 12 }, (value, index) => {
     return `${index}`
@@ -18,28 +14,18 @@ const pictures = Array.from({ length: 12 }, (value, index) => {
 }, {})
 
 describe('ConcentrationMatches', () => {
-    test('has matches-header section', () => {
-        const concentrationMatches = shallow(
+    test('has matches section', () => {
+        render(
             <ConcentrationMatches pictures={ pictures } />,
         )
 
         expect(
-            concentrationMatches.find('.matches-header').exists(),
-        ).toBe(true)
-    })
-
-    test('has matches-pictures section', () => {
-        const concentrationMatches = shallow(
-            <ConcentrationMatches pictures={ pictures } />,
-        )
-
-        expect(
-            concentrationMatches.find('.matches-pictures').exists(),
-        ).toBe(true)
+            screen.getByText(/^matches:$/),
+        ).toHaveClass('matches-portion', { exact: true })
     })
 
     test('shows matches number when less than 10', () => {
-        const concentrationMatches = shallow(
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 matches={ ['0', '4', '10'] }
@@ -47,12 +33,12 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.matches-portion.number').text(),
-        ).toEqual('03')
+            screen.getByText(/^03$/),
+        ).toHaveClass('matches-portion number', { exact: true })
     })
 
     test('shows matches number when 10', () => {
-        const concentrationMatches = shallow(
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 matches={
@@ -65,12 +51,12 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.matches-portion.number').text(),
-        ).toEqual('10')
+            screen.getByText(/^10$/),
+        ).toHaveClass('matches-portion number', { exact: true })
     })
 
     test('shows matches number when more than 10', () => {
-        const concentrationMatches = shallow(
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 matches={
@@ -83,12 +69,22 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.matches-portion.number').text(),
-        ).toEqual('12')
+            screen.getByText(/^12$/),
+        ).toHaveClass('matches-portion number', { exact: true })
+    })
+
+    test('has turns section', () => {
+        render(
+            <ConcentrationMatches pictures={ pictures } />,
+        )
+
+        expect(
+            screen.getByText(/^turns:$/),
+        ).toHaveClass('turns-portion', { exact: true })
     })
 
     test('shows turns number when less than 10', () => {
-        const concentrationMatches = shallow(
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 turns={ 6 }
@@ -96,12 +92,12 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.turns-portion.number').text(),
-        ).toEqual('06')
+            screen.getByText(/^06$/),
+        ).toHaveClass('turns-portion number', { exact: true })
     })
 
     test('shows turns number when 10', () => {
-        const concentrationMatches = shallow(
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 turns={ 10 }
@@ -109,12 +105,12 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.turns-portion.number').text(),
-        ).toEqual('10')
+            screen.getByText(/^10$/),
+        ).toHaveClass('turns-portion number', { exact: true })
     })
 
     test('shows turns number when more than 10', () => {
-        const concentrationMatches = shallow(
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 turns={ 23 }
@@ -122,42 +118,62 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.turns-portion.number').text(),
-        ).toEqual('23')
+            screen.getByText(/^23$/),
+        ).toHaveClass('turns-portion number', { exact: true })
     })
 
-    test('has time-portion sections', () => {
-        const concentrationMatches = shallow(
+    test('has time section', () => {
+        render(
             <ConcentrationMatches pictures={ pictures } />,
         )
 
         expect(
-            concentrationMatches.find('.time-portion'),
-        ).toHaveLength(6)
+            screen.getByText(/^time:$/),
+        ).toHaveClass('time-portion', { exact: true })
     })
 
-    test('has time-portion number sections', () => {
-        const concentrationMatches = shallow(
+    test('has : time separator', () => {
+        render(
             <ConcentrationMatches pictures={ pictures } />,
         )
 
         expect(
-            concentrationMatches.find('.time-portion.number'),
+            screen.getByText(/^:$/),
+        ).toHaveClass('time-portion', { exact: true })
+    })
+
+    test('has . time separator', () => {
+        render(
+            <ConcentrationMatches pictures={ pictures } />,
+        )
+
+        expect(
+            screen.getByText(/^\.$/),
+        ).toHaveClass('time-portion', { exact: true })
+    })
+
+    test('has timers', () => {
+        render(
+            <ConcentrationMatches pictures={ pictures } />,
+        )
+
+        expect(
+            screen.getAllByRole('timer'),
         ).toHaveLength(3)
     })
 
-    test('matches-pictures has no pictures with no matches', () => {
-        const concentrationMatches = shallow(
+    test('has no images with no matches', () => {
+        render(
             <ConcentrationMatches pictures={ pictures } />,
         )
 
         expect(
-            concentrationMatches.find('.matches-pictures').children(),
+            screen.queryAllByRole('img'),
         ).toHaveLength(0)
     })
 
-    test('matches-pictures has some pictures with some matches', () => {
-        const concentrationMatches = shallow(
+    test('has some images with some matches', () => {
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 matches={ ['0', '4', '7', '10', '11'] }
@@ -165,12 +181,12 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.matches-pictures').children(),
+            screen.queryAllByRole('img'),
         ).toHaveLength(5)
     })
 
-    test('matches-pictures has all pictures with all matches', () => {
-        const concentrationMatches = shallow(
+    test('has all images with all matches', () => {
+        render(
             <ConcentrationMatches
                 pictures={ pictures }
                 matches={
@@ -183,7 +199,7 @@ describe('ConcentrationMatches', () => {
         )
 
         expect(
-            concentrationMatches.find('.matches-pictures').children(),
+            screen.queryAllByRole('img'),
         ).toHaveLength(12)
     })
 })
