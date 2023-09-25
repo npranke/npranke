@@ -25,6 +25,7 @@ select = [
     "SIM",  # flake8-simplify
     "W",    # pycodestyle, warning
 ]
+preview = true
 extend-select = ["E261"]
 
 ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
@@ -36,7 +37,7 @@ include = ["*.py"]
 extend-exclude = ["static"]
 respect-gitignore = true
 
-format = "grouped"
+output-format = "grouped"
 show-source = true
 
 line-length = 79
@@ -49,3 +50,6 @@ ignore-names = ["Gist"]
 
 [tool.ruff.pydocstyle]
 convention = "pep257"
+
+[tool.ruff.per-file-ignores]
+"db/middleware.py" = ["PLR6301"]
