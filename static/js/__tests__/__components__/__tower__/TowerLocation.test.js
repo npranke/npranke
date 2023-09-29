@@ -12,7 +12,7 @@ Enzyme.configure({ adapter: new Adapter() })
 jest.mock('@components/tower/TowerDisk', () => {
     return {
         __esModule: true,
-        default: jest.requireActual('@components/tower/TowerDisk').default,
+        default: () => { return ('TowerDisk') },
     }
 })
 
@@ -654,10 +654,6 @@ describe('TowerLocation', () => {
 })
 
 describe('TowerLocation snapshot', () => {
-    beforeAll(() => {
-        diskModule.default = () => { return (<div className="disk"></div>) }
-    })
-
     describe('when not isPortrait', () => {
         test('matches snapshot when empty', () => {
             const { asFragment } = render(
