@@ -1,11 +1,7 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import TowerSettings from '@components/tower/TowerSettings'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('TowerSettings', () => {
     let mockUpdateDisks
@@ -18,117 +14,128 @@ describe('TowerSettings', () => {
         mockUpdateDisks.mockReset()
     })
 
-    test('has disks-portion sections', () => {
-        const towerSettings = shallow(
+    test('has disks section', () => {
+        render(
             <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
-            towerSettings.find('.disks-portion'),
-        ).toHaveLength(6)
+            screen.getByText(/^disks:$/),
+        ).toHaveClass('disks-portion', { exact: true })
     })
 
-    test('has disks-portion number sections', () => {
-        const towerSettings = shallow(
+    test('has moves section', () => {
+        render(
             <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
-            towerSettings.find('.disks-portion.number'),
-        ).toHaveLength(4)
+            screen.getByText(/^moves:$/),
+        ).toHaveClass('moves-portion', { exact: true })
     })
 
     test('shows moves number when less than 10', () => {
-        const towerSettings = shallow(
+        render(
             <TowerSettings moves={ 1 } updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
-            towerSettings.find('.moves-portion.number').text(),
-        ).toEqual('01')
+            screen.getByText(/^01$/),
+        ).toHaveClass('moves-portion number', { exact: true })
     })
 
     test('shows moves number when 10', () => {
-        const towerSettings = shallow(
+        render(
             <TowerSettings moves={ 10 } updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
-            towerSettings.find('.moves-portion.number').text(),
-        ).toEqual('10')
+            screen.getByText(/^10$/),
+        ).toHaveClass('moves-portion number', { exact: true })
     })
 
     test('shows moves number when more than 10', () => {
-        const towerSettings = shallow(
+        render(
             <TowerSettings moves={ 15 } updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
-            towerSettings.find('.moves-portion.number').text(),
-        ).toEqual('15')
+            screen.getByText(/^15$/),
+        ).toHaveClass('moves-portion number', { exact: true })
     })
 
-    test('has time-portion sections', () => {
-        const towerSettings = shallow(
+    test('has time section', () => {
+        render(
             <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
-            towerSettings.find('.time-portion'),
-        ).toHaveLength(6)
+            screen.getByText(/^time:$/),
+        ).toHaveClass('time-portion', { exact: true })
     })
 
-    test('has time-portion number sections', () => {
-        const towerSettings = shallow(
+    test('has : time separator', () => {
+        render(
             <TowerSettings updateDisks={ mockUpdateDisks } />,
         )
 
         expect(
-            towerSettings.find('.time-portion.number'),
+            screen.getByText(/^:$/),
+        ).toHaveClass('time-portion', { exact: true })
+    })
+
+    test('has . time separator', () => {
+        render(
+            <TowerSettings updateDisks={ mockUpdateDisks } />,
+        )
+
+        expect(
+            screen.getByText(/^\.$/),
+        ).toHaveClass('time-portion', { exact: true })
+    })
+
+    test('has timers', () => {
+        render(
+            <TowerSettings updateDisks={ mockUpdateDisks } />,
+        )
+
+        expect(
+            screen.getAllByRole('timer'),
         ).toHaveLength(3)
     })
 
     describe('disks selection radiogroup', () => {
         test('has one radiogroup', () => {
-            const towerSettings = shallow(
+            render(
                 <TowerSettings updateDisks={ mockUpdateDisks } />,
             )
 
             expect(
-                towerSettings.find('#disks-radiogroup').props().role,
-            ).toEqual('radiogroup')
+                screen.getAllByRole('radiogroup'),
+            ).toHaveLength(1)
         })
 
-        test('has four radio inputs', () => {
-            const towerSettings = shallow(
+        test('has four radio elements', () => {
+            render(
                 <TowerSettings updateDisks={ mockUpdateDisks } />,
             )
 
             expect(
-                towerSettings.find('#disks-radiogroup input'),
+                screen.getAllByRole('radio'),
             ).toHaveLength(4)
-
-            towerSettings.find('#disks-radiogroup input').forEach(
-                (input) => {
-                    expect(input.props().type).toEqual('radio')
-                },
-            )
-        })
-
-        test('has four input labels', () => {
-            const towerSettings = shallow(
-                <TowerSettings updateDisks={ mockUpdateDisks } />,
-            )
 
             expect(
-                towerSettings.find('#disks-radiogroup label'),
-            ).toHaveLength(4)
-
-            towerSettings.find('#disks-radiogroup label').forEach(
-                (label) => {
-                    expect(label.props().htmlFor).toBeTruthy()
-                },
-            )
+                screen.getByRole('radio', { name: '2' }),
+            ).toBeInTheDocument()
+            expect(
+                screen.getByRole('radio', { name: '3' }),
+            ).toBeInTheDocument()
+            expect(
+                screen.getByRole('radio', { name: '4' }),
+            ).toBeInTheDocument()
+            expect(
+                screen.getByRole('radio', { name: '5' }),
+            ).toBeInTheDocument()
         })
 
         test('disksInputChangeHandler() calls updateDisks', async () => {
@@ -525,9 +532,9 @@ describe('TowerSettings', () => {
             })
         })
 
-        describe('input checked', () => {
-            test('selected disks input has checked true', () => {
-                const towerSettings = shallow(
+        describe('radio checked attribute', () => {
+            test('selected disks radio has checked', () => {
+                render(
                     <TowerSettings
                         disks={ 2 }
                         updateDisks={ mockUpdateDisks }
@@ -535,12 +542,12 @@ describe('TowerSettings', () => {
                 )
 
                 expect(
-                    towerSettings.find('#two-disks').props().checked,
-                ).toEqual(true)
+                    screen.getByRole('radio', { name: '2' }),
+                ).toBeChecked()
             })
 
-            test('unselected disks inputs have checked false', () => {
-                const towerSettings = shallow(
+            test('unselected disks radios do not have checked', () => {
+                render(
                     <TowerSettings
                         disks={ 2 }
                         updateDisks={ mockUpdateDisks }
@@ -548,20 +555,20 @@ describe('TowerSettings', () => {
                 )
 
                 expect(
-                    towerSettings.find('#three-disks').props().checked,
-                ).toEqual(false)
+                    screen.getByRole('radio', { name: '3' }),
+                ).not.toBeChecked()
                 expect(
-                    towerSettings.find('#four-disks').props().checked,
-                ).toEqual(false)
+                    screen.getByRole('radio', { name: '4' }),
+                ).not.toBeChecked()
                 expect(
-                    towerSettings.find('#five-disks').props().checked,
-                ).toEqual(false)
+                    screen.getByRole('radio', { name: '5' }),
+                ).not.toBeChecked()
             })
         })
 
         describe('label tabindex', () => {
             test('selected disks label has tabindex 0', () => {
-                const towerSettings = shallow(
+                render(
                     <TowerSettings
                         disks={ 3 }
                         updateDisks={ mockUpdateDisks }
@@ -569,12 +576,12 @@ describe('TowerSettings', () => {
                 )
 
                 expect(
-                    towerSettings.find('#three-disks-label').props().tabIndex,
-                ).toEqual('0')
+                    screen.getByTestId('three-disks-label-elem'),
+                ).toHaveAttribute('tabindex', '0')
             })
 
             test('unselected disks labels have tabindex -1', () => {
-                const towerSettings = shallow(
+                render(
                     <TowerSettings
                         disks={ 3 }
                         updateDisks={ mockUpdateDisks }
@@ -582,14 +589,14 @@ describe('TowerSettings', () => {
                 )
 
                 expect(
-                    towerSettings.find('#two-disks-label').props().tabIndex,
-                ).toEqual('-1')
+                    screen.getByTestId('two-disks-label-elem'),
+                ).toHaveAttribute('tabindex', '-1')
                 expect(
-                    towerSettings.find('#four-disks-label').props().tabIndex,
-                ).toEqual('-1')
+                    screen.getByTestId('four-disks-label-elem'),
+                ).toHaveAttribute('tabindex', '-1')
                 expect(
-                    towerSettings.find('#five-disks-label').props().tabIndex,
-                ).toEqual('-1')
+                    screen.getByTestId('five-disks-label-elem'),
+                ).toHaveAttribute('tabindex', '-1')
             })
         })
     })

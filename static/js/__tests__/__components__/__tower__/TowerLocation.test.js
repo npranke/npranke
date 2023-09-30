@@ -1,18 +1,13 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { collect, spec, TowerLocation } from '@components/tower/TowerLocation'
-import * as diskModule from '@components/tower/TowerDisk'
 
 import * as OffsetListener from '@components/hooks/OffsetListener'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 jest.mock('@components/tower/TowerDisk', () => {
     return {
         __esModule: true,
-        default: jest.requireActual('@components/tower/TowerDisk').default,
+        default: () => { return ('TowerDisk') },
     }
 })
 
@@ -187,8 +182,8 @@ describe('TowerLocation', () => {
         })
     })
 
-    test('has one location', () => {
-        const towerLocation = shallow(
+    test('has location name', () => {
+        render(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
@@ -201,72 +196,12 @@ describe('TowerLocation', () => {
         )
 
         expect(
-            towerLocation.find('.location').length,
-        ).toBe(1)
+            screen.getByText(/^buffer$/),
+        ).toHaveClass('name-text', { exact: true })
     })
 
-    test('has two location sections', () => {
-        const towerLocation = shallow(
-            <TowerLocation
-                connectDropTarget={
-                    jest.fn((locationNode) => { return locationNode })
-                }
-                disks={ 3 }
-                location="buffer"
-                moveDisk={ jest.fn() }
-                tower={ towers[3] }
-            />,
-        )
-
-        expect(
-            towerLocation.find('.location-section').length,
-        ).toBe(2)
-    })
-
-    test('has name section with name text', () => {
-        const towerLocation = shallow(
-            <TowerLocation
-                connectDropTarget={
-                    jest.fn((locationNode) => { return locationNode })
-                }
-                disks={ 3 }
-                location="buffer"
-                moveDisk={ jest.fn() }
-                tower={ towers[3] }
-            />,
-        )
-
-        expect(
-            towerLocation.find('.location-section.name').length,
-        ).toBe(1)
-        expect(
-            towerLocation.find('.location-section.name .name-text').text(),
-        ).toEqual('buffer')
-    })
-
-    test('has disks section with specific location class', () => {
-        const towerLocation = shallow(
-            <TowerLocation
-                connectDropTarget={
-                    jest.fn((locationNode) => { return locationNode })
-                }
-                disks={ 3 }
-                location="buffer"
-                moveDisk={ jest.fn() }
-                tower={ towers[3] }
-            />,
-        )
-
-        expect(
-            towerLocation.find('.location-section.disks').length,
-        ).toBe(1)
-        expect(
-            towerLocation.find('.location-section.disks.buffer').length,
-        ).toBe(1)
-    })
-
-    test('disks section has complete class when isComplete', () => {
-        const towerLocation = shallow(
+    test('has link when complete', () => {
+        render(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
@@ -281,12 +216,12 @@ describe('TowerLocation', () => {
         )
 
         expect(
-            towerLocation.find('.disks.target.complete').length,
-        ).toBe(1)
+            screen.getByRole('link', { name: 'NASA/JPL Space Images' }),
+        ).toHaveAttribute('href', 'tower-link')
     })
 
-    test('disks section has notcomplete class when not isComplete', () => {
-        const towerLocation = shallow(
+    test('does not have link when not complete', () => {
+        render(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
@@ -300,54 +235,12 @@ describe('TowerLocation', () => {
         )
 
         expect(
-            towerLocation.find('.disks.origin.notcomplete').length,
-        ).toBe(1)
+            screen.queryAllByRole('link'),
+        ).toHaveLength(0)
     })
 
-    test('disks section has link when isComplete', () => {
-        const towerLocation = shallow(
-            <TowerLocation
-                connectDropTarget={
-                    jest.fn((locationNode) => { return locationNode })
-                }
-                diskids={ ['3', '2', '1'] }
-                disks={ 3 }
-                isComplete
-                location="target"
-                moveDisk={ jest.fn() }
-                tower={ towers[3] }
-            />,
-        )
-
-        expect(
-            towerLocation.find('.disks a').length,
-        ).toBe(1)
-        expect(
-            towerLocation.find('.disks a').first().props().href,
-        ).toEqual('tower-link')
-    })
-
-    test('disks section does not have link when not isComplete', () => {
-        const towerLocation = shallow(
-            <TowerLocation
-                connectDropTarget={
-                    jest.fn((locationNode) => { return locationNode })
-                }
-                diskids={ ['3', '2', '1'] }
-                disks={ 3 }
-                location="origin"
-                moveDisk={ jest.fn() }
-                tower={ towers[3] }
-            />,
-        )
-
-        expect(
-            towerLocation.find('.disks a').length,
-        ).toBe(0)
-    })
-
-    test('has no disk wrappers with no disks', () => {
-        const towerLocation = shallow(
+    test('no disks when no diskids', () => {
+        render(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
@@ -361,12 +254,12 @@ describe('TowerLocation', () => {
         )
 
         expect(
-            towerLocation.find('.disk-wrapper TowerDisk').length,
-        ).toBe(0)
+            screen.queryAllByText('TowerDisk'),
+        ).toHaveLength(0)
     })
 
-    test('has disk wrappers with some disks', () => {
-        const towerLocation = shallow(
+    test('wraps each disk when some diskids', () => {
+        render(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
@@ -379,13 +272,19 @@ describe('TowerLocation', () => {
             />,
         )
 
-        expect(
-            towerLocation.find('.disk-wrapper TowerDisk').length,
-        ).toBe(2)
+        const towerDisks = screen.queryAllByText('TowerDisk')
+
+        expect(towerDisks).toHaveLength(2)
+
+        towerDisks.forEach((towerDisk) => {
+            expect(
+                towerDisk,
+            ).toHaveClass('disk-wrapper', { exact: true })
+        })
     })
 
-    test('has disk wrappers with all disks', () => {
-        const towerLocation = shallow(
+    test('wraps each disk when all diskids', () => {
+        render(
             <TowerLocation
                 connectDropTarget={
                     jest.fn((locationNode) => { return locationNode })
@@ -399,9 +298,15 @@ describe('TowerLocation', () => {
             />,
         )
 
-        expect(
-            towerLocation.find('.disk-wrapper TowerDisk').length,
-        ).toBe(3)
+        const towerDisks = screen.queryAllByText('TowerDisk')
+
+        expect(towerDisks).toHaveLength(3)
+
+        towerDisks.forEach((towerDisk) => {
+            expect(
+                towerDisk,
+            ).toHaveClass('disk-wrapper', { exact: true })
+        })
     })
 
     describe('setting disk height and width', () => {
@@ -425,7 +330,7 @@ describe('TowerLocation', () => {
                     { height: 1645, width: 452 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -439,13 +344,11 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 164.5, width: 452 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '164.5px', width: '452px' })
+                })
             })
 
             test('diskWidth not greater than location width', () => {
@@ -453,7 +356,7 @@ describe('TowerLocation', () => {
                     { height: 3290, width: 904 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -467,13 +370,11 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 329, width: 904 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '329px', width: '904px' })
+                })
             })
 
             test('disks height greater than availableHeight', () => {
@@ -481,7 +382,7 @@ describe('TowerLocation', () => {
                     { height: 822.5, width: 904 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -495,13 +396,11 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 164.5, width: 452 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '164.5px', width: '452px' })
+                })
             })
 
             test('disks height not greater than availableHeight', () => {
@@ -509,7 +408,7 @@ describe('TowerLocation', () => {
                     { height: 1645, width: 904 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -523,13 +422,11 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 329, width: 904 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '329px', width: '904px' })
+                })
             })
         })
 
@@ -539,7 +436,7 @@ describe('TowerLocation', () => {
                     { height: 452, width: 1645 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -554,13 +451,11 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 452, width: 164.5 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '452px', width: '164.5px' })
+                })
             })
 
             test('diskHeight not greater than location height', () => {
@@ -568,7 +463,7 @@ describe('TowerLocation', () => {
                     { height: 904, width: 3290 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -583,13 +478,11 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 904, width: 329 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '904px', width: '329px' })
+                })
             })
 
             test('disks width greater than availableWidth', () => {
@@ -597,7 +490,7 @@ describe('TowerLocation', () => {
                     { height: 904, width: 822.5 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -612,13 +505,11 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 452, width: 164.5 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '452px', width: '164.5px' })
+                })
             })
 
             test('disks width not greater than availableWidth', () => {
@@ -626,7 +517,7 @@ describe('TowerLocation', () => {
                     { height: 904, width: 1645 },
                 )
 
-                const towerLocation = shallow(
+                render(
                     <TowerLocation
                         connectDropTarget={
                             jest.fn((locationNode) => { return locationNode })
@@ -641,23 +532,17 @@ describe('TowerLocation', () => {
                     />,
                 )
 
-                towerLocation.find('.disk-wrapper').forEach(
-                    (diskWrapper) => {
-                        expect(
-                            diskWrapper.props().style,
-                        ).toEqual({ height: 904, width: 329 })
-                    },
-                )
+                screen.getAllByText('TowerDisk').forEach((towerDisk) => {
+                    expect(
+                        towerDisk,
+                    ).toHaveStyle({ height: '904px', width: '329px' })
+                })
             })
         })
     })
 })
 
 describe('TowerLocation snapshot', () => {
-    beforeAll(() => {
-        diskModule.default = () => { return (<div className="disk"></div>) }
-    })
-
     describe('when not isPortrait', () => {
         test('matches snapshot when empty', () => {
             const { asFragment } = render(
