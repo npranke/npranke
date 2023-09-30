@@ -1,10 +1,6 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { collect, spec, TowerDisk } from '@components/tower/TowerDisk'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const diskImage = <img src="" alt="alt-text" className="disk-image" />
 
@@ -218,8 +214,8 @@ describe('TowerDisk', () => {
         })
     })
 
-    test('has one disk', () => {
-        const towerDisk = shallow(
+    test('has disk image', () => {
+        render(
             <TowerDisk
                 connectDragSource={
                     jest.fn((diskNode) => { return diskNode })
@@ -232,73 +228,14 @@ describe('TowerDisk', () => {
         )
 
         expect(
-            towerDisk.find('.disk').length,
-        ).toBe(1)
+            screen.getByRole('img'),
+        ).toHaveClass('disk-image')
     })
+})
 
-    test('has one disk image', () => {
-        const towerDisk = shallow(
-            <TowerDisk
-                connectDragSource={
-                    jest.fn((diskNode) => { return diskNode })
-                }
-                diskid="1"
-                image={ diskImage }
-                location="buffer"
-                moveDisk={ jest.fn() }
-            />,
-        )
-
-        expect(
-            towerDisk.find('.disk-image').length,
-        ).toBe(1)
-        expect(
-            towerDisk.find('img').length,
-        ).toBe(1)
-    })
-
-    test('has one disk preview image', () => {
-        const towerDisk = shallow(
-            <TowerDisk
-                connectDragSource={
-                    jest.fn((diskNode) => { return diskNode })
-                }
-                diskid="2"
-                image={ diskImage }
-                location="origin"
-                moveDisk={ jest.fn() }
-            />,
-        )
-
-        expect(
-            towerDisk.find('DragPreviewImage').length,
-        ).toBe(1)
-        expect(
-            towerDisk.find('DragPreviewImage').props().src,
-        ).toBeTruthy()
-    })
-
-    test('has candrag class when canDrag true', () => {
-        const towerDisk = shallow(
-            <TowerDisk
-                canDrag
-                connectDragSource={
-                    jest.fn((diskNode) => { return diskNode })
-                }
-                diskid="1"
-                image={ diskImage }
-                location="origin"
-                moveDisk={ jest.fn() }
-            />,
-        )
-
-        expect(
-            towerDisk.find('.disk.candrag').exists(),
-        ).toBe(true)
-    })
-
-    test('does not have candrag class when canDrag false', () => {
-        const towerDisk = shallow(
+describe('TowerDisk snapshot', () => {
+    test('matches snapshot with canDrag false', () => {
+        const { asFragment } = render(
             <TowerDisk
                 canDrag={ false }
                 connectDragSource={
@@ -306,94 +243,31 @@ describe('TowerDisk', () => {
                 }
                 diskid="1"
                 image={ diskImage }
-                location="origin"
+                location="buffer"
                 moveDisk={ jest.fn() }
             />,
         )
 
-        expect(
-            towerDisk.find('.disk.candrag').exists(),
-        ).toBe(false)
+        expect(asFragment()).toMatchSnapshot()
     })
 
-    test('has dragging class when isDragging true', () => {
-        const towerDisk = shallow(
+    test('matches snapshot with canDrag true', () => {
+        const { asFragment } = render(
             <TowerDisk
-                isDragging
+                canDrag
                 connectDragSource={
                     jest.fn((diskNode) => { return diskNode })
                 }
                 diskid="1"
-                image={ diskImage }
-                location="origin"
-                moveDisk={ jest.fn() }
-            />,
-        )
-
-        expect(
-            towerDisk.find('.disk.dragging').exists(),
-        ).toBe(true)
-    })
-
-    test('does not have dragging class when isDragging false', () => {
-        const towerDisk = shallow(
-            <TowerDisk
-                isDragging={ false }
-                connectDragSource={
-                    jest.fn((diskNode) => { return diskNode })
-                }
-                diskid="1"
-                image={ diskImage }
-                location="origin"
-                moveDisk={ jest.fn() }
-            />,
-        )
-
-        expect(
-            towerDisk.find('.disk.dragging').exists(),
-        ).toBe(false)
-    })
-
-    test('has disk drag layer when isDragging true', () => {
-        const towerDisk = shallow(
-            <TowerDisk
-                isDragging
-                connectDragSource={
-                    jest.fn((diskNode) => { return diskNode })
-                }
-                diskid="3"
-                image={ diskImage }
-                location="origin"
-                moveDisk={ jest.fn() }
-            />,
-        )
-
-        expect(
-            towerDisk.find('TowerDiskDragLayer').exists(),
-        ).toBe(true)
-    })
-
-    test('does not have disk drag layer when isDragging false', () => {
-        const towerDisk = shallow(
-            <TowerDisk
-                isDragging={ false }
-                connectDragSource={
-                    jest.fn((diskNode) => { return diskNode })
-                }
-                diskid="2"
                 image={ diskImage }
                 location="buffer"
                 moveDisk={ jest.fn() }
             />,
         )
 
-        expect(
-            towerDisk.find('TowerDiskDragLayer').exists(),
-        ).toBe(false)
+        expect(asFragment()).toMatchSnapshot()
     })
-})
 
-describe('TowerDisk snapshot', () => {
     test('matches snapshot with isDragging false', () => {
         const { asFragment } = render(
             <TowerDisk
