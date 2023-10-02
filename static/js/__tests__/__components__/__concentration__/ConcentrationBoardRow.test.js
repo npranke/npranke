@@ -1,11 +1,7 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import ConcentrationBoardRow from
     '@components/concentration/ConcentrationBoardRow'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const pictures = Array.from({ length: 6 }, (value, index) => {
     return `${index}`
@@ -22,80 +18,98 @@ const pictures = Array.from({ length: 6 }, (value, index) => {
 })
 
 describe('ConcentrationBoardRow', () => {
-    test('board-row has pictures', () => {
-        const concentrationBoardRow = shallow(
+    test('has images', () => {
+        render(
             <ConcentrationBoardRow pictures={ pictures } />,
         )
 
         expect(
-            concentrationBoardRow.find('.board-row').children(),
+            screen.getAllByRole('img'),
         ).toHaveLength(6)
     })
 
     test('has all picture-back when no first, second, matches', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow pictures={ pictures } />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-back'),
-        ).toHaveLength(pictures.length)
+        screen.getAllByRole('img').forEach((image) => {
+            expect(image).toHaveClass('picture-back')
+        })
     })
 
     test('has one picture-front when matching first', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 first={ { id: '2-a', pictureid: '2' } }
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-front'),
-        ).toHaveLength(1)
+        let counter = 0
+
+        screen.getAllByRole('img').forEach((image) => {
+            try {
+                expect(image).toHaveClass('picture-front')
+                counter += 1
+            } catch (e) {
+                expect(image).not.toHaveClass('picture-front')
+            }
+        })
+
+        expect(counter).toEqual(1)
     })
 
     test('has no picture-front when non-matching first', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 first={ { id: '9-a', pictureid: '9' } }
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-front'),
-        ).toHaveLength(0)
+        screen.getAllByRole('img').forEach((image) => {
+            expect(image).not.toHaveClass('picture-front')
+        })
     })
 
     test('has one picture-front when matching second', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 second={ { id: '3-a', pictureid: '3' } }
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-front'),
-        ).toHaveLength(1)
+        let counter = 0
+
+        screen.getAllByRole('img').forEach((image) => {
+            try {
+                expect(image).toHaveClass('picture-front')
+                counter += 1
+            } catch (e) {
+                expect(image).not.toHaveClass('picture-front')
+            }
+        })
+
+        expect(counter).toEqual(1)
     })
 
     test('has no picture-front when non-matching second', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 second={ { id: '8-b', pictureid: '8' } }
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-front'),
-        ).toHaveLength(0)
+        screen.getAllByRole('img').forEach((image) => {
+            expect(image).not.toHaveClass('picture-front')
+        })
     })
 
     test('has two picture-front when matching first and second', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 first={ { id: '0-a', pictureid: '0' } }
@@ -103,13 +117,22 @@ describe('ConcentrationBoardRow', () => {
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-front'),
-        ).toHaveLength(2)
+        let counter = 0
+
+        screen.getAllByRole('img').forEach((image) => {
+            try {
+                expect(image).toHaveClass('picture-front')
+                counter += 1
+            } catch (e) {
+                expect(image).not.toHaveClass('picture-front')
+            }
+        })
+
+        expect(counter).toEqual(2)
     })
 
     test('has no picture-front when non-matching first and second', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 first={ { id: '10-b', pictureid: '10' } }
@@ -117,36 +140,45 @@ describe('ConcentrationBoardRow', () => {
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-front'),
-        ).toHaveLength(0)
+        screen.getAllByRole('img').forEach((image) => {
+            expect(image).not.toHaveClass('picture-front')
+        })
     })
 
     test('has no picture-matched with no matches', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow pictures={ pictures } />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-matched'),
-        ).toHaveLength(0)
+        screen.getAllByRole('img').forEach((image) => {
+            expect(image).not.toHaveClass('picture-matched')
+        })
     })
 
     test('has some picture-matched with some matches', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 matches={ ['0', '1', '5'] }
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-matched'),
-        ).toHaveLength(3)
+        let counter = 0
+
+        screen.getAllByRole('img').forEach((image) => {
+            try {
+                expect(image).toHaveClass('picture-matched')
+                counter += 1
+            } catch (e) {
+                expect(image).not.toHaveClass('picture-matched')
+            }
+        })
+
+        expect(counter).toEqual(3)
     })
 
     test('has all picture-matched with all matches', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 matches={
@@ -158,13 +190,13 @@ describe('ConcentrationBoardRow', () => {
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-matched'),
-        ).toHaveLength(6)
+        screen.getAllByRole('img').forEach((image) => {
+            expect(image).toHaveClass('picture-matched')
+        })
     })
 
     test('can have picture-back, picture-front, picture-matched mix', () => {
-        const concentrationBoardRow = shallow(
+        render(
             <ConcentrationBoardRow
                 pictures={ pictures }
                 matches={ ['0', '5'] }
@@ -173,15 +205,28 @@ describe('ConcentrationBoardRow', () => {
             />,
         )
 
-        expect(
-            concentrationBoardRow.find('.picture-back'),
-        ).toHaveLength(2)
-        expect(
-            concentrationBoardRow.find('.picture-front'),
-        ).toHaveLength(2)
-        expect(
-            concentrationBoardRow.find('.picture-matched'),
-        ).toHaveLength(2)
+        let counterBack = 0
+        let counterFront = 0
+        let counterMatched = 0
+
+        screen.getAllByRole('img').forEach((image) => {
+            try {
+                expect(image).toHaveClass('picture-back')
+                counterBack += 1
+            } catch (e0) {
+                try {
+                    expect(image).toHaveClass('picture-front')
+                    counterFront += 1
+                } catch (e1) {
+                    expect(image).toHaveClass('picture-matched')
+                    counterMatched += 1
+                }
+            }
+        })
+
+        expect(counterBack).toEqual(2)
+        expect(counterFront).toEqual(2)
+        expect(counterMatched).toEqual(2)
     })
 })
 
