@@ -231,9 +231,48 @@ describe('ConcentrationBoardRow', () => {
 })
 
 describe('ConcentrationBoardRow snapshot', () => {
-    test('matches snapshot', () => {
+    test('matches snapshot with no matches', () => {
         const { asFragment } = render(
             <ConcentrationBoardRow pictures={ pictures } />,
+        )
+
+        expect(asFragment()).toMatchSnapshot()
+    })
+
+    test('matches snapshot with some matches', () => {
+        const { asFragment } = render(
+            <ConcentrationBoardRow
+                pictures={ pictures }
+                matches={ ['2', '4'] }
+            />,
+        )
+
+        expect(asFragment()).toMatchSnapshot()
+    })
+
+    test('matches snapshot with all matches', () => {
+        const { asFragment } = render(
+            <ConcentrationBoardRow
+                pictures={ pictures }
+                matches={
+                    Array.from(
+                        { length: 6 },
+                        (value, index) => { return `${index}` },
+                    )
+                }
+            />,
+        )
+
+        expect(asFragment()).toMatchSnapshot()
+    })
+
+    test('matches snapshot with two picture-front', () => {
+        const { asFragment } = render(
+            <ConcentrationBoardRow
+                pictures={ pictures }
+                first={ { id: '1-a', pictureid: '1' } }
+                second={ { id: '4-a', pictureid: '4' } }
+            />,
         )
 
         expect(asFragment()).toMatchSnapshot()

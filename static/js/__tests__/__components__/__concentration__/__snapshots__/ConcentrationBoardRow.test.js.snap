@@ -1,6 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConcentrationBoardRow snapshot matches snapshot 1`] = `
+exports[`ConcentrationBoardRow snapshot matches snapshot with all matches 1`] = `
+<DocumentFragment>
+  <div
+    class="board-row"
+  >
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ConcentrationBoardRow snapshot matches snapshot with no matches 1`] = `
 <DocumentFragment>
   <div
     class="board-row"
@@ -28,6 +67,84 @@ exports[`ConcentrationBoardRow snapshot matches snapshot 1`] = `
     <img
       alt=""
       class="picture-back"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ConcentrationBoardRow snapshot matches snapshot with some matches 1`] = `
+<DocumentFragment>
+  <div
+    class="board-row"
+  >
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-matched"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ConcentrationBoardRow snapshot matches snapshot with two picture-front 1`] = `
+<DocumentFragment>
+  <div
+    class="board-row"
+  >
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-front"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-back"
+      src=""
+    />
+    <img
+      alt=""
+      class="picture-front"
       src=""
     />
     <img
