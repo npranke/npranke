@@ -22,6 +22,7 @@ export function TowerDiskDragLayer(props) {
     return (
         <div
             className="disk-drag-layer"
+            data-testid="disk-drag-layer-elem"
             style={ {
                 pointerEvents: 'none',
                 position: 'fixed',
@@ -34,6 +35,7 @@ export function TowerDiskDragLayer(props) {
         >
             <div
                 className="disk dragging-preview"
+                data-testid="disk-drag-preview-elem"
                 style={ previewStyle }
             >
                 { props.image }
