@@ -10,7 +10,7 @@
     "engines": {
         "node": "18.17.1",
         "npm": "9.6.7",
-        "yarn": "1.22.21"
+        "yarn": "1.22"
     },
     "dependencies": {
         "prop-types": "15.8.1",
