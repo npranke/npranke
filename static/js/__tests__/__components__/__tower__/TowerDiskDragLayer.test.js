@@ -1,13 +1,9 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import {
     collect,
     TowerDiskDragLayer,
 } from '@components/tower/TowerDiskDragLayer'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const diskImage = <img src="" alt="alt-text" className="disk-image" />
 
@@ -51,62 +47,56 @@ describe('TowerDiskDragLayer', () => {
         })
     })
 
-    test('has one disk drag layer', () => {
-        const towerDiskDragLayer = shallow(
+    test('has disk drag layer', () => {
+        render(
             <TowerDiskDragLayer image={ diskImage } />,
         )
 
         expect(
-            towerDiskDragLayer.find('.disk-drag-layer').length,
-        ).toBe(1)
+            screen.getByTestId('disk-drag-layer-elem'),
+        ).toHaveClass('disk-drag-layer')
     })
 
     test('disk drag layer has expected style', () => {
-        const towerDiskDragLayer = shallow(
+        render(
             <TowerDiskDragLayer image={ diskImage } />,
         )
 
         expect(
-            towerDiskDragLayer.find('.disk-drag-layer').props().style,
-        ).toEqual({
+            screen.getByTestId('disk-drag-layer-elem'),
+        ).toHaveStyle({
             pointerEvents: 'none',
             position: 'fixed',
-            zIndex: 10,
-            left: 0,
-            top: 0,
+            zIndex: '10',
+            left: '0px',
+            top: '0px',
             width: '100%',
             height: '100%',
         })
     })
 
-    test('has one disk with dragging-preview class', () => {
-        const towerDiskDragLayer = shallow(
+    test('has dragging preview disk', () => {
+        render(
             <TowerDiskDragLayer image={ diskImage } />,
         )
 
         expect(
-            towerDiskDragLayer.find('.disk').length,
-        ).toBe(1)
-        expect(
-            towerDiskDragLayer.find('.disk.dragging-preview').length,
-        ).toBe(1)
+            screen.getByTestId('disk-drag-preview-elem'),
+        ).toHaveClass('disk', 'dragging-preview')
     })
 
-    test('has one disk image', () => {
-        const towerDiskDragLayer = shallow(
+    test('has hidden disk image', () => {
+        render(
             <TowerDiskDragLayer image={ diskImage } />,
         )
 
         expect(
-            towerDiskDragLayer.find('.disk-image').length,
-        ).toBe(1)
-        expect(
-            towerDiskDragLayer.find('img').length,
-        ).toBe(1)
+            screen.getByRole('img', { hidden: true }),
+        ).toHaveClass('disk-image')
     })
 
     test('disk has expected style with sourceClientOffset', () => {
-        const towerDiskDragLayer = shallow(
+        render(
             <TowerDiskDragLayer
                 image={ diskImage }
                 height={ 150 }
@@ -116,16 +106,16 @@ describe('TowerDiskDragLayer', () => {
         )
 
         expect(
-            towerDiskDragLayer.find('.disk.dragging-preview').props().style,
-        ).toEqual({
-            height: 150,
-            width: 300,
+            screen.getByTestId('disk-drag-preview-elem'),
+        ).toHaveStyle({
+            height: '150px',
+            width: '300px',
             transform: 'translate(25px, 75px)',
         })
     })
 
     test('disk has expected style without sourceClientOffset', () => {
-        const towerDiskDragLayer = shallow(
+        render(
             <TowerDiskDragLayer
                 image={ diskImage }
                 height={ 150 }
@@ -134,8 +124,8 @@ describe('TowerDiskDragLayer', () => {
         )
 
         expect(
-            towerDiskDragLayer.find('.disk.dragging-preview').props().style,
-        ).toEqual({ display: 'none' })
+            screen.getByTestId('disk-drag-preview-elem'),
+        ).toHaveStyle({ display: 'none' })
     })
 })
 

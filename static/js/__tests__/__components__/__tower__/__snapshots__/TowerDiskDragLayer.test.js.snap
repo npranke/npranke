@@ -4,10 +4,12 @@ exports[`TowerDiskDragLayer snapshot matches snapshot with sourceClientOffset 1`
 <DocumentFragment>
   <div
     class="disk-drag-layer"
+    data-testid="disk-drag-layer-elem"
     style="pointer-events: none; position: fixed; z-index: 10; left: 0px; top: 0px; width: 100%; height: 100%;"
   >
     <div
       class="disk dragging-preview"
+      data-testid="disk-drag-preview-elem"
       style="height: 150px; width: 300px; transform: translate(25px, 75px);"
     >
       <img
@@ -24,10 +26,12 @@ exports[`TowerDiskDragLayer snapshot matches snapshot without sourceClientOffset
 <DocumentFragment>
   <div
     class="disk-drag-layer"
+    data-testid="disk-drag-layer-elem"
     style="pointer-events: none; position: fixed; z-index: 10; left: 0px; top: 0px; width: 100%; height: 100%;"
   >
     <div
       class="disk dragging-preview"
+      data-testid="disk-drag-preview-elem"
       style="display: none;"
     >
       <img

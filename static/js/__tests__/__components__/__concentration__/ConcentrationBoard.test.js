@@ -1,10 +1,6 @@
-import Adapter from 'enzyme-adapter-react-16'
-import Enzyme, { shallow } from 'enzyme'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import ConcentrationBoard from '@components/concentration/ConcentrationBoard'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 const pictures = Array.from({ length: 12 }, (value, index) => {
     return `${index}`
@@ -35,8 +31,8 @@ const boardOrder = Array.from({ length: 12 }, (value, index) => {
 }))
 
 describe('ConcentrationBoard', () => {
-    test('has 4 rows when not isPortrait', () => {
-        const concentrationBoard = shallow(
+    test('has 24 images when not isPortrait', () => {
+        render(
             <ConcentrationBoard
                 pictures={ pictures }
                 boardOrder={ boardOrder }
@@ -44,14 +40,12 @@ describe('ConcentrationBoard', () => {
         )
 
         expect(
-            concentrationBoard.find(
-                '.board-row-wrapper ConcentrationBoardRow',
-            ),
-        ).toHaveLength(4)
+            screen.getAllByRole('img'),
+        ).toHaveLength(24)
     })
 
-    test('has 6 rows when isPortrait', () => {
-        const concentrationBoard = shallow(
+    test('has 24 images when isPortrait', () => {
+        render(
             <ConcentrationBoard
                 isPortrait
                 pictures={ pictures }
@@ -60,51 +54,8 @@ describe('ConcentrationBoard', () => {
         )
 
         expect(
-            concentrationBoard.find(
-                '.board-row-wrapper ConcentrationBoardRow',
-            ),
-        ).toHaveLength(6)
-    })
-
-    test('has rows with 6 pictures when not isPortrait', () => {
-        const concentrationBoard = shallow(
-            <ConcentrationBoard
-                pictures={ pictures }
-                boardOrder={ boardOrder }
-            />,
-        )
-
-        expect(
-            concentrationBoard.find(
-                '.board-row-wrapper ConcentrationBoardRow',
-            ).first().props().pictures,
-        ).toHaveLength(6)
-        expect(
-            concentrationBoard.find(
-                '.board-row-wrapper ConcentrationBoardRow',
-            ).last().props().pictures,
-        ).toHaveLength(6)
-    })
-
-    test('has rows with 4 pictures when isPortrait', () => {
-        const concentrationBoard = shallow(
-            <ConcentrationBoard
-                isPortrait
-                pictures={ pictures }
-                boardOrder={ boardOrder }
-            />,
-        )
-
-        expect(
-            concentrationBoard.find(
-                '.board-row-wrapper ConcentrationBoardRow',
-            ).first().props().pictures,
-        ).toHaveLength(4)
-        expect(
-            concentrationBoard.find(
-                '.board-row-wrapper ConcentrationBoardRow',
-            ).last().props().pictures,
-        ).toHaveLength(4)
+            screen.getAllByRole('img'),
+        ).toHaveLength(24)
     })
 })
 
